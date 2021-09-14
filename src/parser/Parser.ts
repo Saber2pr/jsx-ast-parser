@@ -19,60 +19,61 @@ import {
   applyOpeningTag,
   applyProgram,
   applyProp,
-  applyValue,
   Token,
+  applyNumber,
+  applyString,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
-// Base Spec
+// Basic Spec
 export const IDENTIFIER = rule<TokenKind, Token>()
-export const VALUE = rule<TokenKind, ast.ValueExp>()
+export const NUMBER = rule<TokenKind, ast.NumberVal>()
+export const STRING = rule<TokenKind, ast.StringVal>()
 
 // Jsx Spec
-export const PROP = rule<TokenKind, ast.PropExp>()
-export const OPEN_TAG = rule<TokenKind, ast.OpeningTag>()
-export const CLOSE_TAG = rule<TokenKind, ast.ClosingTag>()
-export const JSX = rule<TokenKind, ast.JsxExp>()
+export const PROP = rule<TokenKind, ast.PropExpr>()
+export const OPENTAG = rule<TokenKind, ast.OpeningTagExpr>()
+export const CLOSETAG = rule<TokenKind, ast.ClosingTagExpr>()
+export const JSX = rule<TokenKind, ast.JsxExpr>()
 
 // Program
 export const PROGRAM = rule<TokenKind, ast.Program>()
 
 IDENTIFIER.setPattern(tok(TokenKind.Identifier))
-VALUE.setPattern(apply(tok(TokenKind.Value), applyValue))
+
+NUMBER.setPattern(apply(tok(TokenKind.NumberLiteral), applyNumber))
+STRING.setPattern(apply(tok(TokenKind.StringLiteral), applyString))
 
 PROP.setPattern(
   apply(
-    seq(
-      kleft(tok(TokenKind.Identifier), tok(TokenKind.Eq)),
-      kmid(tok(TokenKind.Quote), VALUE, tok(TokenKind.Quote))
-    ),
+    seq(kleft(tok(TokenKind.Identifier), tok(TokenKind.EQ)), STRING),
     applyProp
   )
 )
 
-OPEN_TAG.setPattern(
+OPENTAG.setPattern(
   apply(
     seq(
-      kright(tok(TokenKind.TagLeft), tok(TokenKind.Identifier)),
-      kleft(rep_sc(PROP), tok(TokenKind.TagRight))
+      kright(tok(TokenKind.LT), tok(TokenKind.Identifier)),
+      kleft(rep_sc(PROP), tok(TokenKind.GT))
     ),
     applyOpeningTag
   )
 )
 
-CLOSE_TAG.setPattern(
+CLOSETAG.setPattern(
   apply(
     kmid(
-      seq(tok(TokenKind.TagLeft), tok(TokenKind.CloseTagSlash)),
+      seq(tok(TokenKind.LT), tok(TokenKind.DIV)),
       tok(TokenKind.Identifier),
-      tok(TokenKind.TagRight)
+      tok(TokenKind.GT)
     ),
     applyClosingTag
   )
 )
 
 JSX.setPattern(
-  apply(seq(OPEN_TAG, alt(rep_sc(JSX), VALUE), CLOSE_TAG), applyJsx)
+  apply(seq(OPENTAG, alt(rep_sc(JSX), STRING), CLOSETAG), applyJsx)
 )
 
 PROGRAM.setPattern(apply(rep_sc(JSX), applyProgram))

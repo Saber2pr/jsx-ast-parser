@@ -2,25 +2,40 @@ import { buildLexer } from 'typescript-parsec'
 
 export enum TokenKind {
   Identifier,
-  Value,
+
+  StringLiteral,
+  NumberLiteral,
+
+  EQ,
+  LT,
+  GT,
+  PLUS,
+  MINUS,
+  MUL,
+  DIV,
+  OR,
+
+  Comment1,
+  Comment2,
   Space,
-  TagLeft,
-  TagRight,
-  CloseTagSlash,
-  Eq,
-  Quote,
 }
 
 export const tokenizer = buildLexer([
   [true, /^[a-zA-Z_][a-zA-Z0-9_]*/g, TokenKind.Identifier],
-  [true, /^[a-zA-Z0-9]*/g, TokenKind.Value],
 
-  [true, /^</g, TokenKind.TagLeft],
-  [true, /^>/g, TokenKind.TagRight],
-  [true, /^\//g, TokenKind.CloseTagSlash],
+  [true, /^".*?"/g, TokenKind.StringLiteral],
+  [true, /^[\+\-]?\d+(\.\d+)?/g, TokenKind.NumberLiteral],
 
-  [true, /^=/g, TokenKind.Eq],
-  [true, /^"/g, TokenKind.Quote],
+  [true, /^\=/g, TokenKind.EQ],
+  [true, /^\</g, TokenKind.LT],
+  [true, /^\>/g, TokenKind.GT],
+  [true, /^\+/g, TokenKind.PLUS],
+  [true, /^\-/g, TokenKind.MINUS],
+  [true, /^\*/g, TokenKind.MUL],
+  [true, /^\//g, TokenKind.DIV],
+  [true, /^\|/g, TokenKind.OR],
 
+  [false, /^[/][/][^\n]*\n/g, TokenKind.Comment1],
+  [false, /^[/]\*([^*]|\*+[^/])*\*+[/]/g, TokenKind.Comment2],
   [false, /^\s+/g, TokenKind.Space],
 ])
