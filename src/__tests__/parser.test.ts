@@ -1,52 +1,53 @@
-import { parse } from '../';
+import { parse } from '../'
 
 describe('JsxParser', () => {
   it('Case 1', () => {
     const code = `
-<div id="233" class="456">
-  <span>233</span>
+<div id="233" class="qwq">
+  <span>"aaa"</span>
 </div>
 `
     expect(parse(code)).toEqual({
-      statements: [
+      kind: 'Program',
+      body: [
         {
-          kind: 'JsxExp',
+          kind: 'JsxExpr',
           openingTag: {
-            kind: 'OpeningTag',
+            kind: 'OpeningTagExpr',
             tagName: 'div',
             props: [
               {
-                kind: 'PropExp',
+                kind: 'PropExpr',
                 key: 'id',
                 value: '233',
               },
               {
-                kind: 'PropExp',
+                kind: 'PropExpr',
                 key: 'class',
-                value: '456',
+                value: 'qwq',
               },
             ],
           },
           body: [
             {
-              kind: 'JsxExp',
+              kind: 'JsxExpr',
               openingTag: {
-                kind: 'OpeningTag',
+                kind: 'OpeningTagExpr',
                 tagName: 'span',
                 props: [],
               },
               body: {
-                kind: 'ValueExp',
-                value: '233',
+                kind: 'StringVal',
+                value: 'aaa',
               },
               closingTag: {
-                kind: 'ClosingTag',
+                kind: 'ClosingTagExpr',
                 tagName: 'span',
               },
             },
           ],
           closingTag: {
-            kind: 'ClosingTag',
+            kind: 'ClosingTagExpr',
             tagName: 'div',
           },
         },
