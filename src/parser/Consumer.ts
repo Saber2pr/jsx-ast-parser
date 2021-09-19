@@ -5,6 +5,13 @@ import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
 
+export const applyIdentifier = (value: Token): Ast.IdentifierVal => {
+  return {
+    kind: 'IdentifierVal',
+    value: value.text,
+  }
+}
+
 export const applyNumber = (value: Token): Ast.NumberVal => {
   return {
     kind: 'NumberVal',

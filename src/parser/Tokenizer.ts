@@ -1,4 +1,4 @@
-import { buildLexer } from 'typescript-parsec'
+import { buildLL1 } from '../utils/buildLL1'
 
 export enum TokenKind {
   Identifier,
@@ -20,8 +20,13 @@ export enum TokenKind {
   Space,
 }
 
-export const tokenizer = buildLexer([
-  [true, /^[a-zA-Z_][a-zA-Z0-9_]*/g, TokenKind.Identifier],
+const words = ['1234asd', 'asd', 'aa\n', 'a']
+
+export const tokenizer = buildLL1(
+  words,
+  TokenKind
+)([
+  [true, /^[a-zA-Z_$][a-zA-Z0-9_$]*/g, TokenKind.Identifier],
 
   [true, /^".*?"/g, TokenKind.StringLiteral],
   [true, /^[\+\-]?\d+(\.\d+)?/g, TokenKind.NumberLiteral],

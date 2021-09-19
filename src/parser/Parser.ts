@@ -6,9 +6,11 @@ import {
   kleft,
   kmid,
   kright,
+  list_sc,
   rep_sc,
   rule,
   seq,
+  str,
   tok,
 } from 'typescript-parsec'
 
@@ -19,14 +21,14 @@ import {
   applyOpeningTag,
   applyProgram,
   applyProp,
-  Token,
   applyNumber,
   applyString,
+  applyIdentifier,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
 // Basic Spec
-export const IDENTIFIER = rule<TokenKind, Token>()
+export const IDENTIFIER = rule<TokenKind, ast.IdentifierVal>()
 export const NUMBER = rule<TokenKind, ast.NumberVal>()
 export const STRING = rule<TokenKind, ast.StringVal>()
 
@@ -39,7 +41,7 @@ export const JSX = rule<TokenKind, ast.JsxExpr>()
 // Program
 export const PROGRAM = rule<TokenKind, ast.Program>()
 
-IDENTIFIER.setPattern(tok(TokenKind.Identifier))
+IDENTIFIER.setPattern(apply(tok(TokenKind.Identifier), applyIdentifier))
 
 NUMBER.setPattern(apply(tok(TokenKind.NumberLiteral), applyNumber))
 STRING.setPattern(apply(tok(TokenKind.StringLiteral), applyString))
@@ -72,8 +74,32 @@ CLOSETAG.setPattern(
   )
 )
 
+/*
+JSX
+  = OPENTAG (IDENTIFIER, NUMBER, NUMBER+IDENTIFIER, ) CLOSETAG
+  = OPENTAG JSX CLOSETAG
+*/
 JSX.setPattern(
-  apply(seq(OPENTAG, alt(rep_sc(JSX), STRING), CLOSETAG), applyJsx)
+  apply(
+    seq(
+      OPENTAG,
+      alt(
+        IDENTIFIER,
+        NUMBER,
+        apply(
+          seq(NUMBER, IDENTIFIER),
+          ([num, id]): ast.IdentifierVal => ({
+            kind: 'IdentifierVal',
+            value: `${num.value}${id.value}`,
+          })
+        ),
+       
+        rep_sc(JSX)
+      ),
+      CLOSETAG
+    ),
+    applyJsx
+  )
 )
 
 PROGRAM.setPattern(apply(rep_sc(JSX), applyProgram))

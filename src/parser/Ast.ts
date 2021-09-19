@@ -1,4 +1,9 @@
 // Primitive
+export interface IdentifierVal {
+  kind: 'IdentifierVal'
+  value: string
+}
+
 export interface NumberVal {
   kind: 'NumberVal'
   value: number
@@ -30,7 +35,7 @@ export interface PropExpr {
 export interface JsxExpr {
   kind: 'JsxExpr'
   openingTag: OpeningTagExpr
-  body: JsxExpr[] | NumberVal | StringVal
+  body: JsxExpr[] | IdentifierVal | NumberVal
   closingTag: ClosingTagExpr
 }
 
