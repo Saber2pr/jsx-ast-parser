@@ -1,4 +1,5 @@
-import { parse } from './';
+import { writeFileSync } from 'fs'
+import { parse } from './'
 
 const code = `
 <div id="233ccc" className="qwq123">
@@ -26,4 +27,4 @@ const code = `
   </span>
 </div>
 `
-console.log(JSON.stringify(parse(code), null, 2))
+writeFileSync('./ast.json', JSON.stringify(parse(code), null, 2))
