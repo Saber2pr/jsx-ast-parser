@@ -20,16 +20,25 @@ describe('JsxParser', () => {
           kind: 'JsxExpr',
           openingTag: {
             kind: 'OpeningTagExpr',
-            tagName: 'div',
+            tagName: {
+              kind: 'NameExpr',
+              name: 'div',
+            },
             props: [
               {
                 kind: 'PropExpr',
-                key: 'id',
+                key: {
+                  kind: 'NameExpr',
+                  name: 'id',
+                },
                 value: '233',
               },
               {
                 kind: 'PropExpr',
-                key: 'class',
+                key: {
+                  kind: 'NameExpr',
+                  name: 'class',
+                },
                 value: 'qwq',
               },
             ],
@@ -39,70 +48,85 @@ describe('JsxParser', () => {
               kind: 'JsxExpr',
               openingTag: {
                 kind: 'OpeningTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
                 props: [],
               },
-              body: {
-                kind: 'IdentifierVal',
-                value: 'aaa',
-              },
+              body: ['aaa'],
               closingTag: {
                 kind: 'ClosingTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
               },
             },
             {
               kind: 'JsxExpr',
               openingTag: {
                 kind: 'OpeningTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
                 props: [],
               },
-              body: {
-                kind: 'NumberVal',
-                value: 1234,
-              },
+              body: [1234],
               closingTag: {
                 kind: 'ClosingTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
               },
             },
             {
               kind: 'JsxExpr',
               openingTag: {
                 kind: 'OpeningTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
                 props: [],
               },
-              body: {
-                kind: 'IdentifierVal',
-                value: '1234asd',
-              },
+              body: [1234, 'asd'],
               closingTag: {
                 kind: 'ClosingTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
               },
             },
             {
               kind: 'JsxExpr',
               openingTag: {
                 kind: 'OpeningTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
                 props: [],
               },
-              body: {
-                kind: 'IdentifierVal',
-                value: '12aa',
-              },
+              body: [12, 'aa'],
               closingTag: {
                 kind: 'ClosingTagExpr',
-                tagName: 'span',
+                tagName: {
+                  kind: 'NameExpr',
+                  name: 'span',
+                },
               },
             },
           ],
           closingTag: {
             kind: 'ClosingTagExpr',
-            tagName: 'div',
+            tagName: {
+              kind: 'NameExpr',
+              name: 'div',
+            },
           },
         },
       ],

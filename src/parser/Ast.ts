@@ -1,41 +1,29 @@
-// Primitive
-export interface IdentifierVal {
-  kind: 'IdentifierVal'
-  value: string
+export interface NameExpr {
+  kind: 'NameExpr'
+  name: string
 }
-
-export interface NumberVal {
-  kind: 'NumberVal'
-  value: number
-}
-export interface StringVal {
-  kind: 'StringVal'
-  value: string
-}
-
-// Expressions
 
 export interface OpeningTagExpr {
   kind: 'OpeningTagExpr'
-  tagName: string
+  tagName: NameExpr
   props: PropExpr[]
 }
 
 export interface ClosingTagExpr {
   kind: 'ClosingTagExpr'
-  tagName: string
+  tagName: NameExpr
 }
 
 export interface PropExpr {
   kind: 'PropExpr'
-  key: string
+  key: NameExpr
   value: string
 }
 
 export interface JsxExpr {
   kind: 'JsxExpr'
   openingTag: OpeningTagExpr
-  body: JsxExpr[] | IdentifierVal | NumberVal
+  body: (JsxExpr | string | number)[]
   closingTag: ClosingTagExpr
 }
 
