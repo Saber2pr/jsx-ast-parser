@@ -5,51 +5,37 @@ import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
 
-export const applyIdentifier = (value: Token): Ast.IdentifierVal => {
+export const applyName = (source: [Token, Token | undefined]): Ast.NameExpr => {
   return {
-    kind: 'IdentifierVal',
+    kind: 'NameExpr',
+    name: source.reduce((acc, token) => (token ? token.text + acc : acc), ''),
+  }
+}
+
+export const applyProp = (source: [Ast.NameExpr, Token]): Ast.PropExpr => {
+  const [name, value] = source
+  return {
+    kind: 'PropExpr',
+    key: name,
     value: value.text,
   }
 }
 
-export const applyNumber = (value: Token): Ast.NumberVal => {
-  return {
-    kind: 'NumberVal',
-    value: +value.text,
-  }
-}
-
-export const applyString = (value: Token): Ast.StringVal => {
-  return {
-    kind: 'StringVal',
-    value: value.text.replace(/^"|"$/g, ''),
-  }
-}
-
-export const applyProp = (
-  value: [Token /* Identifier */, Ast.StringVal]
-): Ast.PropExpr => {
-  return {
-    kind: 'PropExpr',
-    key: value[0].text,
-    value: value[1].value,
-  }
-}
-
 export const applyOpeningTag = (
-  value: [Token /* Identifier */, Ast.PropExpr[]]
+  source: [Ast.NameExpr, Ast.PropExpr[]]
 ): Ast.OpeningTagExpr => {
+  const [name, value] = source
   return {
     kind: 'OpeningTagExpr',
-    tagName: value[0].text,
-    props: value[1],
+    tagName: name,
+    props: value,
   }
 }
 
-export const applyClosingTag = (value: Token): Ast.ClosingTagExpr => {
+export const applyClosingTag = (source: Ast.NameExpr): Ast.ClosingTagExpr => {
   return {
     kind: 'ClosingTagExpr',
-    tagName: value.text,
+    tagName: source,
   }
 }
 
