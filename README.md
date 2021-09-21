@@ -10,6 +10,17 @@ yarn add @saber2pr/jsx-ast-parser
 
 in working progress...
 
+TODO:
+
+- [x] jsx opened
+- [x] jsx self closing
+- [x] jsx props string-value
+- [ ] jsx props number-value, bool-value
+- [ ] jsx props object
+- [ ] jsx props function
+- [x] jsx props object-array
+- [ ] jsx props string-array, number-array
+
 ### Usage
 
 ```ts
