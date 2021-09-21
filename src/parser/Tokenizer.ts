@@ -24,6 +24,7 @@ const words = [
   ']',
   ':',
   ',',
+  "'",
 ]
 
 export const tokenizer = buildLL1(
@@ -33,5 +34,5 @@ export const tokenizer = buildLL1(
   [true, /^[a-zA-Z_$]+/g, TokenKind.Letter],
   [true, /^[0-9]+/g, TokenKind.Digit],
   [false, /^\s+/g, TokenKind.Space],
-  [true, /^[<=">/{}\[\]:,]/g, TokenKind.Chars],
+  [true, /^[<=">/{}\[\]:,']/g, TokenKind.Chars],
 ])
