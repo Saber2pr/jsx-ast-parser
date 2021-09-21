@@ -7,7 +7,24 @@ export enum TokenKind {
   Chars,
 }
 
-const words = ['abc', '1234', 'ab12', ' ', '<', '=', '"', '>', '/']
+const words = [
+  'abc',
+  '1234',
+  'ab12',
+  '12ab',
+  ' ',
+  '<',
+  '=',
+  '"',
+  '>',
+  '/',
+  '{',
+  '}',
+  '[',
+  ']',
+  ':',
+  ',',
+]
 
 export const tokenizer = buildLL1(
   words,
@@ -16,5 +33,5 @@ export const tokenizer = buildLL1(
   [true, /^[a-zA-Z_$]+/g, TokenKind.Letter],
   [true, /^[0-9]+/g, TokenKind.Digit],
   [false, /^\s+/g, TokenKind.Space],
-  [true, /^[<=">/]/g, TokenKind.Chars],
+  [true, /^[<=">/{}\[\]:,]/g, TokenKind.Chars],
 ])

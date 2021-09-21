@@ -1,4 +1,4 @@
-import { buildLexer } from 'typescript-parsec'
+import { buildLexer } from 'typescript-parsec';
 
 export const buildLL1: (words: string[], kind: any) => typeof buildLexer =
   (words, kind) => rules => {
