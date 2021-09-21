@@ -1,0 +1,247 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JsxParser Case 1 1`] = `
+Object {
+  "body": Array [
+    Object {
+      "body": Array [
+        Object {
+          "kind": "JsxSelfClosingExpr",
+          "props": Array [
+            Object {
+              "key": Object {
+                "kind": "NameExpr",
+                "name": "list",
+              },
+              "kind": "PropExpr",
+              "value": Object {
+                "items": Array [
+                  Object {
+                    "kind": "ObjectExpr",
+                    "props": Object {
+                      "content": Object {
+                        "body": Array [
+                          233,
+                        ],
+                        "closingTag": Object {
+                          "kind": "ClosingTagExpr",
+                          "tagName": Object {
+                            "kind": "NameExpr",
+                            "name": "View",
+                          },
+                        },
+                        "kind": "JsxExpr",
+                        "openingTag": Object {
+                          "kind": "OpeningTagExpr",
+                          "props": Array [
+                            Object {
+                              "key": Object {
+                                "kind": "NameExpr",
+                                "name": "color",
+                              },
+                              "kind": "PropExpr",
+                              "value": "red",
+                            },
+                          ],
+                          "tagName": Object {
+                            "kind": "NameExpr",
+                            "name": "View",
+                          },
+                        },
+                      },
+                      "logo": Object {
+                        "kind": "JsxSelfClosingExpr",
+                        "props": Array [
+                          Object {
+                            "key": Object {
+                              "kind": "NameExpr",
+                              "name": "mode",
+                            },
+                            "kind": "PropExpr",
+                            "value": "test",
+                          },
+                        ],
+                        "tagName": Object {
+                          "kind": "NameExpr",
+                          "name": "Image",
+                        },
+                      },
+                    },
+                  },
+                  Object {
+                    "kind": "ObjectExpr",
+                    "props": Object {
+                      "content": Object {
+                        "kind": "JsxSelfClosingExpr",
+                        "props": Array [],
+                        "tagName": Object {
+                          "kind": "NameExpr",
+                          "name": "View",
+                        },
+                      },
+                    },
+                  },
+                ],
+                "kind": "ArrayExpr",
+              },
+            },
+          ],
+          "tagName": Object {
+            "kind": "NameExpr",
+            "name": "List",
+          },
+        },
+        Object {
+          "kind": "JsxSelfClosingExpr",
+          "props": Array [],
+          "tagName": Object {
+            "kind": "NameExpr",
+            "name": "div",
+          },
+        },
+        Object {
+          "kind": "JsxSelfClosingExpr",
+          "props": Array [
+            Object {
+              "key": Object {
+                "kind": "NameExpr",
+                "name": "id",
+              },
+              "kind": "PropExpr",
+              "value": "qwq",
+            },
+          ],
+          "tagName": Object {
+            "kind": "NameExpr",
+            "name": "div",
+          },
+        },
+        Object {
+          "body": Array [
+            "aaa",
+          ],
+          "closingTag": Object {
+            "kind": "ClosingTagExpr",
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+          "kind": "JsxExpr",
+          "openingTag": Object {
+            "kind": "OpeningTagExpr",
+            "props": Array [],
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+        },
+        Object {
+          "body": Array [
+            1234,
+          ],
+          "closingTag": Object {
+            "kind": "ClosingTagExpr",
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+          "kind": "JsxExpr",
+          "openingTag": Object {
+            "kind": "OpeningTagExpr",
+            "props": Array [],
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+        },
+        Object {
+          "body": Array [
+            1234,
+            "asd",
+          ],
+          "closingTag": Object {
+            "kind": "ClosingTagExpr",
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+          "kind": "JsxExpr",
+          "openingTag": Object {
+            "kind": "OpeningTagExpr",
+            "props": Array [],
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+        },
+        Object {
+          "body": Array [
+            12,
+            "aa",
+            "aa",
+            234,
+            234,
+            "aaa",
+          ],
+          "closingTag": Object {
+            "kind": "ClosingTagExpr",
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+          "kind": "JsxExpr",
+          "openingTag": Object {
+            "kind": "OpeningTagExpr",
+            "props": Array [],
+            "tagName": Object {
+              "kind": "NameExpr",
+              "name": "span",
+            },
+          },
+        },
+      ],
+      "closingTag": Object {
+        "kind": "ClosingTagExpr",
+        "tagName": Object {
+          "kind": "NameExpr",
+          "name": "div",
+        },
+      },
+      "kind": "JsxExpr",
+      "openingTag": Object {
+        "kind": "OpeningTagExpr",
+        "props": Array [
+          Object {
+            "key": Object {
+              "kind": "NameExpr",
+              "name": "id",
+            },
+            "kind": "PropExpr",
+            "value": "ccc233",
+          },
+          Object {
+            "key": Object {
+              "kind": "NameExpr",
+              "name": "className",
+            },
+            "kind": "PropExpr",
+            "value": "123qwq",
+          },
+        ],
+        "tagName": Object {
+          "kind": "NameExpr",
+          "name": "div",
+        },
+      },
+    },
+  ],
+  "kind": "Program",
+}
+`;
