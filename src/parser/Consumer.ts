@@ -1,6 +1,7 @@
 import * as parsec from 'typescript-parsec'
 
 import * as Ast from './Ast'
+import * as Factory from './Factory'
 import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
@@ -12,12 +13,40 @@ export const applyName = (source: [Token, Token | undefined]): Ast.NameExpr => {
   }
 }
 
-export const applyProp = (source: [Ast.NameExpr, Token]): Ast.PropExpr => {
-  const [name, value] = source
+export const applyProp = (
+  source: [Ast.NameExpr, Token[] | Ast.ObjectExpr | Ast.ArrayExpr]
+): Ast.PropExpr => {
+  const [name, tokens] = source
+  let value: Ast.PropExpr['value']
+
+  if (Array.isArray(tokens)) {
+    value = tokens.reduce((acc, token) => (token ? token.text + acc : acc), '')
+  } else if (Factory.isObjectExpr(tokens)) {
+    value = tokens
+  } else if (Factory.isArrayExpr(tokens)) {
+    value = tokens
+  }
+
   return {
     kind: 'PropExpr',
     key: name,
-    value: value.text,
+    value,
+  }
+}
+
+export const applyObject = (
+  source: [Ast.NameExpr, Token, Ast.JsxExpr, Token][]
+): Ast.ObjectExpr => {
+  return {
+    kind: 'ObjectExpr',
+    props: source.reduce((acc, cur) => ({ ...acc, [cur[0].name]: cur[2] }), {}),
+  }
+}
+
+export const applyArray = (items: Ast.ObjectExpr[]): Ast.ArrayExpr => {
+  return {
+    kind: 'ArrayExpr',
+    items,
   }
 }
 
@@ -39,14 +68,25 @@ export const applyClosingTag = (source: Ast.NameExpr): Ast.ClosingTagExpr => {
   }
 }
 
+export const applyJsxSelfClosing = (
+  source: [Ast.NameExpr, Ast.PropExpr[]]
+): Ast.JsxSelfClosingExpr => {
+  const [name, value] = source
+  return {
+    kind: 'JsxSelfClosingExpr',
+    tagName: name,
+    props: value,
+  }
+}
+
 export const applyJsx = (
-  value: [Ast.OpeningTagExpr, Ast.JsxExpr['body'], Ast.ClosingTagExpr]
+  source: [Ast.OpeningTagExpr, Ast.JsxExpr['body'], Ast.ClosingTagExpr]
 ): Ast.JsxExpr => {
   return {
     kind: 'JsxExpr',
-    openingTag: value[0],
-    body: value[1],
-    closingTag: value[2],
+    openingTag: source[0],
+    body: source[1],
+    closingTag: source[2],
   }
 }
 
