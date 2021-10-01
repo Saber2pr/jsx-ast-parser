@@ -23,10 +23,11 @@ TODO:
 
 ### Usage
 
-[see output ast.json](./public/ast.json)
+- 1. [see output ast.json](./public/ast.json)
+- 2. [see output jsx.json](./public/jsx.json)
 
 ```ts
-import { parse } from '@saber2pr/jsx-ast-parser'
+import { parse, transform } from '@saber2pr/jsx-ast-parser'
 
 const code = `
 <div id="233ccc" className="qwq123">
@@ -55,7 +56,7 @@ const code = `
 </div>
 `
 
-parse(code)
+const ast = parse(code)
 /*
 {
   "kind": "Program",
@@ -96,5 +97,41 @@ parse(code)
     }
   ]
 }
+*/
+transform(ast)
+/*
+[
+  {
+    "tagName": "div",
+    "props": {
+      "width": 100,
+      "contentEditable": true,
+      "color": "red",
+      "style": {
+        "width": 100,
+        "color": "red",
+        "background": "blue",
+        "test": {
+          "color": "red"
+        },
+        "child": {
+          "tagName": "span",
+          "props": {},
+          "children": [
+            {
+              "tagName": "text",
+              "nodeValue": "233"
+            }
+          ]
+        }
+      },
+      "id": "233ccc",
+      "class2Name": "qwq123"
+    },
+    "children": [
+        ... more detail see ./public/jsx.json
+    ]
+  }
+]
 */
 ```

@@ -28,13 +28,26 @@ export interface BooleanExpr extends Node {
 export interface ObjectExpr extends Node {
   kind: 'ObjectExpr'
   props: {
-    [k: string]: JsxExpr
+    [k: string]:
+      | Jsx
+      | StringExpr
+      | NumberExpr
+      | BooleanExpr
+      | ObjectExpr
+      | ArrayExpr
   }
 }
 
 export interface ArrayExpr extends Node {
   kind: 'ArrayExpr'
-  items: ObjectExpr[]
+  items: (
+    | Jsx
+    | StringExpr
+    | NumberExpr
+    | BooleanExpr
+    | ObjectExpr
+    | ArrayExpr
+  )[]
 }
 
 // JSX
@@ -53,14 +66,19 @@ export interface ClosingTagExpr extends Node {
 export interface PropExpr extends Node {
   kind: 'PropExpr'
   key: IdentityExpr
-  value: StringExpr | NumberExpr | BooleanExpr | ObjectExpr | ArrayExpr
+  value: Jsx | StringExpr | NumberExpr | BooleanExpr | ObjectExpr | ArrayExpr
 }
 
 export interface JsxExpr extends Node {
   kind: 'JsxExpr'
   openingTag: OpeningTagExpr
-  body: (JsxExpr | string)[]
+  body: (Jsx | TextExpr)[]
   closingTag: ClosingTagExpr
+}
+
+export interface TextExpr extends Node {
+  kind: 'TextExpr'
+  value: string
 }
 
 export interface JsxSelfClosingExpr extends Node {
@@ -69,9 +87,11 @@ export interface JsxSelfClosingExpr extends Node {
   props: PropExpr[]
 }
 
+export type Jsx = JsxExpr | JsxSelfClosingExpr
+
 // Program
 
 export interface Program extends Node {
   kind: 'Program'
-  body: JsxExpr[]
+  body: Jsx[]
 }

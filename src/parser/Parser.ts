@@ -28,6 +28,7 @@ import {
   applyNumber,
   applyBoolean,
   applyString,
+  applyText,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
@@ -46,6 +47,7 @@ export const OPENTAG = rule<TokenKind, ast.OpeningTagExpr>()
 export const CLOSETAG = rule<TokenKind, ast.ClosingTagExpr>()
 export const JSXSELFCLOSE = rule<TokenKind, ast.JsxSelfClosingExpr>()
 export const JSXOPENED = rule<TokenKind, ast.JsxExpr>()
+export const TEXT = rule<TokenKind, ast.TextExpr>()
 
 // Program
 export const PROGRAM = rule<TokenKind, ast.Program>()
@@ -69,35 +71,31 @@ BOOLEAN
 BOOLEAN.setPattern(apply(alt(str('true'), str('false')), applyBoolean))
 
 /*
-__STRING__
+TEXT
   = many $ letter <|> digit
 */
-const __STRING__ = apply(
-  rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))),
-  tokens => tokens.map(token => token.text).join('')
+TEXT.setPattern(
+  apply(rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))), applyText)
 )
 
 /*
 STRING
-  = "__STRING__"
-  = '__STRING__'
+  = "TEXT"
+  = 'TEXT'
 */
 STRING.setPattern(
   apply(
-    alt(
-      kmid(str('"'), __STRING__, str('"')),
-      kmid(str("'"), __STRING__, str("'"))
-    ),
+    alt(kmid(str('"'), TEXT, str('"')), kmid(str("'"), TEXT, str("'"))),
     applyString
   )
 )
 
 /*
 IDENTITY 
-  = letter : many $ NUMBER : __STRING__
+  = letter : many $ NUMBER : TEXT
 */
 IDENTITY.setPattern(
-  apply(seq(tok(TokenKind.Letter), opt(seq(NUMBER, __STRING__))), applyIdentity)
+  apply(seq(tok(TokenKind.Letter), opt(seq(NUMBER, TEXT))), applyIdentity)
 )
 
 /*
@@ -142,7 +140,7 @@ ARRAY.setPattern(
 /*
 PROP 
   = IDENTITY=STRING
-  = IDENTITY={ OBJ <|> Array <|> NUMBER <|> BOOLEAN <|> STRING}
+  = IDENTITY={JSX <|> OBJ <|> Array <|> NUMBER <|> BOOLEAN <|> STRING}
 */
 PROP.setPattern(
   apply(
@@ -150,7 +148,7 @@ PROP.setPattern(
       kleft(IDENTITY, str('=')),
       alt(
         STRING,
-        kmid(str('{'), alt(OBJ, ARRAY, NUMBER, BOOLEAN, STRING), str('}'))
+        kmid(str('{'), alt(JSX, OBJ, ARRAY, NUMBER, BOOLEAN, STRING), str('}'))
       )
     ),
     applyProp
@@ -192,18 +190,11 @@ JSXSELFCLOSE.setPattern(
 
 /*
 JSXOPENED
-  = OPENTAG (many $ JSXOPENED <|> JSXSELFCLOSE <|> __STRING__) CLOSETAG
+  = OPENTAG (many $ JSX <|> TEXT) CLOSETAG
   = SELFCLOSETAG
 */
 JSXOPENED.setPattern(
-  apply(
-    seq(
-      OPENTAG,
-      rep_sc(alt(alt(JSXOPENED, JSXSELFCLOSE), __STRING__)),
-      CLOSETAG
-    ),
-    applyJsx
-  )
+  apply(seq(OPENTAG, rep_sc(alt(JSX, TEXT)), CLOSETAG), applyJsx)
 )
 
 /*

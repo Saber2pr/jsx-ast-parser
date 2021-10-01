@@ -1,3 +1,4 @@
+import { transform } from './transformer'
 import { writeFileSync } from 'fs'
 import { parse } from './'
 
@@ -37,9 +38,13 @@ const code = `
   <span>
     12
     aa
+    <span>aaa</span>
     aa234
     234aaa
   </span>
 </div>
 `
-writeFileSync('./public/ast.json', JSON.stringify(parse(code), null, 2))
+
+const ast = parse(code)
+writeFileSync('./public/ast.json', JSON.stringify(ast, null, 2))
+writeFileSync('./public/jsx.json', JSON.stringify(transform(ast), null, 2))

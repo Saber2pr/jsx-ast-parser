@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`JsxParser Case 1 1`] = `
+exports[`Transform Case 1 1`] = `
 Object {
   "body": Array [
     Object {
@@ -21,7 +21,10 @@ Object {
                     "props": Object {
                       "content": Object {
                         "body": Array [
-                          "233",
+                          Object {
+                            "kind": "TextExpr",
+                            "value": "233",
+                          },
                         ],
                         "closingTag": Object {
                           "kind": "ClosingTagExpr",
@@ -127,7 +130,10 @@ Object {
         },
         Object {
           "body": Array [
-            "aaa",
+            Object {
+              "kind": "TextExpr",
+              "value": "aaa",
+            },
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -148,7 +154,10 @@ Object {
         },
         Object {
           "body": Array [
-            "1234",
+            Object {
+              "kind": "TextExpr",
+              "value": "1234",
+            },
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -169,7 +178,10 @@ Object {
         },
         Object {
           "body": Array [
-            "1234asd",
+            Object {
+              "kind": "TextExpr",
+              "value": "1234asd",
+            },
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -190,7 +202,38 @@ Object {
         },
         Object {
           "body": Array [
-            "12aaaa234234aaa",
+            Object {
+              "kind": "TextExpr",
+              "value": "12aa",
+            },
+            Object {
+              "body": Array [
+                Object {
+                  "kind": "TextExpr",
+                  "value": "aaa",
+                },
+              ],
+              "closingTag": Object {
+                "kind": "ClosingTagExpr",
+                "tagName": Object {
+                  "kind": "IdentityExpr",
+                  "name": "span",
+                },
+              },
+              "kind": "JsxExpr",
+              "openingTag": Object {
+                "kind": "OpeningTagExpr",
+                "props": Array [],
+                "tagName": Object {
+                  "kind": "IdentityExpr",
+                  "name": "span",
+                },
+              },
+            },
+            Object {
+              "kind": "TextExpr",
+              "value": "aa234234aaa",
+            },
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -269,7 +312,10 @@ Object {
                 },
                 "child": Object {
                   "body": Array [
-                    "233",
+                    Object {
+                      "kind": "TextExpr",
+                      "value": "233",
+                    },
                   ],
                   "closingTag": Object {
                     "kind": "ClosingTagExpr",

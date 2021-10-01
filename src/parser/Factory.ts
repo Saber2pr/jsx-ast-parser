@@ -14,3 +14,14 @@ export const isObjectExpr = (token: Ast.Node): token is Ast.ObjectExpr =>
 
 export const isArrayExpr = (token: Ast.Node): token is Ast.ArrayExpr =>
   (<Ast.ArrayExpr>token).kind === 'ArrayExpr'
+
+export const isJsxExpr = (token: Ast.Node): token is Ast.JsxExpr =>
+  (<Ast.JsxExpr>token).kind === 'JsxExpr'
+
+export const isTextExpr = (token: Ast.Node): token is Ast.TextExpr =>
+  (<Ast.TextExpr>token).kind === 'TextExpr'
+
+export const isJsxSelfClosingExpr = (
+  token: Ast.Node
+): token is Ast.JsxSelfClosingExpr =>
+  (<Ast.JsxSelfClosingExpr>token).kind === 'JsxSelfClosingExpr'
