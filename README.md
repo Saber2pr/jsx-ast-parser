@@ -19,9 +19,11 @@ TODO:
 - [x] jsx props object
 - [ ] jsx props function
 - [x] jsx props object-array
-- [ ] jsx props string-array, number-array
+- [x] jsx props string-array, number-array
 
 ### Usage
+
+[output ast.json](./ast.json)
 
 ```ts
 import { parse } from '@saber2pr/jsx-ast-parser'
@@ -63,235 +65,31 @@ parse(code)
       "openingTag": {
         "kind": "OpeningTagExpr",
         "tagName": {
-          "kind": "NameExpr",
+          "kind": "IdentityExpr",
           "name": "div"
         },
         "props": [
           {
             "kind": "PropExpr",
             "key": {
-              "kind": "NameExpr",
-              "name": "id"
+              "kind": "IdentityExpr",
+              "name": "width"
             },
-            "value": "ccc233"
+            "value": {
+              "kind": "NumberExpr",
+              "value": 100
+            }
           },
-          {
-            "kind": "PropExpr",
-            "key": {
-              "kind": "NameExpr",
-              "name": "className"
-            },
-            "value": "123qwq"
-          }
+          ... more detail see ./ast.json
         ]
       },
       "body": [
-        {
-          "kind": "JsxSelfClosingExpr",
-          "tagName": {
-            "kind": "NameExpr",
-            "name": "List"
-          },
-          "props": [
-            {
-              "kind": "PropExpr",
-              "key": {
-                "kind": "NameExpr",
-                "name": "list"
-              },
-              "value": {
-                "kind": "ArrayExpr",
-                "items": [
-                  {
-                    "kind": "ObjectExpr",
-                    "props": {
-                      "content": {
-                        "kind": "JsxExpr",
-                        "openingTag": {
-                          "kind": "OpeningTagExpr",
-                          "tagName": {
-                            "kind": "NameExpr",
-                            "name": "View"
-                          },
-                          "props": [
-                            {
-                              "kind": "PropExpr",
-                              "key": {
-                                "kind": "NameExpr",
-                                "name": "color"
-                              },
-                              "value": "red"
-                            }
-                          ]
-                        },
-                        "body": [
-                          233
-                        ],
-                        "closingTag": {
-                          "kind": "ClosingTagExpr",
-                          "tagName": {
-                            "kind": "NameExpr",
-                            "name": "View"
-                          }
-                        }
-                      },
-                      "logo": {
-                        "kind": "JsxSelfClosingExpr",
-                        "tagName": {
-                          "kind": "NameExpr",
-                          "name": "Image"
-                        },
-                        "props": [
-                          {
-                            "kind": "PropExpr",
-                            "key": {
-                              "kind": "NameExpr",
-                              "name": "mode"
-                            },
-                            "value": "test"
-                          }
-                        ]
-                      }
-                    }
-                  },
-                  {
-                    "kind": "ObjectExpr",
-                    "props": {
-                      "content": {
-                        "kind": "JsxSelfClosingExpr",
-                        "tagName": {
-                          "kind": "NameExpr",
-                          "name": "View"
-                        },
-                        "props": []
-                      }
-                    }
-                  }
-                ]
-              }
-            }
-          ]
-        },
-        {
-          "kind": "JsxSelfClosingExpr",
-          "tagName": {
-            "kind": "NameExpr",
-            "name": "div"
-          },
-          "props": []
-        },
-        {
-          "kind": "JsxSelfClosingExpr",
-          "tagName": {
-            "kind": "NameExpr",
-            "name": "div"
-          },
-          "props": [
-            {
-              "kind": "PropExpr",
-              "key": {
-                "kind": "NameExpr",
-                "name": "id"
-              },
-              "value": "qwq"
-            }
-          ]
-        },
-        {
-          "kind": "JsxExpr",
-          "openingTag": {
-            "kind": "OpeningTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            },
-            "props": []
-          },
-          "body": [
-            "aaa"
-          ],
-          "closingTag": {
-            "kind": "ClosingTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            }
-          }
-        },
-        {
-          "kind": "JsxExpr",
-          "openingTag": {
-            "kind": "OpeningTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            },
-            "props": []
-          },
-          "body": [
-            1234
-          ],
-          "closingTag": {
-            "kind": "ClosingTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            }
-          }
-        },
-        {
-          "kind": "JsxExpr",
-          "openingTag": {
-            "kind": "OpeningTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            },
-            "props": []
-          },
-          "body": [
-            1234,
-            "asd"
-          ],
-          "closingTag": {
-            "kind": "ClosingTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            }
-          }
-        },
-        {
-          "kind": "JsxExpr",
-          "openingTag": {
-            "kind": "OpeningTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            },
-            "props": []
-          },
-          "body": [
-            12,
-            "aa",
-            "aa",
-            234,
-            234,
-            "aaa"
-          ],
-          "closingTag": {
-            "kind": "ClosingTagExpr",
-            "tagName": {
-              "kind": "NameExpr",
-              "name": "span"
-            }
-          }
-        }
+        ... more detail see ./ast.json
       ],
       "closingTag": {
         "kind": "ClosingTagExpr",
         "tagName": {
-          "kind": "NameExpr",
+          "kind": "IdentityExpr",
           "name": "div"
         }
       }

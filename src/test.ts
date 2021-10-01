@@ -2,15 +2,22 @@ import { writeFileSync } from 'fs'
 import { parse } from './'
 
 const code = `
-<div width={100} test={true} color={"red"} style={{
-  width: 100,
-  color: "red",
-  background: 'blue',
-  test: {
-    color: 'red'
-  },
-  child: <span>233</span>
-}} id="233ccc" class2Name="qwq123">
+<div 
+  width={100} 
+  contentEditable={true} 
+  color={"red"} 
+  style={{
+    width: 100,
+    color: "red",
+    background: 'blue',
+    test: {
+      color: 'red'
+    },
+    child: <span>233</span>
+  }} 
+  id="233ccc" 
+  class2Name="qwq123"
+>
   <List
     list={[
       {

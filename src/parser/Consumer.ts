@@ -5,8 +5,6 @@ import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
 
-export const applyTokenText = (token: Token): string => token.text
-
 export const applyNumber = (token: Token): Ast.NumberExpr => ({
   kind: 'NumberExpr',
   value: +token.text,
@@ -22,7 +20,7 @@ export const applyString = (value: string): Ast.StringExpr => ({
   value: value,
 })
 
-export const applyName = (
+export const applyIdentity = (
   source: [Token, [Ast.NumberExpr, string] | undefined]
 ): Ast.IdentityExpr => {
   const [letter, tail] = source

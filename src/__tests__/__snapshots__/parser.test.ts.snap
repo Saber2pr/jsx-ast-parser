@@ -10,7 +10,7 @@ Object {
           "props": Array [
             Object {
               "key": Object {
-                "kind": "Identity",
+                "kind": "IdentityExpr",
                 "name": "list",
               },
               "kind": "PropExpr",
@@ -26,7 +26,7 @@ Object {
                         "closingTag": Object {
                           "kind": "ClosingTagExpr",
                           "tagName": Object {
-                            "kind": "Identity",
+                            "kind": "IdentityExpr",
                             "name": "View",
                           },
                         },
@@ -36,15 +36,18 @@ Object {
                           "props": Array [
                             Object {
                               "key": Object {
-                                "kind": "Identity",
+                                "kind": "IdentityExpr",
                                 "name": "color",
                               },
                               "kind": "PropExpr",
-                              "value": "red",
+                              "value": Object {
+                                "kind": "StringExpr",
+                                "value": "red",
+                              },
                             },
                           ],
                           "tagName": Object {
-                            "kind": "Identity",
+                            "kind": "IdentityExpr",
                             "name": "View",
                           },
                         },
@@ -54,15 +57,18 @@ Object {
                         "props": Array [
                           Object {
                             "key": Object {
-                              "kind": "Identity",
+                              "kind": "IdentityExpr",
                               "name": "mode",
                             },
                             "kind": "PropExpr",
-                            "value": "test",
+                            "value": Object {
+                              "kind": "StringExpr",
+                              "value": "test",
+                            },
                           },
                         ],
                         "tagName": Object {
-                          "kind": "Identity",
+                          "kind": "IdentityExpr",
                           "name": "Image",
                         },
                       },
@@ -75,7 +81,7 @@ Object {
                         "kind": "JsxSelfClosingExpr",
                         "props": Array [],
                         "tagName": Object {
-                          "kind": "Identity",
+                          "kind": "IdentityExpr",
                           "name": "View",
                         },
                       },
@@ -87,7 +93,7 @@ Object {
             },
           ],
           "tagName": Object {
-            "kind": "Identity",
+            "kind": "IdentityExpr",
             "name": "List",
           },
         },
@@ -95,7 +101,7 @@ Object {
           "kind": "JsxSelfClosingExpr",
           "props": Array [],
           "tagName": Object {
-            "kind": "Identity",
+            "kind": "IdentityExpr",
             "name": "div",
           },
         },
@@ -104,15 +110,18 @@ Object {
           "props": Array [
             Object {
               "key": Object {
-                "kind": "Identity",
+                "kind": "IdentityExpr",
                 "name": "id",
               },
               "kind": "PropExpr",
-              "value": "qwq",
+              "value": Object {
+                "kind": "StringExpr",
+                "value": "qwq",
+              },
             },
           ],
           "tagName": Object {
-            "kind": "Identity",
+            "kind": "IdentityExpr",
             "name": "div",
           },
         },
@@ -123,7 +132,7 @@ Object {
           "closingTag": Object {
             "kind": "ClosingTagExpr",
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -132,7 +141,7 @@ Object {
             "kind": "OpeningTagExpr",
             "props": Array [],
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -144,7 +153,7 @@ Object {
           "closingTag": Object {
             "kind": "ClosingTagExpr",
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -153,7 +162,7 @@ Object {
             "kind": "OpeningTagExpr",
             "props": Array [],
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -165,7 +174,7 @@ Object {
           "closingTag": Object {
             "kind": "ClosingTagExpr",
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -174,7 +183,7 @@ Object {
             "kind": "OpeningTagExpr",
             "props": Array [],
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -186,7 +195,7 @@ Object {
           "closingTag": Object {
             "kind": "ClosingTagExpr",
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -195,7 +204,7 @@ Object {
             "kind": "OpeningTagExpr",
             "props": Array [],
             "tagName": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
               "name": "span",
             },
           },
@@ -204,7 +213,7 @@ Object {
       "closingTag": Object {
         "kind": "ClosingTagExpr",
         "tagName": Object {
-          "kind": "Identity",
+          "kind": "IdentityExpr",
           "name": "div",
         },
       },
@@ -214,23 +223,116 @@ Object {
         "props": Array [
           Object {
             "key": Object {
-              "kind": "Identity",
-              "name": "id",
+              "kind": "IdentityExpr",
+              "name": "width",
             },
             "kind": "PropExpr",
-            "value": "ccc233",
+            "value": Object {
+              "kind": "NumberExpr",
+              "value": 100,
+            },
           },
           Object {
             "key": Object {
-              "kind": "Identity",
+              "kind": "IdentityExpr",
+              "name": "contentEditable",
+            },
+            "kind": "PropExpr",
+            "value": Object {
+              "kind": "BooleanExpr",
+              "value": true,
+            },
+          },
+          Object {
+            "key": Object {
+              "kind": "IdentityExpr",
+              "name": "color",
+            },
+            "kind": "PropExpr",
+            "value": Object {
+              "kind": "StringExpr",
+              "value": "red",
+            },
+          },
+          Object {
+            "key": Object {
+              "kind": "IdentityExpr",
+              "name": "style",
+            },
+            "kind": "PropExpr",
+            "value": Object {
+              "kind": "ObjectExpr",
+              "props": Object {
+                "background": Object {
+                  "kind": "StringExpr",
+                  "value": "blue",
+                },
+                "child": Object {
+                  "body": Array [
+                    "233",
+                  ],
+                  "closingTag": Object {
+                    "kind": "ClosingTagExpr",
+                    "tagName": Object {
+                      "kind": "IdentityExpr",
+                      "name": "span",
+                    },
+                  },
+                  "kind": "JsxExpr",
+                  "openingTag": Object {
+                    "kind": "OpeningTagExpr",
+                    "props": Array [],
+                    "tagName": Object {
+                      "kind": "IdentityExpr",
+                      "name": "span",
+                    },
+                  },
+                },
+                "color": Object {
+                  "kind": "StringExpr",
+                  "value": "red",
+                },
+                "test": Object {
+                  "kind": "ObjectExpr",
+                  "props": Object {
+                    "color": Object {
+                      "kind": "StringExpr",
+                      "value": "red",
+                    },
+                  },
+                },
+                "width": Object {
+                  "kind": "NumberExpr",
+                  "value": 100,
+                },
+              },
+            },
+          },
+          Object {
+            "key": Object {
+              "kind": "IdentityExpr",
+              "name": "id",
+            },
+            "kind": "PropExpr",
+            "value": Object {
+              "kind": "StringExpr",
+              "value": "233ccc",
+            },
+          },
+          Object {
+            "key": Object {
+              "kind": "IdentityExpr",
               "name": "class2Name",
             },
             "kind": "PropExpr",
-            "value": "123qwq",
+            "value": Object {
+              "kind": "StringExpr",
+              "value": "qwq123",
+            },
           },
         ],
         "tagName": Object {
-          "kind": "Identity",
+          "kind": "IdentityExpr",
           "name": "div",
         },
       },
