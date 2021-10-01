@@ -84,7 +84,10 @@
                     "props": []
                   },
                   "body": [
-                    "233"
+                    {
+                      "kind": "TextExpr",
+                      "value": "233"
+                    }
                   ],
                   "closingTag": {
                     "kind": "ClosingTagExpr",
@@ -164,7 +167,10 @@
                           ]
                         },
                         "body": [
-                          "233"
+                          {
+                            "kind": "TextExpr",
+                            "value": "233"
+                          }
                         ],
                         "closingTag": {
                           "kind": "ClosingTagExpr",
@@ -253,7 +259,10 @@
             "props": []
           },
           "body": [
-            "aaa"
+            {
+              "kind": "TextExpr",
+              "value": "aaa"
+            }
           ],
           "closingTag": {
             "kind": "ClosingTagExpr",
@@ -274,7 +283,10 @@
             "props": []
           },
           "body": [
-            "1234"
+            {
+              "kind": "TextExpr",
+              "value": "1234"
+            }
           ],
           "closingTag": {
             "kind": "ClosingTagExpr",
@@ -295,7 +307,10 @@
             "props": []
           },
           "body": [
-            "1234asd"
+            {
+              "kind": "TextExpr",
+              "value": "1234asd"
+            }
           ],
           "closingTag": {
             "kind": "ClosingTagExpr",
@@ -316,7 +331,38 @@
             "props": []
           },
           "body": [
-            "12aaaa234234aaa"
+            {
+              "kind": "TextExpr",
+              "value": "12aa"
+            },
+            {
+              "kind": "JsxExpr",
+              "openingTag": {
+                "kind": "OpeningTagExpr",
+                "tagName": {
+                  "kind": "IdentityExpr",
+                  "name": "span"
+                },
+                "props": []
+              },
+              "body": [
+                {
+                  "kind": "TextExpr",
+                  "value": "aaa"
+                }
+              ],
+              "closingTag": {
+                "kind": "ClosingTagExpr",
+                "tagName": {
+                  "kind": "IdentityExpr",
+                  "name": "span"
+                }
+              }
+            },
+            {
+              "kind": "TextExpr",
+              "value": "aa234234aaa"
+            }
           ],
           "closingTag": {
             "kind": "ClosingTagExpr",

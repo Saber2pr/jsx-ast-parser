@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JsxParser Case 1 1`] = `
+Array [
+  Object {
+    "children": Array [
+      Object {
+        "children": Array [],
+        "props": Object {
+          "list": Array [
+            Object {
+              "content": Object {
+                "children": Array [
+                  Object {
+                    "nodeValue": "233",
+                    "tagName": "text",
+                  },
+                ],
+                "props": Object {
+                  "color": "red",
+                },
+                "tagName": "View",
+              },
+              "logo": null,
+            },
+            Object {
+              "content": null,
+            },
+          ],
+        },
+        "tagName": "List",
+      },
+      Object {
+        "children": Array [],
+        "props": Object {},
+        "tagName": "div",
+      },
+      Object {
+        "children": Array [],
+        "props": Object {
+          "id": "qwq",
+        },
+        "tagName": "div",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "nodeValue": "aaa",
+            "tagName": "text",
+          },
+        ],
+        "props": Object {},
+        "tagName": "span",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "nodeValue": "1234",
+            "tagName": "text",
+          },
+        ],
+        "props": Object {},
+        "tagName": "span",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "nodeValue": "1234asd",
+            "tagName": "text",
+          },
+        ],
+        "props": Object {},
+        "tagName": "span",
+      },
+      Object {
+        "children": Array [
+          Object {
+            "nodeValue": "12aa",
+            "tagName": "text",
+          },
+          Object {
+            "children": Array [
+              Object {
+                "nodeValue": "aaa",
+                "tagName": "text",
+              },
+            ],
+            "props": Object {},
+            "tagName": "span",
+          },
+          Object {
+            "nodeValue": "aa234234aaa",
+            "tagName": "text",
+          },
+        ],
+        "props": Object {},
+        "tagName": "span",
+      },
+    ],
+    "props": Object {
+      "class2Name": "qwq123",
+      "color": "red",
+      "contentEditable": true,
+      "id": "233ccc",
+      "style": Object {
+        "background": "blue",
+        "child": Object {
+          "children": Array [
+            Object {
+              "nodeValue": "233",
+              "tagName": "text",
+            },
+          ],
+          "props": Object {},
+          "tagName": "span",
+        },
+        "color": "red",
+        "test": Object {
+          "color": "red",
+        },
+        "width": 100,
+      },
+      "width": 100,
+    },
+    "tagName": "div",
+  },
+]
+`;

@@ -15,23 +15,23 @@ export const applyBoolean = (token: Token): Ast.BooleanExpr => ({
   value: { true: true, false: false }[String(token.text)],
 })
 
-export const applyString = (value: string): Ast.StringExpr => ({
+export const applyString = (text: Ast.TextExpr): Ast.StringExpr => ({
   kind: 'StringExpr',
-  value: value,
+  value: text.value,
 })
 
 export const applyIdentity = (
-  source: [Token, [Ast.NumberExpr, string] | undefined]
+  source: [Token, [Ast.NumberExpr, Ast.TextExpr] | undefined]
 ): Ast.IdentityExpr => {
   const [letter, tail] = source
   let name = letter.text
   if (tail) {
-    const [digit, str] = tail
+    const [digit, text] = tail
     if (digit) {
       name += digit.value
     }
-    if (str) {
-      name += str
+    if (text) {
+      name += text.value
     }
   }
   return {
@@ -95,6 +95,13 @@ export const applyJsxSelfClosing = (
     kind: 'JsxSelfClosingExpr',
     tagName: name,
     props: value,
+  }
+}
+
+export const applyText = (source: Token[]): Ast.TextExpr => {
+  return {
+    kind: 'TextExpr',
+    value: source.map(token => token.text).join(''),
   }
 }
 

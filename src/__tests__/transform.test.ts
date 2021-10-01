@@ -1,4 +1,5 @@
-import { parse } from '../'
+import { parse } from '..'
+import { transform } from '..'
 
 describe('JsxParser', () => {
   it('Case 1', () => {
@@ -38,11 +39,12 @@ describe('JsxParser', () => {
     <span>
       12
       aa
+      <span>aaa</span>
       aa234
       234aaa
     </span>
   </div>
 `
-    expect(parse(code)).toMatchSnapshot()
+    expect(transform(parse(code))).toMatchSnapshot()
   })
 })
