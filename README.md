@@ -23,7 +23,7 @@ TODO:
 
 ### Usage
 
-[output ast.json](./ast.json)
+[see output ast.json](./public/ast.json)
 
 ```ts
 import { parse } from '@saber2pr/jsx-ast-parser'
