@@ -80,11 +80,11 @@ parse(code)
               "value": 100
             }
           },
-          ... more detail see ./ast.json
+          ... more detail see ./public/ast.json
         ]
       },
       "body": [
-        ... more detail see ./ast.json
+        ... more detail see ./public/ast.json
       ],
       "closingTag": {
         "kind": "ClosingTagExpr",
