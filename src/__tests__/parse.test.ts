@@ -1,5 +1,4 @@
-import { parse } from '..'
-import { transform } from '../transformer'
+import { parse } from '../'
 
 describe('Transform', () => {
   it('Case 1', () => {
