@@ -28,17 +28,21 @@ import {
   applyTokenText,
   applyNumber,
   applyBoolean,
+  applyString,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
-export const NAME = rule<TokenKind, ast.NameExpr>()
+// Primary
+
+export const IDENTITY = rule<TokenKind, ast.IdentityExpr>()
 export const NUMBER = rule<TokenKind, ast.NumberExpr>()
 export const BOOLEAN = rule<TokenKind, ast.BooleanExpr>()
-export const PROP = rule<TokenKind, ast.PropExpr>()
+export const STRING = rule<TokenKind, ast.StringExpr>()
 export const OBJ = rule<TokenKind, ast.ObjectExpr>()
 export const ARRAY = rule<TokenKind, ast.ArrayExpr>()
 
-// Jsx Spec
+// Jsx
+export const PROP = rule<TokenKind, ast.PropExpr>()
 export const OPENTAG = rule<TokenKind, ast.OpeningTagExpr>()
 export const CLOSETAG = rule<TokenKind, ast.ClosingTagExpr>()
 export const JSXSELFCLOSE = rule<TokenKind, ast.JsxSelfClosingExpr>()
@@ -66,67 +70,89 @@ BOOLEAN
 BOOLEAN.setPattern(apply(alt(str('true'), str('false')), applyBoolean))
 
 /*
-VALUE
+__STRING__
   = many $ letter <|> digit
 */
-const VALUE = apply(
+const __STRING__ = apply(
   rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))),
   tokens => tokens.map(token => token.text).join('')
+)
+
+/*
+STRING
+  = "__STRING__"
+  = '__STRING__'
+*/
+STRING.setPattern(
+  apply(
+    alt(
+      kmid(str('"'), __STRING__, str('"')),
+      kmid(str("'"), __STRING__, str("'"))
+    ),
+    applyString
+  )
 )
 
 /*
 NAME 
   = letter : VALUE
 */
-NAME.setPattern(
-  apply(
-    seq(
-      tok(TokenKind.Letter),
-      opt(seq(apply(tok(TokenKind.Digit), applyTokenText), VALUE))
-    ),
-    applyName
-  )
+IDENTITY.setPattern(
+  apply(seq(tok(TokenKind.Letter), opt(seq(NUMBER, __STRING__))), applyName)
 )
 
 /*
 OBJ 
-  = { many $ NAME : JSX }
+  = { many $ NAME : $ JSX <|> STRING <|> NUMBER <|> BOOLEAN <|> OBJ <|> ARRAY}
 */
 OBJ.setPattern(
   apply(
-    kmid(str('{'), rep_sc(seq(NAME, str(':'), JSX, opt(str(',')))), str('}')),
+    kmid(
+      str('{'),
+      rep_sc(
+        seq(
+          IDENTITY,
+          str(':'),
+          alt(JSX, STRING, NUMBER, BOOLEAN, OBJ, ARRAY),
+          opt(str(','))
+        )
+      ),
+      str('}')
+    ),
     applyObject
   )
 )
 
 /*
 ARRAY
-  = [ many OBJ ]
+  = [ many $ JSX <|> STRING <|> NUMBER <|> BOOLEAN <|> OBJ <|> ARRAY]
 */
 ARRAY.setPattern(
-  apply(kmid(str('['), rep_sc(kleft(OBJ, opt(str(',')))), str(']')), applyArray)
+  apply(
+    kmid(
+      str('['),
+      rep_sc(
+        kleft(alt(JSX, STRING, NUMBER, BOOLEAN, OBJ, ARRAY), opt(str(',')))
+      ),
+      str(']')
+    ),
+    applyArray
+  )
 )
 
 /*
 PROP 
-  = NAME="letter <|> digit"
-  = NAME={ OBJ <|> Array }
+  = NAME=STRING
+  = NAME={ OBJ <|> Array <|> NUMBER <|> BOOLEAN}
 */
 PROP.setPattern(
   apply(
     seq(
-      kleft(NAME, str('=')),
+      kleft(IDENTITY, str('=')),
       alt(
-        // NAME="letter <|> digit"
-        kmid(
-          str('"'),
-          rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))),
-          str('"')
-        ),
+        STRING,
         // NAME={ OBJ <|> Array }
-        kmid(str('{'), alt(OBJ, ARRAY), str('}')),
-        // NAME={digit <|> True | False}
-        kmid(str('{'), alt(NUMBER, BOOLEAN), str('}'))
+        kmid(str('{'), alt(OBJ, ARRAY, NUMBER, BOOLEAN, STRING), str('}'))
       )
     ),
     applyProp
@@ -139,7 +165,7 @@ OPENTAG
 */
 OPENTAG.setPattern(
   apply(
-    seq(kright(str('<'), NAME), kleft(rep_sc(PROP), str('>'))),
+    seq(kright(str('<'), IDENTITY), kleft(rep_sc(PROP), str('>'))),
     applyOpeningTag
   )
 )
@@ -149,7 +175,7 @@ CLOSETAG
   = </NAME>
 */
 CLOSETAG.setPattern(
-  apply(kmid(seq(str('<'), str('/')), NAME, str('>')), applyClosingTag)
+  apply(kmid(seq(str('<'), str('/')), IDENTITY, str('>')), applyClosingTag)
 )
 
 /*
@@ -158,19 +184,26 @@ JSXSELFCLOSE
 */
 JSXSELFCLOSE.setPattern(
   apply(
-    seq(kright(str('<'), NAME), kleft(rep_sc(PROP), seq(str('/'), str('>')))),
+    seq(
+      kright(str('<'), IDENTITY),
+      kleft(rep_sc(PROP), seq(str('/'), str('>')))
+    ),
     applyJsxSelfClosing
   )
 )
 
 /*
 JSXOPENED
-  = OPENTAG (many $ JSXOPENED <|> JSXSELFCLOSE <|> VALUE) CLOSETAG
+  = OPENTAG (many $ JSXOPENED <|> JSXSELFCLOSE <|> __STRING__) CLOSETAG
   = SELFCLOSETAG
 */
 JSXOPENED.setPattern(
   apply(
-    seq(OPENTAG, rep_sc(alt(alt(JSXOPENED, JSXSELFCLOSE), VALUE)), CLOSETAG),
+    seq(
+      OPENTAG,
+      rep_sc(alt(alt(JSXOPENED, JSXSELFCLOSE), __STRING__)),
+      CLOSETAG
+    ),
     applyJsx
   )
 )
