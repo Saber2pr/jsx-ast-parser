@@ -42,4 +42,4 @@ const code = `
   </span>
 </div>
 `
-writeFileSync('./ast.json', JSON.stringify(parse(code), null, 2))
+writeFileSync('./public/ast.json', JSON.stringify(parse(code), null, 2))
