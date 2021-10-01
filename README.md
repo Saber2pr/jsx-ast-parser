@@ -23,8 +23,8 @@ TODO:
 
 ### Usage
 
-- 1. [see output ast.json](./public/ast.json)
-- 2. [see output jsx.json](./public/jsx.json)
+- [see output ast.json](./public/ast.json)
+- [see output jsx.json](./public/jsx.json)
 
 ```ts
 import { parse, transform } from '@saber2pr/jsx-ast-parser'
