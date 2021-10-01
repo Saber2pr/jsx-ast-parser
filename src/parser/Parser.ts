@@ -20,12 +20,11 @@ import {
   applyClosingTag,
   applyJsx,
   applyJsxSelfClosing,
-  applyName,
+  applyIdentity,
   applyObject,
   applyOpeningTag,
   applyProgram,
   applyProp,
-  applyTokenText,
   applyNumber,
   applyBoolean,
   applyString,
@@ -94,16 +93,16 @@ STRING.setPattern(
 )
 
 /*
-NAME 
-  = letter : VALUE
+IDENTITY 
+  = letter : many $ NUMBER : __STRING__
 */
 IDENTITY.setPattern(
-  apply(seq(tok(TokenKind.Letter), opt(seq(NUMBER, __STRING__))), applyName)
+  apply(seq(tok(TokenKind.Letter), opt(seq(NUMBER, __STRING__))), applyIdentity)
 )
 
 /*
 OBJ 
-  = { many $ NAME : $ JSX <|> STRING <|> NUMBER <|> BOOLEAN <|> OBJ <|> ARRAY}
+  = { many $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> BOOLEAN <|> OBJ <|> ARRAY}
 */
 OBJ.setPattern(
   apply(
@@ -142,8 +141,8 @@ ARRAY.setPattern(
 
 /*
 PROP 
-  = NAME=STRING
-  = NAME={ OBJ <|> Array <|> NUMBER <|> BOOLEAN}
+  = IDENTITY=STRING
+  = IDENTITY={ OBJ <|> Array <|> NUMBER <|> BOOLEAN <|> STRING}
 */
 PROP.setPattern(
   apply(
@@ -151,7 +150,6 @@ PROP.setPattern(
       kleft(IDENTITY, str('=')),
       alt(
         STRING,
-        // NAME={ OBJ <|> Array }
         kmid(str('{'), alt(OBJ, ARRAY, NUMBER, BOOLEAN, STRING), str('}'))
       )
     ),
@@ -161,7 +159,7 @@ PROP.setPattern(
 
 /*
 OPENTAG
-  = <NAME (many PROP)>
+  = <IDENTITY many PROP>
 */
 OPENTAG.setPattern(
   apply(
@@ -172,7 +170,7 @@ OPENTAG.setPattern(
 
 /*
 CLOSETAG
-  = </NAME>
+  = </IDENTITY>
 */
 CLOSETAG.setPattern(
   apply(kmid(seq(str('<'), str('/')), IDENTITY, str('>')), applyClosingTag)
@@ -180,7 +178,7 @@ CLOSETAG.setPattern(
 
 /*
 JSXSELFCLOSE
-  = <NAME (many PROP) />
+  = <IDENTITY many PROP />
 */
 JSXSELFCLOSE.setPattern(
   apply(

@@ -25,7 +25,7 @@
             "kind": "PropExpr",
             "key": {
               "kind": "IdentityExpr",
-              "name": "test"
+              "name": "contentEditable"
             },
             "value": {
               "kind": "BooleanExpr",
