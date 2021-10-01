@@ -25,10 +25,15 @@ import {
   applyOpeningTag,
   applyProgram,
   applyProp,
+  applyTokenText,
+  applyNumber,
+  applyBoolean,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
 export const NAME = rule<TokenKind, ast.NameExpr>()
+export const NUMBER = rule<TokenKind, ast.NumberExpr>()
+export const BOOLEAN = rule<TokenKind, ast.BooleanExpr>()
 export const PROP = rule<TokenKind, ast.PropExpr>()
 export const OBJ = rule<TokenKind, ast.ObjectExpr>()
 export const ARRAY = rule<TokenKind, ast.ArrayExpr>()
@@ -49,11 +54,38 @@ JSX
 const JSX = alt(JSXOPENED, JSXSELFCLOSE)
 
 /*
+NUMBER
+  = digit
+*/
+NUMBER.setPattern(apply(tok(TokenKind.Digit), applyNumber))
+
+/*
+BOOLEAN
+  = True <|> False
+*/
+BOOLEAN.setPattern(apply(alt(str('true'), str('false')), applyBoolean))
+
+/*
+VALUE
+  = many $ letter <|> digit
+*/
+const VALUE = apply(
+  rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))),
+  tokens => tokens.map(token => token.text).join('')
+)
+
+/*
 NAME 
-  = letter : many $ letter <|> digit
+  = letter : VALUE
 */
 NAME.setPattern(
-  apply(seq(tok(TokenKind.Letter), opt(tok(TokenKind.Digit))), applyName)
+  apply(
+    seq(
+      tok(TokenKind.Letter),
+      opt(seq(apply(tok(TokenKind.Digit), applyTokenText), VALUE))
+    ),
+    applyName
+  )
 )
 
 /*
@@ -92,7 +124,9 @@ PROP.setPattern(
           str('"')
         ),
         // NAME={ OBJ <|> Array }
-        kmid(str('{'), alt(OBJ, ARRAY), str('}'))
+        kmid(str('{'), alt(OBJ, ARRAY), str('}')),
+        // NAME={digit <|> True | False}
+        kmid(str('{'), alt(NUMBER, BOOLEAN), str('}'))
       )
     ),
     applyProp
@@ -131,24 +165,12 @@ JSXSELFCLOSE.setPattern(
 
 /*
 JSXOPENED
-  = OPENTAG (many $ JSXOPENED <|> JSXSELFCLOSE <|> letter <|> digit) CLOSETAG
+  = OPENTAG (many $ JSXOPENED <|> JSXSELFCLOSE <|> VALUE) CLOSETAG
   = SELFCLOSETAG
 */
 JSXOPENED.setPattern(
   apply(
-    seq(
-      OPENTAG,
-      rep_sc(
-        alt(
-          alt(JSXOPENED, JSXSELFCLOSE),
-          alt(
-            apply(tok(TokenKind.Letter), token => token.text),
-            apply(tok(TokenKind.Digit), token => +token.text)
-          )
-        )
-      ),
-      CLOSETAG
-    ),
+    seq(OPENTAG, rep_sc(alt(alt(JSXOPENED, JSXSELFCLOSE), VALUE)), CLOSETAG),
     applyJsx
   )
 )

@@ -3,7 +3,7 @@ import { parse } from '../'
 describe('JsxParser', () => {
   it('Case 1', () => {
     const code = `
-<div id="233ccc" className="qwq123">
+<div id="233ccc" class2Name="qwq123">
   <List
     list={[
       {
@@ -30,4 +30,8 @@ describe('JsxParser', () => {
 `
     expect(parse(code)).toMatchSnapshot()
   })
+
+  // it('jsx props number', () => {
+  //   expect(parse(`<div width={100}></div>`)).toMatchSnapshot()
+  // })
 })

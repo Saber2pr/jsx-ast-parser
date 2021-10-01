@@ -1,10 +1,21 @@
 export interface Node {
-  kind: string
+  kind: any
+  [k: string]: any
 }
 
 export interface NameExpr extends Node {
   kind: 'NameExpr'
   name: string
+}
+
+export interface NumberExpr extends Node {
+  kind: 'NumberExpr'
+  value: number
+}
+
+export interface BooleanExpr extends Node {
+  kind: 'BooleanExpr'
+  value: boolean
 }
 
 export interface ObjectExpr extends Node {
@@ -33,13 +44,13 @@ export interface ClosingTagExpr extends Node {
 export interface PropExpr extends Node {
   kind: 'PropExpr'
   key: NameExpr
-  value: string | number | ObjectExpr | ArrayExpr
+  value: string | number | boolean | ObjectExpr | ArrayExpr
 }
 
 export interface JsxExpr extends Node {
   kind: 'JsxExpr'
   openingTag: OpeningTagExpr
-  body: (JsxExpr | string | number)[]
+  body: (JsxExpr | string)[]
   closingTag: ClosingTagExpr
 }
 
