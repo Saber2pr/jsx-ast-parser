@@ -80,30 +80,22 @@ export const transformPropsExpr = (
     props.map(prop => {
       const key = prop.key.name
       const node = prop.value
-      let value: any
       switch (node.kind) {
         case 'ArrayExpr':
-          value = transformArrayExpr(node)
-          break
+          return [key, transformArrayExpr(node)]
         case 'BooleanExpr':
-          value = transformBooleanExpr(node)
-          break
+          return [key, transformBooleanExpr(node)]
         case 'JsxExpr':
-          value = transformJsx(node)
-          break
+          return [key, transformJsx(node)]
         case 'NumberExpr':
-          value = transformNumberExpr(node)
-          break
+          return [key, transformNumberExpr(node)]
         case 'ObjectExpr':
-          value = transformObjectExpr(node)
-          break
+          return [key, transformObjectExpr(node)]
         case 'StringExpr':
-          value = transformStringExpr(node)
-          break
+          return [key, transformStringExpr(node)]
         default:
-          return null
+          return [key, null]
       }
-      return [key, value]
     })
   )
 }
