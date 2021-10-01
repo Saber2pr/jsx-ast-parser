@@ -6,15 +6,33 @@ import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
 
-export const applyName = (source: [Token, Token | undefined]): Ast.NameExpr => {
+export const applyTokenText = (token: Token): string => token.text
+
+export const applyNumber = (token: Token): Ast.NumberExpr => ({
+  kind: 'NumberExpr',
+  value: +token.text,
+})
+
+export const applyBoolean = (token: Token): Ast.BooleanExpr => ({
+  kind: 'BooleanExpr',
+  value: { true: true, false: false }[String(token.text)],
+})
+
+export const applyName = (
+  source: [Token, [string, string] | undefined]
+): Ast.NameExpr => {
+  const [letter, tail = []] = source
   return {
     kind: 'NameExpr',
-    name: source.reduce((acc, token) => (token ? token.text + acc : acc), ''),
+    name: letter.text + tail.join(''),
   }
 }
 
 export const applyProp = (
-  source: [Ast.NameExpr, Token[] | Ast.ObjectExpr | Ast.ArrayExpr]
+  source: [
+    Ast.NameExpr,
+    Token[] | Ast.ObjectExpr | Ast.ArrayExpr | Ast.NumberExpr | Ast.BooleanExpr
+  ]
 ): Ast.PropExpr => {
   const [name, tokens] = source
   let value: Ast.PropExpr['value']
@@ -25,6 +43,10 @@ export const applyProp = (
     value = tokens
   } else if (Factory.isArrayExpr(tokens)) {
     value = tokens
+  } else if (Factory.isNumberExpr(tokens)) {
+    value = tokens.value
+  } else if (Factory.isBooleanExpr(tokens)) {
+    value = tokens.value
   }
 
   return {

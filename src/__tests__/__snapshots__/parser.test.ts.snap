@@ -21,7 +21,7 @@ Object {
                     "props": Object {
                       "content": Object {
                         "body": Array [
-                          233,
+                          "233",
                         ],
                         "closingTag": Object {
                           "kind": "ClosingTagExpr",
@@ -139,7 +139,7 @@ Object {
         },
         Object {
           "body": Array [
-            1234,
+            "1234",
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -160,8 +160,7 @@ Object {
         },
         Object {
           "body": Array [
-            1234,
-            "asd",
+            "1234asd",
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -182,12 +181,7 @@ Object {
         },
         Object {
           "body": Array [
-            12,
-            "aa",
-            "aa",
-            234,
-            234,
-            "aaa",
+            "12aaaa234234aaa",
           ],
           "closingTag": Object {
             "kind": "ClosingTagExpr",
@@ -229,7 +223,7 @@ Object {
           Object {
             "key": Object {
               "kind": "NameExpr",
-              "name": "className",
+              "name": "class2Name",
             },
             "kind": "PropExpr",
             "value": "123qwq",
