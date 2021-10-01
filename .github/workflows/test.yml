@@ -1,0 +1,21 @@
+name: Test
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  Deploy-Pages:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Deps
+        run: yarn install
+
+      - name: Run Tests
+        run: yarn test
