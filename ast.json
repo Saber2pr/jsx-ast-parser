@@ -6,27 +6,331 @@
       "openingTag": {
         "kind": "OpeningTagExpr",
         "tagName": {
-          "kind": "NameExpr",
+          "kind": "IdentityExpr",
           "name": "div"
         },
         "props": [
           {
             "kind": "PropExpr",
             "key": {
-              "kind": "NameExpr",
+              "kind": "IdentityExpr",
               "name": "width"
             },
-            "value": true
+            "value": {
+              "kind": "NumberExpr",
+              "value": 100
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "test"
+            },
+            "value": {
+              "kind": "BooleanExpr",
+              "value": true
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "color"
+            },
+            "value": {
+              "kind": "StringExpr",
+              "value": "red"
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "style"
+            },
+            "value": {
+              "kind": "ObjectExpr",
+              "props": {
+                "width": {
+                  "kind": "NumberExpr",
+                  "value": 100
+                },
+                "color": {
+                  "kind": "StringExpr",
+                  "value": "red"
+                },
+                "background": {
+                  "kind": "StringExpr",
+                  "value": "blue"
+                },
+                "test": {
+                  "kind": "ObjectExpr",
+                  "props": {
+                    "color": {
+                      "kind": "StringExpr",
+                      "value": "red"
+                    }
+                  }
+                },
+                "child": {
+                  "kind": "JsxExpr",
+                  "openingTag": {
+                    "kind": "OpeningTagExpr",
+                    "tagName": {
+                      "kind": "IdentityExpr",
+                      "name": "span"
+                    },
+                    "props": []
+                  },
+                  "body": [
+                    "233"
+                  ],
+                  "closingTag": {
+                    "kind": "ClosingTagExpr",
+                    "tagName": {
+                      "kind": "IdentityExpr",
+                      "name": "span"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "id"
+            },
+            "value": {
+              "kind": "StringExpr",
+              "value": "233ccc"
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "class2Name"
+            },
+            "value": {
+              "kind": "StringExpr",
+              "value": "qwq123"
+            }
           }
         ]
       },
       "body": [
-        "asd123sf"
+        {
+          "kind": "JsxSelfClosingExpr",
+          "tagName": {
+            "kind": "IdentityExpr",
+            "name": "List"
+          },
+          "props": [
+            {
+              "kind": "PropExpr",
+              "key": {
+                "kind": "IdentityExpr",
+                "name": "list"
+              },
+              "value": {
+                "kind": "ArrayExpr",
+                "items": [
+                  {
+                    "kind": "ObjectExpr",
+                    "props": {
+                      "content": {
+                        "kind": "JsxExpr",
+                        "openingTag": {
+                          "kind": "OpeningTagExpr",
+                          "tagName": {
+                            "kind": "IdentityExpr",
+                            "name": "View"
+                          },
+                          "props": [
+                            {
+                              "kind": "PropExpr",
+                              "key": {
+                                "kind": "IdentityExpr",
+                                "name": "color"
+                              },
+                              "value": {
+                                "kind": "StringExpr",
+                                "value": "red"
+                              }
+                            }
+                          ]
+                        },
+                        "body": [
+                          "233"
+                        ],
+                        "closingTag": {
+                          "kind": "ClosingTagExpr",
+                          "tagName": {
+                            "kind": "IdentityExpr",
+                            "name": "View"
+                          }
+                        }
+                      },
+                      "logo": {
+                        "kind": "JsxSelfClosingExpr",
+                        "tagName": {
+                          "kind": "IdentityExpr",
+                          "name": "Image"
+                        },
+                        "props": [
+                          {
+                            "kind": "PropExpr",
+                            "key": {
+                              "kind": "IdentityExpr",
+                              "name": "mode"
+                            },
+                            "value": {
+                              "kind": "StringExpr",
+                              "value": "test"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "kind": "ObjectExpr",
+                    "props": {
+                      "content": {
+                        "kind": "JsxSelfClosingExpr",
+                        "tagName": {
+                          "kind": "IdentityExpr",
+                          "name": "View"
+                        },
+                        "props": []
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "kind": "JsxSelfClosingExpr",
+          "tagName": {
+            "kind": "IdentityExpr",
+            "name": "div"
+          },
+          "props": []
+        },
+        {
+          "kind": "JsxSelfClosingExpr",
+          "tagName": {
+            "kind": "IdentityExpr",
+            "name": "div"
+          },
+          "props": [
+            {
+              "kind": "PropExpr",
+              "key": {
+                "kind": "IdentityExpr",
+                "name": "id"
+              },
+              "value": {
+                "kind": "StringExpr",
+                "value": "qwq"
+              }
+            }
+          ]
+        },
+        {
+          "kind": "JsxExpr",
+          "openingTag": {
+            "kind": "OpeningTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            },
+            "props": []
+          },
+          "body": [
+            "aaa"
+          ],
+          "closingTag": {
+            "kind": "ClosingTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            }
+          }
+        },
+        {
+          "kind": "JsxExpr",
+          "openingTag": {
+            "kind": "OpeningTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            },
+            "props": []
+          },
+          "body": [
+            "1234"
+          ],
+          "closingTag": {
+            "kind": "ClosingTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            }
+          }
+        },
+        {
+          "kind": "JsxExpr",
+          "openingTag": {
+            "kind": "OpeningTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            },
+            "props": []
+          },
+          "body": [
+            "1234asd"
+          ],
+          "closingTag": {
+            "kind": "ClosingTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            }
+          }
+        },
+        {
+          "kind": "JsxExpr",
+          "openingTag": {
+            "kind": "OpeningTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            },
+            "props": []
+          },
+          "body": [
+            "12aaaa234234aaa"
+          ],
+          "closingTag": {
+            "kind": "ClosingTagExpr",
+            "tagName": {
+              "kind": "IdentityExpr",
+              "name": "span"
+            }
+          }
+        }
       ],
       "closingTag": {
         "kind": "ClosingTagExpr",
         "tagName": {
-          "kind": "NameExpr",
+          "kind": "IdentityExpr",
           "name": "div"
         }
       }

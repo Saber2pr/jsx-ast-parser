@@ -1,7 +1,6 @@
 import * as parsec from 'typescript-parsec'
 
 import * as Ast from './Ast'
-import * as Factory from './Factory'
 import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
@@ -18,46 +17,44 @@ export const applyBoolean = (token: Token): Ast.BooleanExpr => ({
   value: { true: true, false: false }[String(token.text)],
 })
 
+export const applyString = (value: string): Ast.StringExpr => ({
+  kind: 'StringExpr',
+  value: value,
+})
+
 export const applyName = (
-  source: [Token, [string, string] | undefined]
-): Ast.NameExpr => {
-  const [letter, tail = []] = source
+  source: [Token, [Ast.NumberExpr, string] | undefined]
+): Ast.IdentityExpr => {
+  const [letter, tail] = source
+  let name = letter.text
+  if (tail) {
+    const [digit, str] = tail
+    if (digit) {
+      name += digit.value
+    }
+    if (str) {
+      name += str
+    }
+  }
   return {
-    kind: 'NameExpr',
-    name: letter.text + tail.join(''),
+    kind: 'IdentityExpr',
+    name,
   }
 }
 
 export const applyProp = (
-  source: [
-    Ast.NameExpr,
-    Token[] | Ast.ObjectExpr | Ast.ArrayExpr | Ast.NumberExpr | Ast.BooleanExpr
-  ]
+  source: [Ast.IdentityExpr, Ast.PropExpr['value']]
 ): Ast.PropExpr => {
-  const [name, tokens] = source
-  let value: Ast.PropExpr['value']
-
-  if (Array.isArray(tokens)) {
-    value = tokens.reduce((acc, token) => (token ? token.text + acc : acc), '')
-  } else if (Factory.isObjectExpr(tokens)) {
-    value = tokens
-  } else if (Factory.isArrayExpr(tokens)) {
-    value = tokens
-  } else if (Factory.isNumberExpr(tokens)) {
-    value = tokens.value
-  } else if (Factory.isBooleanExpr(tokens)) {
-    value = tokens.value
-  }
-
+  const [name, token] = source
   return {
     kind: 'PropExpr',
     key: name,
-    value,
+    value: token,
   }
 }
 
 export const applyObject = (
-  source: [Ast.NameExpr, Token, Ast.JsxExpr, Token][]
+  source: [Ast.IdentityExpr, Token, Ast.JsxExpr, Token][]
 ): Ast.ObjectExpr => {
   return {
     kind: 'ObjectExpr',
@@ -73,7 +70,7 @@ export const applyArray = (items: Ast.ObjectExpr[]): Ast.ArrayExpr => {
 }
 
 export const applyOpeningTag = (
-  source: [Ast.NameExpr, Ast.PropExpr[]]
+  source: [Ast.IdentityExpr, Ast.PropExpr[]]
 ): Ast.OpeningTagExpr => {
   const [name, value] = source
   return {
@@ -83,7 +80,9 @@ export const applyOpeningTag = (
   }
 }
 
-export const applyClosingTag = (source: Ast.NameExpr): Ast.ClosingTagExpr => {
+export const applyClosingTag = (
+  source: Ast.IdentityExpr
+): Ast.ClosingTagExpr => {
   return {
     kind: 'ClosingTagExpr',
     tagName: source,
@@ -91,7 +90,7 @@ export const applyClosingTag = (source: Ast.NameExpr): Ast.ClosingTagExpr => {
 }
 
 export const applyJsxSelfClosing = (
-  source: [Ast.NameExpr, Ast.PropExpr[]]
+  source: [Ast.IdentityExpr, Ast.PropExpr[]]
 ): Ast.JsxSelfClosingExpr => {
   const [name, value] = source
   return {
