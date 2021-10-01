@@ -17,23 +17,22 @@ import {
 import * as ast from './Ast'
 import {
   applyArray,
+  applyBoolean,
   applyClosingTag,
+  applyIdentity,
   applyJsx,
   applyJsxSelfClosing,
-  applyIdentity,
+  applyNumber,
   applyObject,
   applyOpeningTag,
   applyProgram,
   applyProp,
-  applyNumber,
-  applyBoolean,
   applyString,
   applyText,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
 // Primary
-
 export const IDENTITY = rule<TokenKind, ast.IdentityExpr>()
 export const NUMBER = rule<TokenKind, ast.NumberExpr>()
 export const BOOLEAN = rule<TokenKind, ast.BooleanExpr>()
@@ -199,7 +198,7 @@ JSXOPENED.setPattern(
 
 /*
 PROGRAM
-  = many $ JSX <|> JSXSELFCLOSE
+  = many JSX
 */
 PROGRAM.setPattern(apply(rep_sc(JSX), applyProgram))
 

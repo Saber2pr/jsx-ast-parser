@@ -1,2 +1,2 @@
-export * from './Jsx';
-export * from './Transformer';
+export * from './Jsx'
+export * from './Transformer'

@@ -1,5 +1,4 @@
-import { parse } from '..'
-import { transform } from '..'
+import { parse, transform } from '../'
 
 describe('JsxParser', () => {
   it('Case 1', () => {

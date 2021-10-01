@@ -1,6 +1,7 @@
-import { transform } from './transformer'
 import { writeFileSync } from 'fs'
+
 import { parse } from './'
+import { transform } from './transformer'
 
 const code = `
 <div 
