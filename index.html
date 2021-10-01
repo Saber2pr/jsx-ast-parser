@@ -84,8 +84,11 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3>Usage</h3>
 				</a>
-				<p><a href="./public/ast.json">see output ast.json</a></p>
-				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parse</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/jsx-ast-parser&#039;</span>
+				<ul>
+					<li><a href="./public/ast.json">see output ast.json</a></li>
+					<li><a href="./public/jsx.json">see output jsx.json</a></li>
+				</ul>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parse</span><span style="color: #000000">, </span><span style="color: #001080">transform</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/jsx-ast-parser&#039;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">code</span><span style="color: #000000"> = </span><span style="color: #A31515">`</span>
 <span style="color: #A31515">&lt;div id=&quot;233ccc&quot; className=&quot;qwq123&quot;&gt;</span>
@@ -114,7 +117,7 @@
 <span style="color: #A31515">&lt;/div&gt;</span>
 <span style="color: #A31515">`</span>
 
-<span style="color: #795E26">parse</span><span style="color: #000000">(</span><span style="color: #001080">code</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ast</span><span style="color: #000000"> = </span><span style="color: #795E26">parse</span><span style="color: #000000">(</span><span style="color: #001080">code</span><span style="color: #000000">)</span>
 <span style="color: #008000">/*</span>
 <span style="color: #008000">{</span>
 <span style="color: #008000">  &quot;kind&quot;: &quot;Program&quot;,</span>
@@ -139,11 +142,11 @@
 <span style="color: #008000">              &quot;value&quot;: 100</span>
 <span style="color: #008000">            }</span>
 <span style="color: #008000">          },</span>
-<span style="color: #008000">          ... more detail see ./ast.json</span>
+<span style="color: #008000">          ... more detail see ./public/ast.json</span>
 <span style="color: #008000">        ]</span>
 <span style="color: #008000">      },</span>
 <span style="color: #008000">      &quot;body&quot;: [</span>
-<span style="color: #008000">        ... more detail see ./ast.json</span>
+<span style="color: #008000">        ... more detail see ./public/ast.json</span>
 <span style="color: #008000">      ],</span>
 <span style="color: #008000">      &quot;closingTag&quot;: {</span>
 <span style="color: #008000">        &quot;kind&quot;: &quot;ClosingTagExpr&quot;,</span>
@@ -155,6 +158,42 @@
 <span style="color: #008000">    }</span>
 <span style="color: #008000">  ]</span>
 <span style="color: #008000">}</span>
+<span style="color: #008000">*/</span>
+<span style="color: #795E26">transform</span><span style="color: #000000">(</span><span style="color: #001080">ast</span><span style="color: #000000">)</span>
+<span style="color: #008000">/*</span>
+<span style="color: #008000">[</span>
+<span style="color: #008000">  {</span>
+<span style="color: #008000">    &quot;tagName&quot;: &quot;div&quot;,</span>
+<span style="color: #008000">    &quot;props&quot;: {</span>
+<span style="color: #008000">      &quot;width&quot;: 100,</span>
+<span style="color: #008000">      &quot;contentEditable&quot;: true,</span>
+<span style="color: #008000">      &quot;color&quot;: &quot;red&quot;,</span>
+<span style="color: #008000">      &quot;style&quot;: {</span>
+<span style="color: #008000">        &quot;width&quot;: 100,</span>
+<span style="color: #008000">        &quot;color&quot;: &quot;red&quot;,</span>
+<span style="color: #008000">        &quot;background&quot;: &quot;blue&quot;,</span>
+<span style="color: #008000">        &quot;test&quot;: {</span>
+<span style="color: #008000">          &quot;color&quot;: &quot;red&quot;</span>
+<span style="color: #008000">        },</span>
+<span style="color: #008000">        &quot;child&quot;: {</span>
+<span style="color: #008000">          &quot;tagName&quot;: &quot;span&quot;,</span>
+<span style="color: #008000">          &quot;props&quot;: {},</span>
+<span style="color: #008000">          &quot;children&quot;: [</span>
+<span style="color: #008000">            {</span>
+<span style="color: #008000">              &quot;tagName&quot;: &quot;text&quot;,</span>
+<span style="color: #008000">              &quot;nodeValue&quot;: &quot;233&quot;</span>
+<span style="color: #008000">            }</span>
+<span style="color: #008000">          ]</span>
+<span style="color: #008000">        }</span>
+<span style="color: #008000">      },</span>
+<span style="color: #008000">      &quot;id&quot;: &quot;233ccc&quot;,</span>
+<span style="color: #008000">      &quot;class2Name&quot;: &quot;qwq123&quot;</span>
+<span style="color: #008000">    },</span>
+<span style="color: #008000">    &quot;children&quot;: [</span>
+<span style="color: #008000">        ... more detail see ./public/jsx.json</span>
+<span style="color: #008000">    ]</span>
+<span style="color: #008000">  }</span>
+<span style="color: #008000">]</span>
 <span style="color: #008000">*/</span>
 </code></pre>
 			</div>
@@ -185,6 +224,9 @@
 						<a href="interfaces/IdentityExpr.html" class="tsd-kind-icon">Identity<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-interface">
+						<a href="interfaces/JsxElement.html" class="tsd-kind-icon">Jsx<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-interface">
 						<a href="interfaces/JsxExpr.html" class="tsd-kind-icon">Jsx<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-interface">
@@ -210,6 +252,15 @@
 					</li>
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/StringExpr.html" class="tsd-kind-icon">String<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/TextExpr.html" class="tsd-kind-icon">Text<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="modules.html#Jsx" class="tsd-kind-icon">Jsx</a>
 					</li>
 					<li class=" tsd-kind-type-alias">
 						<a href="modules.html#Token" class="tsd-kind-icon">Token</a>
@@ -251,6 +302,9 @@
 						<a href="modules.html#STRING" class="tsd-kind-icon">STRING</a>
 					</li>
 					<li class=" tsd-kind-variable">
+						<a href="modules.html#TEXT" class="tsd-kind-icon">TEXT</a>
+					</li>
+					<li class=" tsd-kind-variable">
 						<a href="modules.html#tokenizer" class="tsd-kind-icon">tokenizer</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -290,6 +344,9 @@
 						<a href="modules.html#applyString" class="tsd-kind-icon">apply<wbr>String</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="modules.html#applyText" class="tsd-kind-icon">apply<wbr>Text</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="modules.html#buildLL1" class="tsd-kind-icon">buildLL1</a>
 					</li>
 					<li class=" tsd-kind-function">
@@ -297,6 +354,12 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#isBooleanExpr" class="tsd-kind-icon">is<wbr>Boolean<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isJsxExpr" class="tsd-kind-icon">is<wbr>Jsx<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#isJsxSelfClosingExpr" class="tsd-kind-icon">is<wbr>Jsx<wbr>Self<wbr>Closing<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="modules.html#isNumberExpr" class="tsd-kind-icon">is<wbr>Number<wbr>Expr</a>
@@ -308,7 +371,43 @@
 						<a href="modules.html#isStringExpr" class="tsd-kind-icon">is<wbr>String<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-function">
+						<a href="modules.html#isTextExpr" class="tsd-kind-icon">is<wbr>Text<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
 						<a href="modules.html#parse" class="tsd-kind-icon">parse</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transform" class="tsd-kind-icon">transform</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformArrayExpr" class="tsd-kind-icon">transform<wbr>Array<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformBooleanExpr" class="tsd-kind-icon">transform<wbr>Boolean<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformIdentityExpr" class="tsd-kind-icon">transform<wbr>Identity<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformJsx" class="tsd-kind-icon">transform<wbr>Jsx</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformJsxSelfClosingExpr" class="tsd-kind-icon">transform<wbr>Jsx<wbr>Self<wbr>Closing<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformNumberExpr" class="tsd-kind-icon">transform<wbr>Number<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformObjectExpr" class="tsd-kind-icon">transform<wbr>Object<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformPropsExpr" class="tsd-kind-icon">transform<wbr>Props<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformStringExpr" class="tsd-kind-icon">transform<wbr>String<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="modules.html#transformTextExpr" class="tsd-kind-icon">transform<wbr>Text<wbr>Expr</a>
 					</li>
 				</ul>
 			</nav>
