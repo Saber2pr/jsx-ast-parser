@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TokenKind | @saber2pr/jsx-ast-parser</title>
+	<title>NumberExpr | @saber2pr/jsx-ast-parser</title>
 	<meta name="description" content="Documentation for @saber2pr/jsx-ast-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,71 +55,66 @@
 					<a href="../modules.html">@saber2pr/jsx-ast-parser</a>
 				</li>
 				<li>
-					<a href="TokenKind.html">TokenKind</a>
+					<a href="../modules/parser.html">parser</a>
+				</li>
+				<li>
+					<a href="parser.NumberExpr.html">NumberExpr</a>
 				</li>
 			</ul>
-			<h1>Enumeration TokenKind</h1>
+			<h1>Interface NumberExpr</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="parser.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">NumberExpr</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="TokenKind.html#Chars" class="tsd-kind-icon">Chars</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="TokenKind.html#Digit" class="tsd-kind-icon">Digit</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="TokenKind.html#Letter" class="tsd-kind-icon">Letter</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="TokenKind.html#Space" class="tsd-kind-icon">Space</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="parser.NumberExpr.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.NumberExpr.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="Chars" class="tsd-anchor"></a>
-					<h3>Chars</h3>
-					<div class="tsd-signature tsd-kind-icon">Chars<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 3</span></div>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+					<a name="kind" class="tsd-anchor"></a>
+					<h3>kind</h3>
+					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;NumberExpr&quot;</span></div>
 					<aside class="tsd-sources">
+						<p>Overrides <a href="parser.Node.html">Node</a>.<a href="parser.Node.html#kind">kind</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Tokenizer.ts#L7">parser/Tokenizer.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/efe7070/src/parser/Ast.ts#L20">parser/Ast.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="Digit" class="tsd-anchor"></a>
-					<h3>Digit</h3>
-					<div class="tsd-signature tsd-kind-icon">Digit<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 1</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="value" class="tsd-anchor"></a>
+					<h3>value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Tokenizer.ts#L5">parser/Tokenizer.ts:5</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="Letter" class="tsd-anchor"></a>
-					<h3>Letter</h3>
-					<div class="tsd-signature tsd-kind-icon">Letter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 0</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Tokenizer.ts#L4">parser/Tokenizer.ts:4</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="Space" class="tsd-anchor"></a>
-					<h3>Space</h3>
-					<div class="tsd-signature tsd-kind-icon">Space<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = 2</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Tokenizer.ts#L6">parser/Tokenizer.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/efe7070/src/parser/Ast.ts#L21">parser/Ast.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -131,26 +126,29 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/compiler.html">compiler</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/parser.html">parser</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/transformer.html">transformer</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum">
-						<a href="TokenKind.html" class="tsd-kind-icon">Token<wbr>Kind</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="parser.NumberExpr.html" class="tsd-kind-icon">Number<wbr>Expr</a>
 						<ul>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="TokenKind.html#Chars" class="tsd-kind-icon">Chars</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="parser.NumberExpr.html#kind" class="tsd-kind-icon">kind</a>
 							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="TokenKind.html#Digit" class="tsd-kind-icon">Digit</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="TokenKind.html#Letter" class="tsd-kind-icon">Letter</a>
-							</li>
-							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="TokenKind.html#Space" class="tsd-kind-icon">Space</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="parser.NumberExpr.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>

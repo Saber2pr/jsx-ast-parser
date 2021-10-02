@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Program | @saber2pr/jsx-ast-parser</title>
+	<title>BooleanExpr | @saber2pr/jsx-ast-parser</title>
 	<meta name="description" content="Documentation for @saber2pr/jsx-ast-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,13 @@
 					<a href="../modules.html">@saber2pr/jsx-ast-parser</a>
 				</li>
 				<li>
-					<a href="Program.html">Program</a>
+					<a href="../modules/parser.html">parser</a>
+				</li>
+				<li>
+					<a href="parser.BooleanExpr.html">BooleanExpr</a>
 				</li>
 			</ul>
-			<h1>Interface Program</h1>
+			<h1>Interface BooleanExpr</h1>
 		</div>
 	</div>
 </header>
@@ -69,10 +72,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
+						<a href="parser.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">Program</span>
+								<span class="target">BooleanExpr</span>
 							</li>
 						</ul>
 					</li>
@@ -85,8 +88,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="Program.html#body" class="tsd-kind-icon">body</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="Program.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="parser.BooleanExpr.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.BooleanExpr.html#value" class="tsd-kind-icon">value</a></li>
 							</ul>
 						</section>
 					</div>
@@ -94,24 +97,24 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="body" class="tsd-anchor"></a>
-					<h3>body</h3>
-					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="../modules.html#Jsx" class="tsd-signature-type" data-tsd-kind="Type alias">Jsx</a><span class="tsd-signature-symbol">[]</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Ast.ts#L91">parser/Ast.ts:91</a></li>
-						</ul>
-					</aside>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="kind" class="tsd-anchor"></a>
 					<h3>kind</h3>
-					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;Program&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;BooleanExpr&quot;</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="Node.html">Node</a>.<a href="Node.html#kind">kind</a></p>
+						<p>Overrides <a href="parser.Node.html">Node</a>.<a href="parser.Node.html#kind">kind</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Ast.ts#L90">parser/Ast.ts:90</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/efe7070/src/parser/Ast.ts#L30">parser/Ast.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="value" class="tsd-anchor"></a>
+					<h3>value</h3>
+					<div class="tsd-signature tsd-kind-icon">value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/efe7070/src/parser/Ast.ts#L31">parser/Ast.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -123,20 +126,29 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/compiler.html">compiler</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/parser.html">parser</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/transformer.html">transformer</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="Program.html" class="tsd-kind-icon">Program</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="parser.BooleanExpr.html" class="tsd-kind-icon">Boolean<wbr>Expr</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="Program.html#body" class="tsd-kind-icon">body</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="Program.html#kind" class="tsd-kind-icon">kind</a>
+								<a href="parser.BooleanExpr.html#kind" class="tsd-kind-icon">kind</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="parser.BooleanExpr.html#value" class="tsd-kind-icon">value</a>
 							</li>
 						</ul>
 					</li>

@@ -69,8 +69,6 @@
 				<a href="#feature" id="feature" style="color: inherit; text-decoration: none;">
 					<h3>Feature</h3>
 				</a>
-				<p>in working progress...</p>
-				<p>TODO:</p>
 				<ul>
 					<li><input checked="" disabled="" type="checkbox"> jsx opened</li>
 					<li><input checked="" disabled="" type="checkbox"> jsx self closing</li>
@@ -84,11 +82,13 @@
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3>Usage</h3>
 				</a>
+				<p><a href="https://saber2pr.top/jsx-ast-parser/">docs</a></p>
 				<ul>
-					<li><a href="./public/ast.json">see output ast.json</a></li>
-					<li><a href="./public/jsx.json">see output jsx.json</a></li>
+					<li><a href="./public/ast.json">see parser output ast.json</a></li>
+					<li><a href="./public/jsx.json">see transformer output jsx.json</a></li>
+					<li><a href="./public/out.jsx">see compiler output out.jsx</a></li>
 				</ul>
-				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parse</span><span style="color: #000000">, </span><span style="color: #001080">transform</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/jsx-ast-parser&#039;</span>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">parser</span><span style="color: #000000">, </span><span style="color: #001080">transformer</span><span style="color: #000000">, </span><span style="color: #001080">compiler</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/jsx-ast-parser&#039;</span>
 
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">code</span><span style="color: #000000"> = </span><span style="color: #A31515">`</span>
 <span style="color: #A31515">&lt;div id=&quot;233ccc&quot; className=&quot;qwq123&quot;&gt;</span>
@@ -117,7 +117,7 @@
 <span style="color: #A31515">&lt;/div&gt;</span>
 <span style="color: #A31515">`</span>
 
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ast</span><span style="color: #000000"> = </span><span style="color: #795E26">parse</span><span style="color: #000000">(</span><span style="color: #001080">code</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ast</span><span style="color: #000000"> = </span><span style="color: #001080">parser</span><span style="color: #000000">.</span><span style="color: #795E26">parse</span><span style="color: #000000">(</span><span style="color: #001080">code</span><span style="color: #000000">)</span>
 <span style="color: #008000">/*</span>
 <span style="color: #008000">{</span>
 <span style="color: #008000">  &quot;kind&quot;: &quot;Program&quot;,</span>
@@ -159,7 +159,7 @@
 <span style="color: #008000">  ]</span>
 <span style="color: #008000">}</span>
 <span style="color: #008000">*/</span>
-<span style="color: #795E26">transform</span><span style="color: #000000">(</span><span style="color: #001080">ast</span><span style="color: #000000">)</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">jsx</span><span style="color: #000000"> = </span><span style="color: #001080">transformer</span><span style="color: #000000">.</span><span style="color: #795E26">transform</span><span style="color: #000000">(</span><span style="color: #001080">ast</span><span style="color: #000000">)</span>
 <span style="color: #008000">/*</span>
 <span style="color: #008000">[</span>
 <span style="color: #008000">  {</span>
@@ -195,6 +195,8 @@
 <span style="color: #008000">  }</span>
 <span style="color: #008000">]</span>
 <span style="color: #008000">*/</span>
+<span style="color: #008000">// compile code from jsx</span>
+<span style="color: #001080">compiler</span><span style="color: #000000">.</span><span style="color: #795E26">compile</span><span style="color: #000000">(</span><span style="color: #001080">jsx</span><span style="color: #000000">) === </span><span style="color: #001080">code</span>
 </code></pre>
 			</div>
 		</div>
@@ -204,214 +206,19 @@
 					<li class=" ">
 						<a href="modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/compiler.html">compiler</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/parser.html">parser</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="modules/transformer.html">transformer</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/TokenKind.html" class="tsd-kind-icon">Token<wbr>Kind</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ArrayExpr.html" class="tsd-kind-icon">Array<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/BooleanExpr.html" class="tsd-kind-icon">Boolean<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ClosingTagExpr.html" class="tsd-kind-icon">Closing<wbr>Tag<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/IdentityExpr.html" class="tsd-kind-icon">Identity<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/JsxElement.html" class="tsd-kind-icon">Jsx<wbr>Element</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/JsxExpr.html" class="tsd-kind-icon">Jsx<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/JsxSelfClosingExpr.html" class="tsd-kind-icon">Jsx<wbr>Self<wbr>Closing<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/Node.html" class="tsd-kind-icon">Node</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/NumberExpr.html" class="tsd-kind-icon">Number<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/ObjectExpr.html" class="tsd-kind-icon">Object<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/OpeningTagExpr.html" class="tsd-kind-icon">Opening<wbr>Tag<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/Program.html" class="tsd-kind-icon">Program</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/PropExpr.html" class="tsd-kind-icon">Prop<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/StringExpr.html" class="tsd-kind-icon">String<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/TextExpr.html" class="tsd-kind-icon">Text<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#Jsx" class="tsd-kind-icon">Jsx</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#Token" class="tsd-kind-icon">Token</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#Type" class="tsd-kind-icon">Type</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#ARRAY" class="tsd-kind-icon">ARRAY</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#BOOLEAN" class="tsd-kind-icon">BOOLEAN</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#CLOSETAG" class="tsd-kind-icon">CLOSETAG</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#IDENTITY" class="tsd-kind-icon">IDENTITY</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#JSXOPENED" class="tsd-kind-icon">JSXOPENED</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#JSXSELFCLOSE" class="tsd-kind-icon">JSXSELFCLOSE</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#NUMBER" class="tsd-kind-icon">NUMBER</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#OBJ" class="tsd-kind-icon">OBJ</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#OPENTAG" class="tsd-kind-icon">OPENTAG</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#PROGRAM" class="tsd-kind-icon">PROGRAM</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#PROP" class="tsd-kind-icon">PROP</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#RULES" class="tsd-kind-icon">RULES</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#STRING" class="tsd-kind-icon">STRING</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#TEXT" class="tsd-kind-icon">TEXT</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#tokenizer" class="tsd-kind-icon">tokenizer</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyArray" class="tsd-kind-icon">apply<wbr>Array</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyBoolean" class="tsd-kind-icon">apply<wbr>Boolean</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyClosingTag" class="tsd-kind-icon">apply<wbr>Closing<wbr>Tag</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyIdentity" class="tsd-kind-icon">apply<wbr>Identity</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyJsx" class="tsd-kind-icon">apply<wbr>Jsx</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyJsxSelfClosing" class="tsd-kind-icon">apply<wbr>Jsx<wbr>Self<wbr>Closing</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyNumber" class="tsd-kind-icon">apply<wbr>Number</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyObject" class="tsd-kind-icon">apply<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyOpeningTag" class="tsd-kind-icon">apply<wbr>Opening<wbr>Tag</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyProgram" class="tsd-kind-icon">apply<wbr>Program</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyProp" class="tsd-kind-icon">apply<wbr>Prop</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyString" class="tsd-kind-icon">apply<wbr>String</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#applyText" class="tsd-kind-icon">apply<wbr>Text</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isArrayExpr" class="tsd-kind-icon">is<wbr>Array<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isBooleanExpr" class="tsd-kind-icon">is<wbr>Boolean<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isJsxExpr" class="tsd-kind-icon">is<wbr>Jsx<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isJsxSelfClosingExpr" class="tsd-kind-icon">is<wbr>Jsx<wbr>Self<wbr>Closing<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isNumberExpr" class="tsd-kind-icon">is<wbr>Number<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isObjectExpr" class="tsd-kind-icon">is<wbr>Object<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isStringExpr" class="tsd-kind-icon">is<wbr>String<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#isTextExpr" class="tsd-kind-icon">is<wbr>Text<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#parse" class="tsd-kind-icon">parse</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transform" class="tsd-kind-icon">transform</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformArrayExpr" class="tsd-kind-icon">transform<wbr>Array<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformBooleanExpr" class="tsd-kind-icon">transform<wbr>Boolean<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformIdentityExpr" class="tsd-kind-icon">transform<wbr>Identity<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformJsx" class="tsd-kind-icon">transform<wbr>Jsx</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformJsxSelfClosingExpr" class="tsd-kind-icon">transform<wbr>Jsx<wbr>Self<wbr>Closing<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformNumberExpr" class="tsd-kind-icon">transform<wbr>Number<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformObjectExpr" class="tsd-kind-icon">transform<wbr>Object<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformPropsExpr" class="tsd-kind-icon">transform<wbr>Props<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformStringExpr" class="tsd-kind-icon">transform<wbr>String<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="modules.html#transformTextExpr" class="tsd-kind-icon">transform<wbr>Text<wbr>Expr</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -421,9 +228,6 @@
 	<div class="container">
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
 		</div>
 	</div>
 </footer>

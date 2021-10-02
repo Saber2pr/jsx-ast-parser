@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ObjectExpr | @saber2pr/jsx-ast-parser</title>
+	<title>IdentityExpr | @saber2pr/jsx-ast-parser</title>
 	<meta name="description" content="Documentation for @saber2pr/jsx-ast-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,10 +55,13 @@
 					<a href="../modules.html">@saber2pr/jsx-ast-parser</a>
 				</li>
 				<li>
-					<a href="ObjectExpr.html">ObjectExpr</a>
+					<a href="../modules/parser.html">parser</a>
+				</li>
+				<li>
+					<a href="parser.IdentityExpr.html">IdentityExpr</a>
 				</li>
 			</ul>
-			<h1>Interface ObjectExpr</h1>
+			<h1>Interface IdentityExpr</h1>
 		</div>
 	</div>
 </header>
@@ -69,10 +72,10 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
+						<a href="parser.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">ObjectExpr</span>
+								<span class="target">IdentityExpr</span>
 							</li>
 						</ul>
 					</li>
@@ -85,8 +88,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="ObjectExpr.html#kind" class="tsd-kind-icon">kind</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="ObjectExpr.html#props" class="tsd-kind-icon">props</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="parser.IdentityExpr.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.IdentityExpr.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -97,31 +100,23 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 					<a name="kind" class="tsd-anchor"></a>
 					<h3>kind</h3>
-					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;ObjectExpr&quot;</span></div>
+					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;IdentityExpr&quot;</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="Node.html">Node</a>.<a href="Node.html#kind">kind</a></p>
+						<p>Overrides <a href="parser.Node.html">Node</a>.<a href="parser.Node.html#kind">kind</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Ast.ts#L29">parser/Ast.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/efe7070/src/parser/Ast.ts#L15">parser/Ast.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="props" class="tsd-anchor"></a>
-					<h3>props</h3>
-					<div class="tsd-signature tsd-kind-icon">props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/d83bb87/src/parser/Ast.ts#L30">parser/Ast.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/efe7070/src/parser/Ast.ts#L16">parser/Ast.ts:16</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-index-signature">
-								<h5><span class="tsd-signature-symbol">[</span>k: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../modules.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h5>
-							</li>
-						</ul>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -131,20 +126,29 @@
 					<li class=" ">
 						<a href="../modules.html">Exports</a>
 					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/compiler.html">compiler</a>
+					</li>
+					<li class="current tsd-kind-namespace">
+						<a href="../modules/parser.html">parser</a>
+					</li>
+					<li class=" tsd-kind-namespace">
+						<a href="../modules/transformer.html">transformer</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface">
-						<a href="ObjectExpr.html" class="tsd-kind-icon">Object<wbr>Expr</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="parser.IdentityExpr.html" class="tsd-kind-icon">Identity<wbr>Expr</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="ObjectExpr.html#kind" class="tsd-kind-icon">kind</a>
+								<a href="parser.IdentityExpr.html#kind" class="tsd-kind-icon">kind</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="ObjectExpr.html#props" class="tsd-kind-icon">props</a>
+								<a href="parser.IdentityExpr.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>
