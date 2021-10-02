@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 18:23:03
+ * @Last Modified time: 2021-10-02 19:54:34
  */
 import {
   alt,
@@ -105,7 +105,7 @@ IDENTITY.setPattern(
 
 /*
 OBJ 
-  = { commanSep $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY }
+  = { commanSep $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY | <|> ARROWFUNCTION <|> CALLCHAIN}
 */
 OBJ.setPattern(
   apply(
@@ -116,7 +116,16 @@ OBJ.setPattern(
           seq(
             IDENTITY,
             str(':'),
-            alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY)
+            alt(
+              JSX,
+              STRING,
+              NUMBER,
+              IDENTITY,
+              OBJ,
+              ARRAY,
+              ARROWFUNCTION,
+              CALLCHAIN
+            )
           ),
           str(',')
         )
@@ -129,13 +138,27 @@ OBJ.setPattern(
 
 /*
 ARRAY
-  = [ many $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY]
+  = [ many $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY <|> ARROWFUNCTION <|> CALLCHAIN]
 */
 ARRAY.setPattern(
   apply(
     kmid(
       str('['),
-      opt(list_sc(alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY), str(','))),
+      opt(
+        list_sc(
+          alt(
+            JSX,
+            STRING,
+            NUMBER,
+            IDENTITY,
+            OBJ,
+            ARRAY,
+            ARROWFUNCTION,
+            CALLCHAIN
+          ),
+          str(',')
+        )
+      ),
       seq(opt(str(',')), str(']'))
     ),
     applyArray
@@ -145,7 +168,7 @@ ARRAY.setPattern(
 /*
 PROP 
   = IDENTITY
-  = IDENTITY={JSX <|> OBJ <|> ARRAY <|> NUMBER <|> STRING <|> IDENTITY <|> ARROWFUNCTION}
+  = IDENTITY={JSX <|> OBJ <|> ARRAY <|> NUMBER <|> STRING <|> IDENTITY <|> ARROWFUNCTION <|> CALLCHAIN}
 */
 PROP.setPattern(
   apply(
@@ -156,7 +179,16 @@ PROP.setPattern(
           STRING,
           kmid(
             str('{'),
-            alt(JSX, OBJ, ARRAY, NUMBER, STRING, IDENTITY, ARROWFUNCTION),
+            alt(
+              JSX,
+              OBJ,
+              ARRAY,
+              NUMBER,
+              STRING,
+              IDENTITY,
+              ARROWFUNCTION,
+              CALLCHAIN
+            ),
             str('}')
           )
         )

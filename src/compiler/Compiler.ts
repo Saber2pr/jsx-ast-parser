@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:41:25
+ * @Last Modified time: 2021-10-02 19:50:37
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -42,6 +42,7 @@ export function compileJsxAttributes(element: Jsx.JsxAttributes): string {
   if (entries.length === 0) return ''
   return ` ${entries
     .map(([key, value]) => {
+      // basic
       if (typeof value === 'string') {
         return `${key}="${value}"`
       }
@@ -55,11 +56,19 @@ export function compileJsxAttributes(element: Jsx.JsxAttributes): string {
           return `${key}={false}`
         }
       }
+      // jsx
       if (Factory.isTextElement(value)) {
         return `${key}="${value.nodeValue}"`
       }
       if (Factory.isJsxElement(value)) {
         return `${key}={${compileJsxElement(value)}}`
+      }
+      // statement
+      if (Factory.isArrowFunction(value)) {
+        return `${key}={${compileArrowFunction(value)}}`
+      }
+      if (Factory.isCallChain(value)) {
+        return `${key}={${compileCallChain(value)}}`
       }
       if (Array.isArray(value)) {
         return `${key}={${compileArray(value)}}`
@@ -87,6 +96,23 @@ export function compileJsxElement(element: Jsx.JsxElement) {
   }
   // self closing
   return `<${tagName}${attributes}/>`
+}
+
+// statement
+
+export function compileArrowFunction(element: Jsx.ArrowFunction) {
+  const args = element.args ?? []
+  const body = element.body ?? []
+  return `(${args.join(',')})=>{${body
+    .map(statement => compileCallChain(statement))
+    .join(';')}}`
+}
+
+export function compileCallChain(element: Jsx.CallChain) {
+  const caller = element.caller
+  const chain = element.chain ?? []
+  const args = element.args ?? []
+  return `${caller}.${chain.join('.')}(${args.join(',')})`
 }
 
 // compile code

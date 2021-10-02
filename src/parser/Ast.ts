@@ -45,6 +45,8 @@ export type Type =
   | IdentityExpr
   | ObjectExpr
   | ArrayExpr
+  | ArrowFunctionExpr
+  | CallChainExpr
 
 // JSX
 

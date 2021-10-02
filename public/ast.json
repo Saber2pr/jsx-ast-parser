@@ -190,6 +190,25 @@
                       "name": "error"
                     }
                   ]
+                },
+                {
+                  "kind": "CallChainExpr",
+                  "caller": {
+                    "kind": "IdentityExpr",
+                    "name": "console"
+                  },
+                  "chain": [
+                    {
+                      "kind": "IdentityExpr",
+                      "name": "log"
+                    }
+                  ],
+                  "args": [
+                    {
+                      "kind": "IdentityExpr",
+                      "name": "test"
+                    }
+                  ]
                 }
               ]
             }
