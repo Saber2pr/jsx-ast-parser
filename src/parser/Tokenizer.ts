@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:39
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:58:34
+ * @Last Modified time: 2021-10-02 20:14:06
  */
 import { buildLexer } from 'typescript-parsec'
 
@@ -17,7 +17,7 @@ export const TokenRules: [boolean, RegExp, TokenKind][] = [
   [true, /^[a-zA-Z_$]+/g, TokenKind.Letter],
   [true, /^[0-9]+/g, TokenKind.Digit],
   [false, /^\s+/g, TokenKind.Space],
-  [true, /^[<=">/{}\[\]:,'\.()]/g, TokenKind.Chars],
+  [true, /^[<=">/{}\[\]:,'\.();]/g, TokenKind.Chars],
 ]
 
 export const tokenizer = buildLexer(TokenRules)

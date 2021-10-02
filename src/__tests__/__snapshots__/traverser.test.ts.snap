@@ -1,16 +1,66 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Traverser findNode 1`] = `
+Array [
+  Object {
+    "$$typeof": "jsx",
+    "children": Array [],
+    "props": Object {
+      "list": Array [
+        Object {
+          "content": Object {
+            "$$typeof": "jsx",
+            "children": Array [
+              Object {
+                "$$typeof": "text",
+                "nodeValue": "233",
+                "tagName": "text",
+              },
+            ],
+            "props": Object {
+              "color": "red",
+            },
+            "tagName": "View",
+          },
+          "logo": Object {
+            "$$typeof": "jsx",
+            "children": Array [],
+            "props": Object {
+              "mode": "test",
+            },
+            "tagName": "Image",
+          },
+        },
+        Object {
+          "content": Object {
+            "$$typeof": "jsx",
+            "children": Array [],
+            "props": Object {},
+            "tagName": "View",
+          },
+        },
+      ],
+    },
+    "tagName": "List",
+  },
+]
+`;
+
 exports[`Traverser map 1`] = `
 Object {
+  "$$typeof": "jsx",
   "children": Array [
     Object {
+      "$$typeof": "jsx",
       "children": Array [],
       "props": Object {
         "list": Array [
           Object {
             "content": Object {
+              "$$typeof": "jsx",
               "children": Array [
                 Object {
+                  "$$typeof": "text",
                   "nodeValue": "233",
                   "tagName": "text",
                 },
@@ -21,6 +71,7 @@ Object {
               "tagName": "View",
             },
             "logo": Object {
+              "$$typeof": "jsx",
               "children": Array [],
               "props": Object {
                 "mode": "test",
@@ -30,6 +81,7 @@ Object {
           },
           Object {
             "content": Object {
+              "$$typeof": "jsx",
               "children": Array [],
               "props": Object {},
               "tagName": "View",
@@ -40,11 +92,13 @@ Object {
       "tagName": "List",
     },
     Object {
+      "$$typeof": "jsx",
       "children": Array [],
       "props": Object {},
       "tagName": "div",
     },
     Object {
+      "$$typeof": "jsx",
       "children": Array [],
       "props": Object {
         "id": "qwq",
@@ -53,8 +107,10 @@ Object {
       "tagName": "div",
     },
     Object {
+      "$$typeof": "jsx",
       "children": Array [
         Object {
+          "$$typeof": "text",
           "nodeValue": "aaa",
           "tagName": "text",
         },
@@ -63,8 +119,10 @@ Object {
       "tagName": "span",
     },
     Object {
+      "$$typeof": "jsx",
       "children": Array [
         Object {
+          "$$typeof": "text",
           "nodeValue": "1234",
           "tagName": "text",
         },
@@ -73,8 +131,10 @@ Object {
       "tagName": "span",
     },
     Object {
+      "$$typeof": "jsx",
       "children": Array [
         Object {
+          "$$typeof": "text",
           "nodeValue": "1234asd",
           "tagName": "text",
         },
@@ -83,14 +143,18 @@ Object {
       "tagName": "span",
     },
     Object {
+      "$$typeof": "jsx",
       "children": Array [
         Object {
+          "$$typeof": "text",
           "nodeValue": "12aa",
           "tagName": "text",
         },
         Object {
+          "$$typeof": "jsx",
           "children": Array [
             Object {
+              "$$typeof": "text",
               "nodeValue": "aaa",
               "tagName": "text",
             },
@@ -99,6 +163,7 @@ Object {
           "tagName": "span",
         },
         Object {
+          "$$typeof": "text",
           "nodeValue": "aa234234aaa",
           "tagName": "text",
         },
@@ -108,15 +173,51 @@ Object {
     },
   ],
   "props": Object {
+    "arr": Array [
+      1,
+      2,
+    ],
     "class2Name": "qwq123",
     "color": "red",
     "contentEditable": true,
     "id": "233ccc",
+    "onClick": "onClick",
+    "onError": Object {
+      "$$typeof": "function",
+      "args": Array [
+        "error",
+        "test",
+      ],
+      "body": Array [
+        Object {
+          "$$typeof": "call",
+          "args": Array [
+            "error",
+          ],
+          "caller": "console",
+          "chain": Array [
+            "log",
+          ],
+        },
+        Object {
+          "$$typeof": "call",
+          "args": Array [
+            "test",
+          ],
+          "caller": "console",
+          "chain": Array [
+            "log",
+          ],
+        },
+      ],
+    },
     "style": Object {
       "background": "blue",
       "child": Object {
+        "$$typeof": "jsx",
         "children": Array [
           Object {
+            "$$typeof": "text",
             "nodeValue": "233",
             "tagName": "text",
           },

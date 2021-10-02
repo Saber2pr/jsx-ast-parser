@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 18:24:51
+ * @Last Modified time: 2021-10-02 20:06:53
  */
 import * as parsec from 'typescript-parsec'
 
@@ -70,7 +70,7 @@ export function applyProp(
 }
 
 export function applyObject(
-  source: [Ast.IdentityExpr, Token, Ast.Type][] | undefined = []
+  source: [Ast.IdentityExpr, Token, Ast.Expression][] | undefined = []
 ): Ast.ObjectExpr {
   return {
     kind: 'ObjectExpr',
@@ -136,7 +136,6 @@ export function applyJsx(
 
 // Statement
 
-// TODO add transform func, compiler func, tests
 export function applyArrowFunction(
   source: [Ast.IdentityExpr[] | undefined, Ast.CallChainExpr[] | undefined]
 ): Ast.ArrowFunctionExpr {
@@ -148,7 +147,6 @@ export function applyArrowFunction(
   }
 }
 
-// TODO add transform func, compiler func, tests
 export function applyCallChain(
   source: [Ast.IdentityExpr[], Ast.IdentityExpr[] | undefined]
 ): Ast.CallChainExpr {

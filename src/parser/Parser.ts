@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 19:54:34
+ * @Last Modified time: 2021-10-02 20:13:40
  */
 import {
   alt,
@@ -12,19 +12,21 @@ import {
   kleft,
   kmid,
   kright,
+  list_sc,
+  nil,
   opt,
   rep_sc,
   rule,
   seq,
   str,
   tok,
-  nil,
-  list_sc,
 } from 'typescript-parsec'
 
 import * as Ast from './Ast'
 import {
   applyArray,
+  applyArrowFunction,
+  applyCallChain,
   applyClosingTag,
   applyIdentity,
   applyJsx,
@@ -36,8 +38,6 @@ import {
   applyProp,
   applyString,
   applyText,
-  applyArrowFunction,
-  applyCallChain,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
@@ -249,9 +249,12 @@ ARROWFUNCTION.setPattern(
   apply(
     seq(
       kmid(str('('), list_sc(IDENTITY, str(',')), seq(opt(str(',')), str(')'))),
-      kright(
-        seq(str('='), str('>')),
-        kmid(str('{'), rep_sc(CALLCHAIN), str('}'))
+      kleft(
+        kright(
+          seq(str('='), str('>')),
+          kmid(str('{'), rep_sc(CALLCHAIN), str('}'))
+        ),
+        opt(str(';'))
       )
     ),
     applyArrowFunction
@@ -264,9 +267,16 @@ CALLCHAIN
 */
 CALLCHAIN.setPattern(
   apply(
-    seq(
-      list_sc(IDENTITY, str('.')),
-      kmid(str('('), list_sc(IDENTITY, str(',')), seq(opt(str(',')), str(')')))
+    kleft(
+      seq(
+        list_sc(IDENTITY, str('.')),
+        kmid(
+          str('('),
+          list_sc(IDENTITY, str(',')),
+          seq(opt(str(',')), str(')'))
+        )
+      ),
+      opt(str(';'))
     ),
     applyCallChain
   )

@@ -2,11 +2,11 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 19:52:21
+ * @Last Modified time: 2021-10-02 20:22:13
  */
 import { writeFileSync } from 'fs'
 
-import { parser, transformer, compiler, traverser } from '.'
+import { compiler, parser, transformer, traverser } from './'
 
 const code = `
 <div 
@@ -27,7 +27,7 @@ const code = `
   class2Name="qwq123"
   onClick={onClick}
   onError={(error,test) => {
-    console.log(error)
+    console.log(error);
     console.log(test)
   }}
 >
@@ -82,7 +82,8 @@ const node = traverser.findNode(
   jsx[0],
   node => node.props && node.tagName === 'List'
 )
-console.log(node, compiler.compile(node))
+writeFileSync('./public/jsx-find.json', JSON.stringify(node, null, 2))
+writeFileSync('./public/out-find.jsx', compiler.compile(node))
 
 // get props list source code
 console.log(
