@@ -1,6 +1,12 @@
-import { parse, transform } from '../'
+/*
+ * @Author: saber2pr
+ * @Date: 2021-09-12 12:06:14
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2021-10-02 12:06:14
+ */
+import { parser, transformer } from '..'
 
-describe('JsxParser', () => {
+describe('Transformer', () => {
   it('Case 1', () => {
     const code = `
   <div 
@@ -44,6 +50,6 @@ describe('JsxParser', () => {
     </span>
   </div>
 `
-    expect(transform(parse(code))).toMatchSnapshot()
+    expect(transformer.transform(parser.parse(code))).toMatchSnapshot()
   })
 })

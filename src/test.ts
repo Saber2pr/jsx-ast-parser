@@ -1,7 +1,6 @@
 import { writeFileSync } from 'fs'
 
-import { parse } from './'
-import { transform } from './transformer'
+import { parser, transformer, compiler } from '.'
 
 const code = `
 <div 
@@ -27,7 +26,7 @@ const code = `
         logo: <Image mode="test" />
       },
       {
-        content: <View/>
+        content: <View />
       }
     ]}
   />
@@ -46,6 +45,11 @@ const code = `
 </div>
 `
 
-const ast = parse(code)
+const ast = parser.parse(code)
 writeFileSync('./public/ast.json', JSON.stringify(ast, null, 2))
-writeFileSync('./public/jsx.json', JSON.stringify(transform(ast), null, 2))
+
+const jsx = transformer.transform(ast)
+writeFileSync('./public/jsx.json', JSON.stringify(jsx, null, 2))
+
+const out = compiler.compile(jsx)
+writeFileSync('./public/out.jsx', out)

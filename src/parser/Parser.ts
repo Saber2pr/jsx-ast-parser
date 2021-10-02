@@ -1,3 +1,9 @@
+/*
+ * @Author: saber2pr
+ * @Date: 2021-09-12 12:07:35
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2021-10-02 12:07:35
+ */
 import {
   alt,
   apply,
@@ -12,9 +18,10 @@ import {
   seq,
   str,
   tok,
+  nil,
 } from 'typescript-parsec'
 
-import * as ast from './Ast'
+import * as Ast from './Ast'
 import {
   applyArray,
   applyBoolean,
@@ -33,23 +40,23 @@ import {
 import { tokenizer, TokenKind } from './Tokenizer'
 
 // Primary
-export const IDENTITY = rule<TokenKind, ast.IdentityExpr>()
-export const NUMBER = rule<TokenKind, ast.NumberExpr>()
-export const BOOLEAN = rule<TokenKind, ast.BooleanExpr>()
-export const STRING = rule<TokenKind, ast.StringExpr>()
-export const OBJ = rule<TokenKind, ast.ObjectExpr>()
-export const ARRAY = rule<TokenKind, ast.ArrayExpr>()
+export const IDENTITY = rule<TokenKind, Ast.IdentityExpr>()
+export const NUMBER = rule<TokenKind, Ast.NumberExpr>()
+export const BOOLEAN = rule<TokenKind, Ast.BooleanExpr>()
+export const STRING = rule<TokenKind, Ast.StringExpr>()
+export const OBJ = rule<TokenKind, Ast.ObjectExpr>()
+export const ARRAY = rule<TokenKind, Ast.ArrayExpr>()
 
 // Jsx
-export const PROP = rule<TokenKind, ast.PropExpr>()
-export const OPENTAG = rule<TokenKind, ast.OpeningTagExpr>()
-export const CLOSETAG = rule<TokenKind, ast.ClosingTagExpr>()
-export const JSXSELFCLOSE = rule<TokenKind, ast.JsxSelfClosingExpr>()
-export const JSXOPENED = rule<TokenKind, ast.JsxExpr>()
-export const TEXT = rule<TokenKind, ast.TextExpr>()
+export const PROP = rule<TokenKind, Ast.PropExpr>()
+export const OPENTAG = rule<TokenKind, Ast.OpeningTagExpr>()
+export const CLOSETAG = rule<TokenKind, Ast.ClosingTagExpr>()
+export const JSXSELFCLOSE = rule<TokenKind, Ast.JsxSelfClosingExpr>()
+export const JSXOPENED = rule<TokenKind, Ast.JsxExpr>()
+export const TEXT = rule<TokenKind, Ast.TextExpr>()
 
 // Program
-export const PROGRAM = rule<TokenKind, ast.Program>()
+export const PROGRAM = rule<TokenKind, Ast.Program>()
 
 /*
 JSX
@@ -138,17 +145,24 @@ ARRAY.setPattern(
 
 /*
 PROP 
-  = IDENTITY=STRING
+  = IDENTITY
   = IDENTITY={JSX <|> OBJ <|> Array <|> NUMBER <|> BOOLEAN <|> STRING}
 */
 PROP.setPattern(
   apply(
-    seq(
-      kleft(IDENTITY, str('=')),
-      alt(
-        STRING,
-        kmid(str('{'), alt(JSX, OBJ, ARRAY, NUMBER, BOOLEAN, STRING), str('}'))
-      )
+    alt(
+      seq(
+        kleft(IDENTITY, str('=')),
+        alt(
+          STRING,
+          kmid(
+            str('{'),
+            alt(JSX, OBJ, ARRAY, NUMBER, BOOLEAN, STRING),
+            str('}')
+          )
+        )
+      ),
+      seq(IDENTITY, nil())
     ),
     applyProp
   )

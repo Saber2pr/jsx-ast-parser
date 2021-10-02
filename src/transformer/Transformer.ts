@@ -1,33 +1,40 @@
+/*
+ * @Author: saber2pr
+ * @Date: 2021-09-12 12:07:49
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2021-10-02 12:07:49
+ */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
+
 import * as Jsx from './Jsx'
 
-export const transformIdentityExpr = (identity: Ast.IdentityExpr): string => {
+export function transformIdentityExpr(identity: Ast.IdentityExpr): string {
   return identity.name
 }
 
-export const transformNumberExpr = (number: Ast.NumberExpr): number => {
+export function transformNumberExpr(number: Ast.NumberExpr): number {
   return number.value
 }
 
-export const transformStringExpr = (string: Ast.StringExpr): string => {
+export function transformStringExpr(string: Ast.StringExpr): string {
   return string.value
 }
 
-export const transformBooleanExpr = (boolean: Ast.BooleanExpr): boolean => {
+export function transformBooleanExpr(boolean: Ast.BooleanExpr): boolean {
   return boolean.value
 }
 
-export const transformTextExpr = (text: Ast.TextExpr): Jsx.TextElement => {
+export function transformTextExpr(text: Ast.TextExpr): Jsx.TextElement {
   return {
     tagName: 'text',
     nodeValue: text.value,
   }
 }
 
-export const transformObjectExpr = (
-  object: Ast.ObjectExpr
-): { [k: string]: any } => {
+export function transformObjectExpr(object: Ast.ObjectExpr): {
+  [k: string]: any
+} {
   const props = object.props
   return Object.fromEntries(
     Object.entries(props).map(([key, node]) => {
@@ -37,6 +44,7 @@ export const transformObjectExpr = (
         case 'BooleanExpr':
           return [key, transformBooleanExpr(node)]
         case 'JsxExpr':
+        case 'JsxSelfClosingExpr':
           return [key, transformJsx(node)]
         case 'NumberExpr':
           return [key, transformNumberExpr(node)]
@@ -51,7 +59,7 @@ export const transformObjectExpr = (
   )
 }
 
-export const transformArrayExpr = (array: Ast.ArrayExpr): any[] => {
+export function transformArrayExpr(array: Ast.ArrayExpr): any[] {
   const items = array.items
   return items.map(node => {
     switch (node.kind) {
@@ -60,6 +68,7 @@ export const transformArrayExpr = (array: Ast.ArrayExpr): any[] => {
       case 'BooleanExpr':
         return transformBooleanExpr(node)
       case 'JsxExpr':
+      case 'JsxSelfClosingExpr':
         return transformJsx(node)
       case 'NumberExpr':
         return transformNumberExpr(node)
@@ -73,9 +82,9 @@ export const transformArrayExpr = (array: Ast.ArrayExpr): any[] => {
   })
 }
 
-export const transformPropsExpr = (
-  props: Ast.PropExpr[]
-): { [k: string]: any } => {
+export function transformPropsExpr(props: Ast.PropExpr[]): {
+  [k: string]: any
+} {
   return Object.fromEntries(
     props.map(prop => {
       const key = prop.key.name
@@ -86,6 +95,7 @@ export const transformPropsExpr = (
         case 'BooleanExpr':
           return [key, transformBooleanExpr(node)]
         case 'JsxExpr':
+        case 'JsxSelfClosingExpr':
           return [key, transformJsx(node)]
         case 'NumberExpr':
           return [key, transformNumberExpr(node)]
@@ -100,9 +110,9 @@ export const transformPropsExpr = (
   )
 }
 
-export const transformJsxSelfClosingExpr = (
+export function transformJsxSelfClosingExpr(
   jsx: Ast.JsxSelfClosingExpr
-): Jsx.JsxElement => {
+): Jsx.JsxElement {
   const tagName = jsx.tagName.name
   const props = jsx.props
   return {
@@ -112,7 +122,7 @@ export const transformJsxSelfClosingExpr = (
   }
 }
 
-export const transformJsx = (jsx: Ast.Jsx): Jsx.JsxElement => {
+export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
   if (Factory.isJsxSelfClosingExpr(jsx)) {
     return transformJsxSelfClosingExpr(jsx)
   }
@@ -132,6 +142,6 @@ export const transformJsx = (jsx: Ast.Jsx): Jsx.JsxElement => {
   }
 }
 
-export const transform = (program: Ast.Program): any => {
+export function transform(program: Ast.Program) {
   return program.body.map(jsx => transformJsx(jsx))
 }
