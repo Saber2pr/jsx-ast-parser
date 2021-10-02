@@ -1,3 +1,9 @@
+/*
+ * @Author: saber2pr
+ * @Date: 2021-09-12 12:06:27
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 12:06:53
+ */
 import * as parsec from 'typescript-parsec'
 
 import * as Ast from './Ast'
@@ -5,24 +11,30 @@ import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
 
-export const applyNumber = (token: Token): Ast.NumberExpr => ({
-  kind: 'NumberExpr',
-  value: +token.text,
-})
+export function applyNumber(token: Token): Ast.NumberExpr {
+  return {
+    kind: 'NumberExpr',
+    value: +token.text,
+  }
+}
 
-export const applyBoolean = (token: Token): Ast.BooleanExpr => ({
-  kind: 'BooleanExpr',
-  value: { true: true, false: false }[String(token.text)],
-})
+export function applyBoolean(token: Token): Ast.BooleanExpr {
+  return {
+    kind: 'BooleanExpr',
+    value: { true: true, false: false }[String(token.text)],
+  }
+}
 
-export const applyString = (text: Ast.TextExpr): Ast.StringExpr => ({
-  kind: 'StringExpr',
-  value: text.value,
-})
+export function applyString(text: Ast.TextExpr): Ast.StringExpr {
+  return {
+    kind: 'StringExpr',
+    value: text.value,
+  }
+}
 
-export const applyIdentity = (
+export function applyIdentity(
   source: [Token, [Ast.NumberExpr, Ast.TextExpr] | undefined]
-): Ast.IdentityExpr => {
+): Ast.IdentityExpr {
   const [letter, tail] = source
   let name = letter.text
   if (tail) {
@@ -40,36 +52,45 @@ export const applyIdentity = (
   }
 }
 
-export const applyProp = (
-  source: [Ast.IdentityExpr, Ast.PropExpr['value']]
-): Ast.PropExpr => {
+export function applyProp(
+  source:
+    | [Ast.IdentityExpr, Ast.PropExpr['value']]
+    | [Ast.IdentityExpr, undefined]
+): Ast.PropExpr {
   const [name, token] = source
+  let value = token
+  if (token === undefined) {
+    value = {
+      kind: 'BooleanExpr',
+      value: true,
+    } as Ast.BooleanExpr
+  }
   return {
     kind: 'PropExpr',
     key: name,
-    value: token,
+    value,
   }
 }
 
-export const applyObject = (
+export function applyObject(
   source: [Ast.IdentityExpr, Token, Ast.JsxExpr, Token][]
-): Ast.ObjectExpr => {
+): Ast.ObjectExpr {
   return {
     kind: 'ObjectExpr',
     props: source.reduce((acc, cur) => ({ ...acc, [cur[0].name]: cur[2] }), {}),
   }
 }
 
-export const applyArray = (items: Ast.ObjectExpr[]): Ast.ArrayExpr => {
+export function applyArray(items: Ast.ObjectExpr[]): Ast.ArrayExpr {
   return {
     kind: 'ArrayExpr',
     items,
   }
 }
 
-export const applyOpeningTag = (
+export function applyOpeningTag(
   source: [Ast.IdentityExpr, Ast.PropExpr[]]
-): Ast.OpeningTagExpr => {
+): Ast.OpeningTagExpr {
   const [name, value] = source
   return {
     kind: 'OpeningTagExpr',
@@ -78,18 +99,16 @@ export const applyOpeningTag = (
   }
 }
 
-export const applyClosingTag = (
-  source: Ast.IdentityExpr
-): Ast.ClosingTagExpr => {
+export function applyClosingTag(source: Ast.IdentityExpr): Ast.ClosingTagExpr {
   return {
     kind: 'ClosingTagExpr',
     tagName: source,
   }
 }
 
-export const applyJsxSelfClosing = (
+export function applyJsxSelfClosing(
   source: [Ast.IdentityExpr, Ast.PropExpr[]]
-): Ast.JsxSelfClosingExpr => {
+): Ast.JsxSelfClosingExpr {
   const [name, value] = source
   return {
     kind: 'JsxSelfClosingExpr',
@@ -98,16 +117,16 @@ export const applyJsxSelfClosing = (
   }
 }
 
-export const applyText = (source: Token[]): Ast.TextExpr => {
+export function applyText(source: Token[]): Ast.TextExpr {
   return {
     kind: 'TextExpr',
     value: source.map(token => token.text).join(''),
   }
 }
 
-export const applyJsx = (
+export function applyJsx(
   source: [Ast.OpeningTagExpr, Ast.JsxExpr['body'], Ast.ClosingTagExpr]
-): Ast.JsxExpr => {
+): Ast.JsxExpr {
   return {
     kind: 'JsxExpr',
     openingTag: source[0],
@@ -116,7 +135,7 @@ export const applyJsx = (
   }
 }
 
-export const applyProgram = (value: Ast.JsxExpr[]): Ast.Program => {
+export function applyProgram(value: Ast.JsxExpr[]): Ast.Program {
   return {
     kind: 'Program',
     body: value,

@@ -44,10 +44,20 @@
                   }
                 ]
               },
-              "logo": null
+              "logo": {
+                "tagName": "Image",
+                "props": {
+                  "mode": "test"
+                },
+                "children": []
+              }
             },
             {
-              "content": null
+              "content": {
+                "tagName": "View",
+                "props": {},
+                "children": []
+              }
             }
           ]
         },

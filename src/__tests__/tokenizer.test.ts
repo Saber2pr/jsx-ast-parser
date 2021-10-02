@@ -1,4 +1,10 @@
-import { RULES, TokenKind } from '../'
+/*
+ * @Author: saber2pr
+ * @Date: 2021-09-12 12:06:11
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2021-10-02 12:06:11
+ */
+import { parser } from '..'
 
 const verifyLL1 = (
   words: string[],
@@ -47,6 +53,8 @@ describe('Tokenizer', () => {
       ',',
       "'",
     ]
-    expect(() => verifyLL1(words, TokenKind, RULES)).not.toThrow()
+    expect(() =>
+      verifyLL1(words, parser.TokenKind, parser.TokenRules)
+    ).not.toThrow()
   })
 })

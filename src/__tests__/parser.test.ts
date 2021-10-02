@@ -1,6 +1,12 @@
-import { parse } from '../'
+/*
+ * @Author: saber2pr
+ * @Date: 2021-09-12 12:06:08
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2021-10-02 12:06:08
+ */
+import { parser } from '..'
 
-describe('Transform', () => {
+describe('Parser', () => {
   it('Case 1', () => {
     const code = `
   <div 
@@ -44,6 +50,6 @@ describe('Transform', () => {
     </span>
   </div>
 `
-    expect(parse(code)).toMatchSnapshot()
+    expect(parser.parse(code)).toMatchSnapshot()
   })
 })

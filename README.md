@@ -8,10 +8,6 @@ yarn add @saber2pr/jsx-ast-parser
 
 ### Feature
 
-in working progress...
-
-TODO:
-
 - [x] jsx opened
 - [x] jsx self closing
 - [x] jsx props string-value
@@ -23,11 +19,14 @@ TODO:
 
 ### Usage
 
-- [see output ast.json](./public/ast.json)
-- [see output jsx.json](./public/jsx.json)
+[docs](https://saber2pr.top/jsx-ast-parser/)
+
+- [see parser output ast.json](./public/ast.json)
+- [see transformer output jsx.json](./public/jsx.json)
+- [see compiler output out.jsx](./public/out.jsx)
 
 ```ts
-import { parse, transform } from '@saber2pr/jsx-ast-parser'
+import { parser, transformer, compiler } from '@saber2pr/jsx-ast-parser'
 
 const code = `
 <div id="233ccc" className="qwq123">
@@ -56,7 +55,7 @@ const code = `
 </div>
 `
 
-const ast = parse(code)
+const ast = parser.parse(code)
 /*
 {
   "kind": "Program",
@@ -98,7 +97,7 @@ const ast = parse(code)
   ]
 }
 */
-transform(ast)
+const jsx = transformer.transform(ast)
 /*
 [
   {
@@ -134,4 +133,6 @@ transform(ast)
   }
 ]
 */
+// compile code from jsx
+compiler.compile(jsx) === code
 ```

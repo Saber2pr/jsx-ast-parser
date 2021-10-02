@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`JsxParser Case 1 1`] = `
+exports[`Transformer Case 1 1`] = `
 Array [
   Object {
     "children": Array [
@@ -21,10 +21,20 @@ Array [
                 },
                 "tagName": "View",
               },
-              "logo": null,
+              "logo": Object {
+                "children": Array [],
+                "props": Object {
+                  "mode": "test",
+                },
+                "tagName": "Image",
+              },
             },
             Object {
-              "content": null,
+              "content": Object {
+                "children": Array [],
+                "props": Object {},
+                "tagName": "View",
+              },
             },
           ],
         },
