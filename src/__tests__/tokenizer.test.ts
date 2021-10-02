@@ -1,8 +1,8 @@
 /*
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:11
- * @Last Modified by:   saber2pr
- * @Last Modified time: 2021-10-02 12:06:11
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 17:58:28
  */
 import { parser } from '..'
 
@@ -52,6 +52,9 @@ describe('Tokenizer', () => {
       ':',
       ',',
       "'",
+      '.',
+      '(',
+      ')',
     ]
     expect(() =>
       verifyLL1(words, parser.TokenKind, parser.TokenRules)

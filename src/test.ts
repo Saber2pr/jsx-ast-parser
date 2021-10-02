@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:38:16
+ * @Last Modified time: 2021-10-02 18:13:04
  */
 import { writeFileSync } from 'fs'
 
@@ -12,7 +12,8 @@ const code = `
 <div 
   width={100} 
   contentEditable={true}
-  color={"red"} 
+  color={"red"}
+  arr={[1,2]}
   style={{
     width: 100,
     color: "red",
@@ -25,6 +26,9 @@ const code = `
   id="233ccc" 
   class2Name="qwq123"
   onClick={onClick}
+  onError={(error,test) => {
+    console.log(error)
+  }}
 >
   <List
     list={[

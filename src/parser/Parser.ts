@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:35:48
+ * @Last Modified time: 2021-10-02 18:23:03
  */
 import {
   alt,
@@ -19,6 +19,7 @@ import {
   str,
   tok,
   nil,
+  list_sc,
 } from 'typescript-parsec'
 
 import * as Ast from './Ast'
@@ -35,6 +36,8 @@ import {
   applyProp,
   applyString,
   applyText,
+  applyArrowFunction,
+  applyCallChain,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
@@ -52,6 +55,10 @@ export const CLOSETAG = rule<TokenKind, Ast.ClosingTagExpr>()
 export const JSXSELFCLOSE = rule<TokenKind, Ast.JsxSelfClosingExpr>()
 export const JSXOPENED = rule<TokenKind, Ast.JsxExpr>()
 export const TEXT = rule<TokenKind, Ast.TextExpr>()
+
+// Statement
+export const ARROWFUNCTION = rule<TokenKind, Ast.ArrowFunctionExpr>()
+export const CALLCHAIN = rule<TokenKind, Ast.CallChainExpr>()
 
 // Program
 export const PROGRAM = rule<TokenKind, Ast.Program>()
@@ -98,21 +105,23 @@ IDENTITY.setPattern(
 
 /*
 OBJ 
-  = { many $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY}
+  = { commanSep $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY }
 */
 OBJ.setPattern(
   apply(
     kmid(
       str('{'),
-      rep_sc(
-        seq(
-          IDENTITY,
-          str(':'),
-          alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY),
-          opt(str(','))
+      opt(
+        list_sc(
+          seq(
+            IDENTITY,
+            str(':'),
+            alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY)
+          ),
+          str(',')
         )
       ),
-      str('}')
+      seq(opt(str(',')), str('}'))
     ),
     applyObject
   )
@@ -126,10 +135,8 @@ ARRAY.setPattern(
   apply(
     kmid(
       str('['),
-      rep_sc(
-        kleft(alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY), opt(str(',')))
-      ),
-      str(']')
+      opt(list_sc(alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY), str(','))),
+      seq(opt(str(',')), str(']'))
     ),
     applyArray
   )
@@ -138,7 +145,7 @@ ARRAY.setPattern(
 /*
 PROP 
   = IDENTITY
-  = IDENTITY={JSX <|> OBJ <|> Array <|> NUMBER <|> STRING <|> IDENTITY}
+  = IDENTITY={JSX <|> OBJ <|> ARRAY <|> NUMBER <|> STRING <|> IDENTITY <|> ARROWFUNCTION}
 */
 PROP.setPattern(
   apply(
@@ -149,7 +156,7 @@ PROP.setPattern(
           STRING,
           kmid(
             str('{'),
-            alt(JSX, OBJ, ARRAY, NUMBER, STRING, IDENTITY),
+            alt(JSX, OBJ, ARRAY, NUMBER, STRING, IDENTITY, ARROWFUNCTION),
             str('}')
           )
         )
@@ -200,6 +207,37 @@ JSXOPENED
 */
 JSXOPENED.setPattern(
   apply(seq(OPENTAG, rep_sc(alt(JSX, TEXT)), CLOSETAG), applyJsx)
+)
+
+/*
+ARROWFUNCTION
+  = (commaSep IDENTITY) => { many CALLCHAIN }
+*/
+ARROWFUNCTION.setPattern(
+  apply(
+    seq(
+      kmid(str('('), list_sc(IDENTITY, str(',')), seq(opt(str(',')), str(')'))),
+      kright(
+        seq(str('='), str('>')),
+        kmid(str('{'), rep_sc(CALLCHAIN), str('}'))
+      )
+    ),
+    applyArrowFunction
+  )
+)
+
+/*
+CALLCHAIN
+  = dotSep IDENTITY ( commaSep IDENTITY )
+*/
+CALLCHAIN.setPattern(
+  apply(
+    seq(
+      list_sc(IDENTITY, str('.')),
+      kmid(str('('), list_sc(IDENTITY, str(',')), seq(opt(str(',')), str(')')))
+    ),
+    applyCallChain
+  )
 )
 
 /*

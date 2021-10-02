@@ -3,6 +3,7 @@
     width={100}
     contentEditable
     color="red"
+    arr={[1, 2]}
     style={{
       width: 100,
       color: 'red',
@@ -13,6 +14,7 @@
     id="233ccc"
     class2Name="qwq123"
     onClick="onClick"
+    onError={null}
   >
     <List
       list={[
