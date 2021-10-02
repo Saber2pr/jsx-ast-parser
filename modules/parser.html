@@ -79,7 +79,8 @@
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.ArrayExpr.html" class="tsd-kind-icon">Array<wbr>Expr</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.BooleanExpr.html" class="tsd-kind-icon">Boolean<wbr>Expr</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.ArrowFunctionExpr.html" class="tsd-kind-icon">Arrow<wbr>Function<wbr>Expr</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.CallChainExpr.html" class="tsd-kind-icon">Call<wbr>Chain<wbr>Expr</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.ClosingTagExpr.html" class="tsd-kind-icon">Closing<wbr>Tag<wbr>Expr</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.IdentityExpr.html" class="tsd-kind-icon">Identity<wbr>Expr</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/parser.JsxExpr.html" class="tsd-kind-icon">Jsx<wbr>Expr</a></li>
@@ -106,7 +107,8 @@
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#ARRAY" class="tsd-kind-icon">ARRAY</a></li>
-								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#BOOLEAN" class="tsd-kind-icon">BOOLEAN</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#ARROWFUNCTION" class="tsd-kind-icon">ARROWFUNCTION</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#CALLCHAIN" class="tsd-kind-icon">CALLCHAIN</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#CLOSETAG" class="tsd-kind-icon">CLOSETAG</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#IDENTITY" class="tsd-kind-icon">IDENTITY</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-namespace"><a href="parser.html#JSXOPENED" class="tsd-kind-icon">JSXOPENED</a></li>
@@ -126,7 +128,8 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyArray" class="tsd-kind-icon">apply<wbr>Array</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyBoolean" class="tsd-kind-icon">apply<wbr>Boolean</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyArrowFunction" class="tsd-kind-icon">apply<wbr>Arrow<wbr>Function</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyCallChain" class="tsd-kind-icon">apply<wbr>Call<wbr>Chain</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyClosingTag" class="tsd-kind-icon">apply<wbr>Closing<wbr>Tag</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyIdentity" class="tsd-kind-icon">apply<wbr>Identity</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyJsx" class="tsd-kind-icon">apply<wbr>Jsx</a></li>
@@ -139,7 +142,6 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyString" class="tsd-kind-icon">apply<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#applyText" class="tsd-kind-icon">apply<wbr>Text</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#isArrayExpr" class="tsd-kind-icon">is<wbr>Array<wbr>Expr</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#isBooleanExpr" class="tsd-kind-icon">is<wbr>Boolean<wbr>Expr</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#isIdentityExpr" class="tsd-kind-icon">is<wbr>Identity<wbr>Expr</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#isJsxExpr" class="tsd-kind-icon">is<wbr>Jsx<wbr>Expr</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="parser.html#isJsxSelfClosingExpr" class="tsd-kind-icon">is<wbr>Jsx<wbr>Self<wbr>Closing<wbr>Expr</a></li>
@@ -161,7 +163,7 @@
 					<div class="tsd-signature tsd-kind-icon">Jsx<span class="tsd-signature-symbol">:</span> <a href="../interfaces/parser.JsxExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.JsxSelfClosingExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxSelfClosingExpr</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Ast.ts#L91">parser/Ast.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Ast.ts#L86">parser/Ast.ts:86</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -171,17 +173,17 @@
 					<div class="tsd-signature tsd-kind-icon">Token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">parsec.Token</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L12">parser/Consumer.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L12">parser/Consumer.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-namespace">
 					<a name="Type" class="tsd-anchor"></a>
 					<h3>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Type<span class="tsd-signature-symbol">:</span> <a href="parser.html#Jsx" class="tsd-signature-type" data-tsd-kind="Type alias">Jsx</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.StringExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">StringExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.NumberExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">NumberExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.BooleanExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BooleanExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.ArrayExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrayExpr</a></div>
+					<div class="tsd-signature tsd-kind-icon">Type<span class="tsd-signature-symbol">:</span> <a href="parser.html#Jsx" class="tsd-signature-type" data-tsd-kind="Type alias">Jsx</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.StringExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">StringExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.NumberExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">NumberExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/parser.ArrayExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrayExpr</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Ast.ts#L46">parser/Ast.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Ast.ts#L41">parser/Ast.ts:41</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -194,17 +196,27 @@
 					<div class="tsd-signature tsd-kind-icon">ARRAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.ArrayExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrayExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L48">parser/Parser.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L49">parser/Parser.ts:49</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
-					<a name="BOOLEAN" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> BOOLEAN</h3>
-					<div class="tsd-signature tsd-kind-icon">BOOLEAN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.BooleanExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BooleanExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<a name="ARROWFUNCTION" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> ARROWFUNCTION</h3>
+					<div class="tsd-signature tsd-kind-icon">ARROWFUNCTION<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.ArrowFunctionExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunctionExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L45">parser/Parser.ts:45</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L60">parser/Parser.ts:60</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-namespace">
+					<a name="CALLCHAIN" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> CALLCHAIN</h3>
+					<div class="tsd-signature tsd-kind-icon">CALLCHAIN<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.CallChainExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChainExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L61">parser/Parser.ts:61</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -214,7 +226,7 @@
 					<div class="tsd-signature tsd-kind-icon">CLOSETAG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.ClosingTagExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ClosingTagExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L53">parser/Parser.ts:53</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L54">parser/Parser.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -224,7 +236,7 @@
 					<div class="tsd-signature tsd-kind-icon">IDENTITY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L43">parser/Parser.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L45">parser/Parser.ts:45</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -234,7 +246,7 @@
 					<div class="tsd-signature tsd-kind-icon">JSXOPENED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.JsxExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L55">parser/Parser.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L56">parser/Parser.ts:56</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +256,7 @@
 					<div class="tsd-signature tsd-kind-icon">JSXSELFCLOSE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.JsxSelfClosingExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxSelfClosingExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L54">parser/Parser.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L55">parser/Parser.ts:55</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -254,7 +266,7 @@
 					<div class="tsd-signature tsd-kind-icon">NUMBER<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.NumberExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">NumberExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L44">parser/Parser.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L46">parser/Parser.ts:46</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -264,7 +276,7 @@
 					<div class="tsd-signature tsd-kind-icon">OBJ<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L47">parser/Parser.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L48">parser/Parser.ts:48</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +286,7 @@
 					<div class="tsd-signature tsd-kind-icon">OPENTAG<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.OpeningTagExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">OpeningTagExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L52">parser/Parser.ts:52</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L53">parser/Parser.ts:53</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -284,7 +296,7 @@
 					<div class="tsd-signature tsd-kind-icon">PROGRAM<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.Program.html" class="tsd-signature-type" data-tsd-kind="Interface">Program</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L59">parser/Parser.ts:59</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L64">parser/Parser.ts:64</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -294,7 +306,7 @@
 					<div class="tsd-signature tsd-kind-icon">PROP<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.PropExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">PropExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L51">parser/Parser.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L52">parser/Parser.ts:52</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -304,7 +316,7 @@
 					<div class="tsd-signature tsd-kind-icon">STRING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.StringExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">StringExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L46">parser/Parser.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L47">parser/Parser.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -314,7 +326,7 @@
 					<div class="tsd-signature tsd-kind-icon">TEXT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Rule</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.TextExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">TextExpr</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L56">parser/Parser.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L57">parser/Parser.ts:57</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -324,7 +336,7 @@
 					<div class="tsd-signature tsd-kind-icon">Token<wbr>Rules<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">RegExp</span><span class="tsd-signature-symbol">, </span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Tokenizer.ts#L16">parser/Tokenizer.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Tokenizer.ts#L16">parser/Tokenizer.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -334,7 +346,7 @@
 					<div class="tsd-signature tsd-kind-icon">tokenizer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Lexer</span><span class="tsd-signature-symbol">&lt;</span><a href="../enums/parser.TokenKind.html" class="tsd-signature-type" data-tsd-kind="Enumeration">TokenKind</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = ...</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Tokenizer.ts#L23">parser/Tokenizer.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Tokenizer.ts#L23">parser/Tokenizer.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -345,19 +357,19 @@
 					<a name="applyArray" class="tsd-anchor"></a>
 					<h3>apply<wbr>Array</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">apply<wbr>Array<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ArrayExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrayExpr</a></li>
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Array<span class="tsd-signature-symbol">(</span>items<span class="tsd-signature-symbol">?: </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ArrayExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrayExpr</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L84">parser/Consumer.ts:84</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L81">parser/Consumer.ts:81</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>items: <a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>items: <a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> = []</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/parser.ArrayExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrayExpr</a></h4>
@@ -365,25 +377,48 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="applyBoolean" class="tsd-anchor"></a>
-					<h3>apply<wbr>Boolean</h3>
+					<a name="applyArrowFunction" class="tsd-anchor"></a>
+					<h3>apply<wbr>Arrow<wbr>Function</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">apply<wbr>Boolean<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.BooleanExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BooleanExpr</a></li>
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Arrow<wbr>Function<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.CallChainExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChainExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ArrowFunctionExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunctionExpr</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L21">parser/Consumer.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L140">parser/Consumer.ts:140</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>token: <a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a></h5>
+									<h5>source: <span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.CallChainExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChainExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">]</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="../interfaces/parser.BooleanExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BooleanExpr</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/parser.ArrowFunctionExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunctionExpr</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="applyCallChain" class="tsd-anchor"></a>
+					<h3>apply<wbr>Call<wbr>Chain</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Call<wbr>Chain<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.CallChainExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChainExpr</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L152">parser/Consumer.ts:152</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>source: <span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/parser.CallChainExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChainExpr</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -397,7 +432,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L102">parser/Consumer.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L101">parser/Consumer.ts:101</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -420,7 +455,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L35">parser/Consumer.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L30">parser/Consumer.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -443,7 +478,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L127">parser/Consumer.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L126">parser/Consumer.ts:126</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -466,7 +501,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L109">parser/Consumer.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L108">parser/Consumer.ts:108</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -489,7 +524,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L14">parser/Consumer.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L16">parser/Consumer.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -506,19 +541,19 @@
 					<a name="applyObject" class="tsd-anchor"></a>
 					<h3>apply<wbr>Object</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">apply<wbr>Object<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.JsxExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxExpr</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a></li>
+						<li class="tsd-signature tsd-kind-icon">apply<wbr>Object<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L75">parser/Consumer.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L72">parser/Consumer.ts:72</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>source: <span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/parser.JsxExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxExpr</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>source: <span class="tsd-signature-symbol">[</span><a href="../interfaces/parser.IdentityExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">IdentityExpr</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Token" class="tsd-signature-type" data-tsd-kind="Type alias">Token</a><span class="tsd-signature-symbol">, </span><a href="parser.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> = []</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/parser.ObjectExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">ObjectExpr</a></h4>
@@ -535,7 +570,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L91">parser/Consumer.ts:91</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L90">parser/Consumer.ts:90</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -558,7 +593,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L138">parser/Consumer.ts:138</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L164">parser/Consumer.ts:164</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -581,7 +616,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L55">parser/Consumer.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L52">parser/Consumer.ts:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -604,7 +639,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L28">parser/Consumer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L23">parser/Consumer.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -627,7 +662,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Consumer.ts#L120">parser/Consumer.ts:120</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Consumer.ts#L119">parser/Consumer.ts:119</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -650,7 +685,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L29">parser/Factory.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L25">parser/Factory.ts:25</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -664,29 +699,6 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
-					<a name="isBooleanExpr" class="tsd-anchor"></a>
-					<h3>is<wbr>Boolean<wbr>Expr</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Boolean<wbr>Expr<span class="tsd-signature-symbol">(</span>token<span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">token</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/parser.BooleanExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BooleanExpr</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L17">parser/Factory.ts:17</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>token: <a href="../interfaces/parser.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">token</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/parser.BooleanExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BooleanExpr</a></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="isIdentityExpr" class="tsd-anchor"></a>
 					<h3>is<wbr>Identity<wbr>Expr</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -696,7 +708,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L9">parser/Factory.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L9">parser/Factory.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -719,7 +731,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L33">parser/Factory.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L29">parser/Factory.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -742,7 +754,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L41">parser/Factory.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L37">parser/Factory.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -765,7 +777,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L13">parser/Factory.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L13">parser/Factory.ts:13</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -788,7 +800,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L25">parser/Factory.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L21">parser/Factory.ts:21</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -811,7 +823,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L21">parser/Factory.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L17">parser/Factory.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -834,7 +846,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Factory.ts#L37">parser/Factory.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Factory.ts#L33">parser/Factory.ts:33</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -857,7 +869,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/4c82ab0/src/parser/Parser.ts#L220">parser/Parser.ts:220</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/parser/Parser.ts#L250">parser/Parser.ts:250</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -901,7 +913,10 @@
 						<a href="../interfaces/parser.ArrayExpr.html" class="tsd-kind-icon">Array<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="../interfaces/parser.BooleanExpr.html" class="tsd-kind-icon">Boolean<wbr>Expr</a>
+						<a href="../interfaces/parser.ArrowFunctionExpr.html" class="tsd-kind-icon">Arrow<wbr>Function<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/parser.CallChainExpr.html" class="tsd-kind-icon">Call<wbr>Chain<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/parser.ClosingTagExpr.html" class="tsd-kind-icon">Closing<wbr>Tag<wbr>Expr</a>
@@ -952,7 +967,10 @@
 						<a href="parser.html#ARRAY" class="tsd-kind-icon">ARRAY</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
-						<a href="parser.html#BOOLEAN" class="tsd-kind-icon">BOOLEAN</a>
+						<a href="parser.html#ARROWFUNCTION" class="tsd-kind-icon">ARROWFUNCTION</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
+						<a href="parser.html#CALLCHAIN" class="tsd-kind-icon">CALLCHAIN</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-namespace">
 						<a href="parser.html#CLOSETAG" class="tsd-kind-icon">CLOSETAG</a>
@@ -997,7 +1015,10 @@
 						<a href="parser.html#applyArray" class="tsd-kind-icon">apply<wbr>Array</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="parser.html#applyBoolean" class="tsd-kind-icon">apply<wbr>Boolean</a>
+						<a href="parser.html#applyArrowFunction" class="tsd-kind-icon">apply<wbr>Arrow<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="parser.html#applyCallChain" class="tsd-kind-icon">apply<wbr>Call<wbr>Chain</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="parser.html#applyClosingTag" class="tsd-kind-icon">apply<wbr>Closing<wbr>Tag</a>
@@ -1034,9 +1055,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="parser.html#isArrayExpr" class="tsd-kind-icon">is<wbr>Array<wbr>Expr</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-namespace">
-						<a href="parser.html#isBooleanExpr" class="tsd-kind-icon">is<wbr>Boolean<wbr>Expr</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="parser.html#isIdentityExpr" class="tsd-kind-icon">is<wbr>Identity<wbr>Expr</a>
