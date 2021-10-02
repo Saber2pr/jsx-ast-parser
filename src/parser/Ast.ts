@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 18:19:44
+ * @Last Modified time: 2021-10-02 20:06:05
  */
 export interface Node {
   kind: any
@@ -29,16 +29,16 @@ export interface StringExpr extends Node {
 export interface ObjectExpr extends Node {
   kind: 'ObjectExpr'
   props: {
-    [k: string]: Type
+    [k: string]: Expression
   }
 }
 
 export interface ArrayExpr extends Node {
   kind: 'ArrayExpr'
-  items: Type[]
+  items: Expression[]
 }
 
-export type Type =
+export type Expression =
   | Jsx
   | StringExpr
   | NumberExpr
@@ -64,7 +64,7 @@ export interface ClosingTagExpr extends Node {
 export interface PropExpr extends Node {
   kind: 'PropExpr'
   key: IdentityExpr
-  value: Type
+  value: Expression
 }
 
 export interface JsxExpr extends Node {

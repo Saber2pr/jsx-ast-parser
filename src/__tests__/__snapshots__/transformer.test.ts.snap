@@ -3,15 +3,19 @@
 exports[`Transformer Case 1 1`] = `
 Array [
   Object {
+    "$$typeof": "jsx",
     "children": Array [
       Object {
+        "$$typeof": "jsx",
         "children": Array [],
         "props": Object {
           "list": Array [
             Object {
               "content": Object {
+                "$$typeof": "jsx",
                 "children": Array [
                   Object {
+                    "$$typeof": "text",
                     "nodeValue": "233",
                     "tagName": "text",
                   },
@@ -22,6 +26,7 @@ Array [
                 "tagName": "View",
               },
               "logo": Object {
+                "$$typeof": "jsx",
                 "children": Array [],
                 "props": Object {
                   "mode": "test",
@@ -31,6 +36,7 @@ Array [
             },
             Object {
               "content": Object {
+                "$$typeof": "jsx",
                 "children": Array [],
                 "props": Object {},
                 "tagName": "View",
@@ -41,11 +47,13 @@ Array [
         "tagName": "List",
       },
       Object {
+        "$$typeof": "jsx",
         "children": Array [],
         "props": Object {},
         "tagName": "div",
       },
       Object {
+        "$$typeof": "jsx",
         "children": Array [],
         "props": Object {
           "id": "qwq",
@@ -53,8 +61,10 @@ Array [
         "tagName": "div",
       },
       Object {
+        "$$typeof": "jsx",
         "children": Array [
           Object {
+            "$$typeof": "text",
             "nodeValue": "aaa",
             "tagName": "text",
           },
@@ -63,8 +73,10 @@ Array [
         "tagName": "span",
       },
       Object {
+        "$$typeof": "jsx",
         "children": Array [
           Object {
+            "$$typeof": "text",
             "nodeValue": "1234",
             "tagName": "text",
           },
@@ -73,8 +85,10 @@ Array [
         "tagName": "span",
       },
       Object {
+        "$$typeof": "jsx",
         "children": Array [
           Object {
+            "$$typeof": "text",
             "nodeValue": "1234asd",
             "tagName": "text",
           },
@@ -83,14 +97,18 @@ Array [
         "tagName": "span",
       },
       Object {
+        "$$typeof": "jsx",
         "children": Array [
           Object {
+            "$$typeof": "text",
             "nodeValue": "12aa",
             "tagName": "text",
           },
           Object {
+            "$$typeof": "jsx",
             "children": Array [
               Object {
+                "$$typeof": "text",
                 "nodeValue": "aaa",
                 "tagName": "text",
               },
@@ -99,6 +117,7 @@ Array [
             "tagName": "span",
           },
           Object {
+            "$$typeof": "text",
             "nodeValue": "aa234234aaa",
             "tagName": "text",
           },
@@ -108,15 +127,51 @@ Array [
       },
     ],
     "props": Object {
+      "arr": Array [
+        1,
+        2,
+      ],
       "class2Name": "qwq123",
       "color": "red",
       "contentEditable": true,
       "id": "233ccc",
+      "onClick": "onClick",
+      "onError": Object {
+        "$$typeof": "function",
+        "args": Array [
+          "error",
+          "test",
+        ],
+        "body": Array [
+          Object {
+            "$$typeof": "call",
+            "args": Array [
+              "error",
+            ],
+            "caller": "console",
+            "chain": Array [
+              "log",
+            ],
+          },
+          Object {
+            "$$typeof": "call",
+            "args": Array [
+              "test",
+            ],
+            "caller": "console",
+            "chain": Array [
+              "log",
+            ],
+          },
+        ],
+      },
       "style": Object {
         "background": "blue",
         "child": Object {
+          "$$typeof": "jsx",
           "children": Array [
             Object {
+              "$$typeof": "text",
               "nodeValue": "233",
               "tagName": "text",
             },

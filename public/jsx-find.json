@@ -1,0 +1,43 @@
+[
+  {
+    "$$typeof": "jsx",
+    "tagName": "List",
+    "props": {
+      "list": [
+        {
+          "content": {
+            "$$typeof": "jsx",
+            "tagName": "View",
+            "props": {
+              "color": "red"
+            },
+            "children": [
+              {
+                "$$typeof": "text",
+                "tagName": "text",
+                "nodeValue": "233"
+              }
+            ]
+          },
+          "logo": {
+            "$$typeof": "jsx",
+            "tagName": "Image",
+            "props": {
+              "mode": "test"
+            },
+            "children": []
+          }
+        },
+        {
+          "content": {
+            "$$typeof": "jsx",
+            "tagName": "View",
+            "props": {},
+            "children": []
+          }
+        }
+      ]
+    },
+    "children": []
+  }
+]

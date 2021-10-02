@@ -1,18 +1,19 @@
 /*
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:08
- * @Last Modified by:   saber2pr
- * @Last Modified time: 2021-10-02 12:06:08
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 20:15:44
  */
-import { parser } from '..'
+import { parser } from '../'
 
 describe('Parser', () => {
   it('Case 1', () => {
     const code = `
   <div 
     width={100} 
-    contentEditable={true} 
-    color={"red"} 
+    contentEditable={true}
+    color={"red"}
+    arr={[1,2]}
     style={{
       width: 100,
       color: "red",
@@ -24,6 +25,11 @@ describe('Parser', () => {
     }} 
     id="233ccc" 
     class2Name="qwq123"
+    onClick={onClick}
+    onError={(error,test) => {
+      console.log(error);
+      console.log(test)
+    }}
   >
     <List
       list={[
@@ -32,7 +38,7 @@ describe('Parser', () => {
           logo: <Image mode="test" />
         },
         {
-          content: <View/>
+          content: <View />
         }
       ]}
     />

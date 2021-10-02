@@ -2,11 +2,10 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 19:43:13
+ * @Last Modified time: 2021-10-02 20:06:24
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
-
 import * as Jsx from './Jsx'
 
 // basic
@@ -190,5 +189,5 @@ export function transformCallChain(func: Ast.CallChainExpr): Jsx.CallChain {
 }
 
 export function transform(program: Ast.Program) {
-  return program.body.map(jsx => transformJsx(jsx))
+  return program.body.map(expression => transformJsx(expression))
 }
