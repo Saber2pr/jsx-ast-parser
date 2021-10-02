@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:06:53
+ * @Last Modified time: 2021-10-02 20:32:33
  */
 import * as parsec from 'typescript-parsec'
 
@@ -55,8 +55,10 @@ export function applyProp(
     | [Ast.IdentityExpr, undefined]
 ): Ast.PropExpr {
   const [name, token] = source
-  let value = token
-  if (token === undefined) {
+  let value: Ast.Expression
+  if (token) {
+    value = token
+  } else {
     value = {
       kind: 'IdentityExpr',
       name: 'true',
@@ -79,7 +81,7 @@ export function applyObject(
 }
 
 export function applyArray(
-  items: Ast.ObjectExpr[] | undefined = []
+  items: Ast.Expression[] | undefined = []
 ): Ast.ArrayExpr {
   return {
     kind: 'ArrayExpr',
@@ -159,7 +161,7 @@ export function applyCallChain(
   }
 }
 
-export function applyProgram(value: Ast.JsxExpr[]): Ast.Program {
+export function applyProgram(value: Ast.Jsx[]): Ast.Program {
   return {
     kind: 'Program',
     body: value,
