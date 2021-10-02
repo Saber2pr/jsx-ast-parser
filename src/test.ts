@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 18:13:04
+ * @Last Modified time: 2021-10-02 19:52:21
  */
 import { writeFileSync } from 'fs'
 
@@ -28,6 +28,7 @@ const code = `
   onClick={onClick}
   onError={(error,test) => {
     console.log(error)
+    console.log(test)
   }}
 >
   <List

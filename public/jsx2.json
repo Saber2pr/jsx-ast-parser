@@ -1,4 +1,5 @@
 {
+  "$$typeof": "jsx",
   "tagName": "div",
   "props": {
     "width": 100,
@@ -16,10 +17,12 @@
         "color": "red"
       },
       "child": {
+        "$$typeof": "jsx",
         "tagName": "span",
         "props": {},
         "children": [
           {
+            "$$typeof": "text",
             "tagName": "text",
             "nodeValue": "233"
           }
@@ -29,27 +32,59 @@
     "id": "233ccc",
     "class2Name": "qwq123",
     "onClick": "onClick",
-    "onError": null
+    "onError": {
+      "$$typeof": "function",
+      "args": [
+        "error",
+        "test"
+      ],
+      "body": [
+        {
+          "$$typeof": "call",
+          "caller": "console",
+          "chain": [
+            "log"
+          ],
+          "args": [
+            "error"
+          ]
+        },
+        {
+          "$$typeof": "call",
+          "caller": "console",
+          "chain": [
+            "log"
+          ],
+          "args": [
+            "test"
+          ]
+        }
+      ]
+    }
   },
   "children": [
     {
+      "$$typeof": "jsx",
       "tagName": "List",
       "props": {
         "list": [
           {
             "content": {
+              "$$typeof": "jsx",
               "tagName": "View",
               "props": {
                 "color": "red"
               },
               "children": [
                 {
+                  "$$typeof": "text",
                   "tagName": "text",
                   "nodeValue": "233"
                 }
               ]
             },
             "logo": {
+              "$$typeof": "jsx",
               "tagName": "Image",
               "props": {
                 "mode": "test"
@@ -59,6 +94,7 @@
           },
           {
             "content": {
+              "$$typeof": "jsx",
               "tagName": "View",
               "props": {},
               "children": []
@@ -69,11 +105,13 @@
       "children": []
     },
     {
+      "$$typeof": "jsx",
       "tagName": "div",
       "props": {},
       "children": []
     },
     {
+      "$$typeof": "jsx",
       "tagName": "div",
       "props": {
         "id": "qwq",
@@ -82,54 +120,65 @@
       "children": []
     },
     {
+      "$$typeof": "jsx",
       "tagName": "span",
       "props": {},
       "children": [
         {
+          "$$typeof": "text",
           "tagName": "text",
           "nodeValue": "aaa"
         }
       ]
     },
     {
+      "$$typeof": "jsx",
       "tagName": "span",
       "props": {},
       "children": [
         {
+          "$$typeof": "text",
           "tagName": "text",
           "nodeValue": "1234"
         }
       ]
     },
     {
+      "$$typeof": "jsx",
       "tagName": "span",
       "props": {},
       "children": [
         {
+          "$$typeof": "text",
           "tagName": "text",
           "nodeValue": "1234asd"
         }
       ]
     },
     {
+      "$$typeof": "jsx",
       "tagName": "span",
       "props": {},
       "children": [
         {
+          "$$typeof": "text",
           "tagName": "text",
           "nodeValue": "12aa"
         },
         {
+          "$$typeof": "jsx",
           "tagName": "span",
           "props": {},
           "children": [
             {
+              "$$typeof": "text",
               "tagName": "text",
               "nodeValue": "aaa"
             }
           ]
         },
         {
+          "$$typeof": "text",
           "tagName": "text",
           "nodeValue": "aa234234aaa"
         }

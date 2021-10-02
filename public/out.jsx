@@ -14,7 +14,10 @@
     id="233ccc"
     class2Name="qwq123"
     onClick="onClick"
-    onError={null}
+    onError={(error, test) => {
+      console.log(error)
+      console.log(test)
+    }}
   >
     <List
       list={[

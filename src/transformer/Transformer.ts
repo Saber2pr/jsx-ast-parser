@@ -2,12 +2,14 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:42:12
+ * @Last Modified time: 2021-10-02 19:43:13
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
 
 import * as Jsx from './Jsx'
+
+// basic
 
 export function transformIdentityExpr(
   identity: Ast.IdentityExpr
@@ -32,6 +34,7 @@ export function transformStringExpr(string: Ast.StringExpr): string {
 
 export function transformTextExpr(text: Ast.TextExpr): Jsx.TextElement {
   return {
+    $$typeof: 'text',
     tagName: 'text',
     nodeValue: text.value,
   }
@@ -57,6 +60,10 @@ export function transformObjectExpr(object: Ast.ObjectExpr): {
           return [key, transformObjectExpr(node)]
         case 'StringExpr':
           return [key, transformStringExpr(node)]
+        case 'ArrowFunctionExpr':
+          return [key, transformArrowFunction(node)]
+        case 'CallChainExpr':
+          return [key, transformCallChain(node)]
         default:
           return [key, null]
       }
@@ -81,11 +88,17 @@ export function transformArrayExpr(array: Ast.ArrayExpr): any[] {
         return transformObjectExpr(node)
       case 'StringExpr':
         return transformStringExpr(node)
+      case 'ArrowFunctionExpr':
+        return transformArrowFunction(node)
+      case 'CallChainExpr':
+        return transformCallChain(node)
       default:
         return null
     }
   })
 }
+
+// Jsx
 
 export function transformPropsExpr(props: Ast.PropExpr[]): {
   [k: string]: any
@@ -108,6 +121,10 @@ export function transformPropsExpr(props: Ast.PropExpr[]): {
           return [key, transformObjectExpr(node)]
         case 'StringExpr':
           return [key, transformStringExpr(node)]
+        case 'ArrowFunctionExpr':
+          return [key, transformArrowFunction(node)]
+        case 'CallChainExpr':
+          return [key, transformCallChain(node)]
         default:
           return [key, null]
       }
@@ -121,6 +138,7 @@ export function transformJsxSelfClosingExpr(
   const tagName = jsx.tagName.name
   const props = jsx.props
   return {
+    $$typeof: 'jsx',
     tagName,
     props: transformPropsExpr(props),
     children: [],
@@ -135,6 +153,7 @@ export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
   const props = jsx.openingTag.props
   const body = jsx.body
   return {
+    $$typeof: 'jsx',
     tagName,
     props: transformPropsExpr(props),
     children: body.map(node => {
@@ -144,6 +163,29 @@ export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
         return transformJsx(node)
       }
     }),
+  }
+}
+
+// Statement
+
+export function transformArrowFunction(
+  func: Ast.ArrowFunctionExpr
+): Jsx.ArrowFunction {
+  const { args, body = [] } = func
+  return {
+    $$typeof: 'function',
+    args: args.map(arg => arg.name),
+    body: body.map(statement => transformCallChain(statement)),
+  }
+}
+
+export function transformCallChain(func: Ast.CallChainExpr): Jsx.CallChain {
+  const { caller, chain, args } = func
+  return {
+    $$typeof: 'call',
+    caller: caller.name,
+    chain: chain.map(item => item.name),
+    args: args.map(arg => arg.name),
   }
 }
 
