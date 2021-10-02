@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Element | @saber2pr/jsx-ast-parser</title>
+	<title>Node | @saber2pr/jsx-ast-parser</title>
 	<meta name="description" content="Documentation for @saber2pr/jsx-ast-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/transformer.html">transformer</a>
 				</li>
 				<li>
-					<a href="transformer.Element.html">Element</a>
+					<a href="transformer.Node.html">Node</a>
 				</li>
 			</ul>
-			<h1>Interface Element</h1>
+			<h1>Interface Node</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Element</span>
+						<span class="target">Node</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<a href="transformer.JsxElement.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxElement</a>
@@ -95,7 +95,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transformer.Element.html#tagName" class="tsd-kind-icon">tag<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transformer.Node.html#__typeof" class="tsd-kind-icon">$$typeof</a></li>
 							</ul>
 						</section>
 					</div>
@@ -104,12 +104,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tagName" class="tsd-anchor"></a>
-					<h3>tag<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">tag<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="__typeof" class="tsd-anchor"></a>
+					<h3>$$typeof</h3>
+					<div class="tsd-signature tsd-kind-icon">$$typeof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/a86f0f9/src/transformer/Jsx.ts#L14">transformer/Jsx.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3f35fc8/src/transformer/Jsx.ts#L24">transformer/Jsx.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -137,24 +137,30 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-				</ul>
-				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="transformer.Element.html" class="tsd-kind-icon">Element</a>
-						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="transformer.Element.html#tagName" class="tsd-kind-icon">tag<wbr>Name</a>
-							</li>
-						</ul>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="transformer.ArrowFunction.html" class="tsd-kind-icon">Arrow<wbr>Function</a>
 					</li>
-				</ul>
-				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="transformer.CallChain.html" class="tsd-kind-icon">Call<wbr>Chain</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="transformer.JsxAttributes.html" class="tsd-kind-icon">Jsx<wbr>Attributes</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="transformer.JsxElement.html" class="tsd-kind-icon">Jsx<wbr>Element</a>
 					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="transformer.Node.html" class="tsd-kind-icon">Node</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="transformer.Node.html#__typeof" class="tsd-kind-icon">$$typeof</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="transformer.TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a>
 					</li>
@@ -168,6 +174,12 @@
 						<a href="../modules/transformer.html#createJsxElement" class="tsd-kind-icon">create<wbr>Jsx<wbr>Element</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="../modules/transformer.html#isArrowFunction" class="tsd-kind-icon">is<wbr>Arrow<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="../modules/transformer.html#isCallChain" class="tsd-kind-icon">is<wbr>Call<wbr>Chain</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="../modules/transformer.html#isJsxElement" class="tsd-kind-icon">is<wbr>Jsx<wbr>Element</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
@@ -178,6 +190,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="../modules/transformer.html#transformArrayExpr" class="tsd-kind-icon">transform<wbr>Array<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="../modules/transformer.html#transformArrowFunction" class="tsd-kind-icon">transform<wbr>Arrow<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="../modules/transformer.html#transformCallChain" class="tsd-kind-icon">transform<wbr>Call<wbr>Chain</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="../modules/transformer.html#transformIdentityExpr" class="tsd-kind-icon">transform<wbr>Identity<wbr>Expr</a>
