@@ -1,8 +1,8 @@
 /*
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
- * @Last Modified by:   saber2pr
- * @Last Modified time: 2021-10-02 15:31:44
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 17:38:16
  */
 import { writeFileSync } from 'fs'
 
@@ -11,7 +11,7 @@ import { parser, transformer, compiler, traverser } from '.'
 const code = `
 <div 
   width={100} 
-  contentEditable={true} 
+  contentEditable={true}
   color={"red"} 
   style={{
     width: 100,
@@ -24,6 +24,7 @@ const code = `
   }} 
   id="233ccc" 
   class2Name="qwq123"
+  onClick={onClick}
 >
   <List
     list={[

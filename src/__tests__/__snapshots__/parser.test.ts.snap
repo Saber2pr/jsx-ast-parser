@@ -282,8 +282,8 @@ Object {
             },
             "kind": "PropExpr",
             "value": Object {
-              "kind": "BooleanExpr",
-              "value": true,
+              "kind": "IdentityExpr",
+              "name": "true",
             },
           },
           Object {

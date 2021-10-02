@@ -24,7 +24,8 @@
         }
       },
       "id": "233ccc",
-      "class2Name": "qwq123"
+      "class2Name": "qwq123",
+      "onClick": "onClick"
     },
     "children": [
       {

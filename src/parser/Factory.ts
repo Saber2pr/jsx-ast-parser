@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:15
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 12:09:43
+ * @Last Modified time: 2021-10-02 17:34:57
  */
 import * as Ast from './Ast'
 
@@ -12,10 +12,6 @@ export function isIdentityExpr(token: Ast.Node): token is Ast.IdentityExpr {
 
 export function isNumberExpr(token: Ast.Node): token is Ast.NumberExpr {
   return (<Ast.NumberExpr>token).kind === 'NumberExpr'
-}
-
-export function isBooleanExpr(token: Ast.Node): token is Ast.BooleanExpr {
-  return (<Ast.BooleanExpr>token).kind === 'BooleanExpr'
 }
 
 export function isStringExpr(token: Ast.Node): token is Ast.StringExpr {

@@ -12,6 +12,7 @@
     }}
     id="233ccc"
     class2Name="qwq123"
+    onClick="onClick"
   >
     <List
       list={[

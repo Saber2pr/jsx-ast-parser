@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 12:06:53
+ * @Last Modified time: 2021-10-02 17:40:12
  */
 import * as parsec from 'typescript-parsec'
 
@@ -15,13 +15,6 @@ export function applyNumber(token: Token): Ast.NumberExpr {
   return {
     kind: 'NumberExpr',
     value: +token.text,
-  }
-}
-
-export function applyBoolean(token: Token): Ast.BooleanExpr {
-  return {
-    kind: 'BooleanExpr',
-    value: { true: true, false: false }[String(token.text)],
   }
 }
 
@@ -61,9 +54,9 @@ export function applyProp(
   let value = token
   if (token === undefined) {
     value = {
-      kind: 'BooleanExpr',
-      value: true,
-    } as Ast.BooleanExpr
+      kind: 'IdentityExpr',
+      name: 'true',
+    } as Ast.IdentityExpr
   }
   return {
     kind: 'PropExpr',
