@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:32:57
+ * @Last Modified time: 2021-10-02 18:19:44
  */
 export interface Node {
   kind: any
@@ -84,6 +84,21 @@ export interface JsxSelfClosingExpr extends Node {
 }
 
 export type Jsx = JsxExpr | JsxSelfClosingExpr
+
+// Statement Expr
+
+export interface ArrowFunctionExpr extends Node {
+  kind: 'ArrowFunctionExpr'
+  args: IdentityExpr[]
+  body: CallChainExpr[]
+}
+
+export interface CallChainExpr extends Node {
+  kind: 'CallChainExpr'
+  caller: IdentityExpr
+  chain: IdentityExpr[]
+  args: IdentityExpr[]
+}
 
 // Program
 

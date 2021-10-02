@@ -47,6 +47,26 @@
             "kind": "PropExpr",
             "key": {
               "kind": "IdentityExpr",
+              "name": "arr"
+            },
+            "value": {
+              "kind": "ArrayExpr",
+              "items": [
+                {
+                  "kind": "NumberExpr",
+                  "value": 1
+                },
+                {
+                  "kind": "NumberExpr",
+                  "value": 2
+                }
+              ]
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
               "name": "style"
             },
             "value": {
@@ -131,6 +151,47 @@
             "value": {
               "kind": "IdentityExpr",
               "name": "onClick"
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "onError"
+            },
+            "value": {
+              "kind": "ArrowFunctionExpr",
+              "args": [
+                {
+                  "kind": "IdentityExpr",
+                  "name": "error"
+                },
+                {
+                  "kind": "IdentityExpr",
+                  "name": "test"
+                }
+              ],
+              "body": [
+                {
+                  "kind": "CallChainExpr",
+                  "caller": {
+                    "kind": "IdentityExpr",
+                    "name": "console"
+                  },
+                  "chain": [
+                    {
+                      "kind": "IdentityExpr",
+                      "name": "log"
+                    }
+                  ],
+                  "args": [
+                    {
+                      "kind": "IdentityExpr",
+                      "name": "error"
+                    }
+                  ]
+                }
+              ]
             }
           }
         ]

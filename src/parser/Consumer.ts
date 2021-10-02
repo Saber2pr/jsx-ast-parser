@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:40:12
+ * @Last Modified time: 2021-10-02 18:24:51
  */
 import * as parsec from 'typescript-parsec'
 
@@ -10,6 +10,8 @@ import * as Ast from './Ast'
 import { TokenKind } from './Tokenizer'
 
 export type Token = parsec.Token<TokenKind>
+
+// basic
 
 export function applyNumber(token: Token): Ast.NumberExpr {
   return {
@@ -45,6 +47,8 @@ export function applyIdentity(
   }
 }
 
+// Jsx
+
 export function applyProp(
   source:
     | [Ast.IdentityExpr, Ast.PropExpr['value']]
@@ -66,7 +70,7 @@ export function applyProp(
 }
 
 export function applyObject(
-  source: [Ast.IdentityExpr, Token, Ast.JsxExpr, Token][]
+  source: [Ast.IdentityExpr, Token, Ast.Type][] | undefined = []
 ): Ast.ObjectExpr {
   return {
     kind: 'ObjectExpr',
@@ -74,10 +78,12 @@ export function applyObject(
   }
 }
 
-export function applyArray(items: Ast.ObjectExpr[]): Ast.ArrayExpr {
+export function applyArray(
+  items: Ast.ObjectExpr[] | undefined = []
+): Ast.ArrayExpr {
   return {
     kind: 'ArrayExpr',
-    items,
+    items: items ?? [],
   }
 }
 
@@ -125,6 +131,33 @@ export function applyJsx(
     openingTag: source[0],
     body: source[1],
     closingTag: source[2],
+  }
+}
+
+// Statement
+
+// TODO add transform func, compiler func, tests
+export function applyArrowFunction(
+  source: [Ast.IdentityExpr[] | undefined, Ast.CallChainExpr[] | undefined]
+): Ast.ArrowFunctionExpr {
+  const [args = [], body = []] = source
+  return {
+    kind: 'ArrowFunctionExpr',
+    args,
+    body,
+  }
+}
+
+// TODO add transform func, compiler func, tests
+export function applyCallChain(
+  source: [Ast.IdentityExpr[], Ast.IdentityExpr[] | undefined]
+): Ast.CallChainExpr {
+  const [chain, args = []] = source
+  return {
+    kind: 'CallChainExpr',
+    caller: chain[0],
+    chain: chain.slice(1),
+    args: args,
   }
 }
 
