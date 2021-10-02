@@ -1,6 +1,12 @@
+/*
+ * @Author: saber2pr
+ * @Date: 2021-10-02 15:31:44
+ * @Last Modified by:   saber2pr
+ * @Last Modified time: 2021-10-02 15:31:44
+ */
 import { writeFileSync } from 'fs'
 
-import { parser, transformer, compiler } from '.'
+import { parser, transformer, compiler, traverser } from '.'
 
 const code = `
 <div 
@@ -53,3 +59,26 @@ writeFileSync('./public/jsx.json', JSON.stringify(jsx, null, 2))
 
 const out = compiler.compile(jsx)
 writeFileSync('./public/out.jsx', out)
+
+const jsx2 = traverser.traverse(jsx[0], node => {
+  console.log(node)
+  if (node.props && node.props.id === 'qwq') {
+    return transformer.createJsxElement(node.tagName, {
+      ...node.props,
+      meta: 233,
+    })
+  }
+})
+
+writeFileSync('./public/jsx2.json', JSON.stringify(jsx2, null, 2))
+
+const node = traverser.findNode(
+  jsx[0],
+  node => node.props && node.tagName === 'List'
+)
+console.log(node, compiler.compile(node))
+
+// get props list source code
+console.log(
+  node[0].props.list.map((item: any) => compiler.compile(item.content))
+)

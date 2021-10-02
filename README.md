@@ -26,7 +26,12 @@ yarn add @saber2pr/jsx-ast-parser
 - [see compiler output out.jsx](./public/out.jsx)
 
 ```ts
-import { parser, transformer, compiler } from '@saber2pr/jsx-ast-parser'
+import {
+  parser,
+  transformer,
+  compiler,
+  traverser,
+} from '@saber2pr/jsx-ast-parser'
 
 const code = `
 <div id="233ccc" className="qwq123">
