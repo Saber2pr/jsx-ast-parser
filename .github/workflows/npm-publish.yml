@@ -1,9 +1,9 @@
 name: Npm Publish
 on:
   workflow_dispatch:
-#   push:
-#     tags:
-#       - 'v*.*.*'
+  push:
+    tags:
+      - 'v*.*.*'
 
 jobs:
   Npm-Publish:
