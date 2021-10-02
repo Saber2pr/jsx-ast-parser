@@ -1,11 +1,11 @@
-import * as Factory from '../transformer/Factory'
 /*
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 19:50:37
+ * @Last Modified time: 2021-10-02 20:27:23
  */
 import * as Jsx from '../transformer/Jsx'
+import * as Factory from '../transformer/Factory'
 
 // basic
 export function compileString(element: string) {
