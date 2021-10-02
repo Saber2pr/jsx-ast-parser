@@ -13,9 +13,10 @@ yarn add @saber2pr/jsx-ast-parser
 - [x] jsx props string-value
 - [x] jsx props number-value, bool-value
 - [x] jsx props object
-- [x] jsx props function
 - [x] jsx props object-array
 - [x] jsx props string-array, number-array
+- [x] jsx props function
+- [ ] jsx props function scope jsx statements
 
 ### Usage
 
