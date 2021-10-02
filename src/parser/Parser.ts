@@ -1,8 +1,8 @@
 /*
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
- * @Last Modified by:   saber2pr
- * @Last Modified time: 2021-10-02 12:07:35
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 17:35:48
  */
 import {
   alt,
@@ -24,7 +24,6 @@ import {
 import * as Ast from './Ast'
 import {
   applyArray,
-  applyBoolean,
   applyClosingTag,
   applyIdentity,
   applyJsx,
@@ -42,7 +41,6 @@ import { tokenizer, TokenKind } from './Tokenizer'
 // Primary
 export const IDENTITY = rule<TokenKind, Ast.IdentityExpr>()
 export const NUMBER = rule<TokenKind, Ast.NumberExpr>()
-export const BOOLEAN = rule<TokenKind, Ast.BooleanExpr>()
 export const STRING = rule<TokenKind, Ast.StringExpr>()
 export const OBJ = rule<TokenKind, Ast.ObjectExpr>()
 export const ARRAY = rule<TokenKind, Ast.ArrayExpr>()
@@ -69,12 +67,6 @@ NUMBER
   = digit
 */
 NUMBER.setPattern(apply(tok(TokenKind.Digit), applyNumber))
-
-/*
-BOOLEAN
-  = True <|> False
-*/
-BOOLEAN.setPattern(apply(alt(str('true'), str('false')), applyBoolean))
 
 /*
 TEXT
@@ -106,7 +98,7 @@ IDENTITY.setPattern(
 
 /*
 OBJ 
-  = { many $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> BOOLEAN <|> OBJ <|> ARRAY}
+  = { many $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY}
 */
 OBJ.setPattern(
   apply(
@@ -116,7 +108,7 @@ OBJ.setPattern(
         seq(
           IDENTITY,
           str(':'),
-          alt(JSX, STRING, NUMBER, BOOLEAN, OBJ, ARRAY),
+          alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY),
           opt(str(','))
         )
       ),
@@ -128,14 +120,14 @@ OBJ.setPattern(
 
 /*
 ARRAY
-  = [ many $ JSX <|> STRING <|> NUMBER <|> BOOLEAN <|> OBJ <|> ARRAY]
+  = [ many $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY]
 */
 ARRAY.setPattern(
   apply(
     kmid(
       str('['),
       rep_sc(
-        kleft(alt(JSX, STRING, NUMBER, BOOLEAN, OBJ, ARRAY), opt(str(',')))
+        kleft(alt(JSX, STRING, NUMBER, IDENTITY, OBJ, ARRAY), opt(str(',')))
       ),
       str(']')
     ),
@@ -146,7 +138,7 @@ ARRAY.setPattern(
 /*
 PROP 
   = IDENTITY
-  = IDENTITY={JSX <|> OBJ <|> Array <|> NUMBER <|> BOOLEAN <|> STRING}
+  = IDENTITY={JSX <|> OBJ <|> Array <|> NUMBER <|> STRING <|> IDENTITY}
 */
 PROP.setPattern(
   apply(
@@ -157,7 +149,7 @@ PROP.setPattern(
           STRING,
           kmid(
             str('{'),
-            alt(JSX, OBJ, ARRAY, NUMBER, BOOLEAN, STRING),
+            alt(JSX, OBJ, ARRAY, NUMBER, STRING, IDENTITY),
             str('}')
           )
         )

@@ -28,8 +28,8 @@
               "name": "contentEditable"
             },
             "value": {
-              "kind": "BooleanExpr",
-              "value": true
+              "kind": "IdentityExpr",
+              "name": "true"
             }
           },
           {
@@ -120,6 +120,17 @@
             "value": {
               "kind": "StringExpr",
               "value": "qwq123"
+            }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "onClick"
+            },
+            "value": {
+              "kind": "IdentityExpr",
+              "name": "onClick"
             }
           }
         ]

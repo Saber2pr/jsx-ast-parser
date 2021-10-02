@@ -1,8 +1,8 @@
 /*
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
- * @Last Modified by:   saber2pr
- * @Last Modified time: 2021-10-02 12:06:21
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 17:32:57
  */
 export interface Node {
   kind: any
@@ -26,11 +26,6 @@ export interface StringExpr extends Node {
   value: string
 }
 
-export interface BooleanExpr extends Node {
-  kind: 'BooleanExpr'
-  value: boolean
-}
-
 export interface ObjectExpr extends Node {
   kind: 'ObjectExpr'
   props: {
@@ -47,7 +42,7 @@ export type Type =
   | Jsx
   | StringExpr
   | NumberExpr
-  | BooleanExpr
+  | IdentityExpr
   | ObjectExpr
   | ArrayExpr
 

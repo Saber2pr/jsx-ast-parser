@@ -1,15 +1,24 @@
 /*
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
- * @Last Modified by:   saber2pr
- * @Last Modified time: 2021-10-02 12:07:49
+ * @Last Modified by: saber2pr
+ * @Last Modified time: 2021-10-02 17:42:12
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
 
 import * as Jsx from './Jsx'
 
-export function transformIdentityExpr(identity: Ast.IdentityExpr): string {
+export function transformIdentityExpr(
+  identity: Ast.IdentityExpr
+): string | boolean {
+  // pre identity
+  if (identity.name === 'true') {
+    return true
+  }
+  if (identity.name === 'false') {
+    return false
+  }
   return identity.name
 }
 
@@ -19,10 +28,6 @@ export function transformNumberExpr(number: Ast.NumberExpr): number {
 
 export function transformStringExpr(string: Ast.StringExpr): string {
   return string.value
-}
-
-export function transformBooleanExpr(boolean: Ast.BooleanExpr): boolean {
-  return boolean.value
 }
 
 export function transformTextExpr(text: Ast.TextExpr): Jsx.TextElement {
@@ -41,8 +46,8 @@ export function transformObjectExpr(object: Ast.ObjectExpr): {
       switch (node.kind) {
         case 'ArrayExpr':
           return [key, transformArrayExpr(node)]
-        case 'BooleanExpr':
-          return [key, transformBooleanExpr(node)]
+        case 'IdentityExpr':
+          return [key, transformIdentityExpr(node)]
         case 'JsxExpr':
         case 'JsxSelfClosingExpr':
           return [key, transformJsx(node)]
@@ -65,8 +70,8 @@ export function transformArrayExpr(array: Ast.ArrayExpr): any[] {
     switch (node.kind) {
       case 'ArrayExpr':
         return transformArrayExpr(node)
-      case 'BooleanExpr':
-        return transformBooleanExpr(node)
+      case 'IdentityExpr':
+        return transformIdentityExpr(node)
       case 'JsxExpr':
       case 'JsxSelfClosingExpr':
         return transformJsx(node)
@@ -92,8 +97,8 @@ export function transformPropsExpr(props: Ast.PropExpr[]): {
       switch (node.kind) {
         case 'ArrayExpr':
           return [key, transformArrayExpr(node)]
-        case 'BooleanExpr':
-          return [key, transformBooleanExpr(node)]
+        case 'IdentityExpr':
+          return [key, transformIdentityExpr(node)]
         case 'JsxExpr':
         case 'JsxSelfClosingExpr':
           return [key, transformJsx(node)]
