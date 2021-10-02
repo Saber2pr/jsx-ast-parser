@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.2...v0.0.3) (2021-10-02)
+
+
+### Features
+
+* ArrowFunctionExpr & CallChainExpr ([a86f0f9](https://github.com/Saber2pr/jsx-ast-parser/commit/a86f0f95a67a34517f41c17a6b59fabdd4bf7c0c))
+* compile arrow function & callchain ([34b079e](https://github.com/Saber2pr/jsx-ast-parser/commit/34b079eca08ac4b7f33842c8f36cd88344185af7))
+* jsx props identity ([b710d52](https://github.com/Saber2pr/jsx-ast-parser/commit/b710d5224078f47d76eb9e38424664eee669f5c5))
+* tests arrow function & callchain ([99bf0d4](https://github.com/Saber2pr/jsx-ast-parser/commit/99bf0d4cbf55f855e7c7bd5fdf72aa1d9f10b5b9))
+
 ### [0.0.2](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.1...v0.0.2) (2021-10-02)
 
 
