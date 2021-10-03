@@ -139,11 +139,27 @@ export function applyJsx(
 // Statement
 
 export function applyArrowFunction(
-  source: [Ast.IdentityExpr[] | undefined, Ast.CallChainExpr[] | undefined]
+  source: [Ast.IdentityExpr[] | undefined, Ast.Expression[] | undefined]
 ): Ast.ArrowFunctionExpr {
   const [args = [], body = []] = source
   return {
     kind: 'ArrowFunctionExpr',
+    args,
+    body,
+  }
+}
+
+export function applyFunction(
+  source: [
+    Ast.IdentityExpr | undefined,
+    Ast.IdentityExpr[],
+    Ast.CallChainExpr[]
+  ]
+): Ast.FunctionExpr {
+  const [name, args = [], body = []] = source
+  return {
+    kind: 'FunctionExpr',
+    name,
     args,
     body,
   }

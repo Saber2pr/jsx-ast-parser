@@ -58,6 +58,7 @@ export const TEXT = rule<TokenKind, Ast.TextExpr>()
 
 // Statement
 export const ARROWFUNCTION = rule<TokenKind, Ast.ArrowFunctionExpr>()
+export const FUNCTION = rule<TokenKind, Ast.FunctionExpr>()
 export const CALLCHAIN = rule<TokenKind, Ast.CallChainExpr>()
 
 // Program
@@ -210,7 +211,7 @@ JSXOPENED.setPattern(
 
 /*
 ARROWFUNCTION
-  = (commaSep IDENTITY) => { many CALLCHAIN }
+  = (commaSep IDENTITY) => { many EXPRESSION }
 */
 ARROWFUNCTION.setPattern(
   apply(
@@ -219,7 +220,7 @@ ARROWFUNCTION.setPattern(
       kleft(
         kright(
           seq(str('='), str('>')),
-          kmid(str('{'), rep_sc(CALLCHAIN), str('}'))
+          kmid(str('{'), rep_sc(EXPRESSION), str('}'))
         ),
         opt(str(';'))
       )
@@ -227,6 +228,12 @@ ARROWFUNCTION.setPattern(
     applyArrowFunction
   )
 )
+
+/*
+FUNCTION
+  = function IDENTITY (commaSep IDENTITY) {  }
+*/
+FUNCTION
 
 /*
 CALLCHAIN
