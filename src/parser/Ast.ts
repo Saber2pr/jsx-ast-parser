@@ -47,6 +47,7 @@ export type Expression =
   | ArrayExpr
   | ArrowFunctionExpr
   | CallChainExpr
+  | FunctionExpr
 
 // JSX
 
@@ -99,7 +100,7 @@ export interface FunctionExpr extends Node {
   kind: 'FunctionExpr'
   name: IdentityExpr | undefined
   args: IdentityExpr[]
-  body: CallChainExpr[]
+  body: Expression[]
 }
 
 export interface CallChainExpr extends Node {

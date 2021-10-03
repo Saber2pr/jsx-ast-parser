@@ -239,6 +239,37 @@
                 }
               ]
             }
+          },
+          {
+            "kind": "PropExpr",
+            "key": {
+              "kind": "IdentityExpr",
+              "name": "onSubmit"
+            },
+            "value": {
+              "kind": "FunctionExpr",
+              "name": {
+                "kind": "IdentityExpr",
+                "name": "test"
+              },
+              "args": [],
+              "body": [
+                {
+                  "kind": "CallChainExpr",
+                  "caller": {
+                    "kind": "IdentityExpr",
+                    "name": "console"
+                  },
+                  "chain": [
+                    {
+                      "kind": "IdentityExpr",
+                      "name": "log"
+                    }
+                  ],
+                  "args": []
+                }
+              ]
+            }
           }
         ]
       },

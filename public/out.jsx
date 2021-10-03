@@ -19,7 +19,9 @@
       console.log()
       console.log(console.log(test))
     }}
-    onSubmit={function () {}}
+    onSubmit={function test() {
+      console.log()
+    }}
   >
     <List
       list={[

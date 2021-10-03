@@ -152,8 +152,8 @@ export function applyArrowFunction(
 export function applyFunction(
   source: [
     Ast.IdentityExpr | undefined,
-    Ast.IdentityExpr[],
-    Ast.CallChainExpr[]
+    Ast.IdentityExpr[] | undefined,
+    Ast.Expression[]
   ]
 ): Ast.FunctionExpr {
   const [name, args = [], body = []] = source

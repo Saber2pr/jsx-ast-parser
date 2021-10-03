@@ -68,6 +68,19 @@
             }
           }
         ]
+      },
+      "onSubmit": {
+        "name": "test",
+        "args": [],
+        "body": [
+          {
+            "caller": "console",
+            "chain": [
+              "log"
+            ],
+            "args": []
+          }
+        ]
       }
     },
     "children": [

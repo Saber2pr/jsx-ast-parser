@@ -38,6 +38,7 @@ import {
   applyProp,
   applyString,
   applyText,
+  applyFunction,
 } from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
@@ -82,7 +83,8 @@ export const EXPRESSION = alt(
   OBJ,
   ARRAY,
   ARROWFUNCTION,
-  CALLCHAIN
+  CALLCHAIN,
+  FUNCTION
 )
 
 /*
@@ -216,7 +218,11 @@ ARROWFUNCTION
 ARROWFUNCTION.setPattern(
   apply(
     seq(
-      kmid(str('('), list_sc(IDENTITY, str(',')), seq(opt(str(',')), str(')'))),
+      kmid(
+        str('('),
+        opt(list_sc(IDENTITY, str(','))),
+        seq(opt(str(',')), str(')'))
+      ),
       kleft(
         kright(
           seq(str('='), str('>')),
@@ -231,9 +237,22 @@ ARROWFUNCTION.setPattern(
 
 /*
 FUNCTION
-  = function IDENTITY (commaSep IDENTITY) {  }
+  = function IDENTITY (commaSep IDENTITY) { many EXPRESSION }
 */
-FUNCTION
+FUNCTION.setPattern(
+  apply(
+    seq(
+      kright(str('function'), opt(IDENTITY)),
+      kmid(
+        str('('),
+        opt(list_sc(IDENTITY, str(','))),
+        seq(opt(str(',')), str(')'))
+      ),
+      kmid(str('{'), rep_sc(EXPRESSION), str('}'))
+    ),
+    applyFunction
+  )
+)
 
 /*
 CALLCHAIN
