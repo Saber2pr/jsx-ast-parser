@@ -1,5 +1,8 @@
 # @saber2pr/jsx-ast-parser
 
+[![npm](https://img.shields.io/npm/v/@saber2pr/jsx-ast-parser.svg?color=blue)](https://www.npmjs.com/package/@saber2pr/jsx-ast-parser)
+[![codecov](https://codecov.io/gh/Saber2pr/jsx-ast-parser/branch/master/graph/badge.svg?token=DI9E88OIZU)](https://codecov.io/gh/Saber2pr/jsx-ast-parser)
+
 > jsx parser by parser combinator.
 
 ```bash
