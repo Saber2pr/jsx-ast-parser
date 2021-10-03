@@ -1,4 +1,4 @@
-name: Test
+name: Jest Tests
 on:
   workflow_dispatch:
   push:
@@ -22,3 +22,9 @@ jobs:
 
       - name: Run Tests
         run: yarn test
+
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          directory: ./coverage
+          verbose: true
