@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 10:22:21
+ * @Last Modified time: 2021-10-03 11:12:19
  */
 import * as Jsx from './Jsx'
 
@@ -20,15 +20,25 @@ export function isTextElement(element: Jsx.Type): element is Jsx.TextElement {
   return textElement.$$typeof === 'text'
 }
 
+export function createNode<T extends Jsx.Node>(
+  node: T,
+  kind: T['$$typeof'] = node.$$typeof
+) {
+  return Object.defineProperty(node, '$$typeof', {
+    value: kind,
+    enumerable: false,
+  })
+}
+
 export function createJsxAttributes(
   props: {
     [k: string]: Jsx.Type
   } = {}
 ): Jsx.JsxAttributes {
-  return {
+  return createNode<Jsx.JsxAttributes>({
     $$typeof: 'jsx-attrs',
     ...props,
-  }
+  })
 }
 
 export function createJsxObject(
@@ -36,10 +46,10 @@ export function createJsxObject(
     [k: string]: Jsx.Type
   } = {}
 ): Jsx.JsxObject {
-  return {
+  return createNode<Jsx.JsxObject>({
     $$typeof: 'jsx-obj',
     ...values,
-  }
+  })
 }
 
 // Statement
@@ -77,10 +87,49 @@ export function createJsxElement(
   props: Jsx.JsxAttributes = createJsxAttributes(),
   children: Jsx.JsxNode[] = []
 ): Jsx.JsxElement {
-  return {
+  return createNode<Jsx.JsxElement>({
     $$typeof: 'jsx',
     tagName,
     props,
     children,
+  })
+}
+
+export function createTextElement(nodeValue: string): Jsx.TextElement {
+  return createNode<Jsx.TextElement>({
+    $$typeof: 'text',
+    tagName: 'text',
+    nodeValue,
+  })
+}
+
+export function createArrowFunction(
+  args: string[] = [],
+  body: Jsx.Type[] = []
+): Jsx.ArrowFunction {
+  return createNode<Jsx.ArrowFunction>({
+    $$typeof: 'function',
+    args,
+    body,
+  })
+}
+
+export function createCallChain(
+  caller: string,
+  chain: string[],
+  args: Jsx.CallChain | string[]
+): Jsx.CallChain {
+  return createNode<Jsx.CallChain>({
+    $$typeof: 'call',
+    caller,
+    chain,
+    args,
+  })
+}
+
+export function getElementEntries(element: Jsx.JsxObject | Jsx.JsxAttributes) {
+  if (isJsxObject(element) || isJsxAttributes(element)) {
+    return Object.entries(element).filter(([key]) => key !== '$$typeof')
   }
+  return []
 }

@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 10:13:32
+ * @Last Modified time: 2021-10-03 10:59:12
  */
 export type Type =
   | JsxNode
@@ -23,12 +23,12 @@ export interface Node {
   [k: string]: any
 }
 
-export interface JsxObject {
+export interface JsxObject extends Node {
   $$typeof: 'jsx-obj'
   [k: string]: Type
 }
 
-export interface JsxAttributes {
+export interface JsxAttributes extends Node {
   $$typeof: 'jsx-attrs'
   [k: string]: Type
 }
@@ -47,14 +47,14 @@ export interface TextElement extends Node {
 
 // Statement
 
-export interface CallChain {
+export interface CallChain extends Node {
   $$typeof: 'call'
   caller: string
   chain: string[]
   args: string[] | CallChain
 }
 
-export interface ArrowFunction {
+export interface ArrowFunction extends Node {
   $$typeof: 'function'
   args: string[]
   body: Type[]

@@ -1,9 +1,7 @@
 [
   {
-    "$$typeof": "jsx",
     "tagName": "div",
     "props": {
-      "$$typeof": "jsx-attrs",
       "width": 100,
       "contentEditable": true,
       "color": "red",
@@ -19,14 +17,10 @@
           "color": "red"
         },
         "child": {
-          "$$typeof": "jsx",
           "tagName": "span",
-          "props": {
-            "$$typeof": "jsx-attrs"
-          },
+          "props": {},
           "children": [
             {
-              "$$typeof": "text",
               "tagName": "text",
               "nodeValue": "233"
             }
@@ -37,14 +31,12 @@
       "class2Name": "qwq123",
       "onClick": "onClick",
       "onError": {
-        "$$typeof": "function",
         "args": [
           "error",
           "test"
         ],
         "body": [
           {
-            "$$typeof": "call",
             "caller": "console",
             "chain": [
               "log"
@@ -54,7 +46,6 @@
             ]
           },
           {
-            "$$typeof": "call",
             "caller": "console",
             "chain": [
               "log"
@@ -62,7 +53,6 @@
             "args": []
           },
           {
-            "$$typeof": "call",
             "caller": "console",
             "chain": [
               "log"
@@ -76,32 +66,25 @@
     },
     "children": [
       {
-        "$$typeof": "jsx",
         "tagName": "List",
         "props": {
-          "$$typeof": "jsx-attrs",
           "list": [
             {
               "content": {
-                "$$typeof": "jsx",
                 "tagName": "View",
                 "props": {
-                  "$$typeof": "jsx-attrs",
                   "color": "red"
                 },
                 "children": [
                   {
-                    "$$typeof": "text",
                     "tagName": "text",
                     "nodeValue": "233"
                   }
                 ]
               },
               "logo": {
-                "$$typeof": "jsx",
                 "tagName": "Image",
                 "props": {
-                  "$$typeof": "jsx-attrs",
                   "mode": "test"
                 },
                 "children": []
@@ -109,11 +92,8 @@
             },
             {
               "content": {
-                "$$typeof": "jsx",
                 "tagName": "View",
-                "props": {
-                  "$$typeof": "jsx-attrs"
-                },
+                "props": {},
                 "children": []
               }
             }
@@ -122,93 +102,67 @@
         "children": []
       },
       {
-        "$$typeof": "jsx",
         "tagName": "div",
-        "props": {
-          "$$typeof": "jsx-attrs"
-        },
+        "props": {},
         "children": []
       },
       {
-        "$$typeof": "jsx",
         "tagName": "div",
         "props": {
-          "$$typeof": "jsx-attrs",
           "id": "qwq",
           "meta": 233
         },
         "children": []
       },
       {
-        "$$typeof": "jsx",
         "tagName": "span",
-        "props": {
-          "$$typeof": "jsx-attrs"
-        },
+        "props": {},
         "children": [
           {
-            "$$typeof": "text",
             "tagName": "text",
             "nodeValue": "aaa"
           }
         ]
       },
       {
-        "$$typeof": "jsx",
         "tagName": "span",
-        "props": {
-          "$$typeof": "jsx-attrs"
-        },
+        "props": {},
         "children": [
           {
-            "$$typeof": "text",
             "tagName": "text",
             "nodeValue": "1234"
           }
         ]
       },
       {
-        "$$typeof": "jsx",
         "tagName": "span",
-        "props": {
-          "$$typeof": "jsx-attrs"
-        },
+        "props": {},
         "children": [
           {
-            "$$typeof": "text",
             "tagName": "text",
             "nodeValue": "1234asd"
           }
         ]
       },
       {
-        "$$typeof": "jsx",
         "tagName": "span",
-        "props": {
-          "$$typeof": "jsx-attrs"
-        },
+        "props": {},
         "children": [
           {
-            "$$typeof": "text",
             "tagName": "text",
             "nodeValue": "12aa"
           },
           {
-            "$$typeof": "jsx",
             "tagName": "span",
-            "props": {
-              "$$typeof": "jsx-attrs"
-            },
+            "props": {},
             "children": [
               {
-                "$$typeof": "text",
                 "tagName": "text",
                 "nodeValue": "aaa"
               }
             ]
           },
           {
-            "$$typeof": "text",
             "tagName": "text",
             "nodeValue": "aa234234aaa"
           }
