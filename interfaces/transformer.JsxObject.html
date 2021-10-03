@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>TextElement | @saber2pr/jsx-ast-parser</title>
+	<title>JsxObject | @saber2pr/jsx-ast-parser</title>
 	<meta name="description" content="Documentation for @saber2pr/jsx-ast-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -58,10 +58,10 @@
 					<a href="../modules/transformer.html">transformer</a>
 				</li>
 				<li>
-					<a href="transformer.TextElement.html">TextElement</a>
+					<a href="transformer.JsxObject.html">JsxObject</a>
 				</li>
 			</ul>
-			<h1>Interface TextElement</h1>
+			<h1>Interface JsxObject</h1>
 		</div>
 	</div>
 </header>
@@ -72,14 +72,13 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="transformer.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
-						<ul class="tsd-hierarchy">
-							<li>
-								<span class="target">TextElement</span>
-							</li>
-						</ul>
+						<span class="target">JsxObject</span>
 					</li>
 				</ul>
+			</section>
+			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-namespace">
+				<h3 class="tsd-before-signature">Indexable</h3>
+				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>k: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><a href="../modules/transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -88,9 +87,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="transformer.TextElement.html#__typeof" class="tsd-kind-icon">$$typeof</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transformer.TextElement.html#nodeValue" class="tsd-kind-icon">node<wbr>Value</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transformer.TextElement.html#tagName" class="tsd-kind-icon">tag<wbr>Name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transformer.JsxObject.html#__typeof" class="tsd-kind-icon">$$typeof</a></li>
 							</ul>
 						</section>
 					</div>
@@ -98,34 +95,13 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="__typeof" class="tsd-anchor"></a>
 					<h3>$$typeof</h3>
-					<div class="tsd-signature tsd-kind-icon">$$typeof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;text&quot;</span></div>
-					<aside class="tsd-sources">
-						<p>Overrides <a href="transformer.Node.html">Node</a>.<a href="transformer.Node.html#__typeof">$$typeof</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/96ec78d/src/transformer/Jsx.ts#L43">transformer/Jsx.ts:43</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="nodeValue" class="tsd-anchor"></a>
-					<h3>node<wbr>Value</h3>
-					<div class="tsd-signature tsd-kind-icon">node<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">$$typeof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;jsx-obj&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/96ec78d/src/transformer/Jsx.ts#L45">transformer/Jsx.ts:45</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tagName" class="tsd-anchor"></a>
-					<h3>tag<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">tag<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;text&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/96ec78d/src/transformer/Jsx.ts#L44">transformer/Jsx.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/96ec78d/src/transformer/Jsx.ts#L27">transformer/Jsx.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -165,30 +141,24 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="transformer.JsxElement.html" class="tsd-kind-icon">Jsx<wbr>Element</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="transformer.JsxObject.html" class="tsd-kind-icon">Jsx<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="transformer.Node.html" class="tsd-kind-icon">Node</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="transformer.TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a>
+						<a href="transformer.JsxObject.html" class="tsd-kind-icon">Jsx<wbr>Object</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
-								<a href="transformer.TextElement.html#__typeof" class="tsd-kind-icon">$$typeof</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="transformer.TextElement.html#nodeValue" class="tsd-kind-icon">node<wbr>Value</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="transformer.TextElement.html#tagName" class="tsd-kind-icon">tag<wbr>Name</a>
+								<a href="transformer.JsxObject.html#__typeof" class="tsd-kind-icon">$$typeof</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="transformer.Node.html" class="tsd-kind-icon">Node</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="transformer.TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-namespace">
 						<a href="../modules/transformer.html#JsxNode" class="tsd-kind-icon">Jsx<wbr>Node</a>
 					</li>
