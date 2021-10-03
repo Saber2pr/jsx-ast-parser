@@ -40,58 +40,17 @@ export function transformObjectExpr(object: Ast.ObjectExpr): Jsx.JsxObject {
   const props = object.props
   return TFactory.createJsxObject(
     Object.fromEntries(
-      Object.entries(props).map(([key, node]) => {
-        switch (node.kind) {
-          case 'ArrayExpr':
-            return [key, transformArrayExpr(node)]
-          case 'IdentityExpr':
-            return [key, transformIdentityExpr(node)]
-          case 'JsxExpr':
-          case 'JsxSelfClosingExpr':
-            return [key, transformJsx(node)]
-          case 'NumberExpr':
-            return [key, transformNumberExpr(node)]
-          case 'ObjectExpr':
-            return [key, transformObjectExpr(node)]
-          case 'StringExpr':
-            return [key, transformStringExpr(node)]
-          case 'ArrowFunctionExpr':
-            return [key, transformArrowFunction(node)]
-          case 'CallChainExpr':
-            return [key, transformCallChain(node)]
-          default:
-            return [key, null]
-        }
-      }, {})
+      Object.entries(props).map(
+        ([key, node]) => [key, transformExpression(node)],
+        {}
+      )
     )
   )
 }
 
 export function transformArrayExpr(array: Ast.ArrayExpr): Jsx.Type[] {
   const items = array.items
-  return items.map(node => {
-    switch (node.kind) {
-      case 'ArrayExpr':
-        return transformArrayExpr(node)
-      case 'IdentityExpr':
-        return transformIdentityExpr(node)
-      case 'JsxExpr':
-      case 'JsxSelfClosingExpr':
-        return transformJsx(node)
-      case 'NumberExpr':
-        return transformNumberExpr(node)
-      case 'ObjectExpr':
-        return transformObjectExpr(node)
-      case 'StringExpr':
-        return transformStringExpr(node)
-      case 'ArrowFunctionExpr':
-        return transformArrowFunction(node)
-      case 'CallChainExpr':
-        return transformCallChain(node)
-      default:
-        return null
-    }
-  })
+  return items.map(expression => transformExpression(expression))
 }
 
 // Jsx
@@ -101,28 +60,8 @@ export function transformPropsExpr(props: Ast.PropExpr[]): Jsx.JsxAttributes {
     Object.fromEntries(
       props.map(prop => {
         const key = prop.key.name
-        const node = prop.value
-        switch (node.kind) {
-          case 'ArrayExpr':
-            return [key, transformArrayExpr(node)]
-          case 'IdentityExpr':
-            return [key, transformIdentityExpr(node)]
-          case 'JsxExpr':
-          case 'JsxSelfClosingExpr':
-            return [key, transformJsx(node)]
-          case 'NumberExpr':
-            return [key, transformNumberExpr(node)]
-          case 'ObjectExpr':
-            return [key, transformObjectExpr(node)]
-          case 'StringExpr':
-            return [key, transformStringExpr(node)]
-          case 'ArrowFunctionExpr':
-            return [key, transformArrowFunction(node)]
-          case 'CallChainExpr':
-            return [key, transformCallChain(node)]
-          default:
-            return [key, null]
-        }
+        const expression = prop.value
+        return [key, transformExpression(expression)]
       })
     )
   )
@@ -164,7 +103,7 @@ export function transformArrowFunction(
   const { args, body = [] } = func
   return TFactory.createArrowFunction(
     args.map(arg => arg.name),
-    body.map(statement => transformCallChain(statement))
+    body.map(expression => transformExpression(expression))
   )
 }
 
@@ -177,28 +116,30 @@ export function transformCallChain(call: Ast.CallChainExpr): Jsx.CallChain {
   )
 }
 
+export function transformExpression(expression: Ast.Expression): Jsx.Type {
+  switch (expression.kind) {
+    case 'ArrayExpr':
+      return transformArrayExpr(expression)
+    case 'IdentityExpr':
+      return transformIdentityExpr(expression)
+    case 'JsxExpr':
+    case 'JsxSelfClosingExpr':
+      return transformJsx(expression)
+    case 'NumberExpr':
+      return transformNumberExpr(expression)
+    case 'ObjectExpr':
+      return transformObjectExpr(expression)
+    case 'StringExpr':
+      return transformStringExpr(expression)
+    case 'ArrowFunctionExpr':
+      return transformArrowFunction(expression)
+    case 'CallChainExpr':
+      return transformCallChain(expression)
+    default:
+      return null
+  }
+}
+
 export function transform(program: Ast.Program): Jsx.Type {
-  return program.body.map(expression => {
-    switch (expression.kind) {
-      case 'ArrayExpr':
-        return transformArrayExpr(expression)
-      case 'IdentityExpr':
-        return transformIdentityExpr(expression)
-      case 'JsxExpr':
-      case 'JsxSelfClosingExpr':
-        return transformJsx(expression)
-      case 'NumberExpr':
-        return transformNumberExpr(expression)
-      case 'ObjectExpr':
-        return transformObjectExpr(expression)
-      case 'StringExpr':
-        return transformStringExpr(expression)
-      case 'ArrowFunctionExpr':
-        return transformArrowFunction(expression)
-      case 'CallChainExpr':
-        return transformCallChain(expression)
-      default:
-        return null
-    }
-  })
+  return program.body.map(expression => transformExpression(expression))
 }

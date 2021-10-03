@@ -32,6 +32,9 @@ const code = `
     console.log(console.log(test))
     Array.from([1,2,3]).map(n => n)
   }}
+  onSubmit={function (){
+    console.log();
+  }}
 >
   <List
     list={[

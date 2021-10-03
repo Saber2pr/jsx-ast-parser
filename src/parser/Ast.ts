@@ -92,6 +92,13 @@ export type Jsx = JsxExpr | JsxSelfClosingExpr
 export interface ArrowFunctionExpr extends Node {
   kind: 'ArrowFunctionExpr'
   args: IdentityExpr[]
+  body: Expression[]
+}
+
+export interface FunctionExpr extends Node {
+  kind: 'FunctionExpr'
+  name: IdentityExpr | undefined
+  args: IdentityExpr[]
   body: CallChainExpr[]
 }
 

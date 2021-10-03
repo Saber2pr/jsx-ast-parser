@@ -19,6 +19,7 @@
       console.log()
       console.log(console.log(test))
     }}
+    onSubmit={function () {}}
   >
     <List
       list={[
