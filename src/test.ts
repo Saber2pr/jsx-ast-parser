@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 10:23:56
+ * @Last Modified time: 2021-10-03 10:42:45
  */
 import { writeFileSync } from 'fs'
 

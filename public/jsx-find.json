@@ -1,31 +1,24 @@
 [
   {
-    "$$typeof": "jsx",
     "tagName": "List",
     "props": {
-      "$$typeof": "jsx-attrs",
       "list": [
         {
           "content": {
-            "$$typeof": "jsx",
             "tagName": "View",
             "props": {
-              "$$typeof": "jsx-attrs",
               "color": "red"
             },
             "children": [
               {
-                "$$typeof": "text",
                 "tagName": "text",
                 "nodeValue": "233"
               }
             ]
           },
           "logo": {
-            "$$typeof": "jsx",
             "tagName": "Image",
             "props": {
-              "$$typeof": "jsx-attrs",
               "mode": "test"
             },
             "children": []
@@ -33,11 +26,8 @@
         },
         {
           "content": {
-            "$$typeof": "jsx",
             "tagName": "View",
-            "props": {
-              "$$typeof": "jsx-attrs"
-            },
+            "props": {},
             "children": []
           }
         }
