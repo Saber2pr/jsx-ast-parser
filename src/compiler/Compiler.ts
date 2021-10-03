@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:27:23
+ * @Last Modified time: 2021-10-03 10:01:42
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -24,7 +24,7 @@ export function compileArray(element: Jsx.Type[]) {
   return `[${element.map(value => compile(value)).join(',')}]`
 }
 
-export function compileObject(element: object) {
+export function compileObject(element: object | null) {
   return element
     ? `{${Object.entries(element)
         .map(([key, value]) => `${key}:${compile(value)}`)
@@ -104,15 +104,22 @@ export function compileArrowFunction(element: Jsx.ArrowFunction) {
   const args = element.args ?? []
   const body = element.body ?? []
   return `(${args.join(',')})=>{${body
-    .map(statement => compileCallChain(statement))
+    .map(statement => {
+      if (Factory.isCallChain(statement)) {
+        return compileCallChain(statement)
+      }
+      return ''
+    })
     .join(';')}}`
 }
 
-export function compileCallChain(element: Jsx.CallChain) {
+export function compileCallChain(element: Jsx.CallChain): string {
   const caller = element.caller
   const chain = element.chain ?? []
   const args = element.args ?? []
-  return `${caller}.${chain.join('.')}(${args.join(',')})`
+  return `${caller}.${chain.join('.')}(${
+    Array.isArray(args) ? args.join(',') : compileCallChain(args)
+  })`
 }
 
 // compile code

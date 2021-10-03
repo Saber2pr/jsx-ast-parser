@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:06:24
+ * @Last Modified time: 2021-10-03 10:13:42
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -39,9 +39,7 @@ export function transformTextExpr(text: Ast.TextExpr): Jsx.TextElement {
   }
 }
 
-export function transformObjectExpr(object: Ast.ObjectExpr): {
-  [k: string]: any
-} {
+export function transformObjectExpr(object: Ast.ObjectExpr): Jsx.JsxObject {
   const props = object.props
   return Object.fromEntries(
     Object.entries(props).map(([key, node]) => {
@@ -70,7 +68,7 @@ export function transformObjectExpr(object: Ast.ObjectExpr): {
   )
 }
 
-export function transformArrayExpr(array: Ast.ArrayExpr): any[] {
+export function transformArrayExpr(array: Ast.ArrayExpr): Jsx.Type[] {
   const items = array.items
   return items.map(node => {
     switch (node.kind) {
@@ -99,10 +97,8 @@ export function transformArrayExpr(array: Ast.ArrayExpr): any[] {
 
 // Jsx
 
-export function transformPropsExpr(props: Ast.PropExpr[]): {
-  [k: string]: any
-} {
-  return Object.fromEntries(
+export function transformPropsExpr(props: Ast.PropExpr[]): Jsx.JsxAttributes {
+  const attrs = Object.fromEntries(
     props.map(prop => {
       const key = prop.key.name
       const node = prop.value
@@ -129,6 +125,10 @@ export function transformPropsExpr(props: Ast.PropExpr[]): {
       }
     })
   )
+  return {
+    $$typeof: 'jsx-attrs',
+    ...attrs,
+  }
 }
 
 export function transformJsxSelfClosingExpr(
@@ -178,16 +178,40 @@ export function transformArrowFunction(
   }
 }
 
-export function transformCallChain(func: Ast.CallChainExpr): Jsx.CallChain {
-  const { caller, chain, args } = func
+export function transformCallChain(call: Ast.CallChainExpr): Jsx.CallChain {
+  const { caller, chain, args } = call
   return {
     $$typeof: 'call',
     caller: caller.name,
     chain: chain.map(item => item.name),
-    args: args.map(arg => arg.name),
+    args: Array.isArray(args)
+      ? args.map(arg => arg.name)
+      : transformCallChain(args),
   }
 }
 
-export function transform(program: Ast.Program) {
-  return program.body.map(expression => transformJsx(expression))
+export function transform(program: Ast.Program): Jsx.Type {
+  return program.body.map(expression => {
+    switch (expression.kind) {
+      case 'ArrayExpr':
+        return transformArrayExpr(expression)
+      case 'IdentityExpr':
+        return transformIdentityExpr(expression)
+      case 'JsxExpr':
+      case 'JsxSelfClosingExpr':
+        return transformJsx(expression)
+      case 'NumberExpr':
+        return transformNumberExpr(expression)
+      case 'ObjectExpr':
+        return transformObjectExpr(expression)
+      case 'StringExpr':
+        return transformStringExpr(expression)
+      case 'ArrowFunctionExpr':
+        return transformArrowFunction(expression)
+      case 'CallChainExpr':
+        return transformCallChain(expression)
+      default:
+        return null
+    }
+  })
 }

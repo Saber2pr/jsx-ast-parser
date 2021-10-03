@@ -2,13 +2,15 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 19:42:19
+ * @Last Modified time: 2021-10-03 10:13:32
  */
 export type Type =
   | JsxNode
   | string
   | number
   | boolean
+  | null
+  | JsxObject
   | JsxAttributes
   | Type[]
   | ArrowFunction
@@ -16,19 +18,25 @@ export type Type =
 
 // Jsx
 
-export interface JsxAttributes {
-  [k: string]: Type
-}
-
 export interface Node {
   $$typeof: string
   [k: string]: any
 }
 
+export interface JsxObject {
+  $$typeof: 'jsx-obj'
+  [k: string]: Type
+}
+
+export interface JsxAttributes {
+  $$typeof: 'jsx-attrs'
+  [k: string]: Type
+}
+
 export interface JsxElement extends Node {
   $$typeof: 'jsx'
   props: JsxAttributes
-  children: JsxNode[]
+  children: Type[]
 }
 
 export interface TextElement extends Node {
@@ -43,13 +51,13 @@ export interface CallChain {
   $$typeof: 'call'
   caller: string
   chain: string[]
-  args: string[]
+  args: string[] | CallChain
 }
 
 export interface ArrowFunction {
   $$typeof: 'function'
   args: string[]
-  body: CallChain[]
+  body: Type[]
 }
 
 export type JsxNode = JsxElement | TextElement

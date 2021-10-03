@@ -1,188 +1,219 @@
-{
-  "$$typeof": "jsx",
-  "tagName": "div",
-  "props": {
-    "width": 100,
-    "contentEditable": true,
-    "color": "red",
-    "arr": [
-      1,
-      2
-    ],
-    "style": {
+[
+  {
+    "$$typeof": "jsx",
+    "tagName": "div",
+    "props": {
+      "$$typeof": "jsx-attrs",
       "width": 100,
+      "contentEditable": true,
       "color": "red",
-      "background": "blue",
-      "test": {
-        "color": "red"
-      },
-      "child": {
-        "$$typeof": "jsx",
-        "tagName": "span",
-        "props": {},
-        "children": [
-          {
-            "$$typeof": "text",
-            "tagName": "text",
-            "nodeValue": "233"
-          }
-        ]
-      }
-    },
-    "id": "233ccc",
-    "class2Name": "qwq123",
-    "onClick": "onClick",
-    "onError": {
-      "$$typeof": "function",
-      "args": [
-        "error",
-        "test"
+      "arr": [
+        1,
+        2
       ],
-      "body": [
-        {
-          "$$typeof": "call",
-          "caller": "console",
-          "chain": [
-            "log"
-          ],
-          "args": [
-            "error"
-          ]
+      "style": {
+        "width": 100,
+        "color": "red",
+        "background": "blue",
+        "test": {
+          "color": "red"
         },
-        {
-          "$$typeof": "call",
-          "caller": "console",
-          "chain": [
-            "log"
-          ],
-          "args": [
-            "test"
-          ]
-        }
-      ]
-    }
-  },
-  "children": [
-    {
-      "$$typeof": "jsx",
-      "tagName": "List",
-      "props": {
-        "list": [
-          {
-            "content": {
-              "$$typeof": "jsx",
-              "tagName": "View",
-              "props": {
-                "color": "red"
-              },
-              "children": [
-                {
-                  "$$typeof": "text",
-                  "tagName": "text",
-                  "nodeValue": "233"
-                }
-              ]
-            },
-            "logo": {
-              "$$typeof": "jsx",
-              "tagName": "Image",
-              "props": {
-                "mode": "test"
-              },
-              "children": []
-            }
-          },
-          {
-            "content": {
-              "$$typeof": "jsx",
-              "tagName": "View",
-              "props": {},
-              "children": []
-            }
-          }
-        ]
-      },
-      "children": []
-    },
-    {
-      "$$typeof": "jsx",
-      "tagName": "div",
-      "props": {},
-      "children": []
-    },
-    {
-      "$$typeof": "jsx",
-      "tagName": "div",
-      "props": {
-        "id": "qwq",
-        "meta": 233
-      },
-      "children": []
-    },
-    {
-      "$$typeof": "jsx",
-      "tagName": "span",
-      "props": {},
-      "children": [
-        {
-          "$$typeof": "text",
-          "tagName": "text",
-          "nodeValue": "aaa"
-        }
-      ]
-    },
-    {
-      "$$typeof": "jsx",
-      "tagName": "span",
-      "props": {},
-      "children": [
-        {
-          "$$typeof": "text",
-          "tagName": "text",
-          "nodeValue": "1234"
-        }
-      ]
-    },
-    {
-      "$$typeof": "jsx",
-      "tagName": "span",
-      "props": {},
-      "children": [
-        {
-          "$$typeof": "text",
-          "tagName": "text",
-          "nodeValue": "1234asd"
-        }
-      ]
-    },
-    {
-      "$$typeof": "jsx",
-      "tagName": "span",
-      "props": {},
-      "children": [
-        {
-          "$$typeof": "text",
-          "tagName": "text",
-          "nodeValue": "12aa"
-        },
-        {
+        "child": {
           "$$typeof": "jsx",
           "tagName": "span",
-          "props": {},
+          "props": {
+            "$$typeof": "jsx-attrs"
+          },
           "children": [
             {
               "$$typeof": "text",
               "tagName": "text",
-              "nodeValue": "aaa"
+              "nodeValue": "233"
+            }
+          ]
+        }
+      },
+      "id": "233ccc",
+      "class2Name": "qwq123",
+      "onClick": "onClick",
+      "onError": {
+        "$$typeof": "function",
+        "args": [
+          "error",
+          "test"
+        ],
+        "body": [
+          {
+            "$$typeof": "call",
+            "caller": "console",
+            "chain": [
+              "log"
+            ],
+            "args": [
+              "error"
+            ]
+          },
+          {
+            "$$typeof": "call",
+            "caller": "console",
+            "chain": [
+              "log"
+            ],
+            "args": []
+          },
+          {
+            "$$typeof": "call",
+            "caller": "console",
+            "chain": [
+              "log"
+            ],
+            "args": [
+              "test"
+            ]
+          }
+        ]
+      }
+    },
+    "children": [
+      {
+        "$$typeof": "jsx",
+        "tagName": "List",
+        "props": {
+          "$$typeof": "jsx-attrs",
+          "list": [
+            {
+              "content": {
+                "$$typeof": "jsx",
+                "tagName": "View",
+                "props": {
+                  "$$typeof": "jsx-attrs",
+                  "color": "red"
+                },
+                "children": [
+                  {
+                    "$$typeof": "text",
+                    "tagName": "text",
+                    "nodeValue": "233"
+                  }
+                ]
+              },
+              "logo": {
+                "$$typeof": "jsx",
+                "tagName": "Image",
+                "props": {
+                  "$$typeof": "jsx-attrs",
+                  "mode": "test"
+                },
+                "children": []
+              }
+            },
+            {
+              "content": {
+                "$$typeof": "jsx",
+                "tagName": "View",
+                "props": {
+                  "$$typeof": "jsx-attrs"
+                },
+                "children": []
+              }
             }
           ]
         },
-        {
-          "$$typeof": "text",
-          "tagName": "text",
-          "nodeValue": "aa234234aaa"
-        }
-      ]
-    }
-  ]
-}
+        "children": []
+      },
+      {
+        "$$typeof": "jsx",
+        "tagName": "div",
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
+        "children": []
+      },
+      {
+        "$$typeof": "jsx",
+        "tagName": "div",
+        "props": {
+          "$$typeof": "jsx-attrs",
+          "id": "qwq",
+          "meta": 233
+        },
+        "children": []
+      },
+      {
+        "$$typeof": "jsx",
+        "tagName": "span",
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
+        "children": [
+          {
+            "$$typeof": "text",
+            "tagName": "text",
+            "nodeValue": "aaa"
+          }
+        ]
+      },
+      {
+        "$$typeof": "jsx",
+        "tagName": "span",
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
+        "children": [
+          {
+            "$$typeof": "text",
+            "tagName": "text",
+            "nodeValue": "1234"
+          }
+        ]
+      },
+      {
+        "$$typeof": "jsx",
+        "tagName": "span",
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
+        "children": [
+          {
+            "$$typeof": "text",
+            "tagName": "text",
+            "nodeValue": "1234asd"
+          }
+        ]
+      },
+      {
+        "$$typeof": "jsx",
+        "tagName": "span",
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
+        "children": [
+          {
+            "$$typeof": "text",
+            "tagName": "text",
+            "nodeValue": "12aa"
+          },
+          {
+            "$$typeof": "jsx",
+            "tagName": "span",
+            "props": {
+              "$$typeof": "jsx-attrs"
+            },
+            "children": [
+              {
+                "$$typeof": "text",
+                "tagName": "text",
+                "nodeValue": "aaa"
+              }
+            ]
+          },
+          {
+            "$$typeof": "text",
+            "tagName": "text",
+            "nodeValue": "aa234234aaa"
+          }
+        ]
+      }
+    ]
+  }
+]

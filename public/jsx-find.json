@@ -3,12 +3,14 @@
     "$$typeof": "jsx",
     "tagName": "List",
     "props": {
+      "$$typeof": "jsx-attrs",
       "list": [
         {
           "content": {
             "$$typeof": "jsx",
             "tagName": "View",
             "props": {
+              "$$typeof": "jsx-attrs",
               "color": "red"
             },
             "children": [
@@ -23,6 +25,7 @@
             "$$typeof": "jsx",
             "tagName": "Image",
             "props": {
+              "$$typeof": "jsx-attrs",
               "mode": "test"
             },
             "children": []
@@ -32,7 +35,9 @@
           "content": {
             "$$typeof": "jsx",
             "tagName": "View",
-            "props": {},
+            "props": {
+              "$$typeof": "jsx-attrs"
+            },
             "children": []
           }
         }
