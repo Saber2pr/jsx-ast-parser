@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:22:13
+ * @Last Modified time: 2021-10-03 10:23:56
  */
 import { writeFileSync } from 'fs'
 
@@ -28,7 +28,8 @@ const code = `
   onClick={onClick}
   onError={(error,test) => {
     console.log(error);
-    console.log(test)
+    console.log();
+    console.log(console.log(test))
   }}
 >
   <List
@@ -66,26 +67,38 @@ writeFileSync('./public/jsx.json', JSON.stringify(jsx, null, 2))
 const out = compiler.compile(jsx)
 writeFileSync('./public/out.jsx', out)
 
-const jsx2 = traverser.traverse(jsx[0], node => {
-  console.log(node)
-  if (node.props && node.props.id === 'qwq') {
-    return transformer.createJsxElement(node.tagName, {
-      ...node.props,
-      meta: 233,
-    })
+const visited: transformer.Type = []
+const jsx2 = traverser.traverse(jsx, node => {
+  console.log('node', node)
+  visited.push(node)
+  if (node) {
+    if (transformer.isJsxElement(node)) {
+      if (node.props && node.props.id === 'qwq') {
+        return transformer.createJsxElement(node.tagName, {
+          ...node.props,
+          meta: 233,
+        })
+      }
+    }
   }
 })
 
 writeFileSync('./public/jsx2.json', JSON.stringify(jsx2, null, 2))
+writeFileSync('./public/visited.json', JSON.stringify(visited, null, 2))
 
 const node = traverser.findNode(
-  jsx[0],
-  node => node.props && node.tagName === 'List'
+  jsx,
+  node =>
+    transformer.isJsxElement(node) && node.props && node.tagName === 'List'
 )
 writeFileSync('./public/jsx-find.json', JSON.stringify(node, null, 2))
 writeFileSync('./public/out-find.jsx', compiler.compile(node))
 
 // get props list source code
-console.log(
-  node[0].props.list.map((item: any) => compiler.compile(item.content))
-)
+if (transformer.isJsxElement(node[0])) {
+  const result = node[0]
+  const list = result.props.list
+  if (Array.isArray(list)) {
+    console.log(list.map((item: any) => compiler.compile(item.content)))
+  }
+}

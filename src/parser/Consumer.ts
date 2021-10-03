@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:32:33
+ * @Last Modified time: 2021-10-03 09:43:43
  */
 import * as parsec from 'typescript-parsec'
 
@@ -150,7 +150,10 @@ export function applyArrowFunction(
 }
 
 export function applyCallChain(
-  source: [Ast.IdentityExpr[], Ast.IdentityExpr[] | undefined]
+  source: [
+    Ast.IdentityExpr[],
+    Ast.IdentityExpr[] | undefined | Ast.CallChainExpr
+  ]
 ): Ast.CallChainExpr {
   const [chain, args = []] = source
   return {
@@ -161,7 +164,7 @@ export function applyCallChain(
   }
 }
 
-export function applyProgram(value: Ast.Jsx[]): Ast.Program {
+export function applyProgram(value: Ast.Expression[]): Ast.Program {
   return {
     kind: 'Program',
     body: value,

@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:06:05
+ * @Last Modified time: 2021-10-03 09:44:17
  */
 export interface Node {
   kind: any
@@ -99,12 +99,12 @@ export interface CallChainExpr extends Node {
   kind: 'CallChainExpr'
   caller: IdentityExpr
   chain: IdentityExpr[]
-  args: IdentityExpr[]
+  args: IdentityExpr[] | CallChainExpr
 }
 
 // Program
 
 export interface Program extends Node {
   kind: 'Program'
-  body: Jsx[]
+  body: Expression[]
 }

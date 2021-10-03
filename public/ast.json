@@ -203,12 +203,39 @@
                       "name": "log"
                     }
                   ],
-                  "args": [
+                  "args": []
+                },
+                {
+                  "kind": "CallChainExpr",
+                  "caller": {
+                    "kind": "IdentityExpr",
+                    "name": "console"
+                  },
+                  "chain": [
                     {
                       "kind": "IdentityExpr",
-                      "name": "test"
+                      "name": "log"
                     }
-                  ]
+                  ],
+                  "args": {
+                    "kind": "CallChainExpr",
+                    "caller": {
+                      "kind": "IdentityExpr",
+                      "name": "console"
+                    },
+                    "chain": [
+                      {
+                        "kind": "IdentityExpr",
+                        "name": "log"
+                      }
+                    ],
+                    "args": [
+                      {
+                        "kind": "IdentityExpr",
+                        "name": "test"
+                      }
+                    ]
+                  }
                 }
               ]
             }

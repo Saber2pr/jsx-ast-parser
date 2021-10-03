@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:33:13
+ * @Last Modified time: 2021-10-03 09:50:32
  */
 import {
   alt,
@@ -67,7 +67,22 @@ export const PROGRAM = rule<TokenKind, Ast.Program>()
 JSX
   = JSXOPENED <|> JSXSELFCLOSE
 */
-const JSX = alt(JSXOPENED, JSXSELFCLOSE)
+export const JSX = alt(JSXOPENED, JSXSELFCLOSE)
+
+/*
+EXPRESSION
+  = JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY | <|> ARROWFUNCTION <|> CALLCHAIN
+*/
+export const EXPRESSION = alt(
+  JSX,
+  STRING,
+  NUMBER,
+  IDENTITY,
+  OBJ,
+  ARRAY,
+  ARROWFUNCTION,
+  CALLCHAIN
+)
 
 /*
 NUMBER
@@ -105,31 +120,13 @@ IDENTITY.setPattern(
 
 /*
 OBJ 
-  = { commanSep $ IDENTITY : $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY | <|> ARROWFUNCTION <|> CALLCHAIN}
+  = { commanSep $ IDENTITY : EXPRESSION}
 */
 OBJ.setPattern(
   apply(
     kmid(
       str('{'),
-      opt(
-        list_sc(
-          seq(
-            IDENTITY,
-            str(':'),
-            alt(
-              JSX,
-              STRING,
-              NUMBER,
-              IDENTITY,
-              OBJ,
-              ARRAY,
-              ARROWFUNCTION,
-              CALLCHAIN
-            )
-          ),
-          str(',')
-        )
-      ),
+      opt(list_sc(seq(IDENTITY, str(':'), EXPRESSION), str(','))),
       seq(opt(str(',')), str('}'))
     ),
     applyObject
@@ -138,27 +135,13 @@ OBJ.setPattern(
 
 /*
 ARRAY
-  = [ many $ JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY <|> ARROWFUNCTION <|> CALLCHAIN]
+  = [ commaSep EXPRESSION ]
 */
 ARRAY.setPattern(
   apply(
     kmid(
       str('['),
-      opt(
-        list_sc(
-          alt(
-            JSX,
-            STRING,
-            NUMBER,
-            IDENTITY,
-            OBJ,
-            ARRAY,
-            ARROWFUNCTION,
-            CALLCHAIN
-          ),
-          str(',')
-        )
-      ),
+      opt(list_sc(EXPRESSION, str(','))),
       seq(opt(str(',')), str(']'))
     ),
     applyArray
@@ -168,30 +151,14 @@ ARRAY.setPattern(
 /*
 PROP 
   = IDENTITY
-  = IDENTITY={JSX <|> OBJ <|> ARRAY <|> NUMBER <|> STRING <|> IDENTITY <|> ARROWFUNCTION <|> CALLCHAIN}
+  = IDENTITY={EXPRESSION}
 */
 PROP.setPattern(
   apply(
     alt(
       seq(
         kleft(IDENTITY, str('=')),
-        alt(
-          STRING,
-          kmid(
-            str('{'),
-            alt(
-              JSX,
-              OBJ,
-              ARRAY,
-              NUMBER,
-              STRING,
-              IDENTITY,
-              ARROWFUNCTION,
-              CALLCHAIN
-            ),
-            str('}')
-          )
-        )
+        alt(STRING, kmid(str('{'), EXPRESSION, str('}')))
       ),
       seq(IDENTITY, nil())
     ),
@@ -263,7 +230,8 @@ ARROWFUNCTION.setPattern(
 
 /*
 CALLCHAIN
-  = dotSep IDENTITY ( commaSep IDENTITY )
+  = dotSep IDENTITY ( CALLCHAIN <|> commaSep IDENTITY )
+  = dotSep IDENTITY (  )
 */
 CALLCHAIN.setPattern(
   apply(
@@ -272,7 +240,7 @@ CALLCHAIN.setPattern(
         list_sc(IDENTITY, str('.')),
         kmid(
           str('('),
-          list_sc(IDENTITY, str(',')),
+          opt(alt(list_sc(IDENTITY, str(',')), CALLCHAIN)),
           seq(opt(str(',')), str(')'))
         )
       ),
@@ -284,9 +252,9 @@ CALLCHAIN.setPattern(
 
 /*
 PROGRAM
-  = many JSX
+  = many EXPRESSION
 */
-PROGRAM.setPattern(apply(rep_sc(JSX), applyProgram))
+PROGRAM.setPattern(apply(rep_sc(EXPRESSION), applyProgram))
 
 // parse ast
 export function parse(code: string) {

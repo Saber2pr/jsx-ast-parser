@@ -3,6 +3,7 @@
     "$$typeof": "jsx",
     "tagName": "div",
     "props": {
+      "$$typeof": "jsx-attrs",
       "width": 100,
       "contentEditable": true,
       "color": "red",
@@ -20,7 +21,9 @@
         "child": {
           "$$typeof": "jsx",
           "tagName": "span",
-          "props": {},
+          "props": {
+            "$$typeof": "jsx-attrs"
+          },
           "children": [
             {
               "$$typeof": "text",
@@ -56,9 +59,24 @@
             "chain": [
               "log"
             ],
-            "args": [
-              "test"
-            ]
+            "args": []
+          },
+          {
+            "$$typeof": "call",
+            "caller": "console",
+            "chain": [
+              "log"
+            ],
+            "args": {
+              "$$typeof": "call",
+              "caller": "console",
+              "chain": [
+                "log"
+              ],
+              "args": [
+                "test"
+              ]
+            }
           }
         ]
       }
@@ -68,12 +86,14 @@
         "$$typeof": "jsx",
         "tagName": "List",
         "props": {
+          "$$typeof": "jsx-attrs",
           "list": [
             {
               "content": {
                 "$$typeof": "jsx",
                 "tagName": "View",
                 "props": {
+                  "$$typeof": "jsx-attrs",
                   "color": "red"
                 },
                 "children": [
@@ -88,6 +108,7 @@
                 "$$typeof": "jsx",
                 "tagName": "Image",
                 "props": {
+                  "$$typeof": "jsx-attrs",
                   "mode": "test"
                 },
                 "children": []
@@ -97,7 +118,9 @@
               "content": {
                 "$$typeof": "jsx",
                 "tagName": "View",
-                "props": {},
+                "props": {
+                  "$$typeof": "jsx-attrs"
+                },
                 "children": []
               }
             }
@@ -108,13 +131,16 @@
       {
         "$$typeof": "jsx",
         "tagName": "div",
-        "props": {},
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
         "children": []
       },
       {
         "$$typeof": "jsx",
         "tagName": "div",
         "props": {
+          "$$typeof": "jsx-attrs",
           "id": "qwq"
         },
         "children": []
@@ -122,7 +148,9 @@
       {
         "$$typeof": "jsx",
         "tagName": "span",
-        "props": {},
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
         "children": [
           {
             "$$typeof": "text",
@@ -134,7 +162,9 @@
       {
         "$$typeof": "jsx",
         "tagName": "span",
-        "props": {},
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
         "children": [
           {
             "$$typeof": "text",
@@ -146,7 +176,9 @@
       {
         "$$typeof": "jsx",
         "tagName": "span",
-        "props": {},
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
         "children": [
           {
             "$$typeof": "text",
@@ -158,7 +190,9 @@
       {
         "$$typeof": "jsx",
         "tagName": "span",
-        "props": {},
+        "props": {
+          "$$typeof": "jsx-attrs"
+        },
         "children": [
           {
             "$$typeof": "text",
@@ -168,7 +202,9 @@
           {
             "$$typeof": "jsx",
             "tagName": "span",
-            "props": {},
+            "props": {
+              "$$typeof": "jsx-attrs"
+            },
             "children": [
               {
                 "$$typeof": "text",
