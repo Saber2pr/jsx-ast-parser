@@ -5,3 +5,4 @@ build/
 lib/
 .DS_Store
 yarn.lock
+coverage
