@@ -76,6 +76,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverse" class="tsd-kind-icon">traverse</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverseArrowFunction" class="tsd-kind-icon">traverse<wbr>Arrow<wbr>Function</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverseCallChain" class="tsd-kind-icon">traverse<wbr>Call<wbr>Chain</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverseFunction" class="tsd-kind-icon">traverse<wbr>Function</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverseJsxAttributes" class="tsd-kind-icon">traverse<wbr>Jsx<wbr>Attributes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverseJsxNode" class="tsd-kind-icon">traverse<wbr>Jsx<wbr>Node</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="traverser.html#traverseJsxObject" class="tsd-kind-icon">traverse<wbr>Jsx<wbr>Object</a></li>
@@ -96,7 +97,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L158">traverser/Traverser.ts:158</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L187">traverser/Traverser.ts:187</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,7 +141,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L118">traverser/Traverser.ts:118</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L147">traverser/Traverser.ts:147</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,7 +185,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L51">traverser/Traverser.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L51">traverser/Traverser.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -228,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L80">traverser/Traverser.ts:80</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L109">traverser/Traverser.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -263,6 +264,50 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="traverseFunction" class="tsd-anchor"></a>
+					<h3>traverse<wbr>Function</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">traverse<wbr>Function<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.Function.html" class="tsd-signature-type" data-tsd-kind="Interface">Function</a>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L80">traverser/Traverser.ts:80</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>node: <a href="../interfaces/transformer.Function.html" class="tsd-signature-type" data-tsd-kind="Interface">Function</a></h5>
+								</li>
+								<li>
+									<h5>callback: <span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-signature">
+											<ul class="tsd-signatures tsd-kind-type-literal">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-parameters-title">Parameters</h4>
+													<ul class="tsd-parameters">
+														<li>
+															<h5>node: <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h5>
+														</li>
+													</ul>
+													<h4 class="tsd-returns-title">Returns <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">void</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="traverseJsxAttributes" class="tsd-anchor"></a>
 					<h3>traverse<wbr>Jsx<wbr>Attributes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -272,7 +317,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L105">traverser/Traverser.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L134">traverser/Traverser.ts:134</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -316,7 +361,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L11">traverser/Traverser.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L11">traverser/Traverser.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -360,7 +405,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/3c1274c/src/traverser/Traverser.ts#L92">traverser/Traverser.ts:92</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/fc493d9/src/traverser/Traverser.ts#L121">traverser/Traverser.ts:121</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -429,6 +474,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="traverser.html#traverseCallChain" class="tsd-kind-icon">traverse<wbr>Call<wbr>Chain</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="traverser.html#traverseFunction" class="tsd-kind-icon">traverse<wbr>Function</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="traverser.html#traverseJsxAttributes" class="tsd-kind-icon">traverse<wbr>Jsx<wbr>Attributes</a>
