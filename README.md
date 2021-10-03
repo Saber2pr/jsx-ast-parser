@@ -8,6 +8,8 @@ yarn add @saber2pr/jsx-ast-parser
 
 ### Feature
 
+#### parser
+
 - [x] jsx opened
 - [x] jsx self closing
 - [x] jsx props string-value
@@ -15,8 +17,38 @@ yarn add @saber2pr/jsx-ast-parser
 - [x] jsx props object
 - [x] jsx props object-array
 - [x] jsx props string-array, number-array
-- [x] jsx props function
-- [ ] jsx props function scope jsx statements
+- [x] jsx props arrow function
+- [x] jsx props arrow function scope statements
+- [ ] jsx props function
+- [ ] jsx props function scope statements
+- [x] statement call chain
+- [x] statement arrow function
+- [ ] statement comment
+- [ ] statement arithmetic
+- [ ] statement function
+- [ ] statement declare
+- [ ] statement assign
+- [ ] statement if else
+- [ ] statement for
+- [ ] statement while
+- [ ] statement try catch
+- [ ] statement return
+- [ ] statement deconstruct
+- [ ] statement as
+
+#### transformer
+
+- [x] transform jsx
+
+#### traverser
+
+- [ ] traverse ast
+- [x] traverse jsx
+
+#### compiler
+
+- [ ] compile ast
+- [x] compile jsx
 
 ### Usage
 

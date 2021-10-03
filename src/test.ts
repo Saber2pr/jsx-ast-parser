@@ -30,6 +30,7 @@ const code = `
     console.log(error);
     console.log();
     console.log(console.log(test))
+    Array.from([1,2,3]).map(n => n)
   }}
 >
   <List
