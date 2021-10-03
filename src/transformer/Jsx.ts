@@ -15,6 +15,7 @@ export type Type =
   | Type[]
   | ArrowFunction
   | CallChain
+  | Function
 
 // Jsx
 
@@ -55,7 +56,14 @@ export interface CallChain extends Node {
 }
 
 export interface ArrowFunction extends Node {
+  $$typeof: 'arrow-function'
+  args: string[]
+  body: Type[]
+}
+
+export interface Function extends Node {
   $$typeof: 'function'
+  name: string | undefined
   args: string[]
   body: Type[]
 }

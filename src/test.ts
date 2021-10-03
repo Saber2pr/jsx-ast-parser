@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 10:42:45
+ * @Last Modified time: 2021-10-03 18:13:23
  */
 import { writeFileSync } from 'fs'
 
@@ -30,9 +30,8 @@ const code = `
     console.log(error);
     console.log();
     console.log(console.log(test))
-    Array.from([1,2,3]).map(n => n)
   }}
-  onSubmit={function (){
+  onSubmit={function test(){
     console.log();
   }}
 >

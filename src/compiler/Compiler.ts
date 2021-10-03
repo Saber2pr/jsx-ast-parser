@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 10:44:48
+ * @Last Modified time: 2021-10-03 18:12:48
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -60,23 +60,8 @@ export function compileJsxAttributes(element: Jsx.JsxAttributes): string {
       if (Factory.isTextElement(value)) {
         return `${key}="${value.nodeValue}"`
       }
-      if (Factory.isJsxElement(value)) {
-        return `${key}={${compileJsxElement(value)}}`
-      }
       // statement
-      if (Factory.isArrowFunction(value)) {
-        return `${key}={${compileArrowFunction(value)}}`
-      }
-      if (Factory.isCallChain(value)) {
-        return `${key}={${compileCallChain(value)}}`
-      }
-      if (Array.isArray(value)) {
-        return `${key}={${compileArray(value)}}`
-      }
-      if (value === null || Factory.isJsxObject(value)) {
-        return `${key}={${compileJsxObject(value)}}`
-      }
-      return `${key}=""`
+      return `${key}={${compile(value)}}`
     })
     .join(' ')}`
 }
@@ -104,12 +89,16 @@ export function compileArrowFunction(element: Jsx.ArrowFunction) {
   const args = element.args ?? []
   const body = element.body ?? []
   return `(${args.join(',')})=>{${body
-    .map(statement => {
-      if (Factory.isCallChain(statement)) {
-        return compileCallChain(statement)
-      }
-      return ''
-    })
+    .map(statement => compile(statement))
+    .join(';')}}`
+}
+
+export function compileFunction(element: Jsx.Function) {
+  const name = element.name ?? ''
+  const args = element.args ?? []
+  const body = element.body ?? []
+  return `function ${name}(${args.join(',')}){${body
+    .map(statement => compile(statement))
     .join(';')}}`
 }
 
@@ -138,6 +127,16 @@ export function compile(element: Jsx.Type): string {
   }
   if (element === null || Factory.isJsxObject(element)) {
     return compileJsxObject(element)
+  }
+  // statement
+  if (Factory.isArrowFunction(element)) {
+    return compileArrowFunction(element)
+  }
+  if (Factory.isFunction(element)) {
+    return compileFunction(element)
+  }
+  if (Factory.isCallChain(element)) {
+    return compileCallChain(element)
   }
   if (typeof element === 'string') {
     return compileString(element)

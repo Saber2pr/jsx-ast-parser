@@ -107,6 +107,15 @@ export function transformArrowFunction(
   )
 }
 
+export function transformFunction(func: Ast.FunctionExpr): Jsx.Function {
+  const { name, args, body = [] } = func
+  return TFactory.createFunction(
+    name?.name,
+    args.map(arg => arg.name),
+    body.map(expression => transformExpression(expression))
+  )
+}
+
 export function transformCallChain(call: Ast.CallChainExpr): Jsx.CallChain {
   const { caller, chain, args } = call
   return TFactory.createCallChain(
@@ -133,6 +142,8 @@ export function transformExpression(expression: Ast.Expression): Jsx.Type {
       return transformStringExpr(expression)
     case 'ArrowFunctionExpr':
       return transformArrowFunction(expression)
+    case 'FunctionExpr':
+      return transformFunction(expression)
     case 'CallChainExpr':
       return transformCallChain(expression)
     default:

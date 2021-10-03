@@ -59,6 +59,12 @@ export function isArrowFunction(
 ): element is Jsx.ArrowFunction {
   if (!element) return false
   const func = <Jsx.ArrowFunction>element
+  return func.$$typeof === 'arrow-function'
+}
+
+export function isFunction(element: Jsx.Type): element is Jsx.Function {
+  if (!element) return false
+  const func = <Jsx.Function>element
   return func.$$typeof === 'function'
 }
 
@@ -108,7 +114,20 @@ export function createArrowFunction(
   body: Jsx.Type[] = []
 ): Jsx.ArrowFunction {
   return createNode<Jsx.ArrowFunction>({
+    $$typeof: 'arrow-function',
+    args,
+    body,
+  })
+}
+
+export function createFunction(
+  name: string | undefined,
+  args: string[] = [],
+  body: Jsx.Type[] = []
+): Jsx.Function {
+  return createNode<Jsx.Function>({
     $$typeof: 'function',
+    name,
     args,
     body,
   })

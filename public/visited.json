@@ -79,6 +79,19 @@
       }
     ]
   },
+  {
+    "name": "test",
+    "args": [],
+    "body": [
+      {
+        "caller": "console",
+        "chain": [
+          "log"
+        ],
+        "args": []
+      }
+    ]
+  },
   "red",
   {
     "tagName": "View",
@@ -279,6 +292,19 @@
             "args": [
               "test"
             ]
+          }
+        ]
+      },
+      "onSubmit": {
+        "name": "test",
+        "args": [],
+        "body": [
+          {
+            "caller": "console",
+            "chain": [
+              "log"
+            ],
+            "args": []
           }
         ]
       }
