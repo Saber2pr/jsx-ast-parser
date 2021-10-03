@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.4](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.3...v0.0.4) (2021-10-03)
+
+
+### Features
+
+* transform factory ([0dc8204](https://github.com/Saber2pr/jsx-ast-parser/commit/0dc8204856945d68e40fcfd276a8507ef6d0e7da))
+* traverse arrow function & callchain ([96ec78d](https://github.com/Saber2pr/jsx-ast-parser/commit/96ec78ddc6c4559f2175b70c80b72d6d996eecd6))
+
 ### [0.0.3](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.2...v0.0.3) (2021-10-02)
 
 
