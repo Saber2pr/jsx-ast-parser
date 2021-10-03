@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.4...v0.0.5) (2021-10-03)
+
+
+### Features
+
+* jsx props function ([2ea4c25](https://github.com/Saber2pr/jsx-ast-parser/commit/2ea4c25a2d7ebfc375feeca1e1e2a5d962874b01))
+* transformExpression ([3c1274c](https://github.com/Saber2pr/jsx-ast-parser/commit/3c1274c7356b79f5948580e4b14073dc41bf6619))
+
 ### [0.0.4](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.3...v0.0.4) (2021-10-03)
 
 
