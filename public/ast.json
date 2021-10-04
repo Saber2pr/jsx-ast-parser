@@ -236,6 +236,104 @@
                       }
                     ]
                   }
+                },
+                {
+                  "kind": "DefineVariableExpr",
+                  "type": {
+                    "kind": "KeywordExpr",
+                    "name": "const"
+                  },
+                  "assign": {
+                    "kind": "VariableAssignExpr",
+                    "name": {
+                      "kind": "IdentityExpr",
+                      "name": "a"
+                    },
+                    "value": {
+                      "kind": "StringExpr",
+                      "value": "a"
+                    }
+                  }
+                },
+                {
+                  "kind": "DefineVariableExpr",
+                  "type": {
+                    "kind": "KeywordExpr",
+                    "name": "let"
+                  },
+                  "assign": {
+                    "kind": "VariableAssignExpr",
+                    "name": {
+                      "kind": "IdentityExpr",
+                      "name": "b"
+                    },
+                    "value": {
+                      "kind": "StringExpr",
+                      "value": "b"
+                    }
+                  }
+                },
+                {
+                  "kind": "DefineVariableExpr",
+                  "type": {
+                    "kind": "KeywordExpr",
+                    "name": "const"
+                  },
+                  "assign": {
+                    "kind": "VariableAssignExpr",
+                    "name": {
+                      "kind": "IdentityExpr",
+                      "name": "c"
+                    },
+                    "value": {
+                      "kind": "StringExpr",
+                      "value": "c"
+                    }
+                  }
+                },
+                {
+                  "kind": "DefineVariableExpr",
+                  "type": {
+                    "kind": "KeywordExpr",
+                    "name": "let"
+                  },
+                  "assign": {
+                    "kind": "IdentityExpr",
+                    "name": "d"
+                  }
+                },
+                {
+                  "kind": "VariableAssignExpr",
+                  "name": {
+                    "kind": "IdentityExpr",
+                    "name": "d"
+                  },
+                  "value": {
+                    "kind": "StringExpr",
+                    "value": "d"
+                  }
+                },
+                {
+                  "kind": "DefineVariableExpr",
+                  "type": {
+                    "kind": "KeywordExpr",
+                    "name": "let"
+                  },
+                  "assign": {
+                    "kind": "IdentityExpr",
+                    "name": "a"
+                  }
+                },
+                {
+                  "kind": "VariableAssignExpr",
+                  "name": {
+                    "kind": "IdentityExpr",
+                    "name": "a"
+                  },
+                  "value": {
+                    "kind": "StringExpr",
+                    "value": "a"
+                  }
                 }
               ]
             }

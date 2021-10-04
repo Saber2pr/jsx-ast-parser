@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 09:43:43
+ * @Last Modified time: 2021-10-04 12:48:31
  */
 import * as parsec from 'typescript-parsec'
 
@@ -24,6 +24,13 @@ export function applyString(text: Ast.TextExpr): Ast.StringExpr {
   return {
     kind: 'StringExpr',
     value: text.value,
+  }
+}
+
+export function applyKeyword(token: Token): Ast.KeywordExpr {
+  return {
+    kind: 'KeywordExpr',
+    name: token.text,
   }
 }
 
@@ -55,7 +62,7 @@ export function applyProp(
     | [Ast.IdentityExpr, undefined]
 ): Ast.PropExpr {
   const [name, token] = source
-  let value: Ast.Expression
+  let value: Ast.Expression | Ast.IdentityExpr
   if (token) {
     value = token
   } else {
@@ -72,7 +79,9 @@ export function applyProp(
 }
 
 export function applyObject(
-  source: [Ast.IdentityExpr, Token, Ast.Expression][] | undefined = []
+  source:
+    | [Ast.IdentityExpr, Token, Ast.Expression | Ast.IdentityExpr][]
+    | undefined = []
 ): Ast.ObjectExpr {
   return {
     kind: 'ObjectExpr',
@@ -81,7 +90,7 @@ export function applyObject(
 }
 
 export function applyArray(
-  items: Ast.Expression[] | undefined = []
+  items: (Ast.Expression | Ast.IdentityExpr)[] | undefined = []
 ): Ast.ArrayExpr {
   return {
     kind: 'ArrayExpr',
@@ -139,7 +148,7 @@ export function applyJsx(
 // Statement
 
 export function applyArrowFunction(
-  source: [Ast.IdentityExpr[] | undefined, Ast.Expression[] | undefined]
+  source: [Ast.IdentityExpr[] | undefined, Ast.Statement[] | undefined]
 ): Ast.ArrowFunctionExpr {
   const [args = [], body = []] = source
   return {
@@ -153,7 +162,7 @@ export function applyFunction(
   source: [
     Ast.IdentityExpr | undefined,
     Ast.IdentityExpr[] | undefined,
-    Ast.Expression[]
+    Ast.Statement[]
   ]
 ): Ast.FunctionExpr {
   const [name, args = [], body = []] = source
@@ -180,7 +189,29 @@ export function applyCallChain(
   }
 }
 
-export function applyProgram(value: Ast.Expression[]): Ast.Program {
+export function applyVariableAssign(
+  source: [Ast.IdentityExpr, Ast.Expression | undefined]
+): Ast.VariableAssignExpr {
+  const [name, value] = source
+  return {
+    kind: 'VariableAssignExpr',
+    name,
+    value,
+  }
+}
+
+export function applyDefineVariable(
+  source: [Ast.KeywordExpr, Ast.VariableAssignExpr | Ast.IdentityExpr]
+): Ast.DefineVariableStatement {
+  const [type, assign] = source
+  return {
+    kind: 'DefineVariableExpr',
+    type,
+    assign,
+  }
+}
+
+export function applyProgram(value: Ast.Program['body']): Ast.Program {
   return {
     kind: 'Program',
     body: value,

@@ -490,6 +490,104 @@ Object {
                   ],
                   "kind": "CallChainExpr",
                 },
+                Object {
+                  "assign": Object {
+                    "kind": "VariableAssignExpr",
+                    "name": Object {
+                      "kind": "IdentityExpr",
+                      "name": "a",
+                    },
+                    "value": Object {
+                      "kind": "StringExpr",
+                      "value": "a",
+                    },
+                  },
+                  "kind": "DefineVariableExpr",
+                  "type": Object {
+                    "kind": "KeywordExpr",
+                    "name": "const",
+                  },
+                },
+                Object {
+                  "assign": Object {
+                    "kind": "VariableAssignExpr",
+                    "name": Object {
+                      "kind": "IdentityExpr",
+                      "name": "b",
+                    },
+                    "value": Object {
+                      "kind": "StringExpr",
+                      "value": "b",
+                    },
+                  },
+                  "kind": "DefineVariableExpr",
+                  "type": Object {
+                    "kind": "KeywordExpr",
+                    "name": "let",
+                  },
+                },
+                Object {
+                  "assign": Object {
+                    "kind": "VariableAssignExpr",
+                    "name": Object {
+                      "kind": "IdentityExpr",
+                      "name": "c",
+                    },
+                    "value": Object {
+                      "kind": "StringExpr",
+                      "value": "c",
+                    },
+                  },
+                  "kind": "DefineVariableExpr",
+                  "type": Object {
+                    "kind": "KeywordExpr",
+                    "name": "const",
+                  },
+                },
+                Object {
+                  "assign": Object {
+                    "kind": "IdentityExpr",
+                    "name": "d",
+                  },
+                  "kind": "DefineVariableExpr",
+                  "type": Object {
+                    "kind": "KeywordExpr",
+                    "name": "let",
+                  },
+                },
+                Object {
+                  "kind": "VariableAssignExpr",
+                  "name": Object {
+                    "kind": "IdentityExpr",
+                    "name": "d",
+                  },
+                  "value": Object {
+                    "kind": "StringExpr",
+                    "value": "d",
+                  },
+                },
+                Object {
+                  "assign": Object {
+                    "kind": "IdentityExpr",
+                    "name": "a",
+                  },
+                  "kind": "DefineVariableExpr",
+                  "type": Object {
+                    "kind": "KeywordExpr",
+                    "name": "let",
+                  },
+                },
+                Object {
+                  "kind": "VariableAssignExpr",
+                  "name": Object {
+                    "kind": "IdentityExpr",
+                    "name": "a",
+                  },
+                  "value": Object {
+                    "kind": "StringExpr",
+                    "value": "a",
+                  },
+                },
               ],
               "kind": "ArrowFunctionExpr",
             },

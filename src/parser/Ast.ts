@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 09:44:17
+ * @Last Modified time: 2021-10-04 12:48:38
  */
 export interface Node {
   kind: any
@@ -10,6 +10,11 @@ export interface Node {
 }
 
 // Primary
+
+export interface KeywordExpr extends Node {
+  kind: 'KeywordExpr'
+  name: string
+}
 
 export interface IdentityExpr extends Node {
   kind: 'IdentityExpr'
@@ -29,25 +34,30 @@ export interface StringExpr extends Node {
 export interface ObjectExpr extends Node {
   kind: 'ObjectExpr'
   props: {
-    [k: string]: Expression
+    [k: string]: Expression | IdentityExpr
   }
 }
 
 export interface ArrayExpr extends Node {
   kind: 'ArrayExpr'
-  items: Expression[]
+  items: (Expression | IdentityExpr)[]
 }
 
 export type Expression =
   | Jsx
   | StringExpr
   | NumberExpr
-  | IdentityExpr
   | ObjectExpr
   | ArrayExpr
   | ArrowFunctionExpr
   | CallChainExpr
   | FunctionExpr
+  | VariableAssignExpr
+
+export type Statement =
+  | CallChainExpr
+  | DefineVariableStatement
+  | VariableAssignExpr
 
 // JSX
 
@@ -65,7 +75,7 @@ export interface ClosingTagExpr extends Node {
 export interface PropExpr extends Node {
   kind: 'PropExpr'
   key: IdentityExpr
-  value: Expression
+  value: Expression | IdentityExpr
 }
 
 export interface JsxExpr extends Node {
@@ -88,19 +98,19 @@ export interface JsxSelfClosingExpr extends Node {
 
 export type Jsx = JsxExpr | JsxSelfClosingExpr
 
-// Statement Expr
+// Expr
 
 export interface ArrowFunctionExpr extends Node {
   kind: 'ArrowFunctionExpr'
   args: IdentityExpr[]
-  body: Expression[]
+  body: Statement[]
 }
 
 export interface FunctionExpr extends Node {
   kind: 'FunctionExpr'
   name: IdentityExpr | undefined
   args: IdentityExpr[]
-  body: Expression[]
+  body: Statement[]
 }
 
 export interface CallChainExpr extends Node {
@@ -110,9 +120,23 @@ export interface CallChainExpr extends Node {
   args: IdentityExpr[] | CallChainExpr
 }
 
+export interface VariableAssignExpr extends Node {
+  kind: 'VariableAssignExpr'
+  name: IdentityExpr
+  value: Expression | undefined
+}
+
+// Statement
+
+export interface DefineVariableStatement extends Node {
+  kind: 'DefineVariableExpr'
+  type: KeywordExpr
+  assign: VariableAssignExpr | IdentityExpr
+}
+
 // Program
 
 export interface Program extends Node {
   kind: 'Program'
-  body: Expression[]
+  body: (Expression | Statement)[]
 }
