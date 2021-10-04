@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:32
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 18:14:31
+ * @Last Modified time: 2021-10-04 18:55:54
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -53,7 +53,7 @@ export function traverseArrowFunction(
   callback: (node: Jsx.Type) => Jsx.Type | void
 ): Jsx.Type {
   // map children
-  const children = node.body
+  const children = node.body.statements
   const newChildren = children.map(node => {
     let newNode: Jsx.Type | void
     if (Factory.isCallChain(node)) {
@@ -69,11 +69,11 @@ export function traverseArrowFunction(
   const newNode = callback(node)
   if (newNode) {
     if (Factory.isArrowFunction(newNode)) {
-      newNode.body = newChildren
+      newNode.body.statements = newChildren
     }
     return newNode
   }
-  node.body = newChildren
+  node.body.statements = newChildren
   return node
 }
 
@@ -82,7 +82,7 @@ export function traverseFunction(
   callback: (node: Jsx.Type) => Jsx.Type | void
 ): Jsx.Type {
   // map children
-  const children = node.body
+  const children = node.body.statements
   const newChildren = children.map(node => {
     let newNode: Jsx.Type | void
     if (Factory.isCallChain(node)) {
@@ -98,11 +98,11 @@ export function traverseFunction(
   const newNode = callback(node)
   if (newNode) {
     if (Factory.isArrowFunction(newNode)) {
-      newNode.body = newChildren
+      newNode.body.statements = newChildren
     }
     return newNode
   }
-  node.body = newChildren
+  node.body.statements = newChildren
   return node
 }
 

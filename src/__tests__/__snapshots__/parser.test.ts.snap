@@ -424,46 +424,13 @@ Object {
                   "name": "test",
                 },
               ],
-              "body": Array [
-                Object {
-                  "args": Array [
-                    Object {
-                      "kind": "IdentityExpr",
-                      "name": "error",
-                    },
-                  ],
-                  "caller": Object {
-                    "kind": "IdentityExpr",
-                    "name": "console",
-                  },
-                  "chain": Array [
-                    Object {
-                      "kind": "IdentityExpr",
-                      "name": "log",
-                    },
-                  ],
-                  "kind": "CallChainExpr",
-                },
-                Object {
-                  "args": Array [],
-                  "caller": Object {
-                    "kind": "IdentityExpr",
-                    "name": "console",
-                  },
-                  "chain": Array [
-                    Object {
-                      "kind": "IdentityExpr",
-                      "name": "log",
-                    },
-                  ],
-                  "kind": "CallChainExpr",
-                },
-                Object {
-                  "args": Object {
+              "body": Object {
+                "body": Array [
+                  Object {
                     "args": Array [
                       Object {
                         "kind": "IdentityExpr",
-                        "name": "test",
+                        "name": "error",
                       },
                     ],
                     "caller": Object {
@@ -478,20 +445,140 @@ Object {
                     ],
                     "kind": "CallChainExpr",
                   },
-                  "caller": Object {
-                    "kind": "IdentityExpr",
-                    "name": "console",
-                  },
-                  "chain": Array [
-                    Object {
+                  Object {
+                    "args": Array [],
+                    "caller": Object {
                       "kind": "IdentityExpr",
-                      "name": "log",
+                      "name": "console",
                     },
-                  ],
-                  "kind": "CallChainExpr",
-                },
-                Object {
-                  "assign": Object {
+                    "chain": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "log",
+                      },
+                    ],
+                    "kind": "CallChainExpr",
+                  },
+                  Object {
+                    "args": Object {
+                      "args": Array [
+                        Object {
+                          "kind": "IdentityExpr",
+                          "name": "test",
+                        },
+                      ],
+                      "caller": Object {
+                        "kind": "IdentityExpr",
+                        "name": "console",
+                      },
+                      "chain": Array [
+                        Object {
+                          "kind": "IdentityExpr",
+                          "name": "log",
+                        },
+                      ],
+                      "kind": "CallChainExpr",
+                    },
+                    "caller": Object {
+                      "kind": "IdentityExpr",
+                      "name": "console",
+                    },
+                    "chain": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "log",
+                      },
+                    ],
+                    "kind": "CallChainExpr",
+                  },
+                  Object {
+                    "assign": Object {
+                      "kind": "VariableAssignExpr",
+                      "name": Object {
+                        "kind": "IdentityExpr",
+                        "name": "a",
+                      },
+                      "value": Object {
+                        "kind": "StringExpr",
+                        "value": "a",
+                      },
+                    },
+                    "kind": "DefineVariableStatement",
+                    "type": Object {
+                      "kind": "KeywordExpr",
+                      "name": "const",
+                    },
+                  },
+                  Object {
+                    "assign": Object {
+                      "kind": "VariableAssignExpr",
+                      "name": Object {
+                        "kind": "IdentityExpr",
+                        "name": "b",
+                      },
+                      "value": Object {
+                        "kind": "StringExpr",
+                        "value": "b",
+                      },
+                    },
+                    "kind": "DefineVariableStatement",
+                    "type": Object {
+                      "kind": "KeywordExpr",
+                      "name": "let",
+                    },
+                  },
+                  Object {
+                    "assign": Object {
+                      "kind": "VariableAssignExpr",
+                      "name": Object {
+                        "kind": "IdentityExpr",
+                        "name": "c",
+                      },
+                      "value": Object {
+                        "kind": "StringExpr",
+                        "value": "c",
+                      },
+                    },
+                    "kind": "DefineVariableStatement",
+                    "type": Object {
+                      "kind": "KeywordExpr",
+                      "name": "const",
+                    },
+                  },
+                  Object {
+                    "assign": Object {
+                      "kind": "IdentityExpr",
+                      "name": "d",
+                    },
+                    "kind": "DefineVariableStatement",
+                    "type": Object {
+                      "kind": "KeywordExpr",
+                      "name": "let",
+                    },
+                  },
+                  Object {
+                    "kind": "VariableAssignExpr",
+                    "name": Object {
+                      "kind": "IdentityExpr",
+                      "name": "d",
+                    },
+                    "value": Object {
+                      "kind": "StringExpr",
+                      "value": "d",
+                    },
+                  },
+                  Object {
+                    "assign": Object {
+                      "kind": "IdentityExpr",
+                      "name": "a",
+                    },
+                    "kind": "DefineVariableStatement",
+                    "type": Object {
+                      "kind": "KeywordExpr",
+                      "name": "let",
+                    },
+                  },
+                  Object {
                     "kind": "VariableAssignExpr",
                     "name": Object {
                       "kind": "IdentityExpr",
@@ -502,93 +589,42 @@ Object {
                       "value": "a",
                     },
                   },
-                  "kind": "DefineVariableExpr",
-                  "type": Object {
-                    "kind": "KeywordExpr",
-                    "name": "const",
-                  },
-                },
-                Object {
-                  "assign": Object {
-                    "kind": "VariableAssignExpr",
-                    "name": Object {
-                      "kind": "IdentityExpr",
-                      "name": "b",
+                  Object {
+                    "args": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "a",
+                      },
+                    ],
+                    "body": Object {
+                      "body": Array [
+                        Object {
+                          "args": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "a",
+                            },
+                          ],
+                          "caller": Object {
+                            "kind": "IdentityExpr",
+                            "name": "console",
+                          },
+                          "chain": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "log",
+                            },
+                          ],
+                          "kind": "CallChainExpr",
+                        },
+                      ],
+                      "kind": "BlockExpr",
                     },
-                    "value": Object {
-                      "kind": "StringExpr",
-                      "value": "b",
-                    },
+                    "kind": "IfStatement",
                   },
-                  "kind": "DefineVariableExpr",
-                  "type": Object {
-                    "kind": "KeywordExpr",
-                    "name": "let",
-                  },
-                },
-                Object {
-                  "assign": Object {
-                    "kind": "VariableAssignExpr",
-                    "name": Object {
-                      "kind": "IdentityExpr",
-                      "name": "c",
-                    },
-                    "value": Object {
-                      "kind": "StringExpr",
-                      "value": "c",
-                    },
-                  },
-                  "kind": "DefineVariableExpr",
-                  "type": Object {
-                    "kind": "KeywordExpr",
-                    "name": "const",
-                  },
-                },
-                Object {
-                  "assign": Object {
-                    "kind": "IdentityExpr",
-                    "name": "d",
-                  },
-                  "kind": "DefineVariableExpr",
-                  "type": Object {
-                    "kind": "KeywordExpr",
-                    "name": "let",
-                  },
-                },
-                Object {
-                  "kind": "VariableAssignExpr",
-                  "name": Object {
-                    "kind": "IdentityExpr",
-                    "name": "d",
-                  },
-                  "value": Object {
-                    "kind": "StringExpr",
-                    "value": "d",
-                  },
-                },
-                Object {
-                  "assign": Object {
-                    "kind": "IdentityExpr",
-                    "name": "a",
-                  },
-                  "kind": "DefineVariableExpr",
-                  "type": Object {
-                    "kind": "KeywordExpr",
-                    "name": "let",
-                  },
-                },
-                Object {
-                  "kind": "VariableAssignExpr",
-                  "name": Object {
-                    "kind": "IdentityExpr",
-                    "name": "a",
-                  },
-                  "value": Object {
-                    "kind": "StringExpr",
-                    "value": "a",
-                  },
-                },
-              ],
+                ],
+                "kind": "BlockExpr",
+              },
               "kind": "ArrowFunctionExpr",
             },
           },
@@ -600,22 +636,25 @@ Object {
             "kind": "PropExpr",
             "value": Object {
               "args": Array [],
-              "body": Array [
-                Object {
-                  "args": Array [],
-                  "caller": Object {
-                    "kind": "IdentityExpr",
-                    "name": "console",
-                  },
-                  "chain": Array [
-                    Object {
+              "body": Object {
+                "body": Array [
+                  Object {
+                    "args": Array [],
+                    "caller": Object {
                       "kind": "IdentityExpr",
-                      "name": "log",
+                      "name": "console",
                     },
-                  ],
-                  "kind": "CallChainExpr",
-                },
-              ],
+                    "chain": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "log",
+                      },
+                    ],
+                    "kind": "CallChainExpr",
+                  },
+                ],
+                "kind": "BlockExpr",
+              },
               "kind": "FunctionExpr",
               "name": Object {
                 "kind": "IdentityExpr",

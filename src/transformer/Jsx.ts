@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:15:11
+ * @Last Modified time: 2021-10-04 19:24:06
  */
 export type Type =
   | JsxNode
@@ -18,6 +18,7 @@ export type Type =
   | Function
   | DefineVariable
   | VariableAssign
+  | If
 
 // Jsx
 
@@ -57,17 +58,22 @@ export interface CallChain extends Node {
   args: string[] | CallChain
 }
 
+export interface Block extends Node {
+  $$typeof: 'block'
+  statements: Type[]
+}
+
 export interface ArrowFunction extends Node {
   $$typeof: 'arrow-function'
   args: string[]
-  body: Type[]
+  body: Block
 }
 
 export interface Function extends Node {
   $$typeof: 'function'
   name: string | undefined
   args: string[]
-  body: Type[]
+  body: Block
 }
 
 export interface VariableAssign extends Node {
@@ -80,6 +86,12 @@ export interface DefineVariable extends Node {
   $$typeof: 'define-variable'
   type: string
   assign: VariableAssign | string
+}
+
+export interface If extends Node {
+  $$typeof: 'if'
+  args: string[]
+  body: Block
 }
 
 export type JsxNode = JsxElement | TextElement

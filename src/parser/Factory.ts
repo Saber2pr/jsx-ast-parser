@@ -66,7 +66,7 @@ export function isExpression(token: Ast.Node): token is Ast.Expression {
 export function isStatement(token: Ast.Node): token is Ast.Statement {
   switch ((<Ast.Statement>token).kind) {
     case 'CallChainExpr':
-    case 'DefineVariableExpr':
+    case 'DefineVariableStatement':
       return true
     default:
       return false
