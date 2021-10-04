@@ -75,10 +75,12 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compile" class="tsd-kind-icon">compile</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileArray" class="tsd-kind-icon">compile<wbr>Array</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileArrowFunction" class="tsd-kind-icon">compile<wbr>Arrow<wbr>Function</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileBlock" class="tsd-kind-icon">compile<wbr>Block</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileBoolean" class="tsd-kind-icon">compile<wbr>Boolean</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileCallChain" class="tsd-kind-icon">compile<wbr>Call<wbr>Chain</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileDefineVariable" class="tsd-kind-icon">compile<wbr>Define<wbr>Variable</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileFunction" class="tsd-kind-icon">compile<wbr>Function</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileIf" class="tsd-kind-icon">compile<wbr>If</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileJsxAttributes" class="tsd-kind-icon">compile<wbr>Jsx<wbr>Attributes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileJsxElement" class="tsd-kind-icon">compile<wbr>Jsx<wbr>Element</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="compiler.html#compileJsxObject" class="tsd-kind-icon">compile<wbr>Jsx<wbr>Object</a></li>
@@ -103,7 +105,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L127">compiler/Compiler.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L134">compiler/Compiler.ts:134</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -126,7 +128,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L23">compiler/Compiler.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L23">compiler/Compiler.ts:23</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -149,13 +151,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L88">compiler/Compiler.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L92">compiler/Compiler.ts:92</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>element: <a href="../interfaces/transformer.ArrowFunction.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunction</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="compileBlock" class="tsd-anchor"></a>
+					<h3>compile<wbr>Block</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">compile<wbr>Block<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L87">compiler/Compiler.ts:87</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -172,7 +197,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L19">compiler/Compiler.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L19">compiler/Compiler.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -195,7 +220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L105">compiler/Compiler.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L105">compiler/Compiler.ts:105</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -218,7 +243,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L119">compiler/Compiler.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L121">compiler/Compiler.ts:121</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -241,13 +266,36 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L96">compiler/Compiler.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L98">compiler/Compiler.ts:98</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>element: <a href="../interfaces/transformer.Function.html" class="tsd-signature-type" data-tsd-kind="Interface">Function</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="compileIf" class="tsd-anchor"></a>
+					<h3>compile<wbr>If</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">compile<wbr>If<span class="tsd-signature-symbol">(</span>ifElse<span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L128">compiler/Compiler.ts:128</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ifElse: <a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -264,7 +312,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L40">compiler/Compiler.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L40">compiler/Compiler.ts:40</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -287,7 +335,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L69">compiler/Compiler.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L69">compiler/Compiler.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -310,7 +358,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L27">compiler/Compiler.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L27">compiler/Compiler.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -333,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L15">compiler/Compiler.ts:15</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L15">compiler/Compiler.ts:15</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -356,7 +404,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L11">compiler/Compiler.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L11">compiler/Compiler.ts:11</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -379,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L36">compiler/Compiler.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L36">compiler/Compiler.ts:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -402,7 +450,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/618a12f/src/compiler/Compiler.ts#L114">compiler/Compiler.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1bac8a/src/compiler/Compiler.ts#L114">compiler/Compiler.ts:114</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -449,6 +497,9 @@
 						<a href="compiler.html#compileArrowFunction" class="tsd-kind-icon">compile<wbr>Arrow<wbr>Function</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="compiler.html#compileBlock" class="tsd-kind-icon">compile<wbr>Block</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="compiler.html#compileBoolean" class="tsd-kind-icon">compile<wbr>Boolean</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
@@ -459,6 +510,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="compiler.html#compileFunction" class="tsd-kind-icon">compile<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="compiler.html#compileIf" class="tsd-kind-icon">compile<wbr>If</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="compiler.html#compileJsxAttributes" class="tsd-kind-icon">compile<wbr>Jsx<wbr>Attributes</a>
