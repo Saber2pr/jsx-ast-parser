@@ -175,6 +175,13 @@ Array [
             ],
           },
           Object {
+            "args": Array [],
+            "caller": "console",
+            "chain": Array [
+              "log",
+            ],
+          },
+          Object {
             "args": Array [
               "test",
             ],
@@ -184,6 +191,19 @@ Array [
             ],
           },
         ],
+      },
+      "onSubmit": Object {
+        "args": Array [],
+        "body": Array [
+          Object {
+            "args": Array [],
+            "caller": "console",
+            "chain": Array [
+              "log",
+            ],
+          },
+        ],
+        "name": "test",
       },
       "style": Object {
         "background": "blue",

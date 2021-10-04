@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 18:13:23
+ * @Last Modified time: 2021-10-04 10:12:13
  */
 import { writeFileSync } from 'fs'
 
@@ -18,9 +18,13 @@ const code = `
     width: 100,
     color: "red",
     background: 'blue',
+    /**
+     * comment2
+     */
     test: {
       color: 'red'
     },
+    // comment1
     child: <span>233</span>
   }} 
   id="233ccc" 
@@ -35,9 +39,11 @@ const code = `
     console.log();
   }}
 >
+  {/* comment2 */}
   <List
     list={[
       {
+        // comment1
         content: <View color="red">233</View>,
         logo: <Image mode="test" />
       },

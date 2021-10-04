@@ -445,12 +445,39 @@ Object {
                   "kind": "CallChainExpr",
                 },
                 Object {
-                  "args": Array [
+                  "args": Array [],
+                  "caller": Object {
+                    "kind": "IdentityExpr",
+                    "name": "console",
+                  },
+                  "chain": Array [
                     Object {
                       "kind": "IdentityExpr",
-                      "name": "test",
+                      "name": "log",
                     },
                   ],
+                  "kind": "CallChainExpr",
+                },
+                Object {
+                  "args": Object {
+                    "args": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "test",
+                      },
+                    ],
+                    "caller": Object {
+                      "kind": "IdentityExpr",
+                      "name": "console",
+                    },
+                    "chain": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "log",
+                      },
+                    ],
+                    "kind": "CallChainExpr",
+                  },
                   "caller": Object {
                     "kind": "IdentityExpr",
                     "name": "console",
@@ -465,6 +492,37 @@ Object {
                 },
               ],
               "kind": "ArrowFunctionExpr",
+            },
+          },
+          Object {
+            "key": Object {
+              "kind": "IdentityExpr",
+              "name": "onSubmit",
+            },
+            "kind": "PropExpr",
+            "value": Object {
+              "args": Array [],
+              "body": Array [
+                Object {
+                  "args": Array [],
+                  "caller": Object {
+                    "kind": "IdentityExpr",
+                    "name": "console",
+                  },
+                  "chain": Array [
+                    Object {
+                      "kind": "IdentityExpr",
+                      "name": "log",
+                    },
+                  ],
+                  "kind": "CallChainExpr",
+                },
+              ],
+              "kind": "FunctionExpr",
+              "name": Object {
+                "kind": "IdentityExpr",
+                "name": "test",
+              },
             },
           },
         ],
