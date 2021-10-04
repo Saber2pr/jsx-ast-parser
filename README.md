@@ -31,7 +31,7 @@ yarn add @saber2pr/jsx-ast-parser
 - [x] statement function
 - [x] statement define
 - [x] statement assign
-- [ ] statement if else
+- [x] statement if else
 - [ ] statement for
 - [ ] statement while
 - [ ] statement try catch

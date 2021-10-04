@@ -164,82 +164,104 @@ Array [
           "error",
           "test",
         ],
-        "body": Array [
-          Object {
-            "args": Array [
-              "error",
-            ],
-            "caller": "console",
-            "chain": Array [
-              "log",
-            ],
-          },
-          Object {
-            "args": Array [],
-            "caller": "console",
-            "chain": Array [
-              "log",
-            ],
-          },
-          Object {
-            "args": Array [
-              "test",
-            ],
-            "caller": "console",
-            "chain": Array [
-              "log",
-            ],
-          },
-          Object {
-            "assign": Object {
+        "body": Object {
+          "statements": Array [
+            Object {
+              "args": Array [
+                "error",
+              ],
+              "caller": "console",
+              "chain": Array [
+                "log",
+              ],
+            },
+            Object {
+              "args": Array [],
+              "caller": "console",
+              "chain": Array [
+                "log",
+              ],
+            },
+            Object {
+              "args": Array [
+                "test",
+              ],
+              "caller": "console",
+              "chain": Array [
+                "log",
+              ],
+            },
+            Object {
+              "assign": Object {
+                "name": "a",
+                "value": "a",
+              },
+              "type": "const",
+            },
+            Object {
+              "assign": Object {
+                "name": "b",
+                "value": "b",
+              },
+              "type": "let",
+            },
+            Object {
+              "assign": Object {
+                "name": "c",
+                "value": "c",
+              },
+              "type": "const",
+            },
+            Object {
+              "assign": "d",
+              "type": "let",
+            },
+            Object {
+              "name": "d",
+              "value": "d",
+            },
+            Object {
+              "assign": "a",
+              "type": "let",
+            },
+            Object {
               "name": "a",
               "value": "a",
             },
-            "type": "const",
-          },
-          Object {
-            "assign": Object {
-              "name": "b",
-              "value": "b",
+            Object {
+              "args": Array [
+                "a",
+              ],
+              "body": Object {
+                "statements": Array [
+                  Object {
+                    "args": Array [
+                      "a",
+                    ],
+                    "caller": "console",
+                    "chain": Array [
+                      "log",
+                    ],
+                  },
+                ],
+              },
             },
-            "type": "let",
-          },
-          Object {
-            "assign": Object {
-              "name": "c",
-              "value": "c",
-            },
-            "type": "const",
-          },
-          Object {
-            "assign": "d",
-            "type": "let",
-          },
-          Object {
-            "name": "d",
-            "value": "d",
-          },
-          Object {
-            "assign": "a",
-            "type": "let",
-          },
-          Object {
-            "name": "a",
-            "value": "a",
-          },
-        ],
+          ],
+        },
       },
       "onSubmit": Object {
         "args": Array [],
-        "body": Array [
-          Object {
-            "args": Array [],
-            "caller": "console",
-            "chain": Array [
-              "log",
-            ],
-          },
-        ],
+        "body": Object {
+          "statements": Array [
+            Object {
+              "args": Array [],
+              "caller": "console",
+              "chain": Array [
+                "log",
+              ],
+            },
+          ],
+        },
         "name": "test",
       },
       "style": Object {

@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:21:32
+ * @Last Modified time: 2021-10-04 19:36:23
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -83,23 +83,23 @@ export function compileJsxElement(element: Jsx.JsxElement) {
   return `<${tagName}${attributes}/>`
 }
 
-// statement
+// expression
+export function compileBlock(element: Jsx.Block) {
+  const body = element.statements ?? []
+  return `{${body.map(statement => compile(statement)).join(';')}}`
+}
 
 export function compileArrowFunction(element: Jsx.ArrowFunction) {
   const args = element.args ?? []
   const body = element.body ?? []
-  return `(${args.join(',')})=>{${body
-    .map(statement => compile(statement))
-    .join(';')}}`
+  return `(${args.join(',')})=>${compileBlock(body)}`
 }
 
 export function compileFunction(element: Jsx.Function) {
   const name = element.name ?? ''
   const args = element.args ?? []
   const body = element.body ?? []
-  return `function ${name}(${args.join(',')}){${body
-    .map(statement => compile(statement))
-    .join(';')}}`
+  return `function ${name}(${args.join(',')})${compileBlock(body)}`
 }
 
 export function compileCallChain(element: Jsx.CallChain): string {
@@ -116,11 +116,18 @@ export function compileVariableAssign(assign: Jsx.VariableAssign): string {
   return `${name}${value ? ` = ${compile(value)}` : ''}`
 }
 
+// statement
+
 export function compileDefineVariable(def: Jsx.DefineVariable): string {
   const { type, assign } = def
   return `${type ? `${type} ` : ''}${
     typeof assign === 'string' ? assign : compileVariableAssign(assign)
   }`
+}
+
+export function compileIf(ifElse: Jsx.If): string {
+  const { args, body } = ifElse
+  return `if(${args.join(',')})${compileBlock(body)}`
 }
 
 // compile code
@@ -139,7 +146,7 @@ export function compile(element: Jsx.Type): string {
   if (element === null || Factory.isJsxObject(element)) {
     return compileJsxObject(element)
   }
-  // statement
+  // expression
   if (Factory.isArrowFunction(element)) {
     return compileArrowFunction(element)
   }
@@ -152,8 +159,12 @@ export function compile(element: Jsx.Type): string {
   if (Factory.isVariableAssign(element)) {
     return compileVariableAssign(element)
   }
+  // statement
   if (Factory.isDefineVariable(element)) {
     return compileDefineVariable(element)
+  }
+  if (Factory.isIf(element)) {
+    return compileIf(element)
   }
   // basic
   if (typeof element === 'string') {

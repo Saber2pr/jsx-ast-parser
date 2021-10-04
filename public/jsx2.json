@@ -35,83 +35,105 @@
           "error",
           "test"
         ],
-        "body": [
-          {
-            "caller": "console",
-            "chain": [
-              "log"
-            ],
-            "args": [
-              "error"
-            ]
-          },
-          {
-            "caller": "console",
-            "chain": [
-              "log"
-            ],
-            "args": []
-          },
-          {
-            "caller": "console",
-            "chain": [
-              "log"
-            ],
-            "args": [
-              "test"
-            ]
-          },
-          {
-            "type": "const",
-            "assign": {
+        "body": {
+          "statements": [
+            {
+              "caller": "console",
+              "chain": [
+                "log"
+              ],
+              "args": [
+                "error"
+              ]
+            },
+            {
+              "caller": "console",
+              "chain": [
+                "log"
+              ],
+              "args": []
+            },
+            {
+              "caller": "console",
+              "chain": [
+                "log"
+              ],
+              "args": [
+                "test"
+              ]
+            },
+            {
+              "type": "const",
+              "assign": {
+                "name": "a",
+                "value": "a"
+              }
+            },
+            {
+              "type": "let",
+              "assign": {
+                "name": "b",
+                "value": "b"
+              }
+            },
+            {
+              "type": "const",
+              "assign": {
+                "name": "c",
+                "value": "c"
+              }
+            },
+            {
+              "type": "let",
+              "assign": "d"
+            },
+            {
+              "name": "d",
+              "value": "d"
+            },
+            {
+              "type": "let",
+              "assign": "a"
+            },
+            {
               "name": "a",
               "value": "a"
+            },
+            {
+              "args": [
+                "a"
+              ],
+              "body": {
+                "statements": [
+                  {
+                    "caller": "console",
+                    "chain": [
+                      "log"
+                    ],
+                    "args": [
+                      "a"
+                    ]
+                  }
+                ]
+              }
             }
-          },
-          {
-            "type": "let",
-            "assign": {
-              "name": "b",
-              "value": "b"
-            }
-          },
-          {
-            "type": "const",
-            "assign": {
-              "name": "c",
-              "value": "c"
-            }
-          },
-          {
-            "type": "let",
-            "assign": "d"
-          },
-          {
-            "name": "d",
-            "value": "d"
-          },
-          {
-            "type": "let",
-            "assign": "a"
-          },
-          {
-            "name": "a",
-            "value": "a"
-          }
-        ]
+          ]
+        }
       },
       "onSubmit": {
         "name": "test",
         "args": [],
-        "body": [
-          {
-            "caller": "console",
-            "chain": [
-              "log"
-            ],
-            "args": []
-          }
-        ]
+        "body": {
+          "statements": [
+            {
+              "caller": "console",
+              "chain": [
+                "log"
+              ],
+              "args": []
+            }
+          ]
+        }
       }
     },
     "children": [

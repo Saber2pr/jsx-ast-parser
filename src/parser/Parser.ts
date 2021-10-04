@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:52:35
+ * @Last Modified time: 2021-10-04 19:46:33
  */
 import {
   alt,
@@ -15,6 +15,7 @@ import {
   list_sc,
   nil,
   opt,
+  Parser,
   rep_sc,
   rule,
   seq,
@@ -23,26 +24,7 @@ import {
 } from 'typescript-parsec'
 
 import * as Ast from './Ast'
-import {
-  applyArray,
-  applyArrowFunction,
-  applyCallChain,
-  applyClosingTag,
-  applyIdentity,
-  applyJsx,
-  applyJsxSelfClosing,
-  applyNumber,
-  applyObject,
-  applyOpeningTag,
-  applyProgram,
-  applyProp,
-  applyString,
-  applyText,
-  applyFunction,
-  applyDefineVariable,
-  applyKeyword,
-  applyVariableAssign,
-} from './Consumer'
+import * as Consumer from './Consumer'
 import { tokenizer, TokenKind } from './Tokenizer'
 
 // Primary
@@ -62,6 +44,7 @@ export const JSXOPENED = rule<TokenKind, Ast.JsxExpr>()
 export const TEXT = rule<TokenKind, Ast.TextExpr>()
 
 // Expression
+export const BLOCK = rule<TokenKind, Ast.BlockExpr>()
 export const ARROWFUNCTION = rule<TokenKind, Ast.ArrowFunctionExpr>()
 export const FUNCTION = rule<TokenKind, Ast.FunctionExpr>()
 export const CALLCHAIN = rule<TokenKind, Ast.CallChainExpr>()
@@ -69,6 +52,7 @@ export const VARIABLEASSIGN = rule<TokenKind, Ast.VariableAssignExpr>()
 
 // Statement
 export const DECLAREVARIABLE = rule<TokenKind, Ast.DefineVariableStatement>()
+export const IFSTATEMENT = rule<TokenKind, Ast.IfStatement>()
 
 // Program
 export const PROGRAM = rule<TokenKind, Ast.Program>()
@@ -78,6 +62,13 @@ JSX
   = JSXOPENED <|> JSXSELFCLOSE
 */
 export const JSX = alt(JSXOPENED, JSXSELFCLOSE)
+
+/*
+PARAMETER
+  = ( commaSep IDENTITY )
+*/
+export const PARAMETER: Parser<TokenKind, Ast.IdentityExpr[] | undefined> =
+  kmid(str('('), opt(list_sc(IDENTITY, str(','))), seq(opt(str(',')), str(')')))
 
 /*
 EXPRESSION
@@ -98,20 +89,28 @@ export const EXPRESSION = alt(
 STATEMENT
   = DECLAREVARIABLE <|> VARIABLEASSIGN <|> CALLCHAIN ;
 */
-export const STATEMENT = alt(DECLAREVARIABLE, VARIABLEASSIGN, CALLCHAIN)
+export const STATEMENT = alt(
+  DECLAREVARIABLE,
+  VARIABLEASSIGN,
+  CALLCHAIN,
+  IFSTATEMENT
+)
 
 /*
 NUMBER
   = digit
 */
-NUMBER.setPattern(apply(tok(TokenKind.Digit), applyNumber))
+NUMBER.setPattern(apply(tok(TokenKind.Digit), Consumer.applyNumber))
 
 /*
 TEXT
   = many $ letter <|> digit
 */
 TEXT.setPattern(
-  apply(rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))), applyText)
+  apply(
+    rep_sc(alt(tok(TokenKind.Letter), tok(TokenKind.Digit))),
+    Consumer.applyText
+  )
 )
 
 /*
@@ -122,7 +121,7 @@ STRING
 STRING.setPattern(
   apply(
     alt(kmid(str('"'), TEXT, str('"')), kmid(str("'"), TEXT, str("'"))),
-    applyString
+    Consumer.applyString
   )
 )
 
@@ -133,7 +132,7 @@ KEYWORD
   = const
 */
 KEYWORD.setPattern(
-  apply(alt(str('var'), str('let'), str('const')), applyKeyword)
+  apply(alt(str('var'), str('let'), str('const')), Consumer.applyKeyword)
 )
 
 /*
@@ -141,7 +140,10 @@ IDENTITY
   = letter : many $ NUMBER : TEXT
 */
 IDENTITY.setPattern(
-  apply(seq(tok(TokenKind.Letter), opt(seq(NUMBER, TEXT))), applyIdentity)
+  apply(
+    seq(tok(TokenKind.Letter), opt(seq(NUMBER, TEXT))),
+    Consumer.applyIdentity
+  )
 )
 
 /*
@@ -157,7 +159,7 @@ OBJ.setPattern(
       ),
       seq(opt(str(',')), str('}'))
     ),
-    applyObject
+    Consumer.applyObject
   )
 )
 
@@ -172,7 +174,7 @@ ARRAY.setPattern(
       opt(list_sc(alt(EXPRESSION, IDENTITY), str(','))),
       seq(opt(str(',')), str(']'))
     ),
-    applyArray
+    Consumer.applyArray
   )
 )
 
@@ -190,7 +192,7 @@ PROP.setPattern(
       ),
       seq(IDENTITY, nil())
     ),
-    applyProp
+    Consumer.applyProp
   )
 )
 
@@ -201,7 +203,7 @@ OPENTAG
 OPENTAG.setPattern(
   apply(
     seq(kright(str('<'), IDENTITY), kleft(rep_sc(PROP), str('>'))),
-    applyOpeningTag
+    Consumer.applyOpeningTag
   )
 )
 
@@ -210,7 +212,10 @@ CLOSETAG
   = </IDENTITY>
 */
 CLOSETAG.setPattern(
-  apply(kmid(seq(str('<'), str('/')), IDENTITY, str('>')), applyClosingTag)
+  apply(
+    kmid(seq(str('<'), str('/')), IDENTITY, str('>')),
+    Consumer.applyClosingTag
+  )
 )
 
 /*
@@ -223,7 +228,7 @@ JSXSELFCLOSE.setPattern(
       kright(str('<'), IDENTITY),
       kleft(rep_sc(PROP), seq(str('/'), str('>')))
     ),
-    applyJsxSelfClosing
+    Consumer.applyJsxSelfClosing
   )
 )
 
@@ -233,12 +238,12 @@ JSXOPENED
   = SELFCLOSETAG
 */
 JSXOPENED.setPattern(
-  apply(seq(OPENTAG, rep_sc(alt(JSX, TEXT)), CLOSETAG), applyJsx)
+  apply(seq(OPENTAG, rep_sc(alt(JSX, TEXT)), CLOSETAG), Consumer.applyJsx)
 )
 
 /*
 ARROWFUNCTION
-  = (commaSep IDENTITY) => { many STATEMENT }
+  = PARAMETER => BLOCK
 */
 ARROWFUNCTION.setPattern(
   apply(
@@ -248,25 +253,16 @@ ARROWFUNCTION.setPattern(
         opt(list_sc(IDENTITY, str(','))),
         seq(opt(str(',')), str(')'))
       ),
-      kleft(
-        kright(
-          seq(str('='), str('>')),
-          kmid(
-            str('{'),
-            alt(rep_sc(STATEMENT), list_sc(STATEMENT, str(';'))),
-            seq(opt(str(';')), str('}'))
-          )
-        ),
-        opt(str(';'))
-      )
+      kright(seq(str('='), str('>')), BLOCK)
     ),
-    applyArrowFunction
+    Consumer.applyArrowFunction
   )
 )
 
 /*
 FUNCTION
-  = function IDENTITY (commaSep IDENTITY) { many EXPRESSION }
+  = function PARAMETER BLOCK
+  = function IDENTITY PARAMETER BLOCK
 */
 FUNCTION.setPattern(
   apply(
@@ -277,9 +273,9 @@ FUNCTION.setPattern(
         opt(list_sc(IDENTITY, str(','))),
         seq(opt(str(',')), str(')'))
       ),
-      kmid(str('{'), rep_sc(STATEMENT), str('}'))
+      BLOCK
     ),
-    applyFunction
+    Consumer.applyFunction
   )
 )
 
@@ -290,18 +286,15 @@ CALLCHAIN
 */
 CALLCHAIN.setPattern(
   apply(
-    kleft(
-      seq(
-        list_sc(IDENTITY, str('.')),
-        kmid(
-          str('('),
-          opt(alt(list_sc(IDENTITY, str(',')), CALLCHAIN)),
-          seq(opt(str(',')), str(')'))
-        )
-      ),
-      opt(str(';'))
+    seq(
+      list_sc(IDENTITY, str('.')),
+      kmid(
+        str('('),
+        opt(alt(list_sc(IDENTITY, str(',')), CALLCHAIN)),
+        seq(opt(str(',')), str(')'))
+      )
     ),
-    applyCallChain
+    Consumer.applyCallChain
   )
 )
 
@@ -310,7 +303,21 @@ VARIABLEASSIGN
   = IDENTITY = EXPRESSION
 */
 VARIABLEASSIGN.setPattern(
-  apply(seq(IDENTITY, kright(str('='), EXPRESSION)), applyVariableAssign)
+  apply(
+    seq(IDENTITY, kright(str('='), EXPRESSION)),
+    Consumer.applyVariableAssign
+  )
+)
+
+/*
+BLOCK
+  = { many STATEMENT }
+*/
+BLOCK.setPattern(
+  apply(
+    kmid(str('{'), rep_sc(kleft(STATEMENT, opt(str(';')))), str('}')),
+    Consumer.applyBlock
+  )
 )
 
 // Statement
@@ -321,14 +328,27 @@ DECLAREVARIABLE
   = IDENTITY IDENTITY = EXPRESSION
 */
 DECLAREVARIABLE.setPattern(
-  apply(seq(KEYWORD, alt(VARIABLEASSIGN, IDENTITY)), applyDefineVariable)
+  apply(
+    seq(KEYWORD, alt(VARIABLEASSIGN, IDENTITY)),
+    Consumer.applyDefineVariable
+  )
+)
+
+/*
+IFSTATEMENT
+  = if PARAMETER BLOCK
+*/
+IFSTATEMENT.setPattern(
+  apply(seq(kright(str('if'), PARAMETER), BLOCK), Consumer.applyIf)
 )
 
 /*
 PROGRAM
   = many EXPRESSION <|> STATEMENT
 */
-PROGRAM.setPattern(apply(rep_sc(alt(EXPRESSION, STATEMENT)), applyProgram))
+PROGRAM.setPattern(
+  apply(rep_sc(alt(EXPRESSION, STATEMENT)), Consumer.applyProgram)
+)
 
 // parse ast
 export function parse(code: string) {

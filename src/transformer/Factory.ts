@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:16:25
+ * @Last Modified time: 2021-10-04 19:24:00
  */
 import * as Jsx from './Jsx'
 
@@ -52,7 +52,7 @@ export function createJsxObject(
   })
 }
 
-// Statement
+// expression
 
 export function isArrowFunction(
   element: Jsx.Type
@@ -82,12 +82,20 @@ export function isVariableAssign(
   return call.$$typeof === 'variable-assign'
 }
 
+// statement
+
 export function isDefineVariable(
   element: Jsx.Type
 ): element is Jsx.DefineVariable {
   if (!element) return false
   const call = <Jsx.DefineVariable>element
   return call.$$typeof === 'define-variable'
+}
+
+export function isIf(element: Jsx.Type): element is Jsx.If {
+  if (!element) return false
+  const call = <Jsx.If>element
+  return call.$$typeof === 'if'
 }
 
 export function isJsxObject(element: Jsx.Type): element is Jsx.JsxObject {
@@ -125,9 +133,16 @@ export function createTextElement(nodeValue: string): Jsx.TextElement {
   })
 }
 
+export function createBlock(body: Jsx.Type[]): Jsx.Block {
+  return createNode<Jsx.Block>({
+    $$typeof: 'block',
+    statements: body,
+  })
+}
+
 export function createArrowFunction(
   args: string[] = [],
-  body: Jsx.Type[] = []
+  body: Jsx.Block
 ): Jsx.ArrowFunction {
   return createNode<Jsx.ArrowFunction>({
     $$typeof: 'arrow-function',
@@ -139,7 +154,7 @@ export function createArrowFunction(
 export function createFunction(
   name: string | undefined,
   args: string[] = [],
-  body: Jsx.Type[] = []
+  body: Jsx.Block
 ): Jsx.Function {
   return createNode<Jsx.Function>({
     $$typeof: 'function',
@@ -181,6 +196,14 @@ export function createDefineVariable(
     $$typeof: 'define-variable',
     type,
     assign,
+  })
+}
+
+export function createIf(args: string[], body: Jsx.Block): Jsx.If {
+  return createNode<Jsx.If>({
+    $$typeof: 'if',
+    args,
+    body,
   })
 }
 

@@ -19,7 +19,7 @@
   id="233ccc"
   class2Name="qwq123"
   onClick={onClick}
-  onError={(error, test) => {
+  onError={(error, test,) => {
     console.log(error)
     console.log()
     console.log(console.log(test))
@@ -30,6 +30,9 @@
     d = 'd'
     let a
     a = "a"
+    if(a){
+      console.log(a)
+    }
   }}
   onSubmit={function test() {
     console.log()

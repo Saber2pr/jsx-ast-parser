@@ -25,6 +25,9 @@
       d = 'd'
       let a
       a = 'a'
+      if (a) {
+        console.log(a)
+      }
     }}
     onSubmit={function test() {
       console.log()

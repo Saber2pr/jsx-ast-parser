@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:48:38
+ * @Last Modified time: 2021-10-04 19:40:13
  */
 export interface Node {
   kind: any
@@ -53,11 +53,13 @@ export type Expression =
   | CallChainExpr
   | FunctionExpr
   | VariableAssignExpr
+  | BlockExpr
 
 export type Statement =
   | CallChainExpr
   | DefineVariableStatement
   | VariableAssignExpr
+  | IfStatement
 
 // JSX
 
@@ -99,18 +101,22 @@ export interface JsxSelfClosingExpr extends Node {
 export type Jsx = JsxExpr | JsxSelfClosingExpr
 
 // Expr
+export interface BlockExpr extends Node {
+  kind: 'BlockExpr'
+  body: Statement[]
+}
 
 export interface ArrowFunctionExpr extends Node {
   kind: 'ArrowFunctionExpr'
   args: IdentityExpr[]
-  body: Statement[]
+  body: BlockExpr
 }
 
 export interface FunctionExpr extends Node {
   kind: 'FunctionExpr'
   name: IdentityExpr | undefined
   args: IdentityExpr[]
-  body: Statement[]
+  body: BlockExpr
 }
 
 export interface CallChainExpr extends Node {
@@ -129,9 +135,15 @@ export interface VariableAssignExpr extends Node {
 // Statement
 
 export interface DefineVariableStatement extends Node {
-  kind: 'DefineVariableExpr'
+  kind: 'DefineVariableStatement'
   type: KeywordExpr
   assign: VariableAssignExpr | IdentityExpr
+}
+
+export interface IfStatement extends Node {
+  kind: 'IfStatement'
+  args: IdentityExpr[]
+  body: BlockExpr
 }
 
 // Program

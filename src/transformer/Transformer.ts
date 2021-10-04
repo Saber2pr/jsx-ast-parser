@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:48:46
+ * @Last Modified time: 2021-10-04 19:23:46
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -114,19 +114,26 @@ export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
 export function transformArrowFunction(
   func: Ast.ArrowFunctionExpr
 ): Jsx.ArrowFunction {
-  const { args, body = [] } = func
+  const { args, body } = func
   return TFactory.createArrowFunction(
     args.map(arg => arg.name),
-    body.map(expression => transformStatement(expression))
+    transformBlock(body)
   )
 }
 
 export function transformFunction(func: Ast.FunctionExpr): Jsx.Function {
-  const { name, args, body = [] } = func
+  const { name, args, body } = func
   return TFactory.createFunction(
     name?.name,
     args.map(arg => arg.name),
-    body.map(expression => transformStatement(expression))
+    transformBlock(body)
+  )
+}
+
+export function transformBlock(func: Ast.BlockExpr): Jsx.Block {
+  const { body } = func
+  return TFactory.createBlock(
+    body.map(statement => transformStatement(statement))
   )
 }
 
@@ -138,6 +145,18 @@ export function transformCallChain(call: Ast.CallChainExpr): Jsx.CallChain {
     Array.isArray(args) ? args.map(arg => arg.name) : transformCallChain(args)
   )
 }
+
+export function transformVariableAssign(
+  assign: Ast.VariableAssignExpr
+): Jsx.VariableAssign {
+  const { name, value } = assign
+  return TFactory.createVariableAssign(
+    name.name,
+    value ? transformExpression(value) : undefined
+  )
+}
+
+// statement
 
 export function transformDefineVariable(
   def: Ast.DefineVariableStatement
@@ -157,13 +176,11 @@ export function transformDefineVariable(
   return TFactory.createDefineVariable(type.name, value)
 }
 
-export function transformVariableAssign(
-  assign: Ast.VariableAssignExpr
-): Jsx.VariableAssign {
-  const { name, value } = assign
-  return TFactory.createVariableAssign(
-    name.name,
-    value ? transformExpression(value) : undefined
+export function transformIf(ifElse: Ast.IfStatement): Jsx.If {
+  const { args, body } = ifElse
+  return TFactory.createIf(
+    args.map(arg => arg.name),
+    transformBlock(body)
   )
 }
 
@@ -195,10 +212,12 @@ export function transformStatement(statement: Ast.Statement): Jsx.Type {
   switch (statement.kind) {
     case 'CallChainExpr':
       return transformCallChain(statement)
-    case 'DefineVariableExpr':
+    case 'DefineVariableStatement':
       return transformDefineVariable(statement)
     case 'VariableAssignExpr':
       return transformVariableAssign(statement)
+    case 'IfStatement':
+      return transformIf(statement)
     default:
       return null
   }

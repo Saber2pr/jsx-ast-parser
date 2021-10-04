@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:48:31
+ * @Last Modified time: 2021-10-04 19:45:32
  */
 import * as parsec from 'typescript-parsec'
 
@@ -148,9 +148,9 @@ export function applyJsx(
 // Statement
 
 export function applyArrowFunction(
-  source: [Ast.IdentityExpr[] | undefined, Ast.Statement[] | undefined]
+  source: [Ast.IdentityExpr[] | undefined, Ast.BlockExpr]
 ): Ast.ArrowFunctionExpr {
-  const [args = [], body = []] = source
+  const [args = [], body] = source
   return {
     kind: 'ArrowFunctionExpr',
     args,
@@ -162,10 +162,10 @@ export function applyFunction(
   source: [
     Ast.IdentityExpr | undefined,
     Ast.IdentityExpr[] | undefined,
-    Ast.Statement[]
+    Ast.BlockExpr
   ]
 ): Ast.FunctionExpr {
-  const [name, args = [], body = []] = source
+  const [name, args = [], body] = source
   return {
     kind: 'FunctionExpr',
     name,
@@ -200,14 +200,34 @@ export function applyVariableAssign(
   }
 }
 
+export function applyBlock(body: Ast.Statement[] = []): Ast.BlockExpr {
+  return {
+    kind: 'BlockExpr',
+    body,
+  }
+}
+
+// statement
+
 export function applyDefineVariable(
   source: [Ast.KeywordExpr, Ast.VariableAssignExpr | Ast.IdentityExpr]
 ): Ast.DefineVariableStatement {
   const [type, assign] = source
   return {
-    kind: 'DefineVariableExpr',
+    kind: 'DefineVariableStatement',
     type,
     assign,
+  }
+}
+
+export function applyIf(
+  source: [Ast.IdentityExpr[] | undefined, Ast.BlockExpr]
+): Ast.IfStatement {
+  const [args = [], body] = source
+  return {
+    kind: 'IfStatement',
+    args,
+    body,
   }
 }
 
