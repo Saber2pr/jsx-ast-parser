@@ -76,6 +76,43 @@
         "args": [
           "test"
         ]
+      },
+      {
+        "type": "const",
+        "assign": {
+          "name": "a",
+          "value": "a"
+        }
+      },
+      {
+        "type": "let",
+        "assign": {
+          "name": "b",
+          "value": "b"
+        }
+      },
+      {
+        "type": "const",
+        "assign": {
+          "name": "c",
+          "value": "c"
+        }
+      },
+      {
+        "type": "let",
+        "assign": "d"
+      },
+      {
+        "name": "d",
+        "value": "d"
+      },
+      {
+        "type": "let",
+        "assign": "a"
+      },
+      {
+        "name": "a",
+        "value": "a"
       }
     ]
   },
@@ -292,6 +329,43 @@
             "args": [
               "test"
             ]
+          },
+          {
+            "type": "const",
+            "assign": {
+              "name": "a",
+              "value": "a"
+            }
+          },
+          {
+            "type": "let",
+            "assign": {
+              "name": "b",
+              "value": "b"
+            }
+          },
+          {
+            "type": "const",
+            "assign": {
+              "name": "c",
+              "value": "c"
+            }
+          },
+          {
+            "type": "let",
+            "assign": "d"
+          },
+          {
+            "name": "d",
+            "value": "d"
+          },
+          {
+            "type": "let",
+            "assign": "a"
+          },
+          {
+            "name": "a",
+            "value": "a"
           }
         ]
       },

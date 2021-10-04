@@ -23,6 +23,13 @@
     console.log(error)
     console.log()
     console.log(console.log(test))
+    const a = 'a'
+    let b = 'b'
+    const c = 'c'
+    let d
+    d = 'd'
+    let a
+    a = "a"
   }}
   onSubmit={function test() {
     console.log()

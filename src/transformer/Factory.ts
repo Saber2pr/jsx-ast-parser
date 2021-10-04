@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 11:12:19
+ * @Last Modified time: 2021-10-04 12:16:25
  */
 import * as Jsx from './Jsx'
 
@@ -74,6 +74,22 @@ export function isCallChain(element: Jsx.Type): element is Jsx.CallChain {
   return call.$$typeof === 'call'
 }
 
+export function isVariableAssign(
+  element: Jsx.Type
+): element is Jsx.VariableAssign {
+  if (!element) return false
+  const call = <Jsx.VariableAssign>element
+  return call.$$typeof === 'variable-assign'
+}
+
+export function isDefineVariable(
+  element: Jsx.Type
+): element is Jsx.DefineVariable {
+  if (!element) return false
+  const call = <Jsx.DefineVariable>element
+  return call.$$typeof === 'define-variable'
+}
+
 export function isJsxObject(element: Jsx.Type): element is Jsx.JsxObject {
   if (!element) return false
   const obj = <Jsx.JsxObject>element
@@ -143,6 +159,28 @@ export function createCallChain(
     caller,
     chain,
     args,
+  })
+}
+
+export function createVariableAssign(
+  name: string,
+  value: Jsx.Type | undefined
+): Jsx.VariableAssign {
+  return createNode<Jsx.VariableAssign>({
+    $$typeof: 'variable-assign',
+    name: name,
+    value: value,
+  })
+}
+
+export function createDefineVariable(
+  type: string,
+  assign: Jsx.VariableAssign | string
+): Jsx.DefineVariable {
+  return createNode<Jsx.DefineVariable>({
+    $$typeof: 'define-variable',
+    type,
+    assign,
   })
 }
 

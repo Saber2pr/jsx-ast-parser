@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:15
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 17:34:57
+ * @Last Modified time: 2021-10-04 12:14:03
  */
 import * as Ast from './Ast'
 
@@ -38,4 +38,37 @@ export function isJsxSelfClosingExpr(
   token: Ast.Node
 ): token is Ast.JsxSelfClosingExpr {
   return (<Ast.JsxSelfClosingExpr>token).kind === 'JsxSelfClosingExpr'
+}
+
+export function isVariableAssignExpr(
+  token: Ast.Node
+): token is Ast.VariableAssignExpr {
+  return (<Ast.VariableAssignExpr>token).kind === 'VariableAssignExpr'
+}
+
+export function isExpression(token: Ast.Node): token is Ast.Expression {
+  switch ((<Ast.Expression>token).kind) {
+    case 'JsxExpr':
+    case 'StringExpr':
+    case 'NumberExpr':
+    case 'ObjectExpr':
+    case 'ArrayExpr':
+    case 'ArrowFunctionExpr':
+    case 'CallChainExpr':
+    case 'FunctionExpr':
+    case 'VariableAssignExpr':
+      return true
+    default:
+      return false
+  }
+}
+
+export function isStatement(token: Ast.Node): token is Ast.Statement {
+  switch ((<Ast.Statement>token).kind) {
+    case 'CallChainExpr':
+    case 'DefineVariableExpr':
+      return true
+    default:
+      return false
+  }
 }

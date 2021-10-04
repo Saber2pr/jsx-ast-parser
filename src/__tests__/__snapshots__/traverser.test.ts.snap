@@ -190,6 +190,43 @@ Array [
               "log",
             ],
           },
+          Object {
+            "assign": Object {
+              "name": "a",
+              "value": "a",
+            },
+            "type": "const",
+          },
+          Object {
+            "assign": Object {
+              "name": "b",
+              "value": "b",
+            },
+            "type": "let",
+          },
+          Object {
+            "assign": Object {
+              "name": "c",
+              "value": "c",
+            },
+            "type": "const",
+          },
+          Object {
+            "assign": "d",
+            "type": "let",
+          },
+          Object {
+            "name": "d",
+            "value": "d",
+          },
+          Object {
+            "assign": "a",
+            "type": "let",
+          },
+          Object {
+            "name": "a",
+            "value": "a",
+          },
         ],
       },
       "onSubmit": Object {

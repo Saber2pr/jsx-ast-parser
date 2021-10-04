@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 18:12:48
+ * @Last Modified time: 2021-10-04 12:21:32
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -111,6 +111,18 @@ export function compileCallChain(element: Jsx.CallChain): string {
   })`
 }
 
+export function compileVariableAssign(assign: Jsx.VariableAssign): string {
+  const { name, value } = assign
+  return `${name}${value ? ` = ${compile(value)}` : ''}`
+}
+
+export function compileDefineVariable(def: Jsx.DefineVariable): string {
+  const { type, assign } = def
+  return `${type ? `${type} ` : ''}${
+    typeof assign === 'string' ? assign : compileVariableAssign(assign)
+  }`
+}
+
 // compile code
 export function compile(element: Jsx.Type): string {
   // text element
@@ -121,7 +133,6 @@ export function compile(element: Jsx.Type): string {
   if (Factory.isJsxElement(element)) {
     return compileJsxElement(element)
   }
-  // basic
   if (Array.isArray(element)) {
     return compileArray(element)
   }
@@ -138,6 +149,13 @@ export function compile(element: Jsx.Type): string {
   if (Factory.isCallChain(element)) {
     return compileCallChain(element)
   }
+  if (Factory.isVariableAssign(element)) {
+    return compileVariableAssign(element)
+  }
+  if (Factory.isDefineVariable(element)) {
+    return compileDefineVariable(element)
+  }
+  // basic
   if (typeof element === 'string') {
     return compileString(element)
   }

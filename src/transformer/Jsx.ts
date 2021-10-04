@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 10:59:12
+ * @Last Modified time: 2021-10-04 12:15:11
  */
 export type Type =
   | JsxNode
@@ -16,6 +16,8 @@ export type Type =
   | ArrowFunction
   | CallChain
   | Function
+  | DefineVariable
+  | VariableAssign
 
 // Jsx
 
@@ -66,6 +68,18 @@ export interface Function extends Node {
   name: string | undefined
   args: string[]
   body: Type[]
+}
+
+export interface VariableAssign extends Node {
+  $$typeof: 'variable-assign'
+  name: string
+  value: Type | undefined
+}
+
+export interface DefineVariable extends Node {
+  $$typeof: 'define-variable'
+  type: string
+  assign: VariableAssign | string
 }
 
 export type JsxNode = JsxElement | TextElement

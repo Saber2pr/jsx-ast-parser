@@ -28,9 +28,9 @@ yarn add @saber2pr/jsx-ast-parser
 - [x] statement arrow function
 - [x] statement comment
 - [ ] statement arithmetic
-- [ ] statement function
-- [ ] statement declare
-- [ ] statement assign
+- [x] statement function
+- [x] statement define
+- [x] statement assign
 - [ ] statement if else
 - [ ] statement for
 - [ ] statement while

@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-03 11:09:12
+ * @Last Modified time: 2021-10-04 12:48:46
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -41,7 +41,12 @@ export function transformObjectExpr(object: Ast.ObjectExpr): Jsx.JsxObject {
   return TFactory.createJsxObject(
     Object.fromEntries(
       Object.entries(props).map(
-        ([key, node]) => [key, transformExpression(node)],
+        ([key, expression]) => [
+          key,
+          Factory.isIdentityExpr(expression)
+            ? transformIdentityExpr(expression)
+            : transformExpression(expression),
+        ],
         {}
       )
     )
@@ -50,7 +55,11 @@ export function transformObjectExpr(object: Ast.ObjectExpr): Jsx.JsxObject {
 
 export function transformArrayExpr(array: Ast.ArrayExpr): Jsx.Type[] {
   const items = array.items
-  return items.map(expression => transformExpression(expression))
+  return items.map(expression =>
+    Factory.isIdentityExpr(expression)
+      ? transformIdentityExpr(expression)
+      : transformExpression(expression)
+  )
 }
 
 // Jsx
@@ -61,7 +70,12 @@ export function transformPropsExpr(props: Ast.PropExpr[]): Jsx.JsxAttributes {
       props.map(prop => {
         const key = prop.key.name
         const expression = prop.value
-        return [key, transformExpression(expression)]
+        return [
+          key,
+          Factory.isIdentityExpr(expression)
+            ? transformIdentityExpr(expression)
+            : transformExpression(expression),
+        ]
       })
     )
   )
@@ -103,7 +117,7 @@ export function transformArrowFunction(
   const { args, body = [] } = func
   return TFactory.createArrowFunction(
     args.map(arg => arg.name),
-    body.map(expression => transformExpression(expression))
+    body.map(expression => transformStatement(expression))
   )
 }
 
@@ -112,7 +126,7 @@ export function transformFunction(func: Ast.FunctionExpr): Jsx.Function {
   return TFactory.createFunction(
     name?.name,
     args.map(arg => arg.name),
-    body.map(expression => transformExpression(expression))
+    body.map(expression => transformStatement(expression))
   )
 }
 
@@ -125,12 +139,38 @@ export function transformCallChain(call: Ast.CallChainExpr): Jsx.CallChain {
   )
 }
 
+export function transformDefineVariable(
+  def: Ast.DefineVariableStatement
+): Jsx.DefineVariable {
+  const { type, assign } = def
+  let value: string | Jsx.VariableAssign
+  if (Factory.isVariableAssignExpr(assign)) {
+    value = transformVariableAssign(assign)
+  } else {
+    const result = transformIdentityExpr(assign)
+    if (typeof result === 'boolean') {
+      throw new SyntaxError(`transformDefineVariable`)
+    } else {
+      value = result
+    }
+  }
+  return TFactory.createDefineVariable(type.name, value)
+}
+
+export function transformVariableAssign(
+  assign: Ast.VariableAssignExpr
+): Jsx.VariableAssign {
+  const { name, value } = assign
+  return TFactory.createVariableAssign(
+    name.name,
+    value ? transformExpression(value) : undefined
+  )
+}
+
 export function transformExpression(expression: Ast.Expression): Jsx.Type {
   switch (expression.kind) {
     case 'ArrayExpr':
       return transformArrayExpr(expression)
-    case 'IdentityExpr':
-      return transformIdentityExpr(expression)
     case 'JsxExpr':
     case 'JsxSelfClosingExpr':
       return transformJsx(expression)
@@ -151,6 +191,25 @@ export function transformExpression(expression: Ast.Expression): Jsx.Type {
   }
 }
 
+export function transformStatement(statement: Ast.Statement): Jsx.Type {
+  switch (statement.kind) {
+    case 'CallChainExpr':
+      return transformCallChain(statement)
+    case 'DefineVariableExpr':
+      return transformDefineVariable(statement)
+    case 'VariableAssignExpr':
+      return transformVariableAssign(statement)
+    default:
+      return null
+  }
+}
+
 export function transform(program: Ast.Program): Jsx.Type {
-  return program.body.map(expression => transformExpression(expression))
+  return program.body.map(expression => {
+    if (Factory.isExpression(expression)) {
+      return transformExpression(expression)
+    } else {
+      return transformStatement(expression)
+    }
+  })
 }
