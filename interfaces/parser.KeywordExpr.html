@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Node | @saber2pr/jsx-ast-parser</title>
+	<title>KeywordExpr | @saber2pr/jsx-ast-parser</title>
 	<meta name="description" content="Documentation for @saber2pr/jsx-ast-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -55,13 +55,13 @@
 					<a href="../modules.html">@saber2pr/jsx-ast-parser</a>
 				</li>
 				<li>
-					<a href="../modules/transformer.html">transformer</a>
+					<a href="../modules/parser.html">parser</a>
 				</li>
 				<li>
-					<a href="transformer.Node.html">Node</a>
+					<a href="parser.KeywordExpr.html">KeywordExpr</a>
 				</li>
 			</ul>
-			<h1>Interface Node</h1>
+			<h1>Interface KeywordExpr</h1>
 		</div>
 	</div>
 </header>
@@ -72,42 +72,14 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Node</span>
+						<a href="parser.Node.html" class="tsd-signature-type" data-tsd-kind="Interface">Node</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="transformer.JsxObject.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxObject</a>
-							</li>
-							<li>
-								<a href="transformer.JsxAttributes.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxAttributes</a>
-							</li>
-							<li>
-								<a href="transformer.JsxElement.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxElement</a>
-							</li>
-							<li>
-								<a href="transformer.TextElement.html" class="tsd-signature-type" data-tsd-kind="Interface">TextElement</a>
-							</li>
-							<li>
-								<a href="transformer.CallChain.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChain</a>
-							</li>
-							<li>
-								<a href="transformer.ArrowFunction.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunction</a>
-							</li>
-							<li>
-								<a href="transformer.Function.html" class="tsd-signature-type" data-tsd-kind="Interface">Function</a>
-							</li>
-							<li>
-								<a href="transformer.VariableAssign.html" class="tsd-signature-type" data-tsd-kind="Interface">VariableAssign</a>
-							</li>
-							<li>
-								<a href="transformer.DefineVariable.html" class="tsd-signature-type" data-tsd-kind="Interface">DefineVariable</a>
+								<span class="target">KeywordExpr</span>
 							</li>
 						</ul>
 					</li>
 				</ul>
-			</section>
-			<section class="tsd-panel tsd-kind-interface tsd-parent-kind-namespace">
-				<h3 class="tsd-before-signature">Indexable</h3>
-				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>k: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -116,7 +88,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="transformer.Node.html#__typeof" class="tsd-kind-icon">$$typeof</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="parser.KeywordExpr.html#kind" class="tsd-kind-icon">kind</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.KeywordExpr.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -124,13 +97,24 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+					<a name="kind" class="tsd-anchor"></a>
+					<h3>kind</h3>
+					<div class="tsd-signature tsd-kind-icon">kind<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">&quot;KeywordExpr&quot;</span></div>
+					<aside class="tsd-sources">
+						<p>Overrides <a href="parser.Node.html">Node</a>.<a href="parser.Node.html#kind">kind</a></p>
+						<ul>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/2a4fd90/src/parser/Ast.ts#L15">parser/Ast.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="__typeof" class="tsd-anchor"></a>
-					<h3>$$typeof</h3>
-					<div class="tsd-signature tsd-kind-icon">$$typeof<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/2a4fd90/src/transformer/Jsx.ts#L25">transformer/Jsx.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/2a4fd90/src/parser/Ast.ts#L16">parser/Ast.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,10 +129,10 @@
 					<li class=" tsd-kind-namespace">
 						<a href="../modules/compiler.html">compiler</a>
 					</li>
-					<li class=" tsd-kind-namespace">
+					<li class="current tsd-kind-namespace">
 						<a href="../modules/parser.html">parser</a>
 					</li>
-					<li class="current tsd-kind-namespace">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/transformer.html">transformer</a>
 					</li>
 					<li class=" tsd-kind-namespace">
@@ -161,10 +145,13 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
-						<a href="transformer.Node.html" class="tsd-kind-icon">Node</a>
+						<a href="parser.KeywordExpr.html" class="tsd-kind-icon">Keyword<wbr>Expr</a>
 						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
+								<a href="parser.KeywordExpr.html#kind" class="tsd-kind-icon">kind</a>
+							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="transformer.Node.html#__typeof" class="tsd-kind-icon">$$typeof</a>
+								<a href="parser.KeywordExpr.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>
