@@ -2,60 +2,14 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:08
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-02 20:15:44
+ * @Last Modified time: 2021-10-04 10:25:57
  */
 import { parser } from '../'
+import { read } from './utils'
 
 describe('Parser', () => {
-  it('Case 1', () => {
-    const code = `
-  <div 
-    width={100} 
-    contentEditable={true}
-    color={"red"}
-    arr={[1,2]}
-    style={{
-      width: 100,
-      color: "red",
-      background: 'blue',
-      test: {
-        color: 'red'
-      },
-      child: <span>233</span>
-    }} 
-    id="233ccc" 
-    class2Name="qwq123"
-    onClick={onClick}
-    onError={(error,test) => {
-      console.log(error);
-      console.log(test)
-    }}
-  >
-    <List
-      list={[
-        {
-          content: <View color="red">233</View>,
-          logo: <Image mode="test" />
-        },
-        {
-          content: <View />
-        }
-      ]}
-    />
-    <div />
-    <div id="qwq" />
-    <span>aaa</span>
-    <span>1234</span>
-    <span>1234asd</span>
-    <span>
-      12
-      aa
-      <span>aaa</span>
-      aa234
-      234aaa
-    </span>
-  </div>
-`
+  it('Case 1', async () => {
+    const code = await read('code.txt')
     expect(parser.parse(code)).toMatchSnapshot()
   })
 })

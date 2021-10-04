@@ -133,15 +133,41 @@ Array [
             ],
           },
           Object {
-            "args": Array [
-              "test",
+            "args": Array [],
+            "caller": "console",
+            "chain": Array [
+              "log",
             ],
+          },
+          Object {
+            "args": Object {
+              "args": Array [
+                "test",
+              ],
+              "caller": "console",
+              "chain": Array [
+                "log",
+              ],
+            },
             "caller": "console",
             "chain": Array [
               "log",
             ],
           },
         ],
+      },
+      "onSubmit": Object {
+        "args": Array [],
+        "body": Array [
+          Object {
+            "args": Array [],
+            "caller": "console",
+            "chain": Array [
+              "log",
+            ],
+          },
+        ],
+        "name": "test",
       },
       "style": Object {
         "background": "blue",

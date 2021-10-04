@@ -26,7 +26,7 @@ yarn add @saber2pr/jsx-ast-parser
 - [x] jsx props function scope statements
 - [x] statement call chain
 - [x] statement arrow function
-- [ ] statement comment
+- [x] statement comment
 - [ ] statement arithmetic
 - [ ] statement function
 - [ ] statement declare

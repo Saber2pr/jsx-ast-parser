@@ -1,0 +1,54 @@
+<div
+  width={100}
+  contentEditable={true}
+  color={'red'}
+  arr={[1, 2]}
+  style={{
+    width: 100,
+    color: 'red',
+    background: 'blue',
+    /**
+      * comment2
+      */
+    test: {
+      color: 'red',
+    },
+    // comment1
+    child: <span>233</span>,
+  }}
+  id="233ccc"
+  class2Name="qwq123"
+  onClick={onClick}
+  onError={(error, test) => {
+    console.log(error)
+    console.log()
+    console.log(console.log(test))
+  }}
+  onSubmit={function test() {
+    console.log()
+  }}
+>
+  {/* comment2 */}
+  <List
+    list={[
+      {
+        // comment1
+        content: <View color="red">233</View>,
+        logo: <Image mode="test" />,
+      },
+      {
+        content: <View />,
+      },
+    ]}
+  />
+  <div />
+  <div id="qwq" />
+  <span>aaa</span>
+  <span>1234</span>
+  <span>1234asd</span>
+  <span>
+    12 aa
+    <span>aaa</span>
+    aa234 234aaa
+  </span>
+</div>
