@@ -1,7 +1,7 @@
 ;[
   <div
     width={100}
-    contentEditable
+    contentEditable={true}
     color="red"
     arr={[1, 2]}
     style={{
@@ -13,7 +13,7 @@
     }}
     id="233ccc"
     class2Name="qwq123"
-    onClick="onClick"
+    onClick={onClick}
     onError={(error, test) => {
       console.log(error)
       console.log()

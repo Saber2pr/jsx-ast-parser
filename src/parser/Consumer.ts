@@ -148,7 +148,7 @@ export function applyJsx(
 // Statement
 
 export function applyArrowFunction(
-  source: [Ast.IdentityExpr[] | undefined, Ast.BlockExpr]
+  source: [Ast.Parameter, Ast.BlockExpr]
 ): Ast.ArrowFunctionExpr {
   const [args = [], body] = source
   return {
@@ -159,11 +159,7 @@ export function applyArrowFunction(
 }
 
 export function applyFunction(
-  source: [
-    Ast.IdentityExpr | undefined,
-    Ast.IdentityExpr[] | undefined,
-    Ast.BlockExpr
-  ]
+  source: [Ast.IdentityExpr | undefined, Ast.Parameter, Ast.BlockExpr]
 ): Ast.FunctionExpr {
   const [name, args = [], body] = source
   return {
@@ -175,10 +171,7 @@ export function applyFunction(
 }
 
 export function applyCallChain(
-  source: [
-    Ast.IdentityExpr[],
-    Ast.IdentityExpr[] | undefined | Ast.CallChainExpr
-  ]
+  source: [Ast.IdentityExpr[], Ast.Parameter]
 ): Ast.CallChainExpr {
   const [chain, args = []] = source
   return {
@@ -221,7 +214,7 @@ export function applyDefineVariable(
 }
 
 export function applyIf(
-  source: [Ast.IdentityExpr[] | undefined, Ast.BlockExpr]
+  source: [Ast.IfStatement['args'], Ast.IfStatement['body']]
 ): Ast.IfStatement {
   const [args = [], body] = source
   return {

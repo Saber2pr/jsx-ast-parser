@@ -2,12 +2,17 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:24:00
+ * @Last Modified time: 2021-10-05 14:19:17
  */
 import * as Jsx from './Jsx'
 
-// Jsx
+export function isIdentity(element: Jsx.Type): element is Jsx.Identity {
+  if (!element) return false
+  const identity = <Jsx.Identity>element
+  return identity.$$typeof === 'identity'
+}
 
+// Jsx
 export function isJsxElement(element: Jsx.Type): element is Jsx.JsxElement {
   if (!element) return false
   const jsxElement = <Jsx.JsxElement>element
@@ -30,9 +35,16 @@ export function createNode<T extends Jsx.Node>(
   })
 }
 
+export function createIdentity(name: string): Jsx.Identity {
+  return createNode<Jsx.Identity>({
+    $$typeof: 'identity',
+    name,
+  })
+}
+
 export function createJsxAttributes(
   props: {
-    [k: string]: Jsx.Type
+    [k: string]: Jsx.Type | Jsx.Identity
   } = {}
 ): Jsx.JsxAttributes {
   return createNode<Jsx.JsxAttributes>({
@@ -43,7 +55,7 @@ export function createJsxAttributes(
 
 export function createJsxObject(
   values: {
-    [k: string]: Jsx.Type
+    [k: string]: Jsx.Type | Jsx.Identity
   } = {}
 ): Jsx.JsxObject {
   return createNode<Jsx.JsxObject>({
@@ -141,7 +153,7 @@ export function createBlock(body: Jsx.Type[]): Jsx.Block {
 }
 
 export function createArrowFunction(
-  args: string[] = [],
+  args: Jsx.Parameter = [],
   body: Jsx.Block
 ): Jsx.ArrowFunction {
   return createNode<Jsx.ArrowFunction>({
@@ -153,7 +165,7 @@ export function createArrowFunction(
 
 export function createFunction(
   name: string | undefined,
-  args: string[] = [],
+  args: Jsx.Parameter = [],
   body: Jsx.Block
 ): Jsx.Function {
   return createNode<Jsx.Function>({
@@ -167,7 +179,7 @@ export function createFunction(
 export function createCallChain(
   caller: string,
   chain: string[],
-  args: Jsx.CallChain | string[]
+  args: Jsx.Parameter = []
 ): Jsx.CallChain {
   return createNode<Jsx.CallChain>({
     $$typeof: 'call',
@@ -190,7 +202,7 @@ export function createVariableAssign(
 
 export function createDefineVariable(
   type: string,
-  assign: Jsx.VariableAssign | string
+  assign: Jsx.VariableAssign | Jsx.Identity
 ): Jsx.DefineVariable {
   return createNode<Jsx.DefineVariable>({
     $$typeof: 'define-variable',
@@ -199,7 +211,7 @@ export function createDefineVariable(
   })
 }
 
-export function createIf(args: string[], body: Jsx.Block): Jsx.If {
+export function createIf(args: Jsx.Parameter = [], body: Jsx.Block): Jsx.If {
   return createNode<Jsx.If>({
     $$typeof: 'if',
     args,

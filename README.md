@@ -11,6 +11,79 @@ yarn add @saber2pr/jsx-ast-parser
 
 ### Feature
 
+#### Overview Grammar BNF
+
+[jsx.bnf](./jsx.bnf)
+
+```bnf
+JSX ::= JSXOPENED | JSXSELFCLOSE
+
+PARAMETER ::= "(" (IDENTITY ("," IDENTITY)* (",")?)? ")"
+
+EXPRESSION ::= JSX
+             | STRING
+             | NUMBER
+             | OBJ
+             | ARRAY
+             | ARROWFUNCTION
+             | CALLCHAIN
+             | FUNCTION
+
+STATEMENT ::= DECLAREVARIABLE
+            | STRING
+            | NUMBER
+            | OBJ
+            | ARRAY
+            | ARROWFUNCTION
+            | CALLCHAIN
+            | FUNCTION
+
+NUMBER ::= digit
+
+TEXT ::= (letter | digit)*
+
+STRING ::= '"' TEXT '"'
+         | "'" TEXT "'"
+
+KEYWORD ::= "var"
+          | "let"
+          | "const"
+
+IDENTITY ::= letter (NUMBER TEXT)?
+
+OBJ ::= "{" (IDENTITY ":" EXPRESSION ("," IDENTITY ":" EXPRESSION)* (",")?)? "}"
+
+ARRAY ::= "[" (EXPRESSION ("," EXPRESSION)* (",")?)? "]"
+
+PROP ::= IDENTITY
+       | IDENTITY "=" "{" EXPRESSION "}"
+
+OPENTAG ::= "<" IDENTITY ((PROP)*)? ">"
+
+CLOSETAG ::= "<" "/" IDENTITY ">"
+
+JSXSELFCLOSE ::= "<" IDENTITY ((PROP)*)? "/" ">"
+
+JSXOPENED ::= OPENTAG (JSX | TEXT)* CLOSETAG
+
+ARROWFUNCTION ::= PARAMETER "=" ">" BLOCK
+
+FUNCTION ::= "function" (IDENTITY)? PARAMETER BLOCK
+
+CALLCHAIN ::= IDENTITY ("." IDENTITY)* PARAMETER
+
+VARIABLEASSIGN ::= IDENTITY "=" EXPRESSION
+
+BLOCK ::= "{" STATEMENT (";" STATEMENT)* (";")? "}"
+
+DECLAREVARIABLE ::= KEYWORD IDENTITY
+                  | KEYWORD VARIABLEASSIGN
+
+IFSTATEMENT ::= "if" PARAMETER BLOCK
+
+PROGRAM ::= (EXPRESSION | STATEMENT)*
+```
+
 #### parser
 
 - [x] jsx opened

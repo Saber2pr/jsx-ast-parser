@@ -460,25 +460,27 @@ Object {
                     "kind": "CallChainExpr",
                   },
                   Object {
-                    "args": Object {
-                      "args": Array [
-                        Object {
+                    "args": Array [
+                      Object {
+                        "args": Array [
+                          Object {
+                            "kind": "IdentityExpr",
+                            "name": "test",
+                          },
+                        ],
+                        "caller": Object {
                           "kind": "IdentityExpr",
-                          "name": "test",
+                          "name": "console",
                         },
-                      ],
-                      "caller": Object {
-                        "kind": "IdentityExpr",
-                        "name": "console",
+                        "chain": Array [
+                          Object {
+                            "kind": "IdentityExpr",
+                            "name": "log",
+                          },
+                        ],
+                        "kind": "CallChainExpr",
                       },
-                      "chain": Array [
-                        Object {
-                          "kind": "IdentityExpr",
-                          "name": "log",
-                        },
-                      ],
-                      "kind": "CallChainExpr",
-                    },
+                    ],
                     "caller": Object {
                       "kind": "IdentityExpr",
                       "name": "console",

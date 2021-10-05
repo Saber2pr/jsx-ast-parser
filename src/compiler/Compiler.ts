@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:36:23
+ * @Last Modified time: 2021-10-05 14:22:32
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -22,6 +22,11 @@ export function compileBoolean(element: boolean) {
 
 export function compileArray(element: Jsx.Type[]) {
   return `[${element.map(value => compile(value)).join(',')}]`
+}
+
+export function compileIdentity(element: Jsx.Identity) {
+  const name = element.name
+  return name
 }
 
 export function compileJsxObject(element: Jsx.JsxObject | null) {
@@ -89,26 +94,28 @@ export function compileBlock(element: Jsx.Block) {
   return `{${body.map(statement => compile(statement)).join(';')}}`
 }
 
+export function compileParameter(args: Jsx.Parameter = []): string {
+  return args.map(arg => compile(arg)).join(',')
+}
+
 export function compileArrowFunction(element: Jsx.ArrowFunction) {
   const args = element.args ?? []
   const body = element.body ?? []
-  return `(${args.join(',')})=>${compileBlock(body)}`
+  return `(${compileParameter(args)})=>${compileBlock(body)}`
 }
 
 export function compileFunction(element: Jsx.Function) {
   const name = element.name ?? ''
   const args = element.args ?? []
   const body = element.body ?? []
-  return `function ${name}(${args.join(',')})${compileBlock(body)}`
+  return `function ${name}(${compileParameter(args)})${compileBlock(body)}`
 }
 
 export function compileCallChain(element: Jsx.CallChain): string {
   const caller = element.caller
   const chain = element.chain ?? []
   const args = element.args ?? []
-  return `${caller}.${chain.join('.')}(${
-    Array.isArray(args) ? args.join(',') : compileCallChain(args)
-  })`
+  return `${caller}.${chain.join('.')}(${compileParameter(args)})`
 }
 
 export function compileVariableAssign(assign: Jsx.VariableAssign): string {
@@ -121,13 +128,15 @@ export function compileVariableAssign(assign: Jsx.VariableAssign): string {
 export function compileDefineVariable(def: Jsx.DefineVariable): string {
   const { type, assign } = def
   return `${type ? `${type} ` : ''}${
-    typeof assign === 'string' ? assign : compileVariableAssign(assign)
+    Factory.isIdentity(assign)
+      ? compileIdentity(assign)
+      : compileVariableAssign(assign)
   }`
 }
 
 export function compileIf(ifElse: Jsx.If): string {
   const { args, body } = ifElse
-  return `if(${args.join(',')})${compileBlock(body)}`
+  return `if(${compileParameter(args)})${compileBlock(body)}`
 }
 
 // compile code
@@ -165,6 +174,9 @@ export function compile(element: Jsx.Type): string {
   }
   if (Factory.isIf(element)) {
     return compileIf(element)
+  }
+  if (Factory.isIdentity(element)) {
+    return compileIdentity(element)
   }
   // basic
   if (typeof element === 'string') {

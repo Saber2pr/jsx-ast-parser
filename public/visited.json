@@ -1,6 +1,8 @@
 [
   100,
-  true,
+  {
+    "name": "true"
+  },
   "red",
   1,
   2,
@@ -20,14 +22,18 @@
   },
   "233ccc",
   "qwq123",
-  "onClick",
+  {
+    "name": "onClick"
+  },
   {
     "caller": "console",
     "chain": [
       "log"
     ],
     "args": [
-      "error"
+      {
+        "name": "error"
+      }
     ]
   },
   {
@@ -43,13 +49,27 @@
       "log"
     ],
     "args": [
-      "test"
+      {
+        "caller": "console",
+        "chain": [
+          "log"
+        ],
+        "args": [
+          {
+            "name": "test"
+          }
+        ]
+      }
     ]
   },
   {
     "args": [
-      "error",
-      "test"
+      {
+        "name": "error"
+      },
+      {
+        "name": "test"
+      }
     ],
     "body": {
       "statements": [
@@ -59,7 +79,9 @@
             "log"
           ],
           "args": [
-            "error"
+            {
+              "name": "error"
+            }
           ]
         },
         {
@@ -75,7 +97,17 @@
             "log"
           ],
           "args": [
-            "test"
+            {
+              "caller": "console",
+              "chain": [
+                "log"
+              ],
+              "args": [
+                {
+                  "name": "test"
+                }
+              ]
+            }
           ]
         },
         {
@@ -101,7 +133,9 @@
         },
         {
           "type": "let",
-          "assign": "d"
+          "assign": {
+            "name": "d"
+          }
         },
         {
           "name": "d",
@@ -109,7 +143,9 @@
         },
         {
           "type": "let",
-          "assign": "a"
+          "assign": {
+            "name": "a"
+          }
         },
         {
           "name": "a",
@@ -117,7 +153,9 @@
         },
         {
           "args": [
-            "a"
+            {
+              "name": "a"
+            }
           ],
           "body": {
             "statements": [
@@ -127,7 +165,9 @@
                   "log"
                 ],
                 "args": [
-                  "a"
+                  {
+                    "name": "a"
+                  }
                 ]
               }
             ]
@@ -294,7 +334,9 @@
     "tagName": "div",
     "props": {
       "width": 100,
-      "contentEditable": true,
+      "contentEditable": {
+        "name": "true"
+      },
       "color": "red",
       "arr": [
         1,
@@ -320,11 +362,17 @@
       },
       "id": "233ccc",
       "class2Name": "qwq123",
-      "onClick": "onClick",
+      "onClick": {
+        "name": "onClick"
+      },
       "onError": {
         "args": [
-          "error",
-          "test"
+          {
+            "name": "error"
+          },
+          {
+            "name": "test"
+          }
         ],
         "body": {
           "statements": [
@@ -334,7 +382,9 @@
                 "log"
               ],
               "args": [
-                "error"
+                {
+                  "name": "error"
+                }
               ]
             },
             {
@@ -350,7 +400,17 @@
                 "log"
               ],
               "args": [
-                "test"
+                {
+                  "caller": "console",
+                  "chain": [
+                    "log"
+                  ],
+                  "args": [
+                    {
+                      "name": "test"
+                    }
+                  ]
+                }
               ]
             },
             {
@@ -376,7 +436,9 @@
             },
             {
               "type": "let",
-              "assign": "d"
+              "assign": {
+                "name": "d"
+              }
             },
             {
               "name": "d",
@@ -384,7 +446,9 @@
             },
             {
               "type": "let",
-              "assign": "a"
+              "assign": {
+                "name": "a"
+              }
             },
             {
               "name": "a",
@@ -392,7 +456,9 @@
             },
             {
               "args": [
-                "a"
+                {
+                  "name": "a"
+                }
               ],
               "body": {
                 "statements": [
@@ -402,7 +468,9 @@
                       "log"
                     ],
                     "args": [
-                      "a"
+                      {
+                        "name": "a"
+                      }
                     ]
                   }
                 ]
