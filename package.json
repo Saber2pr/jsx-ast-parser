@@ -1,6 +1,6 @@
 {
   "name": "@saber2pr/jsx-ast-parser",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "jsx parser by parser combinators.",
   "repository": {
     "type": "git",

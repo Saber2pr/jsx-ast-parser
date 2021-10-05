@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.7...v0.0.8) (2021-10-05)
+
+
+### Features
+
+* bnf ([5654ecf](https://github.com/Saber2pr/jsx-ast-parser/commit/5654ecfe0d984427e609c1942deda397984abb39))
+
 ### [0.0.7](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.6...v0.0.7) (2021-10-04)
 
 
