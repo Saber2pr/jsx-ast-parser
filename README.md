@@ -30,13 +30,9 @@ EXPRESSION ::= JSX
              | FUNCTION
 
 STATEMENT ::= DECLAREVARIABLE
-            | STRING
-            | NUMBER
-            | OBJ
-            | ARRAY
-            | ARROWFUNCTION
+            | VARIABLEASSIGN
             | CALLCHAIN
-            | FUNCTION
+            | IFSTATEMENT
 
 NUMBER ::= digit
 

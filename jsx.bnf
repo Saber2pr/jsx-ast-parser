@@ -14,13 +14,9 @@ EXPRESSION ::= JSX
              | FUNCTION
 
 STATEMENT ::= DECLAREVARIABLE 
-            | STRING 
-            | NUMBER 
-            | OBJ 
-            | ARRAY 
-            | ARROWFUNCTION 
-            | CALLCHAIN 
-            | FUNCTION
+            | VARIABLEASSIGN
+            | CALLCHAIN
+            | IFSTATEMENT
 
 NUMBER ::= digit
 
