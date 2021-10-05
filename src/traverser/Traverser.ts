@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:32
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 18:55:54
+ * @Last Modified time: 2021-10-05 14:02:34
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -108,14 +108,10 @@ export function traverseFunction(
 
 export function traverseCallChain(
   call: Jsx.CallChain,
-  callback: (node: Jsx.CallChain) => Jsx.Type | void
+  callback: (node: Jsx.Type) => Jsx.Type | void
 ): Jsx.Type {
-  const args = call.args
-  if (Array.isArray(args)) {
-    return callback(call) ?? call
-  } else {
-    return traverseCallChain(args, callback)
-  }
+  // TODO call chain traverse
+  return callback(call) ?? call
 }
 
 export function traverseJsxObject(

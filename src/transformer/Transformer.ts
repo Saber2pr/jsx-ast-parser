@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:23:46
+ * @Last Modified time: 2021-10-05 14:17:33
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -13,15 +13,8 @@ import * as Jsx from './Jsx'
 
 export function transformIdentityExpr(
   identity: Ast.IdentityExpr
-): string | boolean {
-  // pre identity
-  if (identity.name === 'true') {
-    return true
-  }
-  if (identity.name === 'false') {
-    return false
-  }
-  return identity.name
+): Jsx.Identity {
+  return TFactory.createIdentity(identity.name)
 }
 
 export function transformNumberExpr(number: Ast.NumberExpr): number {
@@ -53,7 +46,9 @@ export function transformObjectExpr(object: Ast.ObjectExpr): Jsx.JsxObject {
   )
 }
 
-export function transformArrayExpr(array: Ast.ArrayExpr): Jsx.Type[] {
+export function transformArrayExpr(
+  array: Ast.ArrayExpr
+): (Jsx.Type | Jsx.Identity)[] {
   const items = array.items
   return items.map(expression =>
     Factory.isIdentityExpr(expression)
@@ -114,18 +109,18 @@ export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
 export function transformArrowFunction(
   func: Ast.ArrowFunctionExpr
 ): Jsx.ArrowFunction {
-  const { args, body } = func
+  const { args = [], body } = func
   return TFactory.createArrowFunction(
-    args.map(arg => arg.name),
+    transformParameter(args),
     transformBlock(body)
   )
 }
 
 export function transformFunction(func: Ast.FunctionExpr): Jsx.Function {
-  const { name, args, body } = func
+  const { name, args = [], body } = func
   return TFactory.createFunction(
     name?.name,
-    args.map(arg => arg.name),
+    transformParameter(args),
     transformBlock(body)
   )
 }
@@ -137,12 +132,22 @@ export function transformBlock(func: Ast.BlockExpr): Jsx.Block {
   )
 }
 
+export function transformParameter(
+  args: Ast.Parameter = []
+): (Jsx.Type | Jsx.Identity)[] {
+  return args.map(arg =>
+    Factory.isExpression(arg)
+      ? transformExpression(arg)
+      : transformIdentityExpr(arg)
+  )
+}
+
 export function transformCallChain(call: Ast.CallChainExpr): Jsx.CallChain {
-  const { caller, chain, args } = call
+  const { caller, chain, args = [] } = call
   return TFactory.createCallChain(
     caller.name,
     chain.map(item => item.name),
-    Array.isArray(args) ? args.map(arg => arg.name) : transformCallChain(args)
+    transformParameter(args)
   )
 }
 
@@ -162,7 +167,7 @@ export function transformDefineVariable(
   def: Ast.DefineVariableStatement
 ): Jsx.DefineVariable {
   const { type, assign } = def
-  let value: string | Jsx.VariableAssign
+  let value: Jsx.Identity | Jsx.VariableAssign
   if (Factory.isVariableAssignExpr(assign)) {
     value = transformVariableAssign(assign)
   } else {
@@ -177,11 +182,8 @@ export function transformDefineVariable(
 }
 
 export function transformIf(ifElse: Ast.IfStatement): Jsx.If {
-  const { args, body } = ifElse
-  return TFactory.createIf(
-    args.map(arg => arg.name),
-    transformBlock(body)
-  )
+  const { args = [], body } = ifElse
+  return TFactory.createIf(transformParameter(args), transformBlock(body))
 }
 
 export function transformExpression(expression: Ast.Expression): Jsx.Type {

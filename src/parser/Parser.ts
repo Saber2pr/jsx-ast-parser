@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:46:33
+ * @Last Modified time: 2021-10-05 14:32:14
  */
 import {
   alt,
@@ -64,13 +64,6 @@ JSX
 export const JSX = alt(JSXOPENED, JSXSELFCLOSE)
 
 /*
-PARAMETER
-  = ( commaSep IDENTITY )
-*/
-export const PARAMETER: Parser<TokenKind, Ast.IdentityExpr[] | undefined> =
-  kmid(str('('), opt(list_sc(IDENTITY, str(','))), seq(opt(str(',')), str(')')))
-
-/*
 EXPRESSION
   = JSX <|> STRING <|> NUMBER <|> IDENTITY <|> OBJ <|> ARRAY | <|> ARROWFUNCTION <|> CALLCHAIN
 */
@@ -83,6 +76,19 @@ export const EXPRESSION = alt(
   ARROWFUNCTION,
   CALLCHAIN,
   FUNCTION
+)
+
+/*
+PARAMETER
+  = ( commaSep IDENTITY )
+*/
+export const PARAMETER: Parser<
+  TokenKind,
+  (Ast.IdentityExpr | Ast.Expression)[] | undefined
+> = kmid(
+  str('('),
+  opt(list_sc(alt(IDENTITY, EXPRESSION), str(','))),
+  seq(opt(str(',')), str(')'))
 )
 
 /*
@@ -235,7 +241,6 @@ JSXSELFCLOSE.setPattern(
 /*
 JSXOPENED
   = OPENTAG (many $ JSX <|> TEXT) CLOSETAG
-  = SELFCLOSETAG
 */
 JSXOPENED.setPattern(
   apply(seq(OPENTAG, rep_sc(alt(JSX, TEXT)), CLOSETAG), Consumer.applyJsx)
@@ -247,14 +252,7 @@ ARROWFUNCTION
 */
 ARROWFUNCTION.setPattern(
   apply(
-    seq(
-      kmid(
-        str('('),
-        opt(list_sc(IDENTITY, str(','))),
-        seq(opt(str(',')), str(')'))
-      ),
-      kright(seq(str('='), str('>')), BLOCK)
-    ),
+    seq(PARAMETER, kright(seq(str('='), str('>')), BLOCK)),
     Consumer.applyArrowFunction
   )
 )
@@ -266,36 +264,17 @@ FUNCTION
 */
 FUNCTION.setPattern(
   apply(
-    seq(
-      kright(str('function'), opt(IDENTITY)),
-      kmid(
-        str('('),
-        opt(list_sc(IDENTITY, str(','))),
-        seq(opt(str(',')), str(')'))
-      ),
-      BLOCK
-    ),
+    seq(kright(str('function'), opt(IDENTITY)), PARAMETER, BLOCK),
     Consumer.applyFunction
   )
 )
 
 /*
 CALLCHAIN
-  = dotSep IDENTITY ( CALLCHAIN <|> commaSep IDENTITY )
-  = dotSep IDENTITY (  )
+  = dotSep IDENTITY PARAMETER
 */
 CALLCHAIN.setPattern(
-  apply(
-    seq(
-      list_sc(IDENTITY, str('.')),
-      kmid(
-        str('('),
-        opt(alt(list_sc(IDENTITY, str(',')), CALLCHAIN)),
-        seq(opt(str(',')), str(')'))
-      )
-    ),
-    Consumer.applyCallChain
-  )
+  apply(seq(list_sc(IDENTITY, str('.')), PARAMETER), Consumer.applyCallChain)
 )
 
 /*
@@ -324,8 +303,8 @@ BLOCK.setPattern(
 
 /*
 DECLAREVARIABLE
-  = IDENTITY IDENTITY
-  = IDENTITY IDENTITY = EXPRESSION
+  = KEYWORD IDENTITY
+  = KEYWORD VARIABLEASSIGN
 */
 DECLAREVARIABLE.setPattern(
   apply(
@@ -344,7 +323,7 @@ IFSTATEMENT.setPattern(
 
 /*
 PROGRAM
-  = many EXPRESSION <|> STATEMENT
+  = many $ EXPRESSION <|> STATEMENT
 */
 PROGRAM.setPattern(
   apply(rep_sc(alt(EXPRESSION, STATEMENT)), Consumer.applyProgram)

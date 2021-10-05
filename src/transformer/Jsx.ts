@@ -2,10 +2,11 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:24:06
+ * @Last Modified time: 2021-10-05 14:17:49
  */
 export type Type =
   | JsxNode
+  | Identity
   | string
   | number
   | boolean
@@ -20,6 +21,8 @@ export type Type =
   | VariableAssign
   | If
 
+export type Parameter = (Identity | Type)[] | undefined
+
 // Jsx
 
 export interface Node {
@@ -27,14 +30,19 @@ export interface Node {
   [k: string]: any
 }
 
+export interface Identity extends Node {
+  $$typeof: 'identity'
+  name: string
+}
+
 export interface JsxObject extends Node {
   $$typeof: 'jsx-obj'
-  [k: string]: Type
+  [k: string]: Type | Identity
 }
 
 export interface JsxAttributes extends Node {
   $$typeof: 'jsx-attrs'
-  [k: string]: Type
+  [k: string]: Type | Identity
 }
 
 export interface JsxElement extends Node {
@@ -55,7 +63,7 @@ export interface CallChain extends Node {
   $$typeof: 'call'
   caller: string
   chain: string[]
-  args: string[] | CallChain
+  args: Parameter
 }
 
 export interface Block extends Node {
@@ -65,14 +73,14 @@ export interface Block extends Node {
 
 export interface ArrowFunction extends Node {
   $$typeof: 'arrow-function'
-  args: string[]
+  args: Parameter
   body: Block
 }
 
 export interface Function extends Node {
   $$typeof: 'function'
   name: string | undefined
-  args: string[]
+  args: Parameter
   body: Block
 }
 
@@ -85,12 +93,12 @@ export interface VariableAssign extends Node {
 export interface DefineVariable extends Node {
   $$typeof: 'define-variable'
   type: string
-  assign: VariableAssign | string
+  assign: VariableAssign | Identity
 }
 
 export interface If extends Node {
   $$typeof: 'if'
-  args: string[]
+  args: Parameter
   body: Block
 }
 

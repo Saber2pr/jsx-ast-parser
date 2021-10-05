@@ -156,19 +156,29 @@ Array [
       ],
       "class2Name": "qwq123",
       "color": "red",
-      "contentEditable": true,
+      "contentEditable": Object {
+        "name": "true",
+      },
       "id": "233ccc",
-      "onClick": "onClick",
+      "onClick": Object {
+        "name": "onClick",
+      },
       "onError": Object {
         "args": Array [
-          "error",
-          "test",
+          Object {
+            "name": "error",
+          },
+          Object {
+            "name": "test",
+          },
         ],
         "body": Object {
           "statements": Array [
             Object {
               "args": Array [
-                "error",
+                Object {
+                  "name": "error",
+                },
               ],
               "caller": "console",
               "chain": Array [
@@ -184,7 +194,17 @@ Array [
             },
             Object {
               "args": Array [
-                "test",
+                Object {
+                  "args": Array [
+                    Object {
+                      "name": "test",
+                    },
+                  ],
+                  "caller": "console",
+                  "chain": Array [
+                    "log",
+                  ],
+                },
               ],
               "caller": "console",
               "chain": Array [
@@ -213,7 +233,9 @@ Array [
               "type": "const",
             },
             Object {
-              "assign": "d",
+              "assign": Object {
+                "name": "d",
+              },
               "type": "let",
             },
             Object {
@@ -221,7 +243,9 @@ Array [
               "value": "d",
             },
             Object {
-              "assign": "a",
+              "assign": Object {
+                "name": "a",
+              },
               "type": "let",
             },
             Object {
@@ -230,13 +254,17 @@ Array [
             },
             Object {
               "args": Array [
-                "a",
+                Object {
+                  "name": "a",
+                },
               ],
               "body": Object {
                 "statements": Array [
                   Object {
                     "args": Array [
-                      "a",
+                      Object {
+                        "name": "a",
+                      },
                     ],
                     "caller": "console",
                     "chain": Array [

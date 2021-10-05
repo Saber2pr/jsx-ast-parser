@@ -219,25 +219,27 @@
                         "name": "log"
                       }
                     ],
-                    "args": {
-                      "kind": "CallChainExpr",
-                      "caller": {
-                        "kind": "IdentityExpr",
-                        "name": "console"
-                      },
-                      "chain": [
-                        {
+                    "args": [
+                      {
+                        "kind": "CallChainExpr",
+                        "caller": {
                           "kind": "IdentityExpr",
-                          "name": "log"
-                        }
-                      ],
-                      "args": [
-                        {
-                          "kind": "IdentityExpr",
-                          "name": "test"
-                        }
-                      ]
-                    }
+                          "name": "console"
+                        },
+                        "chain": [
+                          {
+                            "kind": "IdentityExpr",
+                            "name": "log"
+                          }
+                        ],
+                        "args": [
+                          {
+                            "kind": "IdentityExpr",
+                            "name": "test"
+                          }
+                        ]
+                      }
+                    ]
                   },
                   {
                     "kind": "DefineVariableStatement",

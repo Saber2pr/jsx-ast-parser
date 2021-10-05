@@ -61,6 +61,8 @@ export type Statement =
   | VariableAssignExpr
   | IfStatement
 
+export type Parameter = (IdentityExpr | Expression)[] | undefined
+
 // JSX
 
 export interface OpeningTagExpr extends Node {
@@ -108,14 +110,14 @@ export interface BlockExpr extends Node {
 
 export interface ArrowFunctionExpr extends Node {
   kind: 'ArrowFunctionExpr'
-  args: IdentityExpr[]
+  args: Parameter
   body: BlockExpr
 }
 
 export interface FunctionExpr extends Node {
   kind: 'FunctionExpr'
   name: IdentityExpr | undefined
-  args: IdentityExpr[]
+  args: Parameter
   body: BlockExpr
 }
 
@@ -123,7 +125,7 @@ export interface CallChainExpr extends Node {
   kind: 'CallChainExpr'
   caller: IdentityExpr
   chain: IdentityExpr[]
-  args: IdentityExpr[] | CallChainExpr
+  args: Parameter
 }
 
 export interface VariableAssignExpr extends Node {
@@ -142,7 +144,7 @@ export interface DefineVariableStatement extends Node {
 
 export interface IfStatement extends Node {
   kind: 'IfStatement'
-  args: IdentityExpr[]
+  args: Parameter
   body: BlockExpr
 }
 
