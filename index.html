@@ -75,55 +75,65 @@
 					<h4>Overview Grammar BNF</h4>
 				</a>
 				<p><a href="./jsx.bnf">jsx.bnf</a></p>
-				<a href="#parser" id="parser" style="color: inherit; text-decoration: none;">
-					<h4>parser</h4>
+				<a href="#syntax-currently-supported" id="syntax-currently-supported" style="color: inherit; text-decoration: none;">
+					<h4>Syntax currently supported</h4>
 				</a>
 				<ul>
-					<li><input checked="" disabled="" type="checkbox"> jsx opened</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx self closing</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props string-value</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props number-value, bool-value</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props object</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props object-array</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props string-array, number-array</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props arrow function</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props arrow function scope statements</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props function</li>
-					<li><input checked="" disabled="" type="checkbox"> jsx props function scope statements</li>
-					<li><input checked="" disabled="" type="checkbox"> statement call chain</li>
-					<li><input checked="" disabled="" type="checkbox"> statement arrow function</li>
-					<li><input checked="" disabled="" type="checkbox"> statement comment</li>
-					<li><input disabled="" type="checkbox"> statement arithmetic</li>
-					<li><input checked="" disabled="" type="checkbox"> statement function</li>
-					<li><input checked="" disabled="" type="checkbox"> statement define</li>
-					<li><input checked="" disabled="" type="checkbox"> statement assign</li>
-					<li><input checked="" disabled="" type="checkbox"> statement if else</li>
-					<li><input disabled="" type="checkbox"> statement for</li>
-					<li><input disabled="" type="checkbox"> statement while</li>
-					<li><input disabled="" type="checkbox"> statement try catch</li>
-					<li><input checked="" disabled="" type="checkbox"> statement return</li>
-					<li><input disabled="" type="checkbox"> statement deconstruct</li>
-					<li><input disabled="" type="checkbox"> statement as</li>
-				</ul>
-				<a href="#transformer" id="transformer" style="color: inherit; text-decoration: none;">
-					<h4>transformer</h4>
-				</a>
-				<ul>
-					<li><input checked="" disabled="" type="checkbox"> transform jsx</li>
-				</ul>
-				<a href="#traverser" id="traverser" style="color: inherit; text-decoration: none;">
-					<h4>traverser</h4>
-				</a>
-				<ul>
-					<li><input disabled="" type="checkbox"> traverse ast</li>
-					<li><input checked="" disabled="" type="checkbox"> traverse jsx</li>
-				</ul>
-				<a href="#compiler" id="compiler" style="color: inherit; text-decoration: none;">
-					<h4>compiler</h4>
-				</a>
-				<ul>
-					<li><input disabled="" type="checkbox"> compile ast</li>
-					<li><input checked="" disabled="" type="checkbox"> compile jsx</li>
+					<li><input disabled="" type="checkbox"> parser<ul>
+							<li><input disabled="" type="checkbox"> jsx<ul>
+									<li><input checked="" disabled="" type="checkbox"> jsx opened</li>
+									<li><input checked="" disabled="" type="checkbox"> jsx self closing</li>
+									<li><input disabled="" type="checkbox"> jsx props<ul>
+											<li><input checked="" disabled="" type="checkbox"> jsx props string-value</li>
+											<li><input checked="" disabled="" type="checkbox"> jsx props number-value, bool-value</li>
+											<li><input checked="" disabled="" type="checkbox"> jsx props object</li>
+											<li><input checked="" disabled="" type="checkbox"> jsx props object-array</li>
+											<li><input checked="" disabled="" type="checkbox"> jsx props string-array, number-array</li>
+											<li><input checked="" disabled="" type="checkbox"> jsx props arrow function<ul>
+													<li><input checked="" disabled="" type="checkbox"> jsx props arrow function scope statements</li>
+												</ul>
+											</li>
+											<li><input checked="" disabled="" type="checkbox"> jsx props function<ul>
+													<li><input checked="" disabled="" type="checkbox"> jsx props function scope statements</li>
+												</ul>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li><input disabled="" type="checkbox"> statement<ul>
+									<li><input checked="" disabled="" type="checkbox"> call chain</li>
+									<li><input checked="" disabled="" type="checkbox"> arrow function</li>
+									<li><input checked="" disabled="" type="checkbox"> comment</li>
+									<li><input disabled="" type="checkbox"> arithmetic</li>
+									<li><input checked="" disabled="" type="checkbox"> function</li>
+									<li><input checked="" disabled="" type="checkbox"> define</li>
+									<li><input checked="" disabled="" type="checkbox"> assign</li>
+									<li><input checked="" disabled="" type="checkbox"> if else</li>
+									<li><input disabled="" type="checkbox"> for</li>
+									<li><input disabled="" type="checkbox"> while</li>
+									<li><input disabled="" type="checkbox"> try catch</li>
+									<li><input checked="" disabled="" type="checkbox"> return</li>
+									<li><input disabled="" type="checkbox"> deconstruct</li>
+									<li><input disabled="" type="checkbox"> as</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><input disabled="" type="checkbox"> transformer<ul>
+							<li><input checked="" disabled="" type="checkbox"> transform jsx</li>
+						</ul>
+					</li>
+					<li><input disabled="" type="checkbox"> traverser<ul>
+							<li><input disabled="" type="checkbox"> traverse ast</li>
+							<li><input checked="" disabled="" type="checkbox"> traverse jsx</li>
+						</ul>
+					</li>
+					<li><input disabled="" type="checkbox"> compiler<ul>
+							<li><input disabled="" type="checkbox"> compile ast</li>
+							<li><input checked="" disabled="" type="checkbox"> compile jsx</li>
+						</ul>
+					</li>
 				</ul>
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3>Usage</h3>
