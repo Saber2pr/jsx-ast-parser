@@ -392,6 +392,7 @@
       1633490996382,
       1633491015960,
       1633490641546
-    ]
+    ],
+    "schema": "https://github.com/Saber2pr/vsc-ext-todolist/blob/master/src/api/type.ts#L26"
   }
 }
