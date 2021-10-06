@@ -59,7 +59,7 @@ yarn add @saber2pr/jsx-ast-parser
 
 ### Usage
 
-[docs](https://saber2pr.top/jsx-ast-parser/)
+[view docs](https://saber2pr.top/jsx-ast-parser/)
 
 - [see parser output ast.json](./public/ast.json)
 - [see transformer output jsx.json](./public/jsx.json)
