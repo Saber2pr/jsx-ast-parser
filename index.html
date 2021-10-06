@@ -75,69 +75,6 @@
 					<h4>Overview Grammar BNF</h4>
 				</a>
 				<p><a href="./jsx.bnf">jsx.bnf</a></p>
-				<pre><code class="language-bnf">JSX ::= JSXOPENED | JSXSELFCLOSE
-
-PARAMETER ::= &quot;(&quot; (IDENTITY (&quot;,&quot; IDENTITY)* (&quot;,&quot;)?)? &quot;)&quot;
-
-EXPRESSION ::= JSX
-             | STRING
-             | NUMBER
-             | OBJ
-             | ARRAY
-             | ARROWFUNCTION
-             | CALLCHAIN
-             | FUNCTION
-
-STATEMENT ::= DECLAREVARIABLE
-            | VARIABLEASSIGN
-            | CALLCHAIN
-            | IFSTATEMENT
-
-NUMBER ::= digit
-
-TEXT ::= (letter | digit)*
-
-STRING ::= &#39;&quot;&#39; TEXT &#39;&quot;&#39;
-         | &quot;&#39;&quot; TEXT &quot;&#39;&quot;
-
-KEYWORD ::= &quot;var&quot;
-          | &quot;let&quot;
-          | &quot;const&quot;
-
-IDENTITY ::= letter (NUMBER TEXT)?
-
-OBJ ::= &quot;{&quot; (IDENTITY &quot;:&quot; EXPRESSION (&quot;,&quot; IDENTITY &quot;:&quot; EXPRESSION)* (&quot;,&quot;)?)? &quot;}&quot;
-
-ARRAY ::= &quot;[&quot; (EXPRESSION (&quot;,&quot; EXPRESSION)* (&quot;,&quot;)?)? &quot;]&quot;
-
-PROP ::= IDENTITY
-       | IDENTITY &quot;=&quot; &quot;{&quot; EXPRESSION &quot;}&quot;
-
-OPENTAG ::= &quot;&lt;&quot; IDENTITY ((PROP)*)? &quot;&gt;&quot;
-
-CLOSETAG ::= &quot;&lt;&quot; &quot;/&quot; IDENTITY &quot;&gt;&quot;
-
-JSXSELFCLOSE ::= &quot;&lt;&quot; IDENTITY ((PROP)*)? &quot;/&quot; &quot;&gt;&quot;
-
-JSXOPENED ::= OPENTAG (JSX | TEXT)* CLOSETAG
-
-ARROWFUNCTION ::= PARAMETER &quot;=&quot; &quot;&gt;&quot; BLOCK
-
-FUNCTION ::= &quot;function&quot; (IDENTITY)? PARAMETER BLOCK
-
-CALLCHAIN ::= IDENTITY (&quot;.&quot; IDENTITY)* PARAMETER
-
-VARIABLEASSIGN ::= IDENTITY &quot;=&quot; EXPRESSION
-
-BLOCK ::= &quot;{&quot; STATEMENT (&quot;;&quot; STATEMENT)* (&quot;;&quot;)? &quot;}&quot;
-
-DECLAREVARIABLE ::= KEYWORD IDENTITY
-                  | KEYWORD VARIABLEASSIGN
-
-IFSTATEMENT ::= &quot;if&quot; PARAMETER BLOCK
-
-PROGRAM ::= (EXPRESSION | STATEMENT)*
-</code></pre>
 				<a href="#parser" id="parser" style="color: inherit; text-decoration: none;">
 					<h4>parser</h4>
 				</a>
@@ -164,7 +101,7 @@ PROGRAM ::= (EXPRESSION | STATEMENT)*
 					<li><input disabled="" type="checkbox"> statement for</li>
 					<li><input disabled="" type="checkbox"> statement while</li>
 					<li><input disabled="" type="checkbox"> statement try catch</li>
-					<li><input disabled="" type="checkbox"> statement return</li>
+					<li><input checked="" disabled="" type="checkbox"> statement return</li>
 					<li><input disabled="" type="checkbox"> statement deconstruct</li>
 					<li><input disabled="" type="checkbox"> statement as</li>
 				</ul>
@@ -191,7 +128,7 @@ PROGRAM ::= (EXPRESSION | STATEMENT)*
 				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
 					<h3>Usage</h3>
 				</a>
-				<p><a href="https://saber2pr.top/jsx-ast-parser/">docs</a></p>
+				<p><a href="https://saber2pr.top/jsx-ast-parser/">view docs</a></p>
 				<ul>
 					<li><a href="./public/ast.json">see parser output ast.json</a></li>
 					<li><a href="./public/jsx.json">see transformer output jsx.json</a></li>

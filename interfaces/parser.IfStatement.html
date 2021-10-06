@@ -90,6 +90,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.IfStatement.html#args" class="tsd-kind-icon">args</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.IfStatement.html#body" class="tsd-kind-icon">body</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="parser.IfStatement.html#els" class="tsd-kind-icon">els</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite"><a href="parser.IfStatement.html#kind" class="tsd-kind-icon">kind</a></li>
 							</ul>
 						</section>
@@ -104,17 +105,27 @@
 					<div class="tsd-signature tsd-kind-icon">args<span class="tsd-signature-symbol">:</span> <a href="../modules/parser.html#Parameter" class="tsd-signature-type" data-tsd-kind="Type alias">Parameter</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/parser/Ast.ts#L147">parser/Ast.ts:147</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/parser/Ast.ts#L148">parser/Ast.ts:148</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="body" class="tsd-anchor"></a>
 					<h3>body</h3>
-					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="parser.BlockExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockExpr</a></div>
+					<div class="tsd-signature tsd-kind-icon">body<span class="tsd-signature-symbol">:</span> <a href="parser.BlockExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockExpr</a><span class="tsd-signature-symbol"> | </span><a href="../modules/parser.html#Statement" class="tsd-signature-type" data-tsd-kind="Type alias">Statement</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/parser/Ast.ts#L148">parser/Ast.ts:148</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/parser/Ast.ts#L149">parser/Ast.ts:149</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="els" class="tsd-anchor"></a>
+					<h3>els</h3>
+					<div class="tsd-signature tsd-kind-icon">els<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="parser.BlockExpr.html" class="tsd-signature-type" data-tsd-kind="Interface">BlockExpr</a><span class="tsd-signature-symbol"> | </span><a href="../modules/parser.html#Statement" class="tsd-signature-type" data-tsd-kind="Type alias">Statement</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/parser/Ast.ts#L150">parser/Ast.ts:150</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -125,7 +136,7 @@
 					<aside class="tsd-sources">
 						<p>Overrides <a href="parser.Node.html">Node</a>.<a href="parser.Node.html#kind">kind</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/parser/Ast.ts#L146">parser/Ast.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/parser/Ast.ts#L147">parser/Ast.ts:147</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -163,6 +174,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="parser.IfStatement.html#body" class="tsd-kind-icon">body</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="parser.IfStatement.html#els" class="tsd-kind-icon">els</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite">
 								<a href="parser.IfStatement.html#kind" class="tsd-kind-icon">kind</a>

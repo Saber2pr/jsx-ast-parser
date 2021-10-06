@@ -83,6 +83,7 @@
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/transformer.JsxElement.html" class="tsd-kind-icon">Jsx<wbr>Element</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/transformer.JsxObject.html" class="tsd-kind-icon">Jsx<wbr>Object</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/transformer.Node.html" class="tsd-kind-icon">Node</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/transformer.Return.html" class="tsd-kind-icon">Return</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/transformer.TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-namespace"><a href="../interfaces/transformer.VariableAssign.html" class="tsd-kind-icon">Variable<wbr>Assign</a></li>
 							</ul>
@@ -109,10 +110,12 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#createJsxElement" class="tsd-kind-icon">create<wbr>Jsx<wbr>Element</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#createJsxObject" class="tsd-kind-icon">create<wbr>Jsx<wbr>Object</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace tsd-has-type-parameter"><a href="transformer.html#createNode" class="tsd-kind-icon">create<wbr>Node</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#createReturn" class="tsd-kind-icon">create<wbr>Return</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#createTextElement" class="tsd-kind-icon">create<wbr>Text<wbr>Element</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#createVariableAssign" class="tsd-kind-icon">create<wbr>Variable<wbr>Assign</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#getElementEntries" class="tsd-kind-icon">get<wbr>Element<wbr>Entries</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isArrowFunction" class="tsd-kind-icon">is<wbr>Arrow<wbr>Function</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isBlock" class="tsd-kind-icon">is<wbr>Block</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isCallChain" class="tsd-kind-icon">is<wbr>Call<wbr>Chain</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isDefineVariable" class="tsd-kind-icon">is<wbr>Define<wbr>Variable</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isFunction" class="tsd-kind-icon">is<wbr>Function</a></li>
@@ -121,6 +124,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isJsxAttributes" class="tsd-kind-icon">is<wbr>Jsx<wbr>Attributes</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isJsxElement" class="tsd-kind-icon">is<wbr>Jsx<wbr>Element</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isJsxObject" class="tsd-kind-icon">is<wbr>Jsx<wbr>Object</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isReturn" class="tsd-kind-icon">is<wbr>Return</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isTextElement" class="tsd-kind-icon">is<wbr>Text<wbr>Element</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#isVariableAssign" class="tsd-kind-icon">is<wbr>Variable<wbr>Assign</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transform" class="tsd-kind-icon">transform</a></li>
@@ -139,6 +143,7 @@
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformObjectExpr" class="tsd-kind-icon">transform<wbr>Object<wbr>Expr</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformParameter" class="tsd-kind-icon">transform<wbr>Parameter</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformPropsExpr" class="tsd-kind-icon">transform<wbr>Props<wbr>Expr</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformReturn" class="tsd-kind-icon">transform<wbr>Return</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformStatement" class="tsd-kind-icon">transform<wbr>Statement</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformStringExpr" class="tsd-kind-icon">transform<wbr>String<wbr>Expr</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="transformer.html#transformTextExpr" class="tsd-kind-icon">transform<wbr>Text<wbr>Expr</a></li>
@@ -156,7 +161,7 @@
 					<div class="tsd-signature tsd-kind-icon">Jsx<wbr>Node<span class="tsd-signature-symbol">:</span> <a href="../interfaces/transformer.JsxElement.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxElement</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.TextElement.html" class="tsd-signature-type" data-tsd-kind="Interface">TextElement</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Jsx.ts#L105">transformer/Jsx.ts:105</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Jsx.ts#L113">transformer/Jsx.ts:113</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,17 +171,17 @@
 					<div class="tsd-signature tsd-kind-icon">Parameter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><a href="../interfaces/transformer.Identity.html" class="tsd-signature-type" data-tsd-kind="Interface">Identity</a><span class="tsd-signature-symbol"> | </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Jsx.ts#L24">transformer/Jsx.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Jsx.ts#L26">transformer/Jsx.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-namespace">
 					<a name="Type" class="tsd-anchor"></a>
 					<h3>Type</h3>
-					<div class="tsd-signature tsd-kind-icon">Type<span class="tsd-signature-symbol">:</span> <a href="transformer.html#JsxNode" class="tsd-signature-type" data-tsd-kind="Type alias">JsxNode</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.Identity.html" class="tsd-signature-type" data-tsd-kind="Interface">Identity</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.JsxObject.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxObject</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.JsxAttributes.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxAttributes</a><span class="tsd-signature-symbol"> | </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.ArrowFunction.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.CallChain.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChain</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.Function.html" class="tsd-signature-type" data-tsd-kind="Interface">Function</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.DefineVariable.html" class="tsd-signature-type" data-tsd-kind="Interface">DefineVariable</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.VariableAssign.html" class="tsd-signature-type" data-tsd-kind="Interface">VariableAssign</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a></div>
+					<div class="tsd-signature tsd-kind-icon">Type<span class="tsd-signature-symbol">:</span> <a href="transformer.html#JsxNode" class="tsd-signature-type" data-tsd-kind="Type alias">JsxNode</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.Identity.html" class="tsd-signature-type" data-tsd-kind="Interface">Identity</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.JsxObject.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxObject</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.JsxAttributes.html" class="tsd-signature-type" data-tsd-kind="Interface">JsxAttributes</a><span class="tsd-signature-symbol"> | </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.ArrowFunction.html" class="tsd-signature-type" data-tsd-kind="Interface">ArrowFunction</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.CallChain.html" class="tsd-signature-type" data-tsd-kind="Interface">CallChain</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.Function.html" class="tsd-signature-type" data-tsd-kind="Interface">Function</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.DefineVariable.html" class="tsd-signature-type" data-tsd-kind="Interface">DefineVariable</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.VariableAssign.html" class="tsd-signature-type" data-tsd-kind="Interface">VariableAssign</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Jsx.ts#L7">transformer/Jsx.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Jsx.ts#L7">transformer/Jsx.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,7 +198,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L155">transformer/Factory.ts:155</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L167">transformer/Factory.ts:167</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -219,7 +224,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L148">transformer/Factory.ts:148</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L160">transformer/Factory.ts:160</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -242,7 +247,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L179">transformer/Factory.ts:179</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L191">transformer/Factory.ts:191</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -271,7 +276,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L203">transformer/Factory.ts:203</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L215">transformer/Factory.ts:215</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -297,7 +302,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L166">transformer/Factory.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L178">transformer/Factory.ts:178</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -326,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L38">transformer/Factory.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L38">transformer/Factory.ts:38</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -343,13 +348,13 @@
 					<a name="createIf" class="tsd-anchor"></a>
 					<h3>create<wbr>If</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>If<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">?: </span><a href="transformer.html#Parameter" class="tsd-signature-type" data-tsd-kind="Type alias">Parameter</a>, body<span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>If<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">?: </span><a href="transformer.html#Parameter" class="tsd-signature-type" data-tsd-kind="Type alias">Parameter</a>, body<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a>, els<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L214">transformer/Factory.ts:214</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L226">transformer/Factory.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -358,7 +363,10 @@
 									<h5>args: <a href="transformer.html#Parameter" class="tsd-signature-type" data-tsd-kind="Type alias">Parameter</a><span class="tsd-signature-symbol"> = []</span></h5>
 								</li>
 								<li>
-									<h5>body: <a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a></h5>
+									<h5>body: <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h5>
+								</li>
+								<li>
+									<h5>els: <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/transformer.If.html" class="tsd-signature-type" data-tsd-kind="Interface">If</a></h4>
@@ -375,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L45">transformer/Factory.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L45">transformer/Factory.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -403,7 +411,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L127">transformer/Factory.ts:127</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L139">transformer/Factory.ts:139</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -432,7 +440,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L56">transformer/Factory.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L56">transformer/Factory.ts:56</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -460,7 +468,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L28">transformer/Factory.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L28">transformer/Factory.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -483,6 +491,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="createReturn" class="tsd-anchor"></a>
+					<h3>create<wbr>Return</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Return<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L239">transformer/Factory.ts:239</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>value: <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="createTextElement" class="tsd-anchor"></a>
 					<h3>create<wbr>Text<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -492,7 +523,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L140">transformer/Factory.ts:140</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L152">transformer/Factory.ts:152</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -515,7 +546,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L192">transformer/Factory.ts:192</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L204">transformer/Factory.ts:204</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -541,7 +572,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L222">transformer/Factory.ts:222</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L246">transformer/Factory.ts:246</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -564,7 +595,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L69">transformer/Factory.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L69">transformer/Factory.ts:69</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -578,6 +609,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="isBlock" class="tsd-anchor"></a>
+					<h3>is<wbr>Block</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Block<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">element</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L133">transformer/Factory.ts:133</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">element</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/transformer.Block.html" class="tsd-signature-type" data-tsd-kind="Interface">Block</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="isCallChain" class="tsd-anchor"></a>
 					<h3>is<wbr>Call<wbr>Chain</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -587,7 +641,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L83">transformer/Factory.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L83">transformer/Factory.ts:83</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -610,7 +664,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L99">transformer/Factory.ts:99</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L99">transformer/Factory.ts:99</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -633,7 +687,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L77">transformer/Factory.ts:77</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L77">transformer/Factory.ts:77</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -656,7 +710,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L9">transformer/Factory.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L9">transformer/Factory.ts:9</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -679,7 +733,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L107">transformer/Factory.ts:107</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L107">transformer/Factory.ts:107</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -702,7 +756,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L119">transformer/Factory.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L125">transformer/Factory.ts:125</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -725,7 +779,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L16">transformer/Factory.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L16">transformer/Factory.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -748,7 +802,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L113">transformer/Factory.ts:113</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L119">transformer/Factory.ts:119</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -762,6 +816,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="isReturn" class="tsd-anchor"></a>
+					<h3>is<wbr>Return</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Return<span class="tsd-signature-symbol">(</span>element<span class="tsd-signature-symbol">: </span><a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">element</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L113">transformer/Factory.ts:113</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>element: <a href="transformer.html#Type" class="tsd-signature-type" data-tsd-kind="Type alias">Type</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">element</span><span class="tsd-signature-symbol"> is </span><a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="isTextElement" class="tsd-anchor"></a>
 					<h3>is<wbr>Text<wbr>Element</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -771,7 +848,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L22">transformer/Factory.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L22">transformer/Factory.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -794,7 +871,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Factory.ts#L89">transformer/Factory.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Factory.ts#L89">transformer/Factory.ts:89</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -817,7 +894,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L228">transformer/Transformer.ts:228</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L243">transformer/Transformer.ts:243</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -840,7 +917,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L49">transformer/Transformer.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L49">transformer/Transformer.ts:49</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -863,7 +940,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L109">transformer/Transformer.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L109">transformer/Transformer.ts:109</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -886,7 +963,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L128">transformer/Transformer.ts:128</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L128">transformer/Transformer.ts:128</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -909,7 +986,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L145">transformer/Transformer.ts:145</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L145">transformer/Transformer.ts:145</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -932,7 +1009,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L166">transformer/Transformer.ts:166</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L166">transformer/Transformer.ts:166</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -955,7 +1032,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L189">transformer/Transformer.ts:189</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L202">transformer/Transformer.ts:202</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -978,7 +1055,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L119">transformer/Transformer.ts:119</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L119">transformer/Transformer.ts:119</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1001,7 +1078,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L14">transformer/Transformer.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L14">transformer/Transformer.ts:14</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1024,7 +1101,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L184">transformer/Transformer.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L184">transformer/Transformer.ts:184</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1047,7 +1124,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L87">transformer/Transformer.ts:87</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L87">transformer/Transformer.ts:87</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1070,7 +1147,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L79">transformer/Transformer.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L79">transformer/Transformer.ts:79</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1093,7 +1170,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L20">transformer/Transformer.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L20">transformer/Transformer.ts:20</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1116,7 +1193,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L32">transformer/Transformer.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L32">transformer/Transformer.ts:32</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1139,7 +1216,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L135">transformer/Transformer.ts:135</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L135">transformer/Transformer.ts:135</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1162,7 +1239,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L62">transformer/Transformer.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L62">transformer/Transformer.ts:62</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1176,6 +1253,29 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
+					<a name="transformReturn" class="tsd-anchor"></a>
+					<h3>transform<wbr>Return</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">transform<wbr>Return<span class="tsd-signature-symbol">(</span>ret<span class="tsd-signature-symbol">: </span><a href="../interfaces/parser.ReturnStatement.html" class="tsd-signature-type" data-tsd-kind="Interface">ReturnStatement</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L197">transformer/Transformer.ts:197</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ret: <a href="../interfaces/parser.ReturnStatement.html" class="tsd-signature-type" data-tsd-kind="Interface">ReturnStatement</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/transformer.Return.html" class="tsd-signature-type" data-tsd-kind="Interface">Return</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="transformStatement" class="tsd-anchor"></a>
 					<h3>transform<wbr>Statement</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
@@ -1185,7 +1285,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L213">transformer/Transformer.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L226">transformer/Transformer.ts:226</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1208,7 +1308,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L24">transformer/Transformer.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L24">transformer/Transformer.ts:24</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1231,7 +1331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L28">transformer/Transformer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L28">transformer/Transformer.ts:28</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1254,7 +1354,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/b1b57e9/src/transformer/Transformer.ts#L154">transformer/Transformer.ts:154</a></li>
+									<li>Defined in <a href="https://github.com/Saber2pr/jsx-ast-parser/blob/1f2b384/src/transformer/Transformer.ts#L154">transformer/Transformer.ts:154</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1325,6 +1425,9 @@
 						<a href="../interfaces/transformer.Node.html" class="tsd-kind-icon">Node</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
+						<a href="../interfaces/transformer.Return.html" class="tsd-kind-icon">Return</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="../interfaces/transformer.TextElement.html" class="tsd-kind-icon">Text<wbr>Element</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
@@ -1373,6 +1476,9 @@
 						<a href="transformer.html#createNode" class="tsd-kind-icon">create<wbr>Node</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="transformer.html#createReturn" class="tsd-kind-icon">create<wbr>Return</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#createTextElement" class="tsd-kind-icon">create<wbr>Text<wbr>Element</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
@@ -1383,6 +1489,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#isArrowFunction" class="tsd-kind-icon">is<wbr>Arrow<wbr>Function</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="transformer.html#isBlock" class="tsd-kind-icon">is<wbr>Block</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#isCallChain" class="tsd-kind-icon">is<wbr>Call<wbr>Chain</a>
@@ -1407,6 +1516,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#isJsxObject" class="tsd-kind-icon">is<wbr>Jsx<wbr>Object</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="transformer.html#isReturn" class="tsd-kind-icon">is<wbr>Return</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#isTextElement" class="tsd-kind-icon">is<wbr>Text<wbr>Element</a>
@@ -1461,6 +1573,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#transformPropsExpr" class="tsd-kind-icon">transform<wbr>Props<wbr>Expr</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
+						<a href="transformer.html#transformReturn" class="tsd-kind-icon">transform<wbr>Return</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="transformer.html#transformStatement" class="tsd-kind-icon">transform<wbr>Statement</a>
