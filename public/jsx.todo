@@ -92,13 +92,23 @@
                           "level": "default",
                           "done": true
                         }
+                      },
+                      {
+                        "key": 1633492689630,
+                        "children": [],
+                        "todo": {
+                          "content": "jsx props arrow function single line",
+                          "id": 1633492689630,
+                          "level": "default",
+                          "done": false
+                        }
                       }
                     ],
                     "todo": {
                       "content": "jsx props arrow function",
                       "id": 1633490698464,
                       "level": "default",
-                      "done": true
+                      "done": false
                     }
                   },
                   {
