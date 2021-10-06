@@ -231,6 +231,148 @@ Array [
                   },
                 ],
               },
+              "els": undefined,
+            },
+            Object {
+              "args": Array [
+                Object {
+                  "name": "b",
+                },
+              ],
+              "body": Object {
+                "statements": Array [
+                  Object {
+                    "args": Array [
+                      Object {
+                        "name": "b",
+                      },
+                    ],
+                    "caller": "console",
+                    "chain": Array [
+                      "log",
+                    ],
+                  },
+                ],
+              },
+              "els": Object {
+                "statements": Array [
+                  Object {
+                    "args": Array [
+                      Object {
+                        "name": "c",
+                      },
+                    ],
+                    "caller": "console",
+                    "chain": Array [
+                      "log",
+                    ],
+                  },
+                ],
+              },
+            },
+            Object {
+              "args": Array [
+                Object {
+                  "name": "b",
+                },
+              ],
+              "body": Object {
+                "statements": Array [
+                  Object {
+                    "args": Array [
+                      Object {
+                        "name": "b",
+                      },
+                    ],
+                    "caller": "console",
+                    "chain": Array [
+                      "log",
+                    ],
+                  },
+                ],
+              },
+              "els": Object {
+                "args": Array [
+                  Object {
+                    "name": "c",
+                  },
+                ],
+                "body": Object {
+                  "statements": Array [
+                    Object {
+                      "args": Array [
+                        Object {
+                          "name": "c",
+                        },
+                      ],
+                      "caller": "console",
+                      "chain": Array [
+                        "log",
+                      ],
+                    },
+                  ],
+                },
+                "els": undefined,
+              },
+            },
+            Object {
+              "args": Array [
+                Object {
+                  "name": "b",
+                },
+              ],
+              "body": Object {
+                "statements": Array [
+                  Object {
+                    "args": Array [
+                      Object {
+                        "name": "b",
+                      },
+                    ],
+                    "caller": "console",
+                    "chain": Array [
+                      "log",
+                    ],
+                  },
+                ],
+              },
+              "els": Object {
+                "args": Array [
+                  Object {
+                    "name": "c",
+                  },
+                ],
+                "body": Object {
+                  "statements": Array [
+                    Object {
+                      "args": Array [
+                        Object {
+                          "name": "c",
+                        },
+                      ],
+                      "caller": "console",
+                      "chain": Array [
+                        "log",
+                      ],
+                    },
+                  ],
+                },
+                "els": Object {
+                  "statements": Array [
+                    Object {
+                      "args": Array [
+                        Object {
+                          "name": "d",
+                        },
+                      ],
+                      "caller": "console",
+                      "chain": Array [
+                        "log",
+                      ],
+                    },
+                  ],
+                },
+              },
             },
           ],
         },

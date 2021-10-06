@@ -40,6 +40,10 @@ export function isJsxSelfClosingExpr(
   return (<Ast.JsxSelfClosingExpr>token).kind === 'JsxSelfClosingExpr'
 }
 
+export function isBlockExpr(token: Ast.Node): token is Ast.BlockExpr {
+  return (<Ast.BlockExpr>token).kind === 'BlockExpr'
+}
+
 export function isVariableAssignExpr(
   token: Ast.Node
 ): token is Ast.VariableAssignExpr {

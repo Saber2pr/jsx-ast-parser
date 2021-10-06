@@ -144,6 +144,146 @@
                   }
                 ]
               }
+            },
+            {
+              "args": [
+                {
+                  "name": "b"
+                }
+              ],
+              "body": {
+                "statements": [
+                  {
+                    "caller": "console",
+                    "chain": [
+                      "log"
+                    ],
+                    "args": [
+                      {
+                        "name": "b"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "els": {
+                "statements": [
+                  {
+                    "caller": "console",
+                    "chain": [
+                      "log"
+                    ],
+                    "args": [
+                      {
+                        "name": "c"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "args": [
+                {
+                  "name": "b"
+                }
+              ],
+              "body": {
+                "statements": [
+                  {
+                    "caller": "console",
+                    "chain": [
+                      "log"
+                    ],
+                    "args": [
+                      {
+                        "name": "b"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "els": {
+                "args": [
+                  {
+                    "name": "c"
+                  }
+                ],
+                "body": {
+                  "statements": [
+                    {
+                      "caller": "console",
+                      "chain": [
+                        "log"
+                      ],
+                      "args": [
+                        {
+                          "name": "c"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "args": [
+                {
+                  "name": "b"
+                }
+              ],
+              "body": {
+                "statements": [
+                  {
+                    "caller": "console",
+                    "chain": [
+                      "log"
+                    ],
+                    "args": [
+                      {
+                        "name": "b"
+                      }
+                    ]
+                  }
+                ]
+              },
+              "els": {
+                "args": [
+                  {
+                    "name": "c"
+                  }
+                ],
+                "body": {
+                  "statements": [
+                    {
+                      "caller": "console",
+                      "chain": [
+                        "log"
+                      ],
+                      "args": [
+                        {
+                          "name": "c"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "els": {
+                  "statements": [
+                    {
+                      "caller": "console",
+                      "chain": [
+                        "log"
+                      ],
+                      "args": [
+                        {
+                          "name": "d"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
             }
           ]
         }

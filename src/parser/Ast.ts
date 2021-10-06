@@ -145,7 +145,8 @@ export interface DefineVariableStatement extends Node {
 export interface IfStatement extends Node {
   kind: 'IfStatement'
   args: Parameter
-  body: BlockExpr
+  body: Statement | BlockExpr
+  els: Statement | BlockExpr | undefined
 }
 
 // Program

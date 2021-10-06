@@ -371,6 +371,219 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "kind": "IfStatement",
+                    "args": [
+                      {
+                        "kind": "IdentityExpr",
+                        "name": "b"
+                      }
+                    ],
+                    "body": {
+                      "kind": "BlockExpr",
+                      "body": [
+                        {
+                          "kind": "CallChainExpr",
+                          "caller": {
+                            "kind": "IdentityExpr",
+                            "name": "console"
+                          },
+                          "chain": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "log"
+                            }
+                          ],
+                          "args": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "b"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "els": {
+                      "kind": "BlockExpr",
+                      "body": [
+                        {
+                          "kind": "CallChainExpr",
+                          "caller": {
+                            "kind": "IdentityExpr",
+                            "name": "console"
+                          },
+                          "chain": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "log"
+                            }
+                          ],
+                          "args": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "c"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "kind": "IfStatement",
+                    "args": [
+                      {
+                        "kind": "IdentityExpr",
+                        "name": "b"
+                      }
+                    ],
+                    "body": {
+                      "kind": "BlockExpr",
+                      "body": [
+                        {
+                          "kind": "CallChainExpr",
+                          "caller": {
+                            "kind": "IdentityExpr",
+                            "name": "console"
+                          },
+                          "chain": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "log"
+                            }
+                          ],
+                          "args": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "b"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "els": {
+                      "kind": "IfStatement",
+                      "args": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "c"
+                        }
+                      ],
+                      "body": {
+                        "kind": "BlockExpr",
+                        "body": [
+                          {
+                            "kind": "CallChainExpr",
+                            "caller": {
+                              "kind": "IdentityExpr",
+                              "name": "console"
+                            },
+                            "chain": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "log"
+                              }
+                            ],
+                            "args": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "c"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "kind": "IfStatement",
+                    "args": [
+                      {
+                        "kind": "IdentityExpr",
+                        "name": "b"
+                      }
+                    ],
+                    "body": {
+                      "kind": "BlockExpr",
+                      "body": [
+                        {
+                          "kind": "CallChainExpr",
+                          "caller": {
+                            "kind": "IdentityExpr",
+                            "name": "console"
+                          },
+                          "chain": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "log"
+                            }
+                          ],
+                          "args": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "b"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    "els": {
+                      "kind": "IfStatement",
+                      "args": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "c"
+                        }
+                      ],
+                      "body": {
+                        "kind": "BlockExpr",
+                        "body": [
+                          {
+                            "kind": "CallChainExpr",
+                            "caller": {
+                              "kind": "IdentityExpr",
+                              "name": "console"
+                            },
+                            "chain": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "log"
+                              }
+                            ],
+                            "args": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "c"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "els": {
+                        "kind": "BlockExpr",
+                        "body": [
+                          {
+                            "kind": "CallChainExpr",
+                            "caller": {
+                              "kind": "IdentityExpr",
+                              "name": "console"
+                            },
+                            "chain": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "log"
+                              }
+                            ],
+                            "args": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "d"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
                   }
                 ]
               }
