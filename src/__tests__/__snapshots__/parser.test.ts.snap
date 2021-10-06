@@ -622,6 +622,221 @@ Object {
                       ],
                       "kind": "BlockExpr",
                     },
+                    "els": undefined,
+                    "kind": "IfStatement",
+                  },
+                  Object {
+                    "args": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "b",
+                      },
+                    ],
+                    "body": Object {
+                      "body": Array [
+                        Object {
+                          "args": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "b",
+                            },
+                          ],
+                          "caller": Object {
+                            "kind": "IdentityExpr",
+                            "name": "console",
+                          },
+                          "chain": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "log",
+                            },
+                          ],
+                          "kind": "CallChainExpr",
+                        },
+                      ],
+                      "kind": "BlockExpr",
+                    },
+                    "els": Object {
+                      "body": Array [
+                        Object {
+                          "args": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "c",
+                            },
+                          ],
+                          "caller": Object {
+                            "kind": "IdentityExpr",
+                            "name": "console",
+                          },
+                          "chain": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "log",
+                            },
+                          ],
+                          "kind": "CallChainExpr",
+                        },
+                      ],
+                      "kind": "BlockExpr",
+                    },
+                    "kind": "IfStatement",
+                  },
+                  Object {
+                    "args": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "b",
+                      },
+                    ],
+                    "body": Object {
+                      "body": Array [
+                        Object {
+                          "args": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "b",
+                            },
+                          ],
+                          "caller": Object {
+                            "kind": "IdentityExpr",
+                            "name": "console",
+                          },
+                          "chain": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "log",
+                            },
+                          ],
+                          "kind": "CallChainExpr",
+                        },
+                      ],
+                      "kind": "BlockExpr",
+                    },
+                    "els": Object {
+                      "args": Array [
+                        Object {
+                          "kind": "IdentityExpr",
+                          "name": "c",
+                        },
+                      ],
+                      "body": Object {
+                        "body": Array [
+                          Object {
+                            "args": Array [
+                              Object {
+                                "kind": "IdentityExpr",
+                                "name": "c",
+                              },
+                            ],
+                            "caller": Object {
+                              "kind": "IdentityExpr",
+                              "name": "console",
+                            },
+                            "chain": Array [
+                              Object {
+                                "kind": "IdentityExpr",
+                                "name": "log",
+                              },
+                            ],
+                            "kind": "CallChainExpr",
+                          },
+                        ],
+                        "kind": "BlockExpr",
+                      },
+                      "els": undefined,
+                      "kind": "IfStatement",
+                    },
+                    "kind": "IfStatement",
+                  },
+                  Object {
+                    "args": Array [
+                      Object {
+                        "kind": "IdentityExpr",
+                        "name": "b",
+                      },
+                    ],
+                    "body": Object {
+                      "body": Array [
+                        Object {
+                          "args": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "b",
+                            },
+                          ],
+                          "caller": Object {
+                            "kind": "IdentityExpr",
+                            "name": "console",
+                          },
+                          "chain": Array [
+                            Object {
+                              "kind": "IdentityExpr",
+                              "name": "log",
+                            },
+                          ],
+                          "kind": "CallChainExpr",
+                        },
+                      ],
+                      "kind": "BlockExpr",
+                    },
+                    "els": Object {
+                      "args": Array [
+                        Object {
+                          "kind": "IdentityExpr",
+                          "name": "c",
+                        },
+                      ],
+                      "body": Object {
+                        "body": Array [
+                          Object {
+                            "args": Array [
+                              Object {
+                                "kind": "IdentityExpr",
+                                "name": "c",
+                              },
+                            ],
+                            "caller": Object {
+                              "kind": "IdentityExpr",
+                              "name": "console",
+                            },
+                            "chain": Array [
+                              Object {
+                                "kind": "IdentityExpr",
+                                "name": "log",
+                              },
+                            ],
+                            "kind": "CallChainExpr",
+                          },
+                        ],
+                        "kind": "BlockExpr",
+                      },
+                      "els": Object {
+                        "body": Array [
+                          Object {
+                            "args": Array [
+                              Object {
+                                "kind": "IdentityExpr",
+                                "name": "d",
+                              },
+                            ],
+                            "caller": Object {
+                              "kind": "IdentityExpr",
+                              "name": "console",
+                            },
+                            "chain": Array [
+                              Object {
+                                "kind": "IdentityExpr",
+                                "name": "log",
+                              },
+                            ],
+                            "kind": "CallChainExpr",
+                          },
+                        ],
+                        "kind": "BlockExpr",
+                      },
+                      "kind": "IfStatement",
+                    },
                     "kind": "IfStatement",
                   },
                 ],

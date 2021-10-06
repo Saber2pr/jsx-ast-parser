@@ -214,13 +214,18 @@ export function applyDefineVariable(
 }
 
 export function applyIf(
-  source: [Ast.IfStatement['args'], Ast.IfStatement['body']]
+  source: [
+    Ast.IfStatement['args'],
+    Ast.IfStatement['body'],
+    Ast.IfStatement['els']
+  ]
 ): Ast.IfStatement {
-  const [args = [], body] = source
+  const [args = [], body, els] = source
   return {
     kind: 'IfStatement',
     args,
     body,
+    els,
   }
 }
 

@@ -182,8 +182,16 @@ export function transformDefineVariable(
 }
 
 export function transformIf(ifElse: Ast.IfStatement): Jsx.If {
-  const { args = [], body } = ifElse
-  return TFactory.createIf(transformParameter(args), transformBlock(body))
+  const { args = [], body, els } = ifElse
+  return TFactory.createIf(
+    transformParameter(args),
+    Factory.isBlockExpr(body) ? transformBlock(body) : transformStatement(body),
+    els
+      ? Factory.isBlockExpr(els)
+        ? transformBlock(els)
+        : transformStatement(els)
+      : undefined
+  )
 }
 
 export function transformExpression(expression: Ast.Expression): Jsx.Type {

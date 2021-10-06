@@ -315,10 +315,17 @@ DECLAREVARIABLE.setPattern(
 
 /*
 IFSTATEMENT
-  = if PARAMETER BLOCK
+  = if PARAMETER BLOCK many $ else (option $ if PARAMETER) BLOCK
 */
 IFSTATEMENT.setPattern(
-  apply(seq(kright(str('if'), PARAMETER), BLOCK), Consumer.applyIf)
+  apply(
+    seq(
+      kright(str('if'), PARAMETER),
+      alt(BLOCK, STATEMENT),
+      opt(kright(str('else'), alt(BLOCK, STATEMENT)))
+    ),
+    Consumer.applyIf
+  )
 )
 
 /*

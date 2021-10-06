@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-05 14:22:32
+ * @Last Modified time: 2021-10-06 10:34:10
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -135,8 +135,10 @@ export function compileDefineVariable(def: Jsx.DefineVariable): string {
 }
 
 export function compileIf(ifElse: Jsx.If): string {
-  const { args, body } = ifElse
-  return `if(${compileParameter(args)})${compileBlock(body)}`
+  const { args, body, els } = ifElse
+  return `if(${compileParameter(args)})${compile(body)}${
+    els ? `else ${compile(els)}` : ''
+  }`
 }
 
 // compile code
@@ -174,6 +176,9 @@ export function compile(element: Jsx.Type): string {
   }
   if (Factory.isIf(element)) {
     return compileIf(element)
+  }
+  if (Factory.isBlock(element)) {
+    return compileBlock(element)
   }
   if (Factory.isIdentity(element)) {
     return compileIdentity(element)

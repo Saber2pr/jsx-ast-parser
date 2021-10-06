@@ -33,6 +33,26 @@
     if(a){
       console.log(a)
     }
+
+    if(b){
+      console.log(b)
+    } else {
+      console.log(c)
+    }
+
+    if(b){
+      console.log(b)
+    } else if(c) {
+      console.log(c)
+    }
+
+    if(b){
+      console.log(b)
+    } else if(c) {
+      console.log(c)
+    } else {
+      console.log(d)
+    }
   }}
   onSubmit={function test() {
     console.log()

@@ -20,6 +20,7 @@ export type Type =
   | DefineVariable
   | VariableAssign
   | If
+  | Block
 
 export type Parameter = (Identity | Type)[] | undefined
 
@@ -99,7 +100,8 @@ export interface DefineVariable extends Node {
 export interface If extends Node {
   $$typeof: 'if'
   args: Parameter
-  body: Block
+  body: Type
+  els: Type | undefined
 }
 
 export type JsxNode = JsxElement | TextElement

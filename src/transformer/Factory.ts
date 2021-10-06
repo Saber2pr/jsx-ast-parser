@@ -124,6 +124,12 @@ export function isJsxAttributes(
   return obj.$$typeof === 'jsx-attrs'
 }
 
+export function isBlock(element: Jsx.Type): element is Jsx.Block {
+  if (!element) return false
+  const obj = <Jsx.Block>element
+  return obj.$$typeof === 'block'
+}
+
 export function createJsxElement(
   tagName: string,
   props: Jsx.JsxAttributes = createJsxAttributes(),
@@ -211,11 +217,16 @@ export function createDefineVariable(
   })
 }
 
-export function createIf(args: Jsx.Parameter = [], body: Jsx.Block): Jsx.If {
+export function createIf(
+  args: Jsx.Parameter = [],
+  body: Jsx.Type,
+  els: Jsx.Type | undefined
+): Jsx.If {
   return createNode<Jsx.If>({
     $$typeof: 'if',
     args,
     body,
+    els: els,
   })
 }
 
