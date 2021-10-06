@@ -388,6 +388,9 @@ Array [
                 "log",
               ],
             },
+            Object {
+              "value": 233,
+            },
           ],
         },
         "name": "test",

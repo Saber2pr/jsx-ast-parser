@@ -869,6 +869,13 @@ Object {
                     ],
                     "kind": "CallChainExpr",
                   },
+                  Object {
+                    "kind": "ReturnStatement",
+                    "value": Object {
+                      "kind": "NumberExpr",
+                      "value": 233,
+                    },
+                  },
                 ],
                 "kind": "BlockExpr",
               },
