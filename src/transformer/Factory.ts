@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-05 14:19:17
+ * @Last Modified time: 2021-10-06 10:50:42
  */
 import * as Jsx from './Jsx'
 
@@ -108,6 +108,12 @@ export function isIf(element: Jsx.Type): element is Jsx.If {
   if (!element) return false
   const call = <Jsx.If>element
   return call.$$typeof === 'if'
+}
+
+export function isReturn(element: Jsx.Type): element is Jsx.Return {
+  if (!element) return false
+  const call = <Jsx.Return>element
+  return call.$$typeof === 'return'
 }
 
 export function isJsxObject(element: Jsx.Type): element is Jsx.JsxObject {
@@ -227,6 +233,13 @@ export function createIf(
     args,
     body,
     els: els,
+  })
+}
+
+export function createReturn(value: Jsx.Type): Jsx.Return {
+  return createNode<Jsx.Return>({
+    $$typeof: 'return',
+    value,
   })
 }
 

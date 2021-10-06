@@ -618,6 +618,13 @@
                       }
                     ],
                     "args": []
+                  },
+                  {
+                    "kind": "ReturnStatement",
+                    "value": {
+                      "kind": "NumberExpr",
+                      "value": 233
+                    }
                   }
                 ]
               }

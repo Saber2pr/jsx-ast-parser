@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-05 14:17:33
+ * @Last Modified time: 2021-10-06 10:48:15
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -194,6 +194,11 @@ export function transformIf(ifElse: Ast.IfStatement): Jsx.If {
   )
 }
 
+export function transformReturn(ret: Ast.ReturnStatement): Jsx.Return {
+  const { value } = ret
+  return TFactory.createReturn(transformExpression(value))
+}
+
 export function transformExpression(expression: Ast.Expression): Jsx.Type {
   switch (expression.kind) {
     case 'ArrayExpr':
@@ -228,6 +233,8 @@ export function transformStatement(statement: Ast.Statement): Jsx.Type {
       return transformVariableAssign(statement)
     case 'IfStatement':
       return transformIf(statement)
+    case 'ReturnStatement':
+      return transformReturn(statement)
     default:
       return null
   }

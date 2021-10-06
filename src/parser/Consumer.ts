@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:45:32
+ * @Last Modified time: 2021-10-06 10:41:06
  */
 import * as parsec from 'typescript-parsec'
 
@@ -226,6 +226,13 @@ export function applyIf(
     args,
     body,
     els,
+  }
+}
+
+export function applyReturn(source: Ast.Expression): Ast.ReturnStatement {
+  return {
+    kind: 'ReturnStatement',
+    value: source,
   }
 }
 
