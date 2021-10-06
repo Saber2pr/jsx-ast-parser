@@ -13,7 +13,7 @@ yarn add @saber2pr/jsx-ast-parser
 
 #### Overview Grammar BNF
 
-[jsx.bnf](./jsx.bnf)
+[jsx.bnf](./public/jsx.bnf)
 
 #### Syntax currently supported
 
