@@ -15,47 +15,45 @@ yarn add @saber2pr/jsx-ast-parser
 
 [jsx.bnf](./jsx.bnf)
 
-#### parser
+#### Syntax currently supported
 
-- [x] jsx opened
-- [x] jsx self closing
-- [x] jsx props string-value
-- [x] jsx props number-value, bool-value
-- [x] jsx props object
-- [x] jsx props object-array
-- [x] jsx props string-array, number-array
-- [x] jsx props arrow function
-- [x] jsx props arrow function scope statements
-- [x] jsx props function
-- [x] jsx props function scope statements
-- [x] statement call chain
-- [x] statement arrow function
-- [x] statement comment
-- [ ] statement arithmetic
-- [x] statement function
-- [x] statement define
-- [x] statement assign
-- [x] statement if else
-- [ ] statement for
-- [ ] statement while
-- [ ] statement try catch
-- [x] statement return
-- [ ] statement deconstruct
-- [ ] statement as
-
-#### transformer
-
-- [x] transform jsx
-
-#### traverser
-
-- [ ] traverse ast
-- [x] traverse jsx
-
-#### compiler
-
-- [ ] compile ast
-- [x] compile jsx
+- [ ] parser
+  - [ ] jsx
+    - [x] jsx opened
+    - [x] jsx self closing
+    - [ ] jsx props
+      - [x] jsx props string-value
+      - [x] jsx props number-value, bool-value
+      - [x] jsx props object
+      - [x] jsx props object-array
+      - [x] jsx props string-array, number-array
+      - [x] jsx props arrow function
+        - [x] jsx props arrow function scope statements
+      - [x] jsx props function
+        - [x] jsx props function scope statements
+  - [ ] statement
+    - [x] call chain
+    - [x] arrow function
+    - [x] comment
+    - [ ] arithmetic
+    - [x] function
+    - [x] define
+    - [x] assign
+    - [x] if else
+    - [ ] for
+    - [ ] while
+    - [ ] try catch
+    - [x] return
+    - [ ] deconstruct
+    - [ ] as
+- [ ] transformer
+  - [x] transform jsx
+- [ ] traverser
+  - [ ] traverse ast
+  - [x] traverse jsx
+- [ ] compiler
+  - [ ] compile ast
+  - [x] compile jsx
 
 ### Usage
 
