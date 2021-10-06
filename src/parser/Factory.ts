@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:15
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 12:14:03
+ * @Last Modified time: 2021-10-06 10:45:21
  */
 import * as Ast from './Ast'
 
@@ -52,14 +52,16 @@ export function isVariableAssignExpr(
 
 export function isExpression(token: Ast.Node): token is Ast.Expression {
   switch ((<Ast.Expression>token).kind) {
-    case 'JsxExpr':
-    case 'StringExpr':
-    case 'NumberExpr':
-    case 'ObjectExpr':
     case 'ArrayExpr':
     case 'ArrowFunctionExpr':
+    case 'BlockExpr':
     case 'CallChainExpr':
     case 'FunctionExpr':
+    case 'JsxExpr':
+    case 'JsxSelfClosingExpr':
+    case 'NumberExpr':
+    case 'ObjectExpr':
+    case 'StringExpr':
     case 'VariableAssignExpr':
       return true
     default:
@@ -71,6 +73,9 @@ export function isStatement(token: Ast.Node): token is Ast.Statement {
   switch ((<Ast.Statement>token).kind) {
     case 'CallChainExpr':
     case 'DefineVariableStatement':
+    case 'IfStatement':
+    case 'ReturnStatement':
+    case 'VariableAssignExpr':
       return true
     default:
       return false

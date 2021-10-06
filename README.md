@@ -39,7 +39,7 @@ yarn add @saber2pr/jsx-ast-parser
 - [ ] statement for
 - [ ] statement while
 - [ ] statement try catch
-- [ ] statement return
+- [x] statement return
 - [ ] statement deconstruct
 - [ ] statement as
 

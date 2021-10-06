@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-05 14:17:49
+ * @Last Modified time: 2021-10-06 10:47:30
  */
 export type Type =
   | JsxNode
@@ -21,6 +21,7 @@ export type Type =
   | VariableAssign
   | If
   | Block
+  | Return
 
 export type Parameter = (Identity | Type)[] | undefined
 
@@ -102,6 +103,11 @@ export interface If extends Node {
   args: Parameter
   body: Type
   els: Type | undefined
+}
+
+export interface Return extends Node {
+  $$typeof: 'return'
+  value: Type
 }
 
 export type JsxNode = JsxElement | TextElement

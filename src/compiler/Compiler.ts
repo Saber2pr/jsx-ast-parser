@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:34:10
+ * @Last Modified time: 2021-10-06 10:50:20
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -141,6 +141,11 @@ export function compileIf(ifElse: Jsx.If): string {
   }`
 }
 
+export function compileReturn(ret: Jsx.Return): string {
+  const { value } = ret
+  return `return ${compile(value)}`
+}
+
 // compile code
 export function compile(element: Jsx.Type): string {
   // text element
@@ -176,6 +181,9 @@ export function compile(element: Jsx.Type): string {
   }
   if (Factory.isIf(element)) {
     return compileIf(element)
+  }
+  if (Factory.isReturn(element)) {
+    return compileReturn(element)
   }
   if (Factory.isBlock(element)) {
     return compileBlock(element)

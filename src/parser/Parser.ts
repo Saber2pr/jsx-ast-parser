@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-05 14:56:06
+ * @Last Modified time: 2021-10-06 10:42:39
  */
 import {
   alt,
@@ -53,6 +53,7 @@ export const VARIABLEASSIGN = rule<TokenKind, Ast.VariableAssignExpr>()
 // Statement
 export const DECLAREVARIABLE = rule<TokenKind, Ast.DefineVariableStatement>()
 export const IFSTATEMENT = rule<TokenKind, Ast.IfStatement>()
+export const RETURNSTATEMENT = rule<TokenKind, Ast.ReturnStatement>()
 
 // Program
 export const PROGRAM = rule<TokenKind, Ast.Program>()
@@ -99,7 +100,8 @@ export const STATEMENT = alt(
   DECLAREVARIABLE,
   VARIABLEASSIGN,
   CALLCHAIN,
-  IFSTATEMENT
+  IFSTATEMENT,
+  RETURNSTATEMENT
 )
 
 /*
@@ -326,6 +328,14 @@ IFSTATEMENT.setPattern(
     ),
     Consumer.applyIf
   )
+)
+
+/*
+RETURNSTATEMENT
+  = 
+*/
+RETURNSTATEMENT.setPattern(
+  apply(kright(str('return'), EXPRESSION), Consumer.applyReturn)
 )
 
 /*

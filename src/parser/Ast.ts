@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-04 19:40:13
+ * @Last Modified time: 2021-10-06 10:43:11
  */
 export interface Node {
   kind: any
@@ -60,6 +60,7 @@ export type Statement =
   | DefineVariableStatement
   | VariableAssignExpr
   | IfStatement
+  | ReturnStatement
 
 export type Parameter = (IdentityExpr | Expression)[] | undefined
 
@@ -147,6 +148,11 @@ export interface IfStatement extends Node {
   args: Parameter
   body: Statement | BlockExpr
   els: Statement | BlockExpr | undefined
+}
+
+export interface ReturnStatement extends Node {
+  kind: 'ReturnStatement'
+  value: Expression
 }
 
 // Program
