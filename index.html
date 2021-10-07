@@ -68,7 +68,42 @@
 				</blockquote>
 				<pre><code class="language-bash"><span style="color: #000000">yarn add @saber2pr/jsx-ast-parser</span>
 </code></pre>
-				<p><a href="https://jsx-ast-viewer.vercel.app/">Jsx Ast Viewer</a></p>
+				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
+					<h3>Usage</h3>
+				</a>
+				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
+<span style="color: #000000">  </span><span style="color: #001080">parser</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">transformer</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">compiler</span><span style="color: #000000">,</span>
+<span style="color: #000000">  </span><span style="color: #001080">traverser</span><span style="color: #000000">,</span>
+<span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/jsx-ast-parser&#039;</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">code</span><span style="color: #000000"> = </span><span style="color: #A31515">`&lt;div className=&quot;hello&quot;&gt;world&lt;/div&gt;`</span>
+
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ast</span><span style="color: #000000"> = </span><span style="color: #001080">parser</span><span style="color: #000000">.</span><span style="color: #795E26">parse</span><span style="color: #000000">(</span><span style="color: #001080">code</span><span style="color: #000000">) </span><span style="color: #008000">// parse ast from code string</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">jsx</span><span style="color: #000000"> = </span><span style="color: #001080">transformer</span><span style="color: #000000">.</span><span style="color: #795E26">transform</span><span style="color: #000000">(</span><span style="color: #001080">ast</span><span style="color: #000000">) </span><span style="color: #008000">// transform ast to jsx</span>
+
+<span style="color: #008000">// compile jsx to source code</span>
+<span style="color: #001080">compiler</span><span style="color: #000000">.</span><span style="color: #795E26">compile</span><span style="color: #000000">(</span><span style="color: #001080">jsx</span><span style="color: #000000">) === </span><span style="color: #001080">code</span><span style="color: #000000"> </span><span style="color: #008000">// true</span>
+
+<span style="color: #008000">// find jsx node</span>
+<span style="color: #001080">traverser</span><span style="color: #000000">.</span><span style="color: #795E26">findNode</span><span style="color: #000000">(</span><span style="color: #001080">jsx</span><span style="color: #000000">, </span><span style="color: #001080">node</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">transformer</span><span style="color: #000000">.</span><span style="color: #795E26">isTextElement</span><span style="color: #000000">(</span><span style="color: #001080">node</span><span style="color: #000000">)) </span><span style="color: #008000">// [ { tagName: &#039;text&#039;, nodeValue: &#039;world&#039; } ]</span>
+</code></pre>
+				<a href="#help" id="help" style="color: inherit; text-decoration: none;">
+					<h4>Help</h4>
+				</a>
+				<ol>
+					<li><a href="https://saber2pr.top/jsx-ast-parser/">Api Docs</a></li>
+					<li><a href="https://jsx-ast-viewer.vercel.app/">Jsx Ast Viewer</a></li>
+				</ol>
+				<ul>
+					<li>Profile<ul>
+							<li><a href="./public/ast.json">see parser output ast.json</a></li>
+							<li><a href="./public/jsx.json">see transformer output jsx.json</a></li>
+							<li><a href="./public/out.jsx">see compiler output out.jsx</a></li>
+						</ul>
+					</li>
+				</ul>
 				<a href="#feature" id="feature" style="color: inherit; text-decoration: none;">
 					<h3>Feature</h3>
 				</a>
@@ -136,130 +171,10 @@
 						</ul>
 					</li>
 				</ul>
-				<a href="#usage" id="usage" style="color: inherit; text-decoration: none;">
-					<h3>Usage</h3>
+				<a href="#why" id="why" style="color: inherit; text-decoration: none;">
+					<h3>Why</h3>
 				</a>
-				<p><a href="https://saber2pr.top/jsx-ast-parser/">view docs</a></p>
-				<ul>
-					<li><a href="./public/ast.json">see parser output ast.json</a></li>
-					<li><a href="./public/jsx.json">see transformer output jsx.json</a></li>
-					<li><a href="./public/out.jsx">see compiler output out.jsx</a></li>
-				</ul>
-				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> {</span>
-<span style="color: #000000">  </span><span style="color: #001080">parser</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">transformer</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">compiler</span><span style="color: #000000">,</span>
-<span style="color: #000000">  </span><span style="color: #001080">traverser</span><span style="color: #000000">,</span>
-<span style="color: #000000">} </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@saber2pr/jsx-ast-parser&#039;</span>
-
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">code</span><span style="color: #000000"> = </span><span style="color: #A31515">`</span>
-<span style="color: #A31515">&lt;div id=&quot;233ccc&quot; className=&quot;qwq123&quot;&gt;</span>
-<span style="color: #A31515">  &lt;List</span>
-<span style="color: #A31515">    list={[</span>
-<span style="color: #A31515">      {</span>
-<span style="color: #A31515">        content: &lt;View color=&quot;red&quot;&gt;233&lt;/View&gt;,</span>
-<span style="color: #A31515">        logo: &lt;Image mode=&quot;test&quot; /&gt;</span>
-<span style="color: #A31515">      },</span>
-<span style="color: #A31515">      {</span>
-<span style="color: #A31515">        content: &lt;View/&gt;</span>
-<span style="color: #A31515">      }</span>
-<span style="color: #A31515">    ]}</span>
-<span style="color: #A31515">  /&gt;</span>
-<span style="color: #A31515">  &lt;div /&gt;</span>
-<span style="color: #A31515">  &lt;div id=&quot;qwq&quot; /&gt;</span>
-<span style="color: #A31515">  &lt;span&gt;aaa&lt;/span&gt;</span>
-<span style="color: #A31515">  &lt;span&gt;1234&lt;/span&gt;</span>
-<span style="color: #A31515">  &lt;span&gt;1234asd&lt;/span&gt;</span>
-<span style="color: #A31515">  &lt;span&gt;</span>
-<span style="color: #A31515">    12</span>
-<span style="color: #A31515">    aa</span>
-<span style="color: #A31515">    aa234</span>
-<span style="color: #A31515">    234aaa</span>
-<span style="color: #A31515">  &lt;/span&gt;</span>
-<span style="color: #A31515">&lt;/div&gt;</span>
-<span style="color: #A31515">`</span>
-
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">ast</span><span style="color: #000000"> = </span><span style="color: #001080">parser</span><span style="color: #000000">.</span><span style="color: #795E26">parse</span><span style="color: #000000">(</span><span style="color: #001080">code</span><span style="color: #000000">)</span>
-<span style="color: #008000">/*</span>
-<span style="color: #008000">{</span>
-<span style="color: #008000">  &quot;kind&quot;: &quot;Program&quot;,</span>
-<span style="color: #008000">  &quot;body&quot;: [</span>
-<span style="color: #008000">    {</span>
-<span style="color: #008000">      &quot;kind&quot;: &quot;JsxExpr&quot;,</span>
-<span style="color: #008000">      &quot;openingTag&quot;: {</span>
-<span style="color: #008000">        &quot;kind&quot;: &quot;OpeningTagExpr&quot;,</span>
-<span style="color: #008000">        &quot;tagName&quot;: {</span>
-<span style="color: #008000">          &quot;kind&quot;: &quot;IdentityExpr&quot;,</span>
-<span style="color: #008000">          &quot;name&quot;: &quot;div&quot;</span>
-<span style="color: #008000">        },</span>
-<span style="color: #008000">        &quot;props&quot;: [</span>
-<span style="color: #008000">          {</span>
-<span style="color: #008000">            &quot;kind&quot;: &quot;PropExpr&quot;,</span>
-<span style="color: #008000">            &quot;key&quot;: {</span>
-<span style="color: #008000">              &quot;kind&quot;: &quot;IdentityExpr&quot;,</span>
-<span style="color: #008000">              &quot;name&quot;: &quot;width&quot;</span>
-<span style="color: #008000">            },</span>
-<span style="color: #008000">            &quot;value&quot;: {</span>
-<span style="color: #008000">              &quot;kind&quot;: &quot;NumberExpr&quot;,</span>
-<span style="color: #008000">              &quot;value&quot;: 100</span>
-<span style="color: #008000">            }</span>
-<span style="color: #008000">          },</span>
-<span style="color: #008000">          ... more detail see ./public/ast.json</span>
-<span style="color: #008000">        ]</span>
-<span style="color: #008000">      },</span>
-<span style="color: #008000">      &quot;body&quot;: [</span>
-<span style="color: #008000">        ... more detail see ./public/ast.json</span>
-<span style="color: #008000">      ],</span>
-<span style="color: #008000">      &quot;closingTag&quot;: {</span>
-<span style="color: #008000">        &quot;kind&quot;: &quot;ClosingTagExpr&quot;,</span>
-<span style="color: #008000">        &quot;tagName&quot;: {</span>
-<span style="color: #008000">          &quot;kind&quot;: &quot;IdentityExpr&quot;,</span>
-<span style="color: #008000">          &quot;name&quot;: &quot;div&quot;</span>
-<span style="color: #008000">        }</span>
-<span style="color: #008000">      }</span>
-<span style="color: #008000">    }</span>
-<span style="color: #008000">  ]</span>
-<span style="color: #008000">}</span>
-<span style="color: #008000">*/</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">jsx</span><span style="color: #000000"> = </span><span style="color: #001080">transformer</span><span style="color: #000000">.</span><span style="color: #795E26">transform</span><span style="color: #000000">(</span><span style="color: #001080">ast</span><span style="color: #000000">)</span>
-<span style="color: #008000">/*</span>
-<span style="color: #008000">[</span>
-<span style="color: #008000">  {</span>
-<span style="color: #008000">    &quot;tagName&quot;: &quot;div&quot;,</span>
-<span style="color: #008000">    &quot;props&quot;: {</span>
-<span style="color: #008000">      &quot;width&quot;: 100,</span>
-<span style="color: #008000">      &quot;contentEditable&quot;: true,</span>
-<span style="color: #008000">      &quot;color&quot;: &quot;red&quot;,</span>
-<span style="color: #008000">      &quot;style&quot;: {</span>
-<span style="color: #008000">        &quot;width&quot;: 100,</span>
-<span style="color: #008000">        &quot;color&quot;: &quot;red&quot;,</span>
-<span style="color: #008000">        &quot;background&quot;: &quot;blue&quot;,</span>
-<span style="color: #008000">        &quot;test&quot;: {</span>
-<span style="color: #008000">          &quot;color&quot;: &quot;red&quot;</span>
-<span style="color: #008000">        },</span>
-<span style="color: #008000">        &quot;child&quot;: {</span>
-<span style="color: #008000">          &quot;tagName&quot;: &quot;span&quot;,</span>
-<span style="color: #008000">          &quot;props&quot;: {},</span>
-<span style="color: #008000">          &quot;children&quot;: [</span>
-<span style="color: #008000">            {</span>
-<span style="color: #008000">              &quot;tagName&quot;: &quot;text&quot;,</span>
-<span style="color: #008000">              &quot;nodeValue&quot;: &quot;233&quot;</span>
-<span style="color: #008000">            }</span>
-<span style="color: #008000">          ]</span>
-<span style="color: #008000">        }</span>
-<span style="color: #008000">      },</span>
-<span style="color: #008000">      &quot;id&quot;: &quot;233ccc&quot;,</span>
-<span style="color: #008000">      &quot;class2Name&quot;: &quot;qwq123&quot;</span>
-<span style="color: #008000">    },</span>
-<span style="color: #008000">    &quot;children&quot;: [</span>
-<span style="color: #008000">        ... more detail see ./public/jsx.json</span>
-<span style="color: #008000">    ]</span>
-<span style="color: #008000">  }</span>
-<span style="color: #008000">]</span>
-<span style="color: #008000">*/</span>
-<span style="color: #008000">// compile code from jsx</span>
-<span style="color: #001080">compiler</span><span style="color: #000000">.</span><span style="color: #795E26">compile</span><span style="color: #000000">(</span><span style="color: #001080">jsx</span><span style="color: #000000">) === </span><span style="color: #001080">code</span>
-</code></pre>
+				<p>It started as a project for me to learn the principles of compilation, but now I&#39;m confident I can make it better! I will continue to provide analysis tools for JSX code.</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
