@@ -42,301 +42,221 @@ Array [
 `;
 
 exports[`Traverser map 1`] = `
-Array [
-  Object {
-    "children": Array [
-      Object {
-        "children": Array [],
-        "props": Object {
-          "list": Array [
-            Object {
-              "content": Object {
-                "children": Array [
-                  Object {
-                    "nodeValue": "233",
-                    "tagName": "text",
-                  },
-                ],
-                "props": Object {
-                  "color": "red",
-                },
-                "tagName": "View",
-              },
-              "logo": Object {
-                "children": Array [],
-                "props": Object {
-                  "mode": "test",
-                },
-                "tagName": "Image",
-              },
-            },
-            Object {
-              "content": Object {
-                "children": Array [],
-                "props": Object {},
-                "tagName": "View",
-              },
-            },
-          ],
-        },
-        "tagName": "List",
-      },
-      Object {
-        "children": Array [],
-        "props": Object {},
-        "tagName": "div",
-      },
-      Object {
-        "children": Array [],
-        "props": Object {
-          "id": "qwq",
-          "meta": 233,
-        },
-        "tagName": "div",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "nodeValue": "aaa",
-            "tagName": "text",
-          },
-        ],
-        "props": Object {},
-        "tagName": "span",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "nodeValue": "1234",
-            "tagName": "text",
-          },
-        ],
-        "props": Object {},
-        "tagName": "span",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "nodeValue": "1234asd",
-            "tagName": "text",
-          },
-        ],
-        "props": Object {},
-        "tagName": "span",
-      },
-      Object {
-        "children": Array [
-          Object {
-            "nodeValue": "12aa",
-            "tagName": "text",
-          },
-          Object {
-            "children": Array [
+Object {
+  "body": Array [
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "props": Object {
+            "list": Array [
               Object {
-                "nodeValue": "aaa",
-                "tagName": "text",
-              },
-            ],
-            "props": Object {},
-            "tagName": "span",
-          },
-          Object {
-            "nodeValue": "aa234234aaa",
-            "tagName": "text",
-          },
-        ],
-        "props": Object {},
-        "tagName": "span",
-      },
-    ],
-    "props": Object {
-      "arr": Array [
-        1,
-        2,
-      ],
-      "class2Name": "qwq123",
-      "color": "red",
-      "contentEditable": Object {
-        "name": "true",
-      },
-      "id": "233ccc",
-      "onClick": Object {
-        "name": "onClick",
-      },
-      "onError": Object {
-        "args": Array [
-          Object {
-            "name": "error",
-          },
-          Object {
-            "name": "test",
-          },
-        ],
-        "body": Object {
-          "statements": Array [
-            Object {
-              "args": Array [
-                Object {
-                  "name": "error",
-                },
-              ],
-              "caller": "console",
-              "chain": Array [
-                "log",
-              ],
-            },
-            Object {
-              "args": Array [],
-              "caller": "console",
-              "chain": Array [
-                "log",
-              ],
-            },
-            Object {
-              "args": Array [
-                Object {
-                  "args": Array [
+                "content": Object {
+                  "children": Array [
                     Object {
-                      "name": "test",
+                      "nodeValue": "233",
+                      "tagName": "text",
                     },
                   ],
-                  "caller": "console",
-                  "chain": Array [
-                    "log",
-                  ],
+                  "props": Object {
+                    "color": "red",
+                  },
+                  "tagName": "View",
                 },
-              ],
-              "caller": "console",
-              "chain": Array [
-                "log",
-              ],
+                "logo": Object {
+                  "children": Array [],
+                  "props": Object {
+                    "mode": "test",
+                  },
+                  "tagName": "Image",
+                },
+              },
+              Object {
+                "content": Object {
+                  "children": Array [],
+                  "props": Object {},
+                  "tagName": "View",
+                },
+              },
+            ],
+          },
+          "tagName": "List",
+        },
+        Object {
+          "children": Array [],
+          "props": Object {},
+          "tagName": "div",
+        },
+        Object {
+          "children": Array [],
+          "props": Object {
+            "id": "qwq",
+            "meta": 233,
+          },
+          "tagName": "div",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "nodeValue": "aaa",
+              "tagName": "text",
+            },
+          ],
+          "props": Object {},
+          "tagName": "span",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "nodeValue": "1234",
+              "tagName": "text",
+            },
+          ],
+          "props": Object {},
+          "tagName": "span",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "nodeValue": "1234asd",
+              "tagName": "text",
+            },
+          ],
+          "props": Object {},
+          "tagName": "span",
+        },
+        Object {
+          "children": Array [
+            Object {
+              "nodeValue": "12aa",
+              "tagName": "text",
             },
             Object {
-              "assign": Object {
+              "children": Array [
+                Object {
+                  "nodeValue": "aaa",
+                  "tagName": "text",
+                },
+              ],
+              "props": Object {},
+              "tagName": "span",
+            },
+            Object {
+              "nodeValue": "aa234234aaa",
+              "tagName": "text",
+            },
+          ],
+          "props": Object {},
+          "tagName": "span",
+        },
+      ],
+      "props": Object {
+        "arr": Array [
+          1,
+          2,
+        ],
+        "class2Name": "qwq123",
+        "color": "red",
+        "contentEditable": Object {
+          "name": "true",
+        },
+        "id": "233ccc",
+        "onClick": Object {
+          "name": "onClick",
+        },
+        "onError": Object {
+          "args": Array [
+            Object {
+              "name": "error",
+            },
+            Object {
+              "name": "test",
+            },
+          ],
+          "body": Object {
+            "statements": Array [
+              Object {
+                "args": Array [
+                  Object {
+                    "name": "error",
+                  },
+                ],
+                "caller": "console",
+                "chain": Array [
+                  "log",
+                ],
+              },
+              Object {
+                "args": Array [],
+                "caller": "console",
+                "chain": Array [
+                  "log",
+                ],
+              },
+              Object {
+                "args": Array [
+                  Object {
+                    "args": Array [
+                      Object {
+                        "name": "test",
+                      },
+                    ],
+                    "caller": "console",
+                    "chain": Array [
+                      "log",
+                    ],
+                  },
+                ],
+                "caller": "console",
+                "chain": Array [
+                  "log",
+                ],
+              },
+              Object {
+                "assign": Object {
+                  "name": "a",
+                  "value": "a",
+                },
+                "type": "const",
+              },
+              Object {
+                "assign": Object {
+                  "name": "b",
+                  "value": "b",
+                },
+                "type": "let",
+              },
+              Object {
+                "assign": Object {
+                  "name": "c",
+                  "value": "c",
+                },
+                "type": "const",
+              },
+              Object {
+                "assign": Object {
+                  "name": "d",
+                },
+                "type": "let",
+              },
+              Object {
+                "name": "d",
+                "value": "d",
+              },
+              Object {
+                "assign": Object {
+                  "name": "a",
+                },
+                "type": "let",
+              },
+              Object {
                 "name": "a",
                 "value": "a",
               },
-              "type": "const",
-            },
-            Object {
-              "assign": Object {
-                "name": "b",
-                "value": "b",
-              },
-              "type": "let",
-            },
-            Object {
-              "assign": Object {
-                "name": "c",
-                "value": "c",
-              },
-              "type": "const",
-            },
-            Object {
-              "assign": Object {
-                "name": "d",
-              },
-              "type": "let",
-            },
-            Object {
-              "name": "d",
-              "value": "d",
-            },
-            Object {
-              "assign": Object {
-                "name": "a",
-              },
-              "type": "let",
-            },
-            Object {
-              "name": "a",
-              "value": "a",
-            },
-            Object {
-              "args": Array [
-                Object {
-                  "name": "a",
-                },
-              ],
-              "body": Object {
-                "statements": Array [
-                  Object {
-                    "args": Array [
-                      Object {
-                        "name": "a",
-                      },
-                    ],
-                    "caller": "console",
-                    "chain": Array [
-                      "log",
-                    ],
-                  },
-                ],
-              },
-              "els": undefined,
-            },
-            Object {
-              "args": Array [
-                Object {
-                  "name": "b",
-                },
-              ],
-              "body": Object {
-                "statements": Array [
-                  Object {
-                    "args": Array [
-                      Object {
-                        "name": "b",
-                      },
-                    ],
-                    "caller": "console",
-                    "chain": Array [
-                      "log",
-                    ],
-                  },
-                ],
-              },
-              "els": Object {
-                "statements": Array [
-                  Object {
-                    "args": Array [
-                      Object {
-                        "name": "c",
-                      },
-                    ],
-                    "caller": "console",
-                    "chain": Array [
-                      "log",
-                    ],
-                  },
-                ],
-              },
-            },
-            Object {
-              "args": Array [
-                Object {
-                  "name": "b",
-                },
-              ],
-              "body": Object {
-                "statements": Array [
-                  Object {
-                    "args": Array [
-                      Object {
-                        "name": "b",
-                      },
-                    ],
-                    "caller": "console",
-                    "chain": Array [
-                      "log",
-                    ],
-                  },
-                ],
-              },
-              "els": Object {
+              Object {
                 "args": Array [
                   Object {
-                    "name": "c",
+                    "name": "a",
                   },
                 ],
                 "body": Object {
@@ -344,7 +264,7 @@ Array [
                     Object {
                       "args": Array [
                         Object {
-                          "name": "c",
+                          "name": "a",
                         },
                       ],
                       "caller": "console",
@@ -356,32 +276,10 @@ Array [
                 },
                 "els": undefined,
               },
-            },
-            Object {
-              "args": Array [
-                Object {
-                  "name": "b",
-                },
-              ],
-              "body": Object {
-                "statements": Array [
-                  Object {
-                    "args": Array [
-                      Object {
-                        "name": "b",
-                      },
-                    ],
-                    "caller": "console",
-                    "chain": Array [
-                      "log",
-                    ],
-                  },
-                ],
-              },
-              "els": Object {
+              Object {
                 "args": Array [
                   Object {
-                    "name": "c",
+                    "name": "b",
                   },
                 ],
                 "body": Object {
@@ -389,7 +287,7 @@ Array [
                     Object {
                       "args": Array [
                         Object {
-                          "name": "c",
+                          "name": "b",
                         },
                       ],
                       "caller": "console",
@@ -404,7 +302,7 @@ Array [
                     Object {
                       "args": Array [
                         Object {
-                          "name": "d",
+                          "name": "c",
                         },
                       ],
                       "caller": "console",
@@ -415,49 +313,153 @@ Array [
                   ],
                 },
               },
-            },
-          ],
+              Object {
+                "args": Array [
+                  Object {
+                    "name": "b",
+                  },
+                ],
+                "body": Object {
+                  "statements": Array [
+                    Object {
+                      "args": Array [
+                        Object {
+                          "name": "b",
+                        },
+                      ],
+                      "caller": "console",
+                      "chain": Array [
+                        "log",
+                      ],
+                    },
+                  ],
+                },
+                "els": Object {
+                  "args": Array [
+                    Object {
+                      "name": "c",
+                    },
+                  ],
+                  "body": Object {
+                    "statements": Array [
+                      Object {
+                        "args": Array [
+                          Object {
+                            "name": "c",
+                          },
+                        ],
+                        "caller": "console",
+                        "chain": Array [
+                          "log",
+                        ],
+                      },
+                    ],
+                  },
+                  "els": undefined,
+                },
+              },
+              Object {
+                "args": Array [
+                  Object {
+                    "name": "b",
+                  },
+                ],
+                "body": Object {
+                  "statements": Array [
+                    Object {
+                      "args": Array [
+                        Object {
+                          "name": "b",
+                        },
+                      ],
+                      "caller": "console",
+                      "chain": Array [
+                        "log",
+                      ],
+                    },
+                  ],
+                },
+                "els": Object {
+                  "args": Array [
+                    Object {
+                      "name": "c",
+                    },
+                  ],
+                  "body": Object {
+                    "statements": Array [
+                      Object {
+                        "args": Array [
+                          Object {
+                            "name": "c",
+                          },
+                        ],
+                        "caller": "console",
+                        "chain": Array [
+                          "log",
+                        ],
+                      },
+                    ],
+                  },
+                  "els": Object {
+                    "statements": Array [
+                      Object {
+                        "args": Array [
+                          Object {
+                            "name": "d",
+                          },
+                        ],
+                        "caller": "console",
+                        "chain": Array [
+                          "log",
+                        ],
+                      },
+                    ],
+                  },
+                },
+              },
+            ],
+          },
         },
-      },
-      "onSubmit": Object {
-        "args": Array [],
-        "body": Object {
-          "statements": Array [
-            Object {
-              "args": Array [],
-              "caller": "console",
-              "chain": Array [
-                "log",
-              ],
-            },
-            Object {
-              "value": 233,
-            },
-          ],
+        "onSubmit": Object {
+          "args": Array [],
+          "body": Object {
+            "statements": Array [
+              Object {
+                "args": Array [],
+                "caller": "console",
+                "chain": Array [
+                  "log",
+                ],
+              },
+              Object {
+                "value": 233,
+              },
+            ],
+          },
+          "name": "test",
         },
-        "name": "test",
-      },
-      "style": Object {
-        "background": "blue",
-        "child": Object {
-          "children": Array [
-            Object {
-              "nodeValue": "233",
-              "tagName": "text",
-            },
-          ],
-          "props": Object {},
-          "tagName": "span",
-        },
-        "color": "red",
-        "test": Object {
+        "style": Object {
+          "background": "blue",
+          "child": Object {
+            "children": Array [
+              Object {
+                "nodeValue": "233",
+                "tagName": "text",
+              },
+            ],
+            "props": Object {},
+            "tagName": "span",
+          },
           "color": "red",
+          "test": Object {
+            "color": "red",
+          },
+          "width": 100,
         },
         "width": 100,
       },
-      "width": 100,
+      "tagName": "div",
     },
-    "tagName": "div",
-  },
-]
+  ],
+}
 `;

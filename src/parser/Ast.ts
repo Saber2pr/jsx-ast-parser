@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:43:11
+ * @Last Modified time: 2021-10-07 10:54:59
  */
 export interface Node {
   kind: any
@@ -61,6 +61,13 @@ export type Statement =
   | VariableAssignExpr
   | IfStatement
   | ReturnStatement
+  | Jsx
+  | StringExpr
+  | NumberExpr
+  | ObjectExpr
+  | ArrayExpr
+  | ArrowFunctionExpr
+  | FunctionExpr
 
 export type Parameter = (IdentityExpr | Expression)[] | undefined
 
@@ -159,5 +166,5 @@ export interface ReturnStatement extends Node {
 
 export interface Program extends Node {
   kind: 'Program'
-  body: (Expression | Statement)[]
+  body: Statement[]
 }

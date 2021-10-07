@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:42:39
+ * @Last Modified time: 2021-10-07 10:29:01
  */
 import {
   alt,
@@ -94,14 +94,22 @@ export const PARAMETER: Parser<
 
 /*
 STATEMENT
-  = DECLAREVARIABLE <|> VARIABLEASSIGN <|> CALLCHAIN <|> IFSTATEMENT <|> RETURNSTATEMENT
+  = DECLAREVARIABLE <|> VARIABLEASSIGN <|> CALLCHAIN <|> IFSTATEMENT <|> RETURNSTATEMENT <|> EXPRESSION
 */
 export const STATEMENT = alt(
   DECLAREVARIABLE,
   VARIABLEASSIGN,
   CALLCHAIN,
   IFSTATEMENT,
-  RETURNSTATEMENT
+  RETURNSTATEMENT,
+  // expr
+  JSX,
+  STRING,
+  NUMBER,
+  OBJ,
+  ARRAY,
+  ARROWFUNCTION,
+  FUNCTION
 )
 
 /*
@@ -340,11 +348,9 @@ RETURNSTATEMENT.setPattern(
 
 /*
 PROGRAM
-  = many $ EXPRESSION <|> STATEMENT
+  = many STATEMENT
 */
-PROGRAM.setPattern(
-  apply(rep_sc(alt(EXPRESSION, STATEMENT)), Consumer.applyProgram)
-)
+PROGRAM.setPattern(apply(rep_sc(STATEMENT), Consumer.applyProgram))
 
 // parse ast
 export function parse(code: string) {

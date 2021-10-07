@@ -7,7 +7,7 @@
     "url": "git+https://github.com/Saber2pr/jsx-ast-parser.git"
   },
   "author": "saber2pr",
-  "license": "ISC",
+  "license": "MIT",
   "files": [
     "lib"
   ],

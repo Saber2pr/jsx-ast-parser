@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:15
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:45:21
+ * @Last Modified time: 2021-10-07 11:06:33
  */
 import * as Ast from './Ast'
 
@@ -44,10 +44,44 @@ export function isBlockExpr(token: Ast.Node): token is Ast.BlockExpr {
   return (<Ast.BlockExpr>token).kind === 'BlockExpr'
 }
 
+export function isCallChainExpr(token: Ast.Node): token is Ast.CallChainExpr {
+  return (<Ast.CallChainExpr>token).kind === 'CallChainExpr'
+}
+
+export function isArrowFunctionExpr(
+  token: Ast.Node
+): token is Ast.ArrowFunctionExpr {
+  return (<Ast.ArrowFunctionExpr>token).kind === 'ArrowFunctionExpr'
+}
+
+export function isFunctionExpr(token: Ast.Node): token is Ast.FunctionExpr {
+  return (<Ast.FunctionExpr>token).kind === 'FunctionExpr'
+}
+
+export function isDefineVariableStatement(
+  token: Ast.Node
+): token is Ast.DefineVariableStatement {
+  return (<Ast.DefineVariableStatement>token).kind === 'DefineVariableStatement'
+}
+
 export function isVariableAssignExpr(
   token: Ast.Node
 ): token is Ast.VariableAssignExpr {
   return (<Ast.VariableAssignExpr>token).kind === 'VariableAssignExpr'
+}
+
+export function isIfStatement(token: Ast.Node): token is Ast.IfStatement {
+  return (<Ast.IfStatement>token).kind === 'IfStatement'
+}
+
+export function isReturnStatement(
+  token: Ast.Node
+): token is Ast.ReturnStatement {
+  return (<Ast.ReturnStatement>token).kind === 'ReturnStatement'
+}
+
+export function isProgram(token: Ast.Node): token is Ast.Program {
+  return (<Ast.Program>token).kind === 'Program'
 }
 
 export function isExpression(token: Ast.Node): token is Ast.Expression {
@@ -76,6 +110,15 @@ export function isStatement(token: Ast.Node): token is Ast.Statement {
     case 'IfStatement':
     case 'ReturnStatement':
     case 'VariableAssignExpr':
+    // expression
+    case 'ArrayExpr':
+    case 'ArrowFunctionExpr':
+    case 'FunctionExpr':
+    case 'JsxExpr':
+    case 'JsxSelfClosingExpr':
+    case 'NumberExpr':
+    case 'ObjectExpr':
+    case 'StringExpr':
       return true
     default:
       return false

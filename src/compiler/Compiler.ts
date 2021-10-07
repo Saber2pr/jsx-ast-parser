@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:50:20
+ * @Last Modified time: 2021-10-07 11:18:09
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -146,8 +146,17 @@ export function compileReturn(ret: Jsx.Return): string {
   return `return ${compile(value)}`
 }
 
+export function compileProgram(program: Jsx.Program): string {
+  const { body = [] } = program
+  return body.map(statement => compile(statement)).join(';')
+}
+
 // compile code
 export function compile(element: Jsx.Type): string {
+  // program
+  if (Factory.isProgram(element)) {
+    return compileProgram(element)
+  }
   // text element
   if (Factory.isTextElement(element)) {
     return compileTextElement(element)

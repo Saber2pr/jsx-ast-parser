@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:48:15
+ * @Last Modified time: 2021-10-07 11:14:49
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -218,6 +218,8 @@ export function transformExpression(expression: Ast.Expression): Jsx.Type {
       return transformFunction(expression)
     case 'CallChainExpr':
       return transformCallChain(expression)
+    case 'VariableAssignExpr':
+      return transformVariableAssign(expression)
     default:
       return null
   }
@@ -240,12 +242,19 @@ export function transformStatement(statement: Ast.Statement): Jsx.Type {
   }
 }
 
-export function transform(program: Ast.Program): Jsx.Type {
-  return program.body.map(expression => {
-    if (Factory.isExpression(expression)) {
-      return transformExpression(expression)
-    } else {
-      return transformStatement(expression)
-    }
-  })
+export function transform(program: Ast.Program): Jsx.Type
+export function transform(program: Ast.Expression): Jsx.Type
+export function transform(program: Ast.Statement): Jsx.Type
+export function transform(
+  program: Ast.Program | Ast.Expression | Ast.Statement
+): Jsx.Type {
+  if (Factory.isProgram(program)) {
+    return TFactory.createProgram(
+      program.body.map(expression => transform(expression))
+    )
+  } else if (Factory.isExpression(program)) {
+    return transformExpression(program)
+  } else {
+    return transformStatement(program)
+  }
 }
