@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:32
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-05 14:02:34
+ * @Last Modified time: 2021-10-07 11:28:55
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -31,7 +31,7 @@ export function traverseJsxNode(
     if (newNode) {
       return newNode
     }
-    return node
+    return callback(node) ?? node
   })
 
   // link new children
@@ -140,10 +140,26 @@ export function traverseJsxAttributes(
   )
 }
 
+export function traverseProgram(
+  program: Jsx.Program,
+  callback: (node: Jsx.Type) => Jsx.Type | void
+): Jsx.Program {
+  const { body = [] } = program
+  const newBody = body.map(node => traverse(node, callback))
+  const newProgram: Jsx.Program = {
+    ...program,
+    body: newBody,
+  }
+  return newProgram
+}
+
 export function traverse(
   node: Jsx.Type,
   callback: (node: Jsx.Type) => Jsx.Type | void
 ): Jsx.Type {
+  if (Factory.isProgram(node)) {
+    return traverseProgram(node, callback)
+  }
   // return leaf node
   if (
     node === null ||

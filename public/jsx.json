@@ -1,212 +1,133 @@
-[
-  {
-    "tagName": "div",
-    "props": {
-      "width": 100,
-      "contentEditable": {
-        "name": "true"
-      },
-      "color": "red",
-      "arr": [
-        1,
-        2
-      ],
-      "style": {
+{
+  "body": [
+    {
+      "tagName": "div",
+      "props": {
         "width": 100,
-        "color": "red",
-        "background": "blue",
-        "test": {
-          "color": "red"
+        "contentEditable": {
+          "name": "true"
         },
-        "child": {
-          "tagName": "span",
-          "props": {},
-          "children": [
-            {
-              "tagName": "text",
-              "nodeValue": "233"
-            }
-          ]
-        }
-      },
-      "id": "233ccc",
-      "class2Name": "qwq123",
-      "onClick": {
-        "name": "onClick"
-      },
-      "onError": {
-        "args": [
-          {
-            "name": "error"
-          },
-          {
-            "name": "test"
-          }
+        "color": "red",
+        "arr": [
+          1,
+          2
         ],
-        "body": {
-          "statements": [
-            {
-              "caller": "console",
-              "chain": [
-                "log"
-              ],
-              "args": [
-                {
-                  "name": "error"
-                }
-              ]
-            },
-            {
-              "caller": "console",
-              "chain": [
-                "log"
-              ],
-              "args": []
-            },
-            {
-              "caller": "console",
-              "chain": [
-                "log"
-              ],
-              "args": [
-                {
-                  "caller": "console",
-                  "chain": [
-                    "log"
-                  ],
-                  "args": [
-                    {
-                      "name": "test"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "const",
-              "assign": {
-                "name": "a",
-                "value": "a"
+        "style": {
+          "width": 100,
+          "color": "red",
+          "background": "blue",
+          "test": {
+            "color": "red"
+          },
+          "child": {
+            "tagName": "span",
+            "props": {},
+            "children": [
+              {
+                "tagName": "text",
+                "nodeValue": "233"
               }
+            ]
+          }
+        },
+        "id": "233ccc",
+        "class2Name": "qwq123",
+        "onClick": {
+          "name": "onClick"
+        },
+        "onError": {
+          "args": [
+            {
+              "name": "error"
             },
             {
-              "type": "let",
-              "assign": {
-                "name": "b",
-                "value": "b"
-              }
-            },
-            {
-              "type": "const",
-              "assign": {
-                "name": "c",
-                "value": "c"
-              }
-            },
-            {
-              "type": "let",
-              "assign": {
-                "name": "d"
-              }
-            },
-            {
-              "name": "d",
-              "value": "d"
-            },
-            {
-              "type": "let",
-              "assign": {
-                "name": "a"
-              }
-            },
-            {
-              "name": "a",
-              "value": "a"
-            },
-            {
-              "args": [
-                {
-                  "name": "a"
-                }
-              ],
-              "body": {
-                "statements": [
-                  {
-                    "caller": "console",
-                    "chain": [
-                      "log"
-                    ],
-                    "args": [
-                      {
-                        "name": "a"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "args": [
-                {
-                  "name": "b"
-                }
-              ],
-              "body": {
-                "statements": [
-                  {
-                    "caller": "console",
-                    "chain": [
-                      "log"
-                    ],
-                    "args": [
-                      {
-                        "name": "b"
-                      }
-                    ]
-                  }
-                ]
-              },
-              "els": {
-                "statements": [
-                  {
-                    "caller": "console",
-                    "chain": [
-                      "log"
-                    ],
-                    "args": [
-                      {
-                        "name": "c"
-                      }
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "args": [
-                {
-                  "name": "b"
-                }
-              ],
-              "body": {
-                "statements": [
-                  {
-                    "caller": "console",
-                    "chain": [
-                      "log"
-                    ],
-                    "args": [
-                      {
-                        "name": "b"
-                      }
-                    ]
-                  }
-                ]
-              },
-              "els": {
+              "name": "test"
+            }
+          ],
+          "body": {
+            "statements": [
+              {
+                "caller": "console",
+                "chain": [
+                  "log"
+                ],
                 "args": [
                   {
-                    "name": "c"
+                    "name": "error"
+                  }
+                ]
+              },
+              {
+                "caller": "console",
+                "chain": [
+                  "log"
+                ],
+                "args": []
+              },
+              {
+                "caller": "console",
+                "chain": [
+                  "log"
+                ],
+                "args": [
+                  {
+                    "caller": "console",
+                    "chain": [
+                      "log"
+                    ],
+                    "args": [
+                      {
+                        "name": "test"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "const",
+                "assign": {
+                  "name": "a",
+                  "value": "a"
+                }
+              },
+              {
+                "type": "let",
+                "assign": {
+                  "name": "b",
+                  "value": "b"
+                }
+              },
+              {
+                "type": "const",
+                "assign": {
+                  "name": "c",
+                  "value": "c"
+                }
+              },
+              {
+                "type": "let",
+                "assign": {
+                  "name": "d"
+                }
+              },
+              {
+                "name": "d",
+                "value": "d"
+              },
+              {
+                "type": "let",
+                "assign": {
+                  "name": "a"
+                }
+              },
+              {
+                "name": "a",
+                "value": "a"
+              },
+              {
+                "args": [
+                  {
+                    "name": "a"
                   }
                 ],
                 "body": {
@@ -218,39 +139,17 @@
                       ],
                       "args": [
                         {
-                          "name": "c"
+                          "name": "a"
                         }
                       ]
                     }
                   ]
                 }
-              }
-            },
-            {
-              "args": [
-                {
-                  "name": "b"
-                }
-              ],
-              "body": {
-                "statements": [
-                  {
-                    "caller": "console",
-                    "chain": [
-                      "log"
-                    ],
-                    "args": [
-                      {
-                        "name": "b"
-                      }
-                    ]
-                  }
-                ]
               },
-              "els": {
+              {
                 "args": [
                   {
-                    "name": "c"
+                    "name": "b"
                   }
                 ],
                 "body": {
@@ -262,7 +161,7 @@
                       ],
                       "args": [
                         {
-                          "name": "c"
+                          "name": "b"
                         }
                       ]
                     }
@@ -277,139 +176,242 @@
                       ],
                       "args": [
                         {
-                          "name": "d"
+                          "name": "c"
                         }
                       ]
                     }
                   ]
                 }
-              }
-            }
-          ]
-        }
-      },
-      "onSubmit": {
-        "name": "test",
-        "args": [],
-        "body": {
-          "statements": [
-            {
-              "caller": "console",
-              "chain": [
-                "log"
-              ],
-              "args": []
-            },
-            {
-              "value": 233
-            }
-          ]
-        }
-      }
-    },
-    "children": [
-      {
-        "tagName": "List",
-        "props": {
-          "list": [
-            {
-              "content": {
-                "tagName": "View",
-                "props": {
-                  "color": "red"
-                },
-                "children": [
-                  {
-                    "tagName": "text",
-                    "nodeValue": "233"
-                  }
-                ]
               },
-              "logo": {
-                "tagName": "Image",
-                "props": {
-                  "mode": "test"
-                },
-                "children": []
-              }
-            },
-            {
-              "content": {
-                "tagName": "View",
-                "props": {},
-                "children": []
-              }
-            }
-          ]
-        },
-        "children": []
-      },
-      {
-        "tagName": "div",
-        "props": {},
-        "children": []
-      },
-      {
-        "tagName": "div",
-        "props": {
-          "id": "qwq"
-        },
-        "children": []
-      },
-      {
-        "tagName": "span",
-        "props": {},
-        "children": [
-          {
-            "tagName": "text",
-            "nodeValue": "aaa"
-          }
-        ]
-      },
-      {
-        "tagName": "span",
-        "props": {},
-        "children": [
-          {
-            "tagName": "text",
-            "nodeValue": "1234"
-          }
-        ]
-      },
-      {
-        "tagName": "span",
-        "props": {},
-        "children": [
-          {
-            "tagName": "text",
-            "nodeValue": "1234asd"
-          }
-        ]
-      },
-      {
-        "tagName": "span",
-        "props": {},
-        "children": [
-          {
-            "tagName": "text",
-            "nodeValue": "12aa"
-          },
-          {
-            "tagName": "span",
-            "props": {},
-            "children": [
               {
-                "tagName": "text",
-                "nodeValue": "aaa"
+                "args": [
+                  {
+                    "name": "b"
+                  }
+                ],
+                "body": {
+                  "statements": [
+                    {
+                      "caller": "console",
+                      "chain": [
+                        "log"
+                      ],
+                      "args": [
+                        {
+                          "name": "b"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "els": {
+                  "args": [
+                    {
+                      "name": "c"
+                    }
+                  ],
+                  "body": {
+                    "statements": [
+                      {
+                        "caller": "console",
+                        "chain": [
+                          "log"
+                        ],
+                        "args": [
+                          {
+                            "name": "c"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "args": [
+                  {
+                    "name": "b"
+                  }
+                ],
+                "body": {
+                  "statements": [
+                    {
+                      "caller": "console",
+                      "chain": [
+                        "log"
+                      ],
+                      "args": [
+                        {
+                          "name": "b"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "els": {
+                  "args": [
+                    {
+                      "name": "c"
+                    }
+                  ],
+                  "body": {
+                    "statements": [
+                      {
+                        "caller": "console",
+                        "chain": [
+                          "log"
+                        ],
+                        "args": [
+                          {
+                            "name": "c"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "els": {
+                    "statements": [
+                      {
+                        "caller": "console",
+                        "chain": [
+                          "log"
+                        ],
+                        "args": [
+                          {
+                            "name": "d"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "onSubmit": {
+          "name": "test",
+          "args": [],
+          "body": {
+            "statements": [
+              {
+                "caller": "console",
+                "chain": [
+                  "log"
+                ],
+                "args": []
+              },
+              {
+                "value": 233
+              }
+            ]
+          }
+        }
+      },
+      "children": [
+        {
+          "tagName": "List",
+          "props": {
+            "list": [
+              {
+                "content": {
+                  "tagName": "View",
+                  "props": {
+                    "color": "red"
+                  },
+                  "children": [
+                    {
+                      "tagName": "text",
+                      "nodeValue": "233"
+                    }
+                  ]
+                },
+                "logo": {
+                  "tagName": "Image",
+                  "props": {
+                    "mode": "test"
+                  },
+                  "children": []
+                }
+              },
+              {
+                "content": {
+                  "tagName": "View",
+                  "props": {},
+                  "children": []
+                }
               }
             ]
           },
-          {
-            "tagName": "text",
-            "nodeValue": "aa234234aaa"
-          }
-        ]
-      }
-    ]
-  }
-]
+          "children": []
+        },
+        {
+          "tagName": "div",
+          "props": {},
+          "children": []
+        },
+        {
+          "tagName": "div",
+          "props": {
+            "id": "qwq"
+          },
+          "children": []
+        },
+        {
+          "tagName": "span",
+          "props": {},
+          "children": [
+            {
+              "tagName": "text",
+              "nodeValue": "aaa"
+            }
+          ]
+        },
+        {
+          "tagName": "span",
+          "props": {},
+          "children": [
+            {
+              "tagName": "text",
+              "nodeValue": "1234"
+            }
+          ]
+        },
+        {
+          "tagName": "span",
+          "props": {},
+          "children": [
+            {
+              "tagName": "text",
+              "nodeValue": "1234asd"
+            }
+          ]
+        },
+        {
+          "tagName": "span",
+          "props": {},
+          "children": [
+            {
+              "tagName": "text",
+              "nodeValue": "12aa"
+            },
+            {
+              "tagName": "span",
+              "props": {},
+              "children": [
+                {
+                  "tagName": "text",
+                  "nodeValue": "aaa"
+                }
+              ]
+            },
+            {
+              "tagName": "text",
+              "nodeValue": "aa234234aaa"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

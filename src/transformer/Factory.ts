@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:50:42
+ * @Last Modified time: 2021-10-07 11:16:56
  */
 import * as Jsx from './Jsx'
 
@@ -23,6 +23,12 @@ export function isTextElement(element: Jsx.Type): element is Jsx.TextElement {
   if (!element) return false
   const textElement = <Jsx.TextElement>element
   return textElement.$$typeof === 'text'
+}
+
+export function isProgram(element: Jsx.Type): element is Jsx.Program {
+  if (!element) return false
+  const textElement = <Jsx.Program>element
+  return textElement.$$typeof === 'program'
 }
 
 export function createNode<T extends Jsx.Node>(
@@ -240,6 +246,13 @@ export function createReturn(value: Jsx.Type): Jsx.Return {
   return createNode<Jsx.Return>({
     $$typeof: 'return',
     value,
+  })
+}
+
+export function createProgram(body: Jsx.Type[]): Jsx.Program {
+  return createNode<Jsx.Program>({
+    $$typeof: 'program',
+    body,
   })
 }
 
