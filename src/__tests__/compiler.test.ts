@@ -15,82 +15,61 @@ describe('Compiler', () => {
     )
   })
 
-  // const compile = (code: string) =>
-  //   compiler.compile(transformer.transform(parser.parse(code).body[0]))
+  const compile = (code: string) =>
+    compiler.compile(transformer.transform(parser.parse(code)))
+  const compileExpect = (code: string) => expect(compile(code)).toBe(code)
 
-  // it('CallChainExpr', () => {
-  //   expect(compile('console.log(error)')).toBe(`[console.log(error)]`)
-  // })
+  it('CallChainExpr', () => {
+    compileExpect('console.log(error)')
+  })
 
-  // it('DefineVariableStatement', () => {
-  //   expect(transformer.isDefineVariable(transform('const a = "a"'))).toBe(true)
-  // })
+  it('DefineVariableStatement', () => {
+    compileExpect('const a = "a"')
+  })
 
-  // it('VariableAssignExpr', () => {
-  //   expect(transformer.isVariableAssign(transform('a = "a"'))).toBe(true)
-  // })
+  it('VariableAssignExpr', () => {
+    compileExpect('a = "a"')
+  })
 
-  // it('IfStatement', () => {
-  //   expect(
-  //     transformer.isIf(
-  //       transform(`
-  //       if(a){
-  //         console.log(a)
-  //       } else if(b) {
-  //         console.log(b)
-  //       } else {
-  //         console.log(c)
-  //       }
-  //       `)
-  //     )
-  //   ).toBe(true)
-  // })
+  it('IfStatement', () => {
+    compileExpect(
+      `if(a){console.log(a)}else if(b){console.log(b)}else {console.log(c)}`
+    )
+  })
 
-  // it('ReturnStatement', () => {
-  //   expect(
-  //     transformer.isReturn(
-  //       transform(`
-  //         return 233
-  //       `)
-  //     )
-  //   ).toBe(true)
-  // })
+  it('ReturnStatement', () => {
+    compileExpect(`return 233`)
+  })
 
-  // it('JsxExpr', () => {
-  //   expect(transformer.isJsxElement(transform('<div>233</div>'))).toBe(true)
-  // })
+  it('JsxExpr', () => {
+    compileExpect('<div>233</div>')
+  })
 
-  // it('JsxSelfClosingExpr', () => {
-  //   expect(transformer.isJsxElement(transform('<div className="233" />'))).toBe(
-  //     true
-  //   )
-  // })
+  it('JsxSelfClosingExpr', () => {
+    compileExpect('<div className="233"/>')
+  })
 
-  // it('StringExpr', () => {
-  //   expect(transform('"saber2pr"')).toBe('saber2pr')
-  // })
+  it('StringExpr', () => {
+    compileExpect('"saber2pr"')
+  })
 
-  // it('NumberExpr', () => {
-  //   expect(transform('233')).toBe(233)
-  // })
+  it('NumberExpr', () => {
+    compileExpect('233')
+  })
 
-  // it('ObjectExpr', () => {
-  //   expect(transformer.isJsxObject(transform('{a:"a"}'))).toBe(true)
-  // })
+  it('ObjectExpr', () => {
+    compileExpect('{a:"a"}')
+  })
 
-  // it('ArrayExpr', () => {
-  //   expect(transform('["a", "b"]')).toEqual(['a', 'b'])
-  // })
+  it('ArrayExpr', () => {
+    compileExpect('["a","b"]')
+  })
 
-  // it('ArrowFunctionExpr', () => {
-  //   expect(
-  //     transformer.isArrowFunction(transform('(a) => { console.log(a) }'))
-  //   ).toBe(true)
-  // })
+  it('ArrowFunctionExpr', () => {
+    compileExpect('(a)=>{console.log(a)}')
+  })
 
-  // it('FunctionExpr', () => {
-  //   expect(
-  //     transformer.isFunction(transform('function test(a){ console.log(a) }'))
-  //   ).toBe(true)
-  // })
+  it('FunctionExpr', () => {
+    compileExpect('function test(a){console.log(a)}')
+  })
 })
