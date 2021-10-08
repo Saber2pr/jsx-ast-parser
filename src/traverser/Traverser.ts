@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:32
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 11:28:55
+ * @Last Modified time: 2021-10-08 17:13:45
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -23,16 +23,18 @@ export function traverseJsxNode(
 
   // map children
   const children = node.children
-  const newChildren = children.map(node => {
-    let newNode: Jsx.Type | void
-    if (Factory.isJsxElement(node)) {
-      newNode = traverseJsxNode(node, callback)
-    }
-    if (newNode) {
-      return newNode
-    }
-    return callback(node) ?? node
-  })
+  const newChildren = Array.isArray(children)
+    ? children.map(node => {
+        let newNode: Jsx.Type | void
+        if (Factory.isJsxElement(node)) {
+          newNode = traverseJsxNode(node, callback)
+        }
+        if (newNode) {
+          return newNode
+        }
+        return callback(node) ?? node
+      })
+    : children
 
   // link new children
   const newNode = callback(node)

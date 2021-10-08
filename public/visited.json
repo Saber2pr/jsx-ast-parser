@@ -11,6 +11,10 @@
   "blue",
   "red",
   {
+    "tagName": "text",
+    "nodeValue": "233"
+  },
+  {
     "tagName": "span",
     "props": {},
     "children": [
@@ -336,6 +340,10 @@
   },
   "red",
   {
+    "tagName": "text",
+    "nodeValue": "233"
+  },
+  {
     "tagName": "View",
     "props": {
       "color": "red"
@@ -410,6 +418,10 @@
     "children": []
   },
   {
+    "tagName": "text",
+    "nodeValue": "aaa"
+  },
+  {
     "tagName": "span",
     "props": {},
     "children": [
@@ -418,6 +430,10 @@
         "nodeValue": "aaa"
       }
     ]
+  },
+  {
+    "tagName": "text",
+    "nodeValue": "1234"
   },
   {
     "tagName": "span",
@@ -430,6 +446,10 @@
     ]
   },
   {
+    "tagName": "text",
+    "nodeValue": "1234asd"
+  },
+  {
     "tagName": "span",
     "props": {},
     "children": [
@@ -440,6 +460,14 @@
     ]
   },
   {
+    "tagName": "text",
+    "nodeValue": "12aa"
+  },
+  {
+    "tagName": "text",
+    "nodeValue": "aaa"
+  },
+  {
     "tagName": "span",
     "props": {},
     "children": [
@@ -448,6 +476,10 @@
         "nodeValue": "aaa"
       }
     ]
+  },
+  {
+    "tagName": "text",
+    "nodeValue": "aa234234aaa"
   },
   {
     "tagName": "span",

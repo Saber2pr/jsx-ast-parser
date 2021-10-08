@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 11:16:56
+ * @Last Modified time: 2021-10-08 17:27:59
  */
 import * as Jsx from './Jsx'
 
@@ -145,7 +145,7 @@ export function isBlock(element: Jsx.Type): element is Jsx.Block {
 export function createJsxElement(
   tagName: string,
   props: Jsx.JsxAttributes = createJsxAttributes(),
-  children: Jsx.JsxNode[] = []
+  children: Jsx.JsxElement['children'] = []
 ): Jsx.JsxElement {
   return createNode<Jsx.JsxElement>({
     $$typeof: 'jsx',

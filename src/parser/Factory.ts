@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:15
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 11:06:33
+ * @Last Modified time: 2021-10-08 17:10:18
  */
 import * as Ast from './Ast'
 
@@ -38,6 +38,10 @@ export function isJsxSelfClosingExpr(
   token: Ast.Node
 ): token is Ast.JsxSelfClosingExpr {
   return (<Ast.JsxSelfClosingExpr>token).kind === 'JsxSelfClosingExpr'
+}
+
+export function isJsxInnerExpr(token: Ast.Node): token is Ast.JsxInnerExpr {
+  return (<Ast.JsxInnerExpr>token).kind === 'JsxInnerExpr'
 }
 
 export function isBlockExpr(token: Ast.Node): token is Ast.BlockExpr {
