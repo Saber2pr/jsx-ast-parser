@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-06 10:41:06
+ * @Last Modified time: 2021-10-08 17:23:01
  */
 import * as parsec from 'typescript-parsec'
 
@@ -62,14 +62,17 @@ export function applyProp(
     | [Ast.IdentityExpr, undefined]
 ): Ast.PropExpr {
   const [name, token] = source
-  let value: Ast.Expression | Ast.IdentityExpr
+  let value: Ast.PropExpr['value']
   if (token) {
     value = token
   } else {
     value = {
-      kind: 'IdentityExpr',
-      name: 'true',
-    } as Ast.IdentityExpr
+      kind: 'JsxInnerExpr',
+      body: {
+        kind: 'IdentityExpr',
+        name: 'true',
+      } as Ast.IdentityExpr,
+    }
   }
   return {
     kind: 'PropExpr',
@@ -142,6 +145,15 @@ export function applyJsx(
     openingTag: source[0],
     body: source[1],
     closingTag: source[2],
+  }
+}
+
+export function applyJsxInner(
+  source: Ast.Expression | Ast.IdentityExpr
+): Ast.JsxInnerExpr {
+  return {
+    kind: 'JsxInnerExpr',
+    body: source,
   }
 }
 

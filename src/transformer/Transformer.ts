@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 11:14:49
+ * @Last Modified time: 2021-10-08 17:28:11
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -67,9 +67,9 @@ export function transformPropsExpr(props: Ast.PropExpr[]): Jsx.JsxAttributes {
         const expression = prop.value
         return [
           key,
-          Factory.isIdentityExpr(expression)
-            ? transformIdentityExpr(expression)
-            : transformExpression(expression),
+          Factory.isStringExpr(expression)
+            ? transformStringExpr(expression)
+            : transformJsxInner(expression),
         ]
       })
     )
@@ -84,6 +84,14 @@ export function transformJsxSelfClosingExpr(
   return TFactory.createJsxElement(tagName, transformPropsExpr(props), [])
 }
 
+export function transformJsxInner(
+  jsx: Ast.JsxInnerExpr
+): Jsx.Type | Jsx.Identity {
+  return Factory.isIdentityExpr(jsx.body)
+    ? transformIdentityExpr(jsx.body)
+    : transformExpression(jsx.body)
+}
+
 export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
   if (Factory.isJsxSelfClosingExpr(jsx)) {
     return transformJsxSelfClosingExpr(jsx)
@@ -94,13 +102,15 @@ export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
   return TFactory.createJsxElement(
     tagName,
     transformPropsExpr(props),
-    body.map(node => {
-      if (Factory.isTextExpr(node)) {
-        return transformTextExpr(node)
-      } else {
-        return transformJsx(node)
-      }
-    })
+    Array.isArray(body)
+      ? body.map(node => {
+          if (Factory.isTextExpr(node)) {
+            return transformTextExpr(node)
+          } else {
+            return transformJsx(node)
+          }
+        })
+      : transformJsxInner(body)
   )
 }
 

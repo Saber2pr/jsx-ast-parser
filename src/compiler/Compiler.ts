@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 11:18:09
+ * @Last Modified time: 2021-10-08 17:30:03
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -78,12 +78,13 @@ export function compileJsxElement(element: Jsx.JsxElement) {
 
   // compile jsx element
   const attributes = compileJsxAttributes(props)
-  const children = elements.map(element => compile(element)).join('')
-
-  if (elements.length > 0) {
-    // opening
+  if (Array.isArray(elements) && elements.length > 0) {
+    const children = Array.isArray(elements)
+      ? elements.map(element => compile(element)).join('')
+      : `{${compile(elements)}}`
     return `<${tagName}${attributes}>${children}</${tagName}>`
   }
+
   // self closing
   return `<${tagName}${attributes}/>`
 }

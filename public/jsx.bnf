@@ -1,6 +1,6 @@
 (* Jsx Grammar in BNF - By Saber2pr *)
 
-JSX ::= JSXOPENED | JSXSELFCLOSE
+JSX ::= ("(")? JSXOPENED | JSXSELFCLOSE (")")?
 
 PARAMETER ::= "(" (IDENTITY ("," IDENTITY)* (",")?)? ")"
 
@@ -36,7 +36,8 @@ OBJ ::= "{" (IDENTITY ":" EXPRESSION ("," IDENTITY ":" EXPRESSION)* (",")?)? "}"
 ARRAY ::= "[" (EXPRESSION ("," EXPRESSION)* (",")?)? "]"
 
 PROP ::= IDENTITY
-       | IDENTITY "=" "{" EXPRESSION "}"
+       | IDENTITY "=" JSXINNEREXPR
+       | IDENTITY "=" STRING
 
 OPENTAG ::= "<" IDENTITY ((PROP)*)? ">"
 
@@ -44,7 +45,9 @@ CLOSETAG ::= "<" "/" IDENTITY ">"
 
 JSXSELFCLOSE ::= "<" IDENTITY ((PROP)*)? "/" ">"
 
-JSXOPENED ::= OPENTAG (JSX | TEXT)* CLOSETAG
+JSXINNEREXPR ::= "{" EXPRESSION "}"
+
+JSXOPENED ::= OPENTAG (((JSX | TEXT)*)|JSXINNEREXPR) CLOSETAG
 
 ARROWFUNCTION ::= PARAMETER "=" ">" BLOCK
 

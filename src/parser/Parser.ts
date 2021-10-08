@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 10:29:01
+ * @Last Modified time: 2021-10-08 17:22:19
  */
 import {
   alt,
@@ -42,6 +42,7 @@ export const CLOSETAG = rule<TokenKind, Ast.ClosingTagExpr>()
 export const JSXSELFCLOSE = rule<TokenKind, Ast.JsxSelfClosingExpr>()
 export const JSXOPENED = rule<TokenKind, Ast.JsxExpr>()
 export const TEXT = rule<TokenKind, Ast.TextExpr>()
+export const JSXINNEREXPR = rule<TokenKind, Ast.JsxInnerExpr>()
 
 // Expression
 export const BLOCK = rule<TokenKind, Ast.BlockExpr>()
@@ -62,7 +63,8 @@ export const PROGRAM = rule<TokenKind, Ast.Program>()
 JSX
   = JSXOPENED <|> JSXSELFCLOSE
 */
-export const JSX = alt(JSXOPENED, JSXSELFCLOSE)
+export const JSX: Parser<TokenKind, Ast.JsxSelfClosingExpr | Ast.JsxExpr> =
+  kmid(opt(str('(')), alt(JSXOPENED, JSXSELFCLOSE), opt(str(')')))
 
 /*
 EXPRESSION
@@ -197,15 +199,13 @@ ARRAY.setPattern(
 /*
 PROP 
   = IDENTITY
-  = IDENTITY={EXPRESSION}
+  = IDENTITY=JSXINNEREXPR
+  = IDENTITY=STRING
 */
 PROP.setPattern(
   apply(
     alt(
-      seq(
-        kleft(IDENTITY, str('=')),
-        alt(STRING, kmid(str('{'), alt(EXPRESSION, IDENTITY), str('}')))
-      ),
+      seq(kleft(IDENTITY, str('=')), alt(STRING, JSXINNEREXPR)),
       seq(IDENTITY, nil())
     ),
     Consumer.applyProp
@@ -248,12 +248,22 @@ JSXSELFCLOSE.setPattern(
   )
 )
 
+JSXINNEREXPR.setPattern(
+  apply(
+    kmid(str('{'), alt(EXPRESSION, IDENTITY), str('}')),
+    Consumer.applyJsxInner
+  )
+)
+
 /*
 JSXOPENED
-  = OPENTAG (many $ JSX <|> TEXT) CLOSETAG
+  = OPENTAG ((many $ JSX <|> TEXT) <|> JSXINNEREXPR) CLOSETAG
 */
 JSXOPENED.setPattern(
-  apply(seq(OPENTAG, rep_sc(alt(JSX, TEXT)), CLOSETAG), Consumer.applyJsx)
+  apply(
+    seq(OPENTAG, alt(rep_sc(alt(JSX, TEXT)), JSXINNEREXPR), CLOSETAG),
+    Consumer.applyJsx
+  )
 )
 
 /*

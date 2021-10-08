@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:21
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 10:54:59
+ * @Last Modified time: 2021-10-08 17:22:50
  */
 export interface Node {
   kind: any
@@ -87,14 +87,19 @@ export interface ClosingTagExpr extends Node {
 export interface PropExpr extends Node {
   kind: 'PropExpr'
   key: IdentityExpr
-  value: Expression | IdentityExpr
+  value: JsxInnerExpr | StringExpr
 }
 
 export interface JsxExpr extends Node {
   kind: 'JsxExpr'
   openingTag: OpeningTagExpr
-  body: (Jsx | TextExpr)[]
+  body: (Jsx | TextExpr)[] | JsxInnerExpr
   closingTag: ClosingTagExpr
+}
+
+export interface JsxInnerExpr extends Node {
+  kind: 'JsxInnerExpr'
+  body: Expression | IdentityExpr
 }
 
 export interface TextExpr extends Node {

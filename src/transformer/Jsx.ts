@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-07 11:15:11
+ * @Last Modified time: 2021-10-08 17:28:38
  */
 export type Type =
   | JsxNode
@@ -51,7 +51,7 @@ export interface JsxAttributes extends Node {
 export interface JsxElement extends Node {
   $$typeof: 'jsx'
   props: JsxAttributes
-  children: Type[]
+  children: Type[] | Type
 }
 
 export interface TextElement extends Node {

@@ -17,8 +17,11 @@
               "name": "width"
             },
             "value": {
-              "kind": "NumberExpr",
-              "value": 100
+              "kind": "JsxInnerExpr",
+              "body": {
+                "kind": "NumberExpr",
+                "value": 100
+              }
             }
           },
           {
@@ -28,8 +31,11 @@
               "name": "contentEditable"
             },
             "value": {
-              "kind": "IdentityExpr",
-              "name": "true"
+              "kind": "JsxInnerExpr",
+              "body": {
+                "kind": "IdentityExpr",
+                "name": "true"
+              }
             }
           },
           {
@@ -39,8 +45,11 @@
               "name": "color"
             },
             "value": {
-              "kind": "StringExpr",
-              "value": "red"
+              "kind": "JsxInnerExpr",
+              "body": {
+                "kind": "StringExpr",
+                "value": "red"
+              }
             }
           },
           {
@@ -50,17 +59,20 @@
               "name": "arr"
             },
             "value": {
-              "kind": "ArrayExpr",
-              "items": [
-                {
-                  "kind": "NumberExpr",
-                  "value": 1
-                },
-                {
-                  "kind": "NumberExpr",
-                  "value": 2
-                }
-              ]
+              "kind": "JsxInnerExpr",
+              "body": {
+                "kind": "ArrayExpr",
+                "items": [
+                  {
+                    "kind": "NumberExpr",
+                    "value": 1
+                  },
+                  {
+                    "kind": "NumberExpr",
+                    "value": 2
+                  }
+                ]
+              }
             }
           },
           {
@@ -70,50 +82,53 @@
               "name": "style"
             },
             "value": {
-              "kind": "ObjectExpr",
-              "props": {
-                "width": {
-                  "kind": "NumberExpr",
-                  "value": 100
-                },
-                "color": {
-                  "kind": "StringExpr",
-                  "value": "red"
-                },
-                "background": {
-                  "kind": "StringExpr",
-                  "value": "blue"
-                },
-                "test": {
-                  "kind": "ObjectExpr",
-                  "props": {
-                    "color": {
-                      "kind": "StringExpr",
-                      "value": "red"
-                    }
-                  }
-                },
-                "child": {
-                  "kind": "JsxExpr",
-                  "openingTag": {
-                    "kind": "OpeningTagExpr",
-                    "tagName": {
-                      "kind": "IdentityExpr",
-                      "name": "span"
-                    },
-                    "props": []
+              "kind": "JsxInnerExpr",
+              "body": {
+                "kind": "ObjectExpr",
+                "props": {
+                  "width": {
+                    "kind": "NumberExpr",
+                    "value": 100
                   },
-                  "body": [
-                    {
-                      "kind": "TextExpr",
-                      "value": "233"
+                  "color": {
+                    "kind": "StringExpr",
+                    "value": "red"
+                  },
+                  "background": {
+                    "kind": "StringExpr",
+                    "value": "blue"
+                  },
+                  "test": {
+                    "kind": "ObjectExpr",
+                    "props": {
+                      "color": {
+                        "kind": "StringExpr",
+                        "value": "red"
+                      }
                     }
-                  ],
-                  "closingTag": {
-                    "kind": "ClosingTagExpr",
-                    "tagName": {
-                      "kind": "IdentityExpr",
-                      "name": "span"
+                  },
+                  "child": {
+                    "kind": "JsxExpr",
+                    "openingTag": {
+                      "kind": "OpeningTagExpr",
+                      "tagName": {
+                        "kind": "IdentityExpr",
+                        "name": "span"
+                      },
+                      "props": []
+                    },
+                    "body": [
+                      {
+                        "kind": "TextExpr",
+                        "value": "233"
+                      }
+                    ],
+                    "closingTag": {
+                      "kind": "ClosingTagExpr",
+                      "tagName": {
+                        "kind": "IdentityExpr",
+                        "name": "span"
+                      }
                     }
                   }
                 }
@@ -149,8 +164,11 @@
               "name": "onClick"
             },
             "value": {
-              "kind": "IdentityExpr",
-              "name": "onClick"
+              "kind": "JsxInnerExpr",
+              "body": {
+                "kind": "IdentityExpr",
+                "name": "onClick"
+              }
             }
           },
           {
@@ -160,94 +178,177 @@
               "name": "onError"
             },
             "value": {
-              "kind": "ArrowFunctionExpr",
-              "args": [
-                {
-                  "kind": "IdentityExpr",
-                  "name": "error"
-                },
-                {
-                  "kind": "IdentityExpr",
-                  "name": "test"
-                }
-              ],
+              "kind": "JsxInnerExpr",
               "body": {
-                "kind": "BlockExpr",
-                "body": [
+                "kind": "ArrowFunctionExpr",
+                "args": [
                   {
-                    "kind": "CallChainExpr",
-                    "caller": {
-                      "kind": "IdentityExpr",
-                      "name": "console"
-                    },
-                    "chain": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "log"
-                      }
-                    ],
-                    "args": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "error"
-                      }
-                    ]
+                    "kind": "IdentityExpr",
+                    "name": "error"
                   },
                   {
-                    "kind": "CallChainExpr",
-                    "caller": {
-                      "kind": "IdentityExpr",
-                      "name": "console"
-                    },
-                    "chain": [
-                      {
+                    "kind": "IdentityExpr",
+                    "name": "test"
+                  }
+                ],
+                "body": {
+                  "kind": "BlockExpr",
+                  "body": [
+                    {
+                      "kind": "CallChainExpr",
+                      "caller": {
                         "kind": "IdentityExpr",
-                        "name": "log"
-                      }
-                    ],
-                    "args": []
-                  },
-                  {
-                    "kind": "CallChainExpr",
-                    "caller": {
-                      "kind": "IdentityExpr",
-                      "name": "console"
-                    },
-                    "chain": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "log"
-                      }
-                    ],
-                    "args": [
-                      {
-                        "kind": "CallChainExpr",
-                        "caller": {
+                        "name": "console"
+                      },
+                      "chain": [
+                        {
                           "kind": "IdentityExpr",
-                          "name": "console"
-                        },
-                        "chain": [
-                          {
-                            "kind": "IdentityExpr",
-                            "name": "log"
-                          }
-                        ],
-                        "args": [
-                          {
-                            "kind": "IdentityExpr",
-                            "name": "test"
-                          }
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "kind": "DefineVariableStatement",
-                    "type": {
-                      "kind": "KeywordExpr",
-                      "name": "const"
+                          "name": "log"
+                        }
+                      ],
+                      "args": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "error"
+                        }
+                      ]
                     },
-                    "assign": {
+                    {
+                      "kind": "CallChainExpr",
+                      "caller": {
+                        "kind": "IdentityExpr",
+                        "name": "console"
+                      },
+                      "chain": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "log"
+                        }
+                      ],
+                      "args": []
+                    },
+                    {
+                      "kind": "CallChainExpr",
+                      "caller": {
+                        "kind": "IdentityExpr",
+                        "name": "console"
+                      },
+                      "chain": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "log"
+                        }
+                      ],
+                      "args": [
+                        {
+                          "kind": "CallChainExpr",
+                          "caller": {
+                            "kind": "IdentityExpr",
+                            "name": "console"
+                          },
+                          "chain": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "log"
+                            }
+                          ],
+                          "args": [
+                            {
+                              "kind": "IdentityExpr",
+                              "name": "test"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "DefineVariableStatement",
+                      "type": {
+                        "kind": "KeywordExpr",
+                        "name": "const"
+                      },
+                      "assign": {
+                        "kind": "VariableAssignExpr",
+                        "name": {
+                          "kind": "IdentityExpr",
+                          "name": "a"
+                        },
+                        "value": {
+                          "kind": "StringExpr",
+                          "value": "a"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "DefineVariableStatement",
+                      "type": {
+                        "kind": "KeywordExpr",
+                        "name": "let"
+                      },
+                      "assign": {
+                        "kind": "VariableAssignExpr",
+                        "name": {
+                          "kind": "IdentityExpr",
+                          "name": "b"
+                        },
+                        "value": {
+                          "kind": "StringExpr",
+                          "value": "b"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "DefineVariableStatement",
+                      "type": {
+                        "kind": "KeywordExpr",
+                        "name": "const"
+                      },
+                      "assign": {
+                        "kind": "VariableAssignExpr",
+                        "name": {
+                          "kind": "IdentityExpr",
+                          "name": "c"
+                        },
+                        "value": {
+                          "kind": "StringExpr",
+                          "value": "c"
+                        }
+                      }
+                    },
+                    {
+                      "kind": "DefineVariableStatement",
+                      "type": {
+                        "kind": "KeywordExpr",
+                        "name": "let"
+                      },
+                      "assign": {
+                        "kind": "IdentityExpr",
+                        "name": "d"
+                      }
+                    },
+                    {
+                      "kind": "VariableAssignExpr",
+                      "name": {
+                        "kind": "IdentityExpr",
+                        "name": "d"
+                      },
+                      "value": {
+                        "kind": "StringExpr",
+                        "value": "d"
+                      }
+                    },
+                    {
+                      "kind": "DefineVariableStatement",
+                      "type": {
+                        "kind": "KeywordExpr",
+                        "name": "let"
+                      },
+                      "assign": {
+                        "kind": "IdentityExpr",
+                        "name": "a"
+                      }
+                    },
+                    {
                       "kind": "VariableAssignExpr",
                       "name": {
                         "kind": "IdentityExpr",
@@ -257,216 +358,13 @@
                         "kind": "StringExpr",
                         "value": "a"
                       }
-                    }
-                  },
-                  {
-                    "kind": "DefineVariableStatement",
-                    "type": {
-                      "kind": "KeywordExpr",
-                      "name": "let"
                     },
-                    "assign": {
-                      "kind": "VariableAssignExpr",
-                      "name": {
-                        "kind": "IdentityExpr",
-                        "name": "b"
-                      },
-                      "value": {
-                        "kind": "StringExpr",
-                        "value": "b"
-                      }
-                    }
-                  },
-                  {
-                    "kind": "DefineVariableStatement",
-                    "type": {
-                      "kind": "KeywordExpr",
-                      "name": "const"
-                    },
-                    "assign": {
-                      "kind": "VariableAssignExpr",
-                      "name": {
-                        "kind": "IdentityExpr",
-                        "name": "c"
-                      },
-                      "value": {
-                        "kind": "StringExpr",
-                        "value": "c"
-                      }
-                    }
-                  },
-                  {
-                    "kind": "DefineVariableStatement",
-                    "type": {
-                      "kind": "KeywordExpr",
-                      "name": "let"
-                    },
-                    "assign": {
-                      "kind": "IdentityExpr",
-                      "name": "d"
-                    }
-                  },
-                  {
-                    "kind": "VariableAssignExpr",
-                    "name": {
-                      "kind": "IdentityExpr",
-                      "name": "d"
-                    },
-                    "value": {
-                      "kind": "StringExpr",
-                      "value": "d"
-                    }
-                  },
-                  {
-                    "kind": "DefineVariableStatement",
-                    "type": {
-                      "kind": "KeywordExpr",
-                      "name": "let"
-                    },
-                    "assign": {
-                      "kind": "IdentityExpr",
-                      "name": "a"
-                    }
-                  },
-                  {
-                    "kind": "VariableAssignExpr",
-                    "name": {
-                      "kind": "IdentityExpr",
-                      "name": "a"
-                    },
-                    "value": {
-                      "kind": "StringExpr",
-                      "value": "a"
-                    }
-                  },
-                  {
-                    "kind": "IfStatement",
-                    "args": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "a"
-                      }
-                    ],
-                    "body": {
-                      "kind": "BlockExpr",
-                      "body": [
-                        {
-                          "kind": "CallChainExpr",
-                          "caller": {
-                            "kind": "IdentityExpr",
-                            "name": "console"
-                          },
-                          "chain": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "log"
-                            }
-                          ],
-                          "args": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "a"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "kind": "IfStatement",
-                    "args": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "b"
-                      }
-                    ],
-                    "body": {
-                      "kind": "BlockExpr",
-                      "body": [
-                        {
-                          "kind": "CallChainExpr",
-                          "caller": {
-                            "kind": "IdentityExpr",
-                            "name": "console"
-                          },
-                          "chain": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "log"
-                            }
-                          ],
-                          "args": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "b"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "els": {
-                      "kind": "BlockExpr",
-                      "body": [
-                        {
-                          "kind": "CallChainExpr",
-                          "caller": {
-                            "kind": "IdentityExpr",
-                            "name": "console"
-                          },
-                          "chain": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "log"
-                            }
-                          ],
-                          "args": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "c"
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "kind": "IfStatement",
-                    "args": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "b"
-                      }
-                    ],
-                    "body": {
-                      "kind": "BlockExpr",
-                      "body": [
-                        {
-                          "kind": "CallChainExpr",
-                          "caller": {
-                            "kind": "IdentityExpr",
-                            "name": "console"
-                          },
-                          "chain": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "log"
-                            }
-                          ],
-                          "args": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "b"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    "els": {
+                    {
                       "kind": "IfStatement",
                       "args": [
                         {
                           "kind": "IdentityExpr",
-                          "name": "c"
+                          "name": "a"
                         }
                       ],
                       "body": {
@@ -487,52 +385,19 @@
                             "args": [
                               {
                                 "kind": "IdentityExpr",
-                                "name": "c"
+                                "name": "a"
                               }
                             ]
                           }
                         ]
                       }
-                    }
-                  },
-                  {
-                    "kind": "IfStatement",
-                    "args": [
-                      {
-                        "kind": "IdentityExpr",
-                        "name": "b"
-                      }
-                    ],
-                    "body": {
-                      "kind": "BlockExpr",
-                      "body": [
-                        {
-                          "kind": "CallChainExpr",
-                          "caller": {
-                            "kind": "IdentityExpr",
-                            "name": "console"
-                          },
-                          "chain": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "log"
-                            }
-                          ],
-                          "args": [
-                            {
-                              "kind": "IdentityExpr",
-                              "name": "b"
-                            }
-                          ]
-                        }
-                      ]
                     },
-                    "els": {
+                    {
                       "kind": "IfStatement",
                       "args": [
                         {
                           "kind": "IdentityExpr",
-                          "name": "c"
+                          "name": "b"
                         }
                       ],
                       "body": {
@@ -553,7 +418,7 @@
                             "args": [
                               {
                                 "kind": "IdentityExpr",
-                                "name": "c"
+                                "name": "b"
                               }
                             ]
                           }
@@ -577,15 +442,171 @@
                             "args": [
                               {
                                 "kind": "IdentityExpr",
-                                "name": "d"
+                                "name": "c"
                               }
                             ]
                           }
                         ]
                       }
+                    },
+                    {
+                      "kind": "IfStatement",
+                      "args": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "b"
+                        }
+                      ],
+                      "body": {
+                        "kind": "BlockExpr",
+                        "body": [
+                          {
+                            "kind": "CallChainExpr",
+                            "caller": {
+                              "kind": "IdentityExpr",
+                              "name": "console"
+                            },
+                            "chain": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "log"
+                              }
+                            ],
+                            "args": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "b"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "els": {
+                        "kind": "IfStatement",
+                        "args": [
+                          {
+                            "kind": "IdentityExpr",
+                            "name": "c"
+                          }
+                        ],
+                        "body": {
+                          "kind": "BlockExpr",
+                          "body": [
+                            {
+                              "kind": "CallChainExpr",
+                              "caller": {
+                                "kind": "IdentityExpr",
+                                "name": "console"
+                              },
+                              "chain": [
+                                {
+                                  "kind": "IdentityExpr",
+                                  "name": "log"
+                                }
+                              ],
+                              "args": [
+                                {
+                                  "kind": "IdentityExpr",
+                                  "name": "c"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    },
+                    {
+                      "kind": "IfStatement",
+                      "args": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "b"
+                        }
+                      ],
+                      "body": {
+                        "kind": "BlockExpr",
+                        "body": [
+                          {
+                            "kind": "CallChainExpr",
+                            "caller": {
+                              "kind": "IdentityExpr",
+                              "name": "console"
+                            },
+                            "chain": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "log"
+                              }
+                            ],
+                            "args": [
+                              {
+                                "kind": "IdentityExpr",
+                                "name": "b"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      "els": {
+                        "kind": "IfStatement",
+                        "args": [
+                          {
+                            "kind": "IdentityExpr",
+                            "name": "c"
+                          }
+                        ],
+                        "body": {
+                          "kind": "BlockExpr",
+                          "body": [
+                            {
+                              "kind": "CallChainExpr",
+                              "caller": {
+                                "kind": "IdentityExpr",
+                                "name": "console"
+                              },
+                              "chain": [
+                                {
+                                  "kind": "IdentityExpr",
+                                  "name": "log"
+                                }
+                              ],
+                              "args": [
+                                {
+                                  "kind": "IdentityExpr",
+                                  "name": "c"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        "els": {
+                          "kind": "BlockExpr",
+                          "body": [
+                            {
+                              "kind": "CallChainExpr",
+                              "caller": {
+                                "kind": "IdentityExpr",
+                                "name": "console"
+                              },
+                              "chain": [
+                                {
+                                  "kind": "IdentityExpr",
+                                  "name": "log"
+                                }
+                              ],
+                              "args": [
+                                {
+                                  "kind": "IdentityExpr",
+                                  "name": "d"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
                     }
-                  }
-                ]
+                  ]
+                }
               }
             }
           },
@@ -596,37 +617,40 @@
               "name": "onSubmit"
             },
             "value": {
-              "kind": "FunctionExpr",
-              "name": {
-                "kind": "IdentityExpr",
-                "name": "test"
-              },
-              "args": [],
+              "kind": "JsxInnerExpr",
               "body": {
-                "kind": "BlockExpr",
-                "body": [
-                  {
-                    "kind": "CallChainExpr",
-                    "caller": {
-                      "kind": "IdentityExpr",
-                      "name": "console"
-                    },
-                    "chain": [
-                      {
+                "kind": "FunctionExpr",
+                "name": {
+                  "kind": "IdentityExpr",
+                  "name": "test"
+                },
+                "args": [],
+                "body": {
+                  "kind": "BlockExpr",
+                  "body": [
+                    {
+                      "kind": "CallChainExpr",
+                      "caller": {
                         "kind": "IdentityExpr",
-                        "name": "log"
+                        "name": "console"
+                      },
+                      "chain": [
+                        {
+                          "kind": "IdentityExpr",
+                          "name": "log"
+                        }
+                      ],
+                      "args": []
+                    },
+                    {
+                      "kind": "ReturnStatement",
+                      "value": {
+                        "kind": "NumberExpr",
+                        "value": 233
                       }
-                    ],
-                    "args": []
-                  },
-                  {
-                    "kind": "ReturnStatement",
-                    "value": {
-                      "kind": "NumberExpr",
-                      "value": 233
                     }
-                  }
-                ]
+                  ]
+                }
               }
             }
           }
@@ -647,83 +671,86 @@
                 "name": "list"
               },
               "value": {
-                "kind": "ArrayExpr",
-                "items": [
-                  {
-                    "kind": "ObjectExpr",
-                    "props": {
-                      "content": {
-                        "kind": "JsxExpr",
-                        "openingTag": {
-                          "kind": "OpeningTagExpr",
+                "kind": "JsxInnerExpr",
+                "body": {
+                  "kind": "ArrayExpr",
+                  "items": [
+                    {
+                      "kind": "ObjectExpr",
+                      "props": {
+                        "content": {
+                          "kind": "JsxExpr",
+                          "openingTag": {
+                            "kind": "OpeningTagExpr",
+                            "tagName": {
+                              "kind": "IdentityExpr",
+                              "name": "View"
+                            },
+                            "props": [
+                              {
+                                "kind": "PropExpr",
+                                "key": {
+                                  "kind": "IdentityExpr",
+                                  "name": "color"
+                                },
+                                "value": {
+                                  "kind": "StringExpr",
+                                  "value": "red"
+                                }
+                              }
+                            ]
+                          },
+                          "body": [
+                            {
+                              "kind": "TextExpr",
+                              "value": "233"
+                            }
+                          ],
+                          "closingTag": {
+                            "kind": "ClosingTagExpr",
+                            "tagName": {
+                              "kind": "IdentityExpr",
+                              "name": "View"
+                            }
+                          }
+                        },
+                        "logo": {
+                          "kind": "JsxSelfClosingExpr",
                           "tagName": {
                             "kind": "IdentityExpr",
-                            "name": "View"
+                            "name": "Image"
                           },
                           "props": [
                             {
                               "kind": "PropExpr",
                               "key": {
                                 "kind": "IdentityExpr",
-                                "name": "color"
+                                "name": "mode"
                               },
                               "value": {
                                 "kind": "StringExpr",
-                                "value": "red"
+                                "value": "test"
                               }
                             }
                           ]
-                        },
-                        "body": [
-                          {
-                            "kind": "TextExpr",
-                            "value": "233"
-                          }
-                        ],
-                        "closingTag": {
-                          "kind": "ClosingTagExpr",
+                        }
+                      }
+                    },
+                    {
+                      "kind": "ObjectExpr",
+                      "props": {
+                        "content": {
+                          "kind": "JsxSelfClosingExpr",
                           "tagName": {
                             "kind": "IdentityExpr",
                             "name": "View"
-                          }
+                          },
+                          "props": []
                         }
-                      },
-                      "logo": {
-                        "kind": "JsxSelfClosingExpr",
-                        "tagName": {
-                          "kind": "IdentityExpr",
-                          "name": "Image"
-                        },
-                        "props": [
-                          {
-                            "kind": "PropExpr",
-                            "key": {
-                              "kind": "IdentityExpr",
-                              "name": "mode"
-                            },
-                            "value": {
-                              "kind": "StringExpr",
-                              "value": "test"
-                            }
-                          }
-                        ]
                       }
                     }
-                  },
-                  {
-                    "kind": "ObjectExpr",
-                    "props": {
-                      "content": {
-                        "kind": "JsxSelfClosingExpr",
-                        "tagName": {
-                          "kind": "IdentityExpr",
-                          "name": "View"
-                        },
-                        "props": []
-                      }
-                    }
-                  }
-                ]
+                  ]
+                }
               }
             }
           ]
