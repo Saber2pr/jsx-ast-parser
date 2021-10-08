@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:49
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:28:11
+ * @Last Modified time: 2021-10-08 19:47:34
  */
 import * as Ast from '../parser/Ast'
 import * as Factory from '../parser/Factory'
@@ -119,10 +119,14 @@ export function transformJsx(jsx: Ast.Jsx): Jsx.JsxElement {
 export function transformArrowFunction(
   func: Ast.ArrowFunctionExpr
 ): Jsx.ArrowFunction {
-  const { args = [], body } = func
+  const { args, body } = func
   return TFactory.createArrowFunction(
-    transformParameter(args),
-    transformBlock(body)
+    Array.isArray(args)
+      ? transformParameter(args)
+      : args
+      ? transformIdentityExpr(args)
+      : [],
+    transformExpression(body)
   )
 }
 
@@ -230,6 +234,8 @@ export function transformExpression(expression: Ast.Expression): Jsx.Type {
       return transformCallChain(expression)
     case 'VariableAssignExpr':
       return transformVariableAssign(expression)
+    case 'BlockExpr':
+      return transformBlock(expression)
     default:
       return null
   }

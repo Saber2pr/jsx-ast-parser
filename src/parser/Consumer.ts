@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:06:27
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:23:01
+ * @Last Modified time: 2021-10-08 19:38:57
  */
 import * as parsec from 'typescript-parsec'
 
@@ -160,7 +160,7 @@ export function applyJsxInner(
 // Statement
 
 export function applyArrowFunction(
-  source: [Ast.Parameter, Ast.BlockExpr]
+  source: [Ast.Parameter | Ast.IdentityExpr, Ast.Expression]
 ): Ast.ArrowFunctionExpr {
   const [args = [], body] = source
   return {

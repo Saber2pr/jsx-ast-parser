@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:35
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:22:19
+ * @Last Modified time: 2021-10-08 19:46:53
  */
 import {
   alt,
@@ -78,7 +78,8 @@ export const EXPRESSION = alt(
   ARRAY,
   ARROWFUNCTION,
   CALLCHAIN,
-  FUNCTION
+  FUNCTION,
+  BLOCK
 )
 
 /*
@@ -272,7 +273,7 @@ ARROWFUNCTION
 */
 ARROWFUNCTION.setPattern(
   apply(
-    seq(PARAMETER, kright(seq(str('='), str('>')), BLOCK)),
+    seq(alt(PARAMETER, IDENTITY), kright(seq(str('='), str('>')), EXPRESSION)),
     Consumer.applyArrowFunction
   )
 )

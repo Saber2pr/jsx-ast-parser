@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-10-02 15:31:44
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:24:09
+ * @Last Modified time: 2021-10-08 19:45:38
  */
 import { writeFileSync } from 'fs'
 
@@ -59,27 +59,3 @@ async function main() {
 }
 
 main()
-
-console.log(
-  parser.parse(`
-<ListView
-      contentPadding={false}
-      list={[
-        {
-          title: Strings.getLang('style_basic'),
-          contentStyle: {
-            marginTop: cx(24),
-          },
-          content:  (<View
-              style={{
-                flex: 1,
-                flexDirection: 'row',
-              }}
-            >
-            {[1,2,3]}
-            </View>)
-           ,
-        },
-      ]}
-    />`)
-)

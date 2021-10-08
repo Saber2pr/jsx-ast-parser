@@ -30,43 +30,6 @@
     "name": "onClick"
   },
   {
-    "caller": "console",
-    "chain": [
-      "log"
-    ],
-    "args": [
-      {
-        "name": "error"
-      }
-    ]
-  },
-  {
-    "caller": "console",
-    "chain": [
-      "log"
-    ],
-    "args": []
-  },
-  {
-    "caller": "console",
-    "chain": [
-      "log"
-    ],
-    "args": [
-      {
-        "caller": "console",
-        "chain": [
-          "log"
-        ],
-        "args": [
-          {
-            "name": "test"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "args": [
       {
         "name": "error"

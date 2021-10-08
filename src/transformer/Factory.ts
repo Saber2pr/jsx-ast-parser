@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:42
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:27:59
+ * @Last Modified time: 2021-10-08 19:39:51
  */
 import * as Jsx from './Jsx'
 
@@ -171,8 +171,8 @@ export function createBlock(body: Jsx.Type[]): Jsx.Block {
 }
 
 export function createArrowFunction(
-  args: Jsx.Parameter = [],
-  body: Jsx.Block
+  args: Jsx.Parameter | Jsx.Identity,
+  body: Jsx.Type
 ): Jsx.ArrowFunction {
   return createNode<Jsx.ArrowFunction>({
     $$typeof: 'arrow-function',

@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:07:47
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:28:38
+ * @Last Modified time: 2021-10-08 19:39:57
  */
 export type Type =
   | JsxNode
@@ -76,8 +76,8 @@ export interface Block extends Node {
 
 export interface ArrowFunction extends Node {
   $$typeof: 'arrow-function'
-  args: Parameter
-  body: Block
+  args: Parameter | Identity
+  body: Type
 }
 
 export interface Function extends Node {
