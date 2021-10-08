@@ -2,7 +2,7 @@
  * @Author: saber2pr
  * @Date: 2021-09-12 12:05:43
  * @Last Modified by: saber2pr
- * @Last Modified time: 2021-10-08 17:30:03
+ * @Last Modified time: 2021-10-08 19:44:02
  */
 import * as Jsx from '../transformer/Jsx'
 import * as Factory from '../transformer/Factory'
@@ -102,7 +102,11 @@ export function compileParameter(args: Jsx.Parameter = []): string {
 export function compileArrowFunction(element: Jsx.ArrowFunction) {
   const args = element.args ?? []
   const body = element.body ?? []
-  return `(${compileParameter(args)})=>${compileBlock(body)}`
+  return `${
+    Factory.isIdentity(args)
+      ? compileIdentity(args)
+      : `(${compileParameter(args)})`
+  }=>${compile(body)}`
 }
 
 export function compileFunction(element: Jsx.Function) {
