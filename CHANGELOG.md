@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.1.1...v0.1.2) (2021-10-08)
+
+
+### Features
+
+* arrow function args ([ab4b82b](https://github.com/Saber2pr/jsx-ast-parser/commit/ab4b82b8082380c0b150fd90b2bda3328007b5b0))
+* jsx inner expr ([f8f2c10](https://github.com/Saber2pr/jsx-ast-parser/commit/f8f2c104f942b1d9a492aea04c3d97be9294cda1))
+
 ### [0.1.1](https://github.com/Saber2pr/jsx-ast-parser/compare/v0.0.9...v0.1.1) (2021-10-07)
 
 
